@@ -1,0 +1,30 @@
+# Training outputs
+logs/
+runs/
+wandb/
+*.pt
+*.pth
+*.onnx
+*.mp4
+
+# Isaac/Omniverse caches
+.cache/
+.omniverse/
+kit/cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local archives and scratch files
+*.zip
+work/
+
