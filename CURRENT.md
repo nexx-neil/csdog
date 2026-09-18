@@ -43,6 +43,8 @@
 - v16 从已验证横移的 v7b checkpoint 继续只训练 Y 轴 200 iterations；
 - v17 从 v16 继续在 `vy in [-0.3, 0.3]` 的低速范围训练 200 iterations。
 - 当前有效的 `source/`、`scripts/`、精选 JSON 指标和交接文档已统一纳入 GitHub 仓库。
+- 本机源码入口已统一为 `/home/ni/robot_projects/csdog` Git 工作区；旧训练产物完整归档，
+  并通过被 Git 忽略的本地软链接继续保持 checkpoint 路径兼容。
 
 ## 当前已知问题
 

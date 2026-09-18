@@ -3,6 +3,9 @@ logs/
 runs/
 wandb/
 outputs/
+/logs
+/outputs
+/local_artifacts
 *.pt
 *.pth
 *.onnx

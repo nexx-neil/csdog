@@ -56,15 +56,30 @@ Conda 环境包含处理 `CXXABI_1.3.15` 的 activation hook。不要删除它�
 
 GitHub：`git@github.com:nexx-neil/csdog.git`
 
-当前机器历史上存在两个目录：
+当前机器已于 2026-09-18 完成目录统一：
 
 ```text
-/home/ni/robot_projects/csdog       实际运行和训练目录，原先不是 Git 仓库
-/home/ni/robot_projects/csdog-docs  GitHub 工作副本，用于本次提交
+/home/ni/robot_projects/csdog
+    当前唯一的源码和文档 Git 工作区，也是实际运行入口
+
+/home/ni/robot_projects/archive/csdog-runtime-2026-09-17
+    2026-09-17 以前的完整训练日志、checkpoint、指标、视频和旧导出包，只作历史归档
+
+/home/ni/robot_projects/csdog/logs
+/home/ni/robot_projects/csdog/outputs
+/home/ni/robot_projects/csdog/local_artifacts
+    指向上述历史归档的本地软链接，均被 Git 忽略
+
+/home/ni/robot_projects/dogfight_env_info
+    黄金环境版本快照
+
+/home/ni/robot_projects/dogfight_final_tests
+    Isaac Lab 官方任务的环境、checkpoint 和 GUI 验收证据
 ```
 
-本次已把当前有效 `source/`、`scripts/`、文档和精选 JSON 指标统一上传到 GitHub。
-新机器应直接将仓库 clone 为 `/home/ni/robot_projects/csdog`，不再维持双目录结构。
+当前有效 `source/`、`scripts/`、文档和精选 JSON 指标均在同一个 Git 仓库中。
+新机器应直接将仓库 clone 为 `/home/ni/robot_projects/csdog`，不要重新建立
+`csdog-docs` 双目录结构。大体积训练产物不进入普通 Git。
 
 恢复项目包时只执行：
 
