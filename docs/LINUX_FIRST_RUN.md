@@ -27,7 +27,10 @@ scripts/setup_stackforce_isaac_lab_sim_env.sh
 
 ## 2. 准备项目
 
-将 `Stackforce-simready-generated_robot-isaac-lab.zip` 解压到：
+优先直接使用 Git 仓库当前的 `source/` 和 `scripts/`。`assets/` 中的压缩包是早期
+原始导出，仅用于追溯，不应覆盖当前已验证源码。
+
+项目目录：
 
 ```text
 /home/ni/robot_projects/csdog
@@ -37,7 +40,7 @@ scripts/setup_stackforce_isaac_lab_sim_env.sh
 
 ```bash
 cd /home/ni/robot_projects/csdog
-python -m pip install -e source/stackforce_simready_generated_robot_lab
+python -m pip install --no-deps -e source/stackforce_simready_generated_robot_lab
 python scripts/list_envs.py
 ```
 
@@ -146,4 +149,3 @@ sha256sum <checkpoint-path>
 ```
 
 复制 `experiments/TEMPLATE.md`，记录命令、commit、参数改动、结果和下一步，然后更新 `CURRENT.md`。
-

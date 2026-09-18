@@ -2,10 +2,19 @@
 logs/
 runs/
 wandb/
+outputs/
 *.pt
 *.pth
 *.onnx
 *.mp4
+*.log
+/commanded_*_metrics.json
+/command_sampling_*.json
+/fixed_command_sampling_smoke.json
+/single_axis_sampling_smoke.json
+/nominal_pose_*.json
+/pose_candidate_*.json
+/zero_pose_*.json
 
 # Isaac/Omniverse caches
 .cache/
@@ -27,4 +36,3 @@ Thumbs.db
 # Local archives and scratch files
 *.zip
 work/
-

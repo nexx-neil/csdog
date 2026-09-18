@@ -1,0 +1,44 @@
+import argparse
+
+from isaaclab.app import AppLauncher
+
+parser = argparse.ArgumentParser(description="Zero agent for StackForce Isaac Lab environments.")
+parser.add_argument("--disable_fabric", action="store_true", default=False)
+parser.add_argument("--num_envs", type=int, default=None)
+parser.add_argument("--task", type=str, default=None)
+parser.add_argument("--camera-eye", type=float, nargs=3, metavar=("X", "Y", "Z"), default=None)
+parser.add_argument("--camera-lookat", type=float, nargs=3, metavar=("X", "Y", "Z"), default=None)
+AppLauncher.add_app_launcher_args(parser)
+args_cli = parser.parse_args()
+
+app_launcher = AppLauncher(args_cli)
+simulation_app = app_launcher.app
+
+import gymnasium as gym
+import torch
+
+from isaaclab_tasks.utils import parse_env_cfg
+
+import stackforce_simready_generated_robot_lab.tasks  # noqa: F401
+
+
+def main():
+    env_cfg = parse_env_cfg(
+        args_cli.task, device=args_cli.device, num_envs=args_cli.num_envs, use_fabric=not args_cli.disable_fabric
+    )
+    if args_cli.camera_eye is not None:
+        env_cfg.viewer.eye = tuple(args_cli.camera_eye)
+    if args_cli.camera_lookat is not None:
+        env_cfg.viewer.lookat = tuple(args_cli.camera_lookat)
+    env = gym.make(args_cli.task, cfg=env_cfg)
+    env.reset()
+    while simulation_app.is_running():
+        with torch.inference_mode():
+            actions = torch.zeros(env.action_space.shape, device=env.unwrapped.device)
+            env.step(actions)
+    env.close()
+
+
+if __name__ == "__main__":
+    main()
+    simulation_app.close()
