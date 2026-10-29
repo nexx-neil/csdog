@@ -1,0 +1,36 @@
+{
+  "release": "csdog-v2-teleop-v0.1.0",
+  "date": "2026-10-29",
+  "source_tag": "csdog-v2-teleop-v0.1.0",
+  "task": "CSDog-V2-Teleop-Direct-v0",
+  "checkpoint": "logs/rsl_rl/csdog_v2_teleop/2026-10-29_17-42-40_qweasd_mixed100/model_final.pt",
+  "checkpoint_sha256": "283c0ed7ca6500ea0e8f01edc16512b27381ff556790e95900f623584dfa29f7",
+  "onnx": "logs/rsl_rl/csdog_v2_teleop/2026-10-29_17-42-40_qweasd_mixed100/exported/policies/policy.onnx",
+  "onnx_sha256": "84f777c2dd485099a6b96cc0b4bb4fe1c4a66124345d83d32602990925f68773",
+  "urdf": "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
+  "urdf_sha256": "4806d4e0c2db659a37e9f595d739df60121d2640895f505a0aec4277779566d1",
+  "observation_dimensions": 50,
+  "action_dimensions": 12,
+  "command_ranges": {
+    "lin_vel_x_m_s": [-0.4, 0.4],
+    "lin_vel_y_m_s": [-0.3, 0.3],
+    "ang_vel_yaw_rad_s": [-0.4, 0.4]
+  },
+  "keyboard_defaults": {
+    "forward_m_s": 0.35,
+    "lateral_m_s": 0.22,
+    "yaw_rad_s": 0.35,
+    "smoothing_s": 0.2
+  },
+  "validated_environment": {
+    "os": "Ubuntu 22.04.5 LTS",
+    "python": "3.11.16",
+    "isaac_sim": "5.1.0.0",
+    "isaac_lab_project_commit": "37ddf626871758333d6ed89cf64ad702aef127d0",
+    "pytorch": "2.7.0+cu128",
+    "rsl_rl_lib": "3.1.2",
+    "gymnasium": "1.2.1",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "nvidia_driver": "580.178.04"
+  }
+}
