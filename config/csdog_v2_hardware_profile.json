@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "motor": {
+    "model": "Unitree GO-M8010-6",
+    "manufacturer_source": "https://www.unitree.com/cn/mobile/go1/motor/",
+    "source_checked_date": "2026-10-29",
+    "reduction_ratio": 6.33,
+    "peak_output_torque_nm": 23.7,
+    "maximum_output_speed_rad_s_at_24v": 30.0,
+    "mass_kg": 0.53,
+    "continuous_output_torque_nm": null
+  },
+  "simulation_envelope": {
+    "status": "PROVISIONAL_SIMULATION_ONLY",
+    "effort_limit_nm": 12.0,
+    "velocity_limit_rad_s": 10.0,
+    "rationale": "Effort is capped at 50.6% of the documented 23.7 Nm peak and speed at one third of the documented 30 rad/s maximum. These are simulation safety bounds, not continuous ratings.",
+    "joint_limits_rad": {
+      "hip_roll": [-0.65, 0.65],
+      "hip_pitch": [-1.4, 1.4],
+      "knee": [-1.8, 1.8]
+    },
+    "joint_limit_rationale": "Conservative simulation motion envelopes selected to prevent full rotation and self-intersection while the physical hard-stop geometry remains unmeasured. They must not be used as hardware hard limits."
+  },
+  "hardware_deployment": {
+    "status": "BLOCKED",
+    "missing": [
+      "continuous output torque",
+      "assembled mechanical hard stops for hip roll, hip pitch, and knee",
+      "installed controller current and thermal limits"
+    ]
+  },
+  "derived_collision": {
+    "generator": "scripts/prepare_csdog_v2_sim_urdf.py",
+    "source_urdf": "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot.urdf",
+    "output_urdf": "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
+    "sole_radius_m": 0.018,
+    "sole_mass_kg": 0.001,
+    "sole_centers_in_knee_link_m": {
+      "link_lr_knee": [0.11206, 0.01206, -0.17060],
+      "link_lf_knee": [0.12389, 0.00983, -0.16237],
+      "link_rf_knee": [0.12364, -0.01044, -0.16255],
+      "link_rr_knee": [0.08346, -0.01382, -0.18708]
+    },
+    "sole_center_rationale": "Each XY center is the mean of source-mesh vertices within 1 mm of the local minimum Z. Center Z is minimum Z plus the 18 mm sole radius so the derived sphere bottom preserves the source-mesh tip height."
+  }
+}

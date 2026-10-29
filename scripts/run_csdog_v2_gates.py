@@ -37,7 +37,10 @@ def markdown(report: dict) -> str:
     ]
     for stage in report["stages"]:
         lines.append(f"| `{stage['name']}` | **{stage['status']}** | {stage['detail']} |")
-    lines += ["", "失败阶段之后的项目均为 `NOT_RUN`；这不是通过，也不允许启动训练。", ""]
+    if report["status"] == "FAIL":
+        lines += ["", "失败阶段之后的项目均为 `NOT_RUN`；这不是通过，也不允许启动训练。", ""]
+    else:
+        lines += ["", "静态仿真门禁已通过；其余阶段仍须按顺序显式执行和记录，不能跳过。", ""]
     return "\n".join(lines)
 
 
@@ -52,7 +55,7 @@ def main() -> int:
     audit_md = repo / "experiments/2026-10-29_CSDOG_V2_STATIC_AUDIT.md"
     command = [
         sys.executable, str(repo / "scripts/audit_urdf.py"),
-        str(repo / "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot.urdf"),
+        str(repo / "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf"),
         "--expectations", str(repo / "config/csdog_v2_urdf_expectations.json"),
         "--json-output", str(audit_json),
         "--markdown-output", str(audit_md),
@@ -62,7 +65,11 @@ def main() -> int:
     static_status = static_report["gate"]["status"]
     stages = [{"name": STAGES[0][0], "status": static_status, "detail": static_report["gate"]["reason"]}]
     for name, detail in STAGES[1:]:
-        stages.append({"name": name, "status": "NOT_RUN", "detail": f"blocked by {STAGES[0][0]} FAIL; planned check: {detail}"})
+        if static_status == "FAIL":
+            stage_detail = f"blocked by {STAGES[0][0]} FAIL; planned check: {detail}"
+        else:
+            stage_detail = f"awaiting ordered execution after static gate PASS; planned check: {detail}"
+        stages.append({"name": name, "status": "NOT_RUN", "detail": stage_detail})
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=repo, capture_output=True, text=True, check=True
     ).stdout.strip()
@@ -79,7 +86,12 @@ def main() -> int:
     args.markdown_output.parent.mkdir(parents=True, exist_ok=True)
     args.json_output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     args.markdown_output.write_text(markdown(report), encoding="utf-8")
-    print(json.dumps({"status": report["status"], "failed_stage": "static_urdf"}, ensure_ascii=False))
+    summary = {"status": report["status"]}
+    if static_status == "FAIL":
+        summary["failed_stage"] = "static_urdf"
+    else:
+        summary["next_stage"] = "joint_direction"
+    print(json.dumps(summary, ensure_ascii=False))
     return completed.returncode if completed.returncode else (2 if static_status == "FAIL" else 0)
 
 

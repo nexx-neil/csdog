@@ -17,7 +17,7 @@ from ..generated_robot.generated_robot_env_cfg import GeneratedRobotEnvCfg
 
 
 ASSET_DIR = Path(__file__).resolve().parents[3] / "assets" / "robots" / "csdog_v2"
-URDF_PATH = ASSET_DIR / "robot.urdf"
+URDF_PATH = ASSET_DIR / "robot_sim.urdf"
 
 JOINT_NAMES = [
     "joint_lr_1", "joint_lr_2", "joint_lr_3",
@@ -34,8 +34,8 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
     checkpoint_compatibility_tag = "csdog_v2_joint_order_v1"
     training_enabled = False
     training_block_reason = (
-        "CSDog v2 static physics-readiness gate is FAIL: hardware joint limits "
-        "and collision geometry provenance are not yet approved."
+        "CSDog v2 locomotion training remains blocked until the joint-direction, "
+        "30-second PD standing, and contact gates pass."
     )
 
     # Independent, calibration-only command range and action bound.  These are
@@ -53,7 +53,7 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
         spawn=sim_utils.UrdfFileCfg(
             asset_path=str(URDF_PATH),
             fix_base=False,
-            merge_fixed_joints=True,
+            merge_fixed_joints=False,
             self_collision=False,
             replace_cylinders_with_capsules=True,
             activate_contact_sensors=True,
@@ -95,7 +95,7 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
     reward_scales = {key: 0.0 for key in GeneratedRobotEnvCfg.reward_scales}
     default_joint_angles = DEFAULT_JOINT_ANGLES
     actuated_joint_names = JOINT_NAMES
-    foot_link_names = ["link_lr_knee", "link_lf_knee", "link_rf_knee", "link_rr_knee"]
+    foot_link_names = ["link_lr_sole", "link_lf_sole", "link_rf_sole", "link_rr_sole"]
     joint_child_link_names = [
         "link_lr_hip_roll", "link_lr_hip_pitch", "link_lr_knee",
         "link_lf_hip_roll", "link_lf_hip_pitch", "link_lf_knee",
@@ -103,17 +103,21 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
         "link_rr_hip_roll", "link_rr_hip_pitch", "link_rr_knee",
     ]
     joint_foot_link_names = [
-        "link_lr_knee", "link_lr_knee", "link_lr_knee",
-        "link_lf_knee", "link_lf_knee", "link_lf_knee",
-        "link_rf_knee", "link_rf_knee", "link_rf_knee",
-        "link_rr_knee", "link_rr_knee", "link_rr_knee",
+        "link_lr_sole", "link_lr_sole", "link_lr_sole",
+        "link_lf_sole", "link_lf_sole", "link_lf_sole",
+        "link_rf_sole", "link_rf_sole", "link_rf_sole",
+        "link_rr_sole", "link_rr_sole", "link_rr_sole",
     ]
     undesired_contact_body_names = [
         "base",
         "link_lr_hip_roll", "link_lr_hip_pitch",
+        "link_lr_knee",
         "link_lf_hip_roll", "link_lf_hip_pitch",
+        "link_lf_knee",
         "link_rf_hip_roll", "link_rf_hip_pitch",
+        "link_rf_knee",
         "link_rr_hip_roll", "link_rr_hip_pitch",
+        "link_rr_knee",
     ]
     base_link_name = "base"
 
