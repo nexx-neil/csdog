@@ -1,5 +1,10 @@
 # CSDog 项目交接
 
+> 2026-10-29 v2 更新：新资产位于独立目录 `assets/robots/csdog_v2`，校准任务为
+> `CSDog-V2-Calibration-Direct-v0`。静态结构 PASS、物理就绪 FAIL，训练被代码门禁阻止。
+> 开始 v2 工作前先读 `docs/CSDOG_V2_AUDIT_AND_TRAINING_PLAN.md` 和
+> `experiments/2026-10-29_CSDOG_V2_GATES.md`。旧任务和旧 checkpoint 仍按本文原基线使用。
+
 更新时间：2026-09-18
 
 本文是新开发者或新 AI 的首要入口。开始工作前同时阅读 `CURRENT.md`、

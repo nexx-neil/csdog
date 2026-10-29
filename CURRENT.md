@@ -2,6 +2,18 @@
 
 更新时间：2026-09-18
 
+## 2026-10-29：v2 独立模型静态门禁
+
+- 起点 Git commit：`00ff66dd1dffe5d7c098475403cec58d389fcc18`；
+- v2 已解压到独立目录 `assets/robots/csdog_v2`，未替换旧模型；
+- 新增独立校准任务 `CSDog-V2-Calibration-Direct-v0`，训练入口当前强制拒绝该任务；
+- URDF 结构检查 PASS：13 links、12 revolute joints、13 meshes、质量/惯性正定；
+- 物理就绪检查 FAIL：统一模板关节限位缺乏真实来源，12 个 collision mesh 超过
+  1000 triangles，独立足底接触几何尚未确认；
+- 根据 stop-on-failure 规则，关节动态测试、30 秒站立、接触/步态测试和 PPO smoke 均
+  标记为 `NOT_RUN`，没有启动长训练；
+- 详细问题与 A/B/C 计划见 `docs/CSDOG_V2_AUDIT_AND_TRAINING_PLAN.md`。
+
 ## 当前目标
 
 在已经通过 Linux 模型门禁的基础上，训练一个统一接收 `vx`、`vy`、

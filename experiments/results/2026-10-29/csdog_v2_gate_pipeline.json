@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-29T02:31:51.816765+00:00",
+  "git_commit": "6ec43f8961dc7191dc73714ebca2b11727151c54",
+  "status": "FAIL",
+  "stop_on_failure": true,
+  "stages": [
+    {
+      "name": "static_urdf",
+      "status": "FAIL",
+      "detail": "Static structure is valid, but simulation/training is blocked until every review_required item has verified provenance."
+    },
+    {
+      "name": "joint_direction",
+      "status": "NOT_RUN",
+      "detail": "blocked by static_urdf FAIL; planned check: fixed-base joint direction and target tracking"
+    },
+    {
+      "name": "pd_stand_30s",
+      "status": "NOT_RUN",
+      "detail": "blocked by static_urdf FAIL; planned check: 30-second PD standing gate"
+    },
+    {
+      "name": "contact_and_gait",
+      "status": "NOT_RUN",
+      "detail": "blocked by static_urdf FAIL; planned check: contact, slip, swing height, saturation, gait timing"
+    },
+    {
+      "name": "ppo_smoke",
+      "status": "NOT_RUN",
+      "detail": "blocked by static_urdf FAIL; planned check: bounded PPO smoke test only"
+    }
+  ],
+  "static_audit": "/home/ni/robot_projects/csdog/experiments/results/2026-10-29/csdog_v2_static_audit.json"
+}

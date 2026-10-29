@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-29",
+  "baseline_git_commit": "00ff66dd1dffe5d7c098475403cec58d389fcc18",
+  "status": "FAIL",
+  "confirmed_issues": [
+    {
+      "id": "V1_COMMAND_AXIS_COUPLING",
+      "area": "v12-v17",
+      "evidence": "v12 vx=0.30 and vy=0.15 both produce about vx=0.10; yaw=0.30 produces vx=-0.190, vy=-0.282"
+    },
+    {
+      "id": "V1_LOW_SPEED_DEAD_ZONE",
+      "area": "v16-v17",
+      "evidence": "vy=0.15 produces vy=0.024 in v16 and 0.010 in v17"
+    },
+    {
+      "id": "V1_ACTION_SATURATION",
+      "area": "control",
+      "evidence": "measured policy action saturation is 60.0%-89.7% across v12/v16/v17 gates"
+    },
+    {
+      "id": "V1_KNEE_TARGET_OUTSIDE_SOFT_LIMIT",
+      "area": "control",
+      "evidence": "default knee=-1.3, action_scale=0.5, target minimum=-1.8 while soft lower limit is -1.4915"
+    },
+    {
+      "id": "PURE_YAW_AIR_TIME_DISABLED",
+      "area": "reward",
+      "evidence": "feet_air_time mask uses norm(commands[:,:2]) > 0.1 and ignores yaw_rate"
+    },
+    {
+      "id": "SLIDE_USES_LINK_ORIGIN_NOT_CONTACT_POINT",
+      "area": "reward_and_metrics",
+      "evidence": "body_lin_vel_w of the distal link is multiplied by an instantaneous net-force threshold"
+    },
+    {
+      "id": "NO_DISTINCT_FOOT_CONTACT_BODY",
+      "area": "collision",
+      "evidence": "foot contact body is the complete distal link (*3 or *_knee), so shank and sole contacts are indistinguishable"
+    },
+    {
+      "id": "LOW_SPEED_STATIC_REWARD_REMAINS_HIGH",
+      "area": "reward",
+      "evidence": "at a 0.15 command and zero speed, exp(-(0.15^2)/(0.5^2)) retains 91.4% of maximum positive tracking reward"
+    },
+    {
+      "id": "LOW_POSTURE_PENALTY_SCALE_SMALL",
+      "area": "reward",
+      "evidence": "a 0.04 m height error contributes only -0.0016 before step_dt while tracking terms are order 1-5"
+    },
+    {
+      "id": "V2_UNVERIFIED_TEMPLATE_LIMITS",
+      "area": "v2_physics",
+      "evidence": "all 12 joints use identical +/-3.14 rad, 10 N.m, 3 rad/s without recorded hardware provenance"
+    },
+    {
+      "id": "V2_HIGH_POLY_SHARED_COLLISION",
+      "area": "v2_collision",
+      "evidence": "13 meshes are shared by visual/collision; 12 exceed 1000 triangles; collision total is 38635 triangles"
+    },
+    {
+      "id": "V1_V2_STRUCTURALLY_INCOMPATIBLE",
+      "area": "checkpoint",
+      "evidence": "v2 has different joint names/order/axes, approximately 9.95x mass, different geometry and limits"
+    }
+  ],
+  "test_hypotheses": [
+    {
+      "id": "CROSS_AXIS_CAUSE",
+      "hypothesis": "v17 X coupling is jointly caused by asymmetric geometry/axes, contact slip, and missing symmetry guidance"
+    },
+    {
+      "id": "CONTACT_POINT_SLIP_BIAS",
+      "hypothesis": "distal-link origin velocity materially differs from sole contact-point velocity during stance"
+    },
+    {
+      "id": "V2_SUPPORT_PATCH",
+      "hypothesis": "v2 distal meshes may not provide symmetric stable sole contact patches"
+    },
+    {
+      "id": "V2_LOADED_COM",
+      "hypothesis": "real loaded COM and support margin differ from the zero-pose URDF estimate"
+    },
+    {
+      "id": "GAIT_SHORTCUT",
+      "hypothesis": "candidate policies exploit dragging, low clearance, hopping, or non-trot contact sequences"
+    },
+    {
+      "id": "B_C_EFFECT",
+      "hypothesis": "contact-aware foot objectives reduce dead-zone/slip and phase guidance reduces cross-axis coupling"
+    }
+  ],
+  "downstream_stages": {
+    "joint_direction": "NOT_RUN",
+    "pd_stand_30s": "NOT_RUN",
+    "contact_and_gait": "NOT_RUN",
+    "ppo_smoke": "NOT_RUN",
+    "reason": "v2 static physics-readiness gate FAIL"
+  }
+}
