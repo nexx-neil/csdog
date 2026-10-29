@@ -18,3 +18,12 @@ class CSDogV2LocomotionPPORunnerCfg(GeneratedRobotPPORunnerCfg):
     experiment_name = "csdog_v2_locomotion"
     max_iterations = 1000
     save_interval = 50
+
+
+@configclass
+class CSDogV2PhaseGaitPPORunnerCfg(GeneratedRobotPPORunnerCfg):
+    """Fresh policy with two gait-clock observations; old checkpoints are incompatible."""
+
+    experiment_name = "csdog_v2_phase_gait"
+    max_iterations = 1000
+    save_interval = 50

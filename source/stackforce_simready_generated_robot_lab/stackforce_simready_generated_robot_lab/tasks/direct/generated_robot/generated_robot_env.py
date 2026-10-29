@@ -67,8 +67,7 @@ class GeneratedRobotEnv(DirectRLEnv):
         self._robot.set_joint_position_target(self._processed_actions, joint_ids=self._actuated_joint_ids)
 
     def _get_observations(self) -> dict:
-        obs = torch.cat(
-            [
+        observation_parts = [
                 self._robot.data.root_lin_vel_b,
                 self._robot.data.root_ang_vel_b,
                 self._robot.data.projected_gravity_b,
@@ -77,11 +76,28 @@ class GeneratedRobotEnv(DirectRLEnv):
                 - self._robot.data.default_joint_pos[:, self._actuated_joint_ids],
                 self._robot.data.joint_vel[:, self._actuated_joint_ids],
                 self._actions,
-            ],
-            dim=-1,
-        )
+        ]
+        if self.cfg.include_gait_phase_observation:
+            gait_phase = self._get_gait_phase()
+            observation_parts.append(
+                torch.stack(
+                    (
+                        torch.sin(2.0 * torch.pi * gait_phase),
+                        torch.cos(2.0 * torch.pi * gait_phase),
+                    ),
+                    dim=1,
+                )
+            )
+        obs = torch.cat(observation_parts, dim=-1)
         self._previous_actions = self._actions.clone()
         return {"policy": obs}
+
+    def _get_gait_phase(self) -> torch.Tensor:
+        """Return a normalized episode clock for phase-guided locomotion."""
+        return torch.remainder(
+            self.episode_length_buf.float() * self.step_dt / self.cfg.gait_cycle_time_s,
+            1.0,
+        )
 
     def _get_rewards(self) -> torch.Tensor:
         reward_scales = self.cfg.reward_scales
@@ -140,9 +156,23 @@ class GeneratedRobotEnv(DirectRLEnv):
             self._robot.data.body_pos_w[:, self._robot_foot_ids, 2]
             - self._terrain.env_origins[:, 2].unsqueeze(1)
         )
-        swing_feet = ~foot_contacts
-        swing_count = torch.sum(swing_feet, dim=1)
-        valid_swing_phase = ((swing_count >= 1) & (swing_count <= 2)).float()
+        if self.cfg.include_gait_phase_observation and len(self._foot_ids) == 4:
+            first_half_cycle = self._get_gait_phase() < 0.5
+            diagonal_a = torch.tensor([1, 0, 1, 0], dtype=torch.bool, device=self.device)
+            diagonal_b = ~diagonal_a
+            desired_contacts = torch.where(
+                first_half_cycle.unsqueeze(1),
+                diagonal_a.unsqueeze(0),
+                diagonal_b.unsqueeze(0),
+            )
+            swing_feet = ~desired_contacts
+            valid_swing_phase = torch.ones(self.num_envs, device=self.device)
+            gait_contact_schedule = torch.mean((foot_contacts == desired_contacts).float(), dim=1) * moving
+        else:
+            swing_feet = ~foot_contacts
+            swing_count = torch.sum(swing_feet, dim=1)
+            valid_swing_phase = ((swing_count >= 1) & (swing_count <= 2)).float()
+            gait_contact_schedule = torch.zeros(self.num_envs, device=self.device)
         clearance_score = torch.exp(
             -torch.square((foot_height - self.cfg.swing_foot_height_target) / self.cfg.swing_foot_height_std)
         )
@@ -219,6 +249,7 @@ class GeneratedRobotEnv(DirectRLEnv):
             "swing_foot_clearance": swing_foot_clearance * reward_scales.get("swing_foot_clearance", 0.0),
             "feet_contact_count": feet_contact_count * reward_scales.get("feet_contact_count", 0.0),
             "diagonal_gait": diagonal_gait * reward_scales.get("diagonal_gait", 0.0),
+            "gait_contact_schedule": gait_contact_schedule * reward_scales.get("gait_contact_schedule", 0.0),
             "inactive_axis_vel": inactive_axis_vel * reward_scales.get("inactive_axis_vel", 0.0),
             "stand_still": stand_still * reward_scales.get("stand_still", 0.0),
         }

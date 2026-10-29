@@ -54,6 +54,7 @@ V2_REWARD_KEYS = (
     "swing_foot_clearance",
     "feet_contact_count",
     "diagonal_gait",
+    "gait_contact_schedule",
     "inactive_axis_vel",
     "stand_still",
     "custom_reward",
@@ -220,3 +221,46 @@ class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
     swing_foot_height_target = 0.050
     swing_foot_height_std = 0.015
     swing_foot_count_normalizer = 2.0
+
+
+@configclass
+class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
+    """Phase-observed task that explicitly alternates diagonal support legs."""
+
+    checkpoint_compatibility_tag = "csdog_v2_phase_gait_obs_v1"
+    observation_space = 50
+    include_gait_phase_observation = True
+    gait_cycle_time_s = 0.50
+    reward_scales = {
+        "termination": -100.0,
+        "tracking_lin_vel": 0.0,
+        "tracking_lin_vel_x": 4.0,
+        "tracking_lin_vel_y": 4.0,
+        "tracking_ang_vel": 4.0,
+        "tracking_lin_vel_l2": 0.0,
+        "tracking_lin_vel_x_l2": -2.0,
+        "tracking_lin_vel_y_l2": -2.0,
+        "tracking_ang_vel_l2": -1.0,
+        "lin_vel_z": -2.0,
+        "ang_vel_xy": -0.10,
+        "orientation": -2.0,
+        "torques": -0.00002,
+        "dof_vel": 0.0,
+        "dof_acc": -2.5e-7,
+        "base_height": -2.0,
+        "feet_air_time": 0.25,
+        "collision": -2.0,
+        "feet_stumble": 0.0,
+        "action_rate": -0.02,
+        "action_magnitude": -0.05,
+        "action_overflow": -0.10,
+        "joint_deviation": -0.10,
+        "feet_slide": -0.25,
+        "swing_foot_clearance": 0.75,
+        "feet_contact_count": 0.0,
+        "diagonal_gait": 0.0,
+        "gait_contact_schedule": 0.50,
+        "inactive_axis_vel": -3.0,
+        "stand_still": -0.25,
+        "custom_reward": 0.0,
+    }

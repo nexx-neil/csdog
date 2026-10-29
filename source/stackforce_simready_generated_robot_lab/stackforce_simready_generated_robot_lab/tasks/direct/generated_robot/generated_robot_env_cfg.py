@@ -207,6 +207,7 @@ class GeneratedRobotEnvCfg(DirectRLEnvCfg):
         "swing_foot_clearance": 0.0,
         "feet_contact_count": 0.0,
         "diagonal_gait": 0.0,
+        "gait_contact_schedule": 0.0,
         "inactive_axis_vel": 0.0,
         "stand_still": 0.0,
         "custom_reward": 0.0,
@@ -251,6 +252,8 @@ class GeneratedRobotEnvCfg(DirectRLEnvCfg):
     swing_foot_height_target = 0.05
     swing_foot_height_std = 0.015
     swing_foot_count_normalizer = 2.0
+    include_gait_phase_observation = False
+    gait_cycle_time_s = 0.50
     action_clip = 1.0
     visual_disable_resets = False
     termination_grace_time_s = 2.0
