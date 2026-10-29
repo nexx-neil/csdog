@@ -385,9 +385,17 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     if expected_compatibility_tag is not None:
         metadata_path = Path(resume_path + ".metadata.json")
         if not metadata_path.is_file():
-            raise RuntimeError(
-                f"Refusing checkpoint without compatibility metadata for {args_cli.task}: {metadata_path}"
-            )
+            # Periodic checkpoints are written by RSL-RL before our final
+            # sidecar hook runs.  They share the same task, joints and code as
+            # model_final.pt in that run, so use that run-level metadata when
+            # it exists instead of making intermediate model selection opaque.
+            run_metadata_path = Path(resume_path).parent / "model_final.pt.metadata.json"
+            if run_metadata_path.is_file():
+                metadata_path = run_metadata_path
+            else:
+                raise RuntimeError(
+                    f"Refusing checkpoint without compatibility metadata for {args_cli.task}: {metadata_path}"
+                )
         checkpoint_metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
         actual_tag = checkpoint_metadata.get("checkpoint_compatibility_tag")
         if actual_tag != expected_compatibility_tag:

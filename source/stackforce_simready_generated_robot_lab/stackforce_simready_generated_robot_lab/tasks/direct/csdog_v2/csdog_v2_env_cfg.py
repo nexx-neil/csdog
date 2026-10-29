@@ -234,6 +234,11 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
     observation_space = 50
     include_gait_phase_observation = True
     gait_cycle_time_s = 0.50
+    # At a 0.3 m/s command, the inherited 0.5 standard deviation paid about
+    # 70% of the positive tracking reward for standing still.  A narrower
+    # phase-task target prevents stance rewards from making immobility optimal.
+    tracking_lin_vel_std = 0.25
+    tracking_ang_vel_std = 0.25
     reward_scales = {
         "termination": -100.0,
         "tracking_lin_vel": 0.0,
@@ -241,9 +246,9 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         "tracking_lin_vel_y": 4.0,
         "tracking_ang_vel": 4.0,
         "tracking_lin_vel_l2": 0.0,
-        "tracking_lin_vel_x_l2": -2.0,
-        "tracking_lin_vel_y_l2": -2.0,
-        "tracking_ang_vel_l2": -1.0,
+        "tracking_lin_vel_x_l2": -5.0,
+        "tracking_lin_vel_y_l2": -5.0,
+        "tracking_ang_vel_l2": -2.5,
         "lin_vel_z": -2.0,
         "ang_vel_xy": -0.10,
         "orientation": -2.0,
@@ -259,15 +264,15 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         "action_overflow": -0.10,
         "joint_deviation": -0.10,
         "feet_slide": -0.25,
-        "swing_foot_clearance": 2.00,
+        "swing_foot_clearance": 1.50,
         "feet_contact_count": 0.0,
         "diagonal_gait": 0.0,
         "gait_contact_schedule": 0.0,
         # Stance and swing are intentionally asymmetric: a foot that never
         # lands must not receive half credit merely because it is airborne
         # during its scheduled swing half-cycle.
-        "gait_stance_contact": 4.00,
-        "gait_swing_release": 1.00,
+        "gait_stance_contact": 2.00,
+        "gait_swing_release": 0.50,
         "inactive_axis_vel": -3.0,
         "stand_still": -0.25,
         "custom_reward": 0.0,
