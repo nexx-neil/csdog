@@ -19,6 +19,12 @@ parser.add_argument("--agent", type=str, default="rsl_rl_cfg_entry_point", help=
 parser.add_argument("--seed", type=int, default=None, help="Seed used for the environment.")
 parser.add_argument("--max_iterations", type=int, default=None, help="RL policy training iterations.")
 parser.add_argument(
+    "--policy_only_resume",
+    action="store_true",
+    default=False,
+    help="Load compatible policy/value weights without restoring optimizer state.",
+)
+parser.add_argument(
     "--command_axes",
     nargs="+",
     choices=("x", "y", "yaw"),
@@ -491,7 +497,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         runner.add_git_repo_to_log(__file__)
     if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
         print(f"[INFO]: Loading model checkpoint from: {resume_path}")
-        runner.load(resume_path)
+        runner.load(resume_path, load_optimizer=not args_cli.policy_only_resume)
 
     dump_yaml(os.path.join(log_dir, "params", "env.yaml"), env_cfg)
     dump_yaml(os.path.join(log_dir, "params", "agent.yaml"), agent_cfg)
