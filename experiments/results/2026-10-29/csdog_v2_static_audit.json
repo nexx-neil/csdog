@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "git_commit": "446e451657f9f78ecdcffe4b76a191b1f28e2522",
+  "git_commit": "8a675848e8e358124ccdb70e3aba219524c53ca7",
   "urdf": "/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
   "expectations": "/home/ni/robot_projects/csdog/config/csdog_v2_urdf_expectations.json",
   "gate": {
@@ -21,9 +21,32 @@
     "total_mass_kg": 7.6082608,
     "zero_pose_center_of_mass_m": [
       -0.001969337824172592,
-      -2.2316319256457074e-05,
-      -0.07412472017214804
+      -2.1935069181538505e-05,
+      -0.07412472017083371
     ],
+    "zero_pose_foot_positions_m": {
+      "link_lr_sole": [
+        -0.19823164000000001,
+        0.14005036,
+        -0.38344956
+      ],
+      "link_lf_sole": [
+        0.28090025,
+        0.1353528,
+        -0.38344955999999997
+      ],
+      "link_rf_sole": [
+        0.28090025,
+        -0.1353528,
+        -0.38344955999999997
+      ],
+      "link_rr_sole": [
+        -0.19823164,
+        -0.14005035999999998,
+        -0.38344955999999997
+      ]
+    },
+    "zero_pose_foot_height_spread_m": 5.551115123125783e-17,
     "mesh_file_count": 13,
     "collision_triangle_count": 0
   },
@@ -389,9 +412,9 @@
       "parent": "link_lr_knee",
       "child": "link_lr_sole",
       "origin_xyz": [
-        0.11206,
-        0.01206,
-        -0.1706
+        0.10452175,
+        0.01308119,
+        -0.17931331
       ],
       "origin_rpy": [
         0.0,
@@ -417,9 +440,9 @@
       "parent": "link_lf_knee",
       "child": "link_lf_sole",
       "origin_xyz": [
-        0.12389,
-        0.00983,
-        -0.16237
+        0.13702331,
+        0.01025914,
+        -0.16990075
       ],
       "origin_rpy": [
         0.0,
@@ -445,9 +468,9 @@
       "parent": "link_rf_knee",
       "child": "link_rf_sole",
       "origin_xyz": [
-        0.12364,
-        -0.01044,
-        -0.16255
+        0.11050669,
+        -0.01001087,
+        -0.16091365
       ],
       "origin_rpy": [
         0.0,
@@ -473,9 +496,9 @@
       "parent": "link_rr_knee",
       "child": "link_rr_sole",
       "origin_xyz": [
-        0.08346,
-        -0.01382,
-        -0.18708
+        0.09099825,
+        -0.01279881,
+        -0.17247228
       ],
       "origin_rpy": [
         0.0,
@@ -809,8 +832,8 @@
       "message": "zero-pose COM is computed from URDF, but support polygon margin and loaded hardware COM still require simulation/CAD validation",
       "evidence": [
         -0.001969337824172592,
-        -2.2316319256457074e-05,
-        -0.07412472017214804
+        -2.1935069181538505e-05,
+        -0.07412472017083371
       ]
     },
     {

@@ -4,11 +4,12 @@
 - 结构门禁：**PASS**
 - 仿真就绪门禁：**PASS**
 - 实机部署门禁：**FAIL**
-- Git commit：`446e451657f9f78ecdcffe4b76a191b1f28e2522`
+- Git commit：`8a675848e8e358124ccdb70e3aba219524c53ca7`
 - URDF：`/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf`
 - link / revolute joint：17 / 12
 - 总质量：7.60826080 kg
-- 零位形整机质心：`[-0.001969337824172592, -2.2316319256457074e-05, -0.07412472017214804]` m
+- 零位形整机质心：`[-0.001969337824172592, -2.1935069181538505e-05, -0.07412472017083371]` m
+- 零位形足底球心高度差：0.00000000 m
 - mesh：13 个，collision 三角形合计 0
 
 ## 已证实问题
