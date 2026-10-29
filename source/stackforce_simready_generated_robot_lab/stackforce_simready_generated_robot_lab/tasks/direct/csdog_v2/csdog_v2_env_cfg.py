@@ -344,3 +344,16 @@ class CSDogV2TurnStyleEnvCfg(CSDogV2PhaseGaitEnvCfg):
         "turn_foot_trajectory": -5.0,
         "custom_reward": 0.0,
     }
+
+
+@configclass
+class CSDogV2TeleopEnvCfg(CSDogV2TurnStyleEnvCfg):
+    """Turn-styled policy trained on single- and dual-axis teleoperation commands."""
+
+    command_ranges = {
+        "lin_vel_x": (-0.40, 0.40),
+        "lin_vel_y": (-0.30, 0.30),
+        "ang_vel_yaw": (-0.40, 0.40),
+    }
+    command_sampling = "mixed_axes"
+    multi_axis_command_probability = 0.45

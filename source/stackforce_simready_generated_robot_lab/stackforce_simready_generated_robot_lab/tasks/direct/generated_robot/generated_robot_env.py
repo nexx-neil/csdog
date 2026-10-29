@@ -388,6 +388,41 @@ class GeneratedRobotEnv(DirectRLEnv):
             return
 
         if self.cfg.command_sampling != "single_axis":
+            if self.cfg.command_sampling == "mixed_axes":
+                self._commands[env_ids] = 0.0
+                active = torch.rand(num_resets, device=self.device) >= self.cfg.stand_command_probability
+                enabled_axes = torch.tensor(
+                    [axis for axis, (lower, upper) in enumerate(ranges) if lower != 0.0 or upper != 0.0],
+                    dtype=torch.long,
+                    device=self.device,
+                )
+                if len(enabled_axes) == 0:
+                    return
+                primary_slot = torch.randint(0, len(enabled_axes), (num_resets,), device=self.device)
+                axis_active = torch.zeros(num_resets, 3, dtype=torch.bool, device=self.device)
+                axis_active.scatter_(1, enabled_axes[primary_slot].unsqueeze(1), True)
+                if len(enabled_axes) > 1:
+                    secondary_offset = torch.randint(1, len(enabled_axes), (num_resets,), device=self.device)
+                    secondary_slot = torch.remainder(primary_slot + secondary_offset, len(enabled_axes))
+                    use_secondary = (
+                        torch.rand(num_resets, device=self.device) < self.cfg.multi_axis_command_probability
+                    )
+                    axis_active[torch.arange(num_resets, device=self.device), enabled_axes[secondary_slot]] |= use_secondary
+                axis_active &= active.unsqueeze(1)
+                for axis, (lower, upper) in enumerate(ranges):
+                    magnitudes = torch.empty(num_resets, device=self.device).uniform_(
+                        self.cfg.command_min_magnitude, 1.0
+                    )
+                    signs = torch.where(
+                        torch.rand(num_resets, device=self.device) < 0.5,
+                        -torch.ones(num_resets, device=self.device),
+                        torch.ones(num_resets, device=self.device),
+                    )
+                    limits = torch.where(signs < 0.0, abs(lower), abs(upper))
+                    self._commands[env_ids[axis_active[:, axis]], axis] = (
+                        signs * magnitudes * limits
+                    )[axis_active[:, axis]]
+                return
             for axis, axis_range in enumerate(ranges):
                 self._commands[env_ids, axis] = torch.empty(num_resets, device=self.device).uniform_(*axis_range)
             return

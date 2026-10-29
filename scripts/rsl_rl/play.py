@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import math
 import os
 import sys
 from pathlib import Path
@@ -40,9 +41,24 @@ parser.add_argument(
     default=None,
     help="Use one fixed velocity command for all environments.",
 )
+parser.add_argument("--keyboard", action="store_true", default=False, help="Drive interactively with Q/W/E/A/S/D.")
+parser.add_argument("--keyboard-forward-speed", type=float, default=0.35, help="W/S speed in m/s.")
+parser.add_argument("--keyboard-lateral-speed", type=float, default=0.22, help="A/D speed in m/s.")
+parser.add_argument("--keyboard-yaw-rate", type=float, default=0.35, help="Q/E yaw rate in rad/s.")
+parser.add_argument(
+    "--keyboard-smoothing-time",
+    type=float,
+    default=0.20,
+    help="First-order command ramp time in seconds; zero disables smoothing.",
+)
 parser.add_argument("--metrics-output", type=Path, default=None, help="Write bounded inference metrics to JSON.")
 AppLauncher.add_app_launcher_args(parser)
 args_cli, hydra_args = parser.parse_known_args()
+
+if args_cli.keyboard and args_cli.command is not None:
+    parser.error("--keyboard and --command are mutually exclusive")
+if args_cli.keyboard and args_cli.headless:
+    parser.error("--keyboard requires a visible Isaac Sim window; remove --headless")
 
 sys.argv = [sys.argv[0]] + hydra_args
 
@@ -53,6 +69,8 @@ import gymnasium as gym
 import inspect
 import os
 import torch
+import carb
+import omni
 from rsl_rl.runners import OnPolicyRunner
 try:
     from rsl_rl.algorithms import PPO
@@ -74,6 +92,59 @@ import stackforce_simready_generated_robot_lab.tasks  # noqa: F401
 
 import os
 import torch
+
+
+class QweasdKeyboard:
+    """Hold-to-drive SE(2) command source for the visible Isaac Sim window."""
+
+    def __init__(self, forward_speed: float, lateral_speed: float, yaw_rate: float, device: str):
+        self._device = device
+        self._pressed = set()
+        self._forward_speed = float(forward_speed)
+        self._lateral_speed = float(lateral_speed)
+        self._yaw_rate = float(yaw_rate)
+        self._app_window = omni.appwindow.get_default_app_window()
+        if self._app_window is None:
+            raise RuntimeError("QWEASD keyboard control requires an Isaac Sim app window")
+        self._input = carb.input.acquire_input_interface()
+        self._keyboard = self._app_window.get_keyboard()
+        self._subscription = self._input.subscribe_to_keyboard_events(self._keyboard, self._on_event)
+
+    def _on_event(self, event, *args):
+        key = event.input.name
+        if event.type in (carb.input.KeyboardEventType.KEY_PRESS, carb.input.KeyboardEventType.KEY_REPEAT):
+            if key == "SPACE":
+                self._pressed.clear()
+            elif key in {"Q", "W", "E", "A", "S", "D"}:
+                self._pressed.add(key)
+        elif event.type == carb.input.KeyboardEventType.KEY_RELEASE:
+            self._pressed.discard(key)
+        return True
+
+    def target(self) -> torch.Tensor:
+        command = torch.zeros(3, dtype=torch.float32, device=self._device)
+        command[0] = self._forward_speed * (float("W" in self._pressed) - float("S" in self._pressed))
+        command[1] = self._lateral_speed * (float("A" in self._pressed) - float("D" in self._pressed))
+        command[2] = self._yaw_rate * (float("Q" in self._pressed) - float("E" in self._pressed))
+        return command
+
+    def close(self):
+        if self._subscription is not None:
+            self._input.unsubscribe_to_keyboard_events(self._keyboard, self._subscription)
+            self._subscription = None
+
+
+def _write_command_to_policy_observation(obs, commands: torch.Tensor) -> None:
+    """Keep the command slice in an already-built observation synchronized."""
+    policy_obs = obs
+    if isinstance(obs, dict):
+        policy_obs = obs.get("policy", next(iter(obs.values())))
+    elif not isinstance(obs, torch.Tensor) and hasattr(obs, "get"):
+        candidate = obs.get("policy")
+        if candidate is not None:
+            policy_obs = candidate
+    if isinstance(policy_obs, torch.Tensor):
+        policy_obs[..., 9:12] = commands
 
 
 class _StackForceOnnxPolicy(torch.nn.Module):
@@ -369,6 +440,14 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             "lin_vel_y": (args_cli.command[1], args_cli.command[1]),
             "ang_vel_yaw": (args_cli.command[2], args_cli.command[2]),
         }
+    elif args_cli.keyboard:
+        # Resets must not inject random training commands while the operator is
+        # holding or releasing keys.  The live loop overwrites this zero command.
+        env_cfg.command_ranges = {
+            "lin_vel_x": (0.0, 0.0),
+            "lin_vel_y": (0.0, 0.0),
+            "ang_vel_yaw": (0.0, 0.0),
+        }
     if isinstance(env_cfg, ManagerBasedRLEnvCfg):
         env_cfg.export_io_descriptors = args_cli.export_io_descriptors
     elif args_cli.disable_resets and hasattr(env_cfg, "visual_disable_resets"):
@@ -417,6 +496,26 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     policy = runner.get_inference_policy(device=env.unwrapped.device)
 
     obs = wrapped_env.get_observations()
+    keyboard_controller = None
+    keyboard_command = torch.zeros(3, dtype=torch.float32, device=env.unwrapped.device)
+    keyboard_alpha = 1.0
+    if args_cli.keyboard:
+        keyboard_controller = QweasdKeyboard(
+            args_cli.keyboard_forward_speed,
+            args_cli.keyboard_lateral_speed,
+            args_cli.keyboard_yaw_rate,
+            env.unwrapped.device,
+        )
+        if args_cli.keyboard_smoothing_time > 0.0:
+            keyboard_alpha = 1.0 - math.exp(-env.unwrapped.step_dt / args_cli.keyboard_smoothing_time)
+        print("[QWEASD] Hold W/S: forward/back, A/D: left/right, Q/E: turn left/right")
+        print("[QWEASD] Release keys to ramp to stop; SPACE clears all held commands")
+        print(
+            "[QWEASD] Limits: "
+            f"x={args_cli.keyboard_forward_speed:.2f} m/s, "
+            f"y={args_cli.keyboard_lateral_speed:.2f} m/s, "
+            f"yaw={args_cli.keyboard_yaw_rate:.2f} rad/s"
+        )
     if args_cli.export_onnx:
         stackforce_export_policy_as_onnx(
             policy,
@@ -498,6 +597,12 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     finite = True
     with torch.inference_mode():
         while simulation_app.is_running():
+            if keyboard_controller is not None:
+                keyboard_target = keyboard_controller.target()
+                keyboard_command += keyboard_alpha * (keyboard_target - keyboard_command)
+                command_batch = keyboard_command.unsqueeze(0).expand(wrapped_env.num_envs, -1)
+                env.unwrapped._commands[:] = command_batch
+                _write_command_to_policy_observation(obs, command_batch)
             actions = policy(obs)
             step_result = wrapped_env.step(actions)
             obs = step_result[0]
@@ -769,6 +874,8 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         args_cli.metrics_output.parent.mkdir(parents=True, exist_ok=True)
         args_cli.metrics_output.write_text(rendered_metrics + "\n", encoding="utf-8")
 
+    if keyboard_controller is not None:
+        keyboard_controller.close()
     wrapped_env.close()
 
 

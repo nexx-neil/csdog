@@ -34,3 +34,10 @@ class CSDogV2TurnStylePPORunnerCfg(CSDogV2PhaseGaitPPORunnerCfg):
     """Short refinement task for compact, upright in-place turns."""
 
     experiment_name = "csdog_v2_turn_style"
+
+
+@configclass
+class CSDogV2TeleopPPORunnerCfg(CSDogV2TurnStylePPORunnerCfg):
+    """Mixed-command refinement for QWEASD control."""
+
+    experiment_name = "csdog_v2_teleop"
