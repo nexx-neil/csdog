@@ -168,6 +168,16 @@ class GeneratedRobotEnv(DirectRLEnv):
             swing_feet = ~desired_contacts
             valid_swing_phase = torch.ones(self.num_envs, device=self.device)
             gait_contact_schedule = torch.mean((foot_contacts == desired_contacts).float(), dim=1) * moving
+            gait_stance_contact = (
+                torch.sum((foot_contacts & desired_contacts).float(), dim=1)
+                / self.cfg.swing_foot_count_normalizer
+                * moving
+            )
+            gait_swing_release = (
+                torch.sum(((~foot_contacts) & (~desired_contacts)).float(), dim=1)
+                / self.cfg.swing_foot_count_normalizer
+                * moving
+            )
             # Linear progress keeps a useful learning signal at the resting
             # sole height.  The previous narrow Gaussian was nearly flat at
             # 18--22 mm and let the inherited shuffle remain a local optimum.
@@ -182,6 +192,8 @@ class GeneratedRobotEnv(DirectRLEnv):
             swing_count = torch.sum(swing_feet, dim=1)
             valid_swing_phase = ((swing_count >= 1) & (swing_count <= 2)).float()
             gait_contact_schedule = torch.zeros(self.num_envs, device=self.device)
+            gait_stance_contact = torch.zeros(self.num_envs, device=self.device)
+            gait_swing_release = torch.zeros(self.num_envs, device=self.device)
             clearance_score = torch.exp(
                 -torch.square((foot_height - self.cfg.swing_foot_height_target) / self.cfg.swing_foot_height_std)
             )
@@ -259,6 +271,8 @@ class GeneratedRobotEnv(DirectRLEnv):
             "feet_contact_count": feet_contact_count * reward_scales.get("feet_contact_count", 0.0),
             "diagonal_gait": diagonal_gait * reward_scales.get("diagonal_gait", 0.0),
             "gait_contact_schedule": gait_contact_schedule * reward_scales.get("gait_contact_schedule", 0.0),
+            "gait_stance_contact": gait_stance_contact * reward_scales.get("gait_stance_contact", 0.0),
+            "gait_swing_release": gait_swing_release * reward_scales.get("gait_swing_release", 0.0),
             "inactive_axis_vel": inactive_axis_vel * reward_scales.get("inactive_axis_vel", 0.0),
             "stand_still": stand_still * reward_scales.get("stand_still", 0.0),
         }

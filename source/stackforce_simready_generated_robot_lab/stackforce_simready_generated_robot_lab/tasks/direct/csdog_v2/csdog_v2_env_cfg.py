@@ -55,6 +55,8 @@ V2_REWARD_KEYS = (
     "feet_contact_count",
     "diagonal_gait",
     "gait_contact_schedule",
+    "gait_stance_contact",
+    "gait_swing_release",
     "inactive_axis_vel",
     "stand_still",
     "custom_reward",
@@ -257,10 +259,15 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         "action_overflow": -0.10,
         "joint_deviation": -0.10,
         "feet_slide": -0.25,
-        "swing_foot_clearance": 1.50,
+        "swing_foot_clearance": 2.00,
         "feet_contact_count": 0.0,
         "diagonal_gait": 0.0,
-        "gait_contact_schedule": 2.00,
+        "gait_contact_schedule": 0.0,
+        # Stance and swing are intentionally asymmetric: a foot that never
+        # lands must not receive half credit merely because it is airborne
+        # during its scheduled swing half-cycle.
+        "gait_stance_contact": 4.00,
+        "gait_swing_release": 1.00,
         "inactive_axis_vel": -3.0,
         "stand_still": -0.25,
         "custom_reward": 0.0,

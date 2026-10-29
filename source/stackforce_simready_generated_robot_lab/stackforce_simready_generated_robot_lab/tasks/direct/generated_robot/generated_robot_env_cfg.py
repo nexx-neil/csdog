@@ -208,6 +208,8 @@ class GeneratedRobotEnvCfg(DirectRLEnvCfg):
         "feet_contact_count": 0.0,
         "diagonal_gait": 0.0,
         "gait_contact_schedule": 0.0,
+        "gait_stance_contact": 0.0,
+        "gait_swing_release": 0.0,
         "inactive_axis_vel": 0.0,
         "stand_still": 0.0,
         "custom_reward": 0.0,
