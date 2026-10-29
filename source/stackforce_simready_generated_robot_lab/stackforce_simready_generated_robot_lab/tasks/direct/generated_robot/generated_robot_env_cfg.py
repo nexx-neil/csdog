@@ -204,6 +204,10 @@ class GeneratedRobotEnvCfg(DirectRLEnvCfg):
         "action_overflow": -0.02,
         "joint_deviation": -0.5,
         "feet_slide": -0.1,
+        "swing_foot_clearance": 0.0,
+        "feet_contact_count": 0.0,
+        "diagonal_gait": 0.0,
+        "inactive_axis_vel": 0.0,
         "stand_still": 0.0,
         "custom_reward": 0.0,
     }
@@ -242,6 +246,11 @@ class GeneratedRobotEnvCfg(DirectRLEnvCfg):
     auto_ground_complete = False
     base_height_target = 0.1327
     feet_air_time_threshold = 0.1
+    # Body-origin height above a flat terrain plane.  Generic exports keep the
+    # corresponding reward disabled; robot-specific tasks must calibrate it.
+    swing_foot_height_target = 0.05
+    swing_foot_height_std = 0.015
+    swing_foot_count_normalizer = 2.0
     action_clip = 1.0
     visual_disable_resets = False
     termination_grace_time_s = 2.0

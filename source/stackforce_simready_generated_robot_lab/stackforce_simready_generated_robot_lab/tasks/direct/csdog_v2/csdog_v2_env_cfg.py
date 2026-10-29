@@ -51,6 +51,10 @@ V2_REWARD_KEYS = (
     "action_overflow",
     "joint_deviation",
     "feet_slide",
+    "swing_foot_clearance",
+    "feet_contact_count",
+    "diagonal_gait",
+    "inactive_axis_vel",
     "stand_still",
     "custom_reward",
 )
@@ -201,7 +205,18 @@ class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
         "action_magnitude": -0.05,
         "action_overflow": -0.10,
         "joint_deviation": -0.10,
-        "feet_slide": -0.10,
+        "feet_slide": -0.25,
+        # Sole origin rests near 0.018 m.  A 0.050 m target therefore asks for
+        # roughly 3.2 cm of visible sole clearance during a valid swing phase.
+        "swing_foot_clearance": 0.50,
+        "feet_contact_count": -0.15,
+        "diagonal_gait": 0.25,
+        # Penalize velocity on axes whose command is zero.  This directly
+        # addresses the lateral drift observed after the yaw phase.
+        "inactive_axis_vel": -3.0,
         "stand_still": -0.25,
         "custom_reward": 0.0,
     }
+    swing_foot_height_target = 0.050
+    swing_foot_height_std = 0.015
+    swing_foot_count_normalizer = 2.0

@@ -131,6 +131,51 @@ class GeneratedRobotEnv(DirectRLEnv):
         )
         feet_slide = torch.sum(foot_planar_speed * foot_contacts, dim=1)
 
+        # A velocity-only objective admits a low-clearance shuffling solution:
+        # the policy can track the command while barely unloading a foot.  Keep
+        # these gait terms separate so their effect remains visible in the
+        # episode logs and can be disabled by setting their scales to zero.
+        moving = (torch.linalg.vector_norm(self._commands, dim=1) > 0.1).float()
+        foot_height = (
+            self._robot.data.body_pos_w[:, self._robot_foot_ids, 2]
+            - self._terrain.env_origins[:, 2].unsqueeze(1)
+        )
+        swing_feet = ~foot_contacts
+        swing_count = torch.sum(swing_feet, dim=1)
+        valid_swing_phase = ((swing_count >= 1) & (swing_count <= 2)).float()
+        clearance_score = torch.exp(
+            -torch.square((foot_height - self.cfg.swing_foot_height_target) / self.cfg.swing_foot_height_std)
+        )
+        swing_foot_clearance = (
+            torch.sum(clearance_score * swing_feet.float(), dim=1)
+            / self.cfg.swing_foot_count_normalizer
+            * valid_swing_phase
+            * moving
+        )
+        feet_contact_count = torch.square(torch.sum(foot_contacts, dim=1).float() - 2.0) * moving
+
+        # Foot order is rear-left, front-left, front-right, rear-right for v2.
+        # Reward either diagonal support pair, without prescribing which pair
+        # must lead the cycle.
+        if len(self._foot_ids) == 4:
+            contacts = foot_contacts.float()
+            diagonal_a = contacts[:, 0] * contacts[:, 2] * (1.0 - contacts[:, 1]) * (1.0 - contacts[:, 3])
+            diagonal_b = contacts[:, 1] * contacts[:, 3] * (1.0 - contacts[:, 0]) * (1.0 - contacts[:, 2])
+            diagonal_gait = (diagonal_a + diagonal_b) * moving
+        else:
+            diagonal_gait = torch.zeros(self.num_envs, device=self.device)
+
+        commanded_axes = torch.abs(self._commands) > 1.0e-6
+        base_planar_twist = torch.stack(
+            (
+                self._robot.data.root_lin_vel_b[:, 0],
+                self._robot.data.root_lin_vel_b[:, 1],
+                self._robot.data.root_ang_vel_b[:, 2],
+            ),
+            dim=1,
+        )
+        inactive_axis_vel = torch.sum(torch.square(base_planar_twist) * (~commanded_axes).float(), dim=1)
+
         stand_still = torch.sum(torch.abs(joint_pos_error), dim=1) * (torch.norm(self._commands, dim=1) < 0.1)
         termination = self.reset_terminated.float()
 
@@ -171,6 +216,10 @@ class GeneratedRobotEnv(DirectRLEnv):
             "joint_deviation": torch.sum(torch.square(joint_pos_error), dim=1)
             * reward_scales.get("joint_deviation", 0.0),
             "feet_slide": feet_slide * reward_scales.get("feet_slide", 0.0),
+            "swing_foot_clearance": swing_foot_clearance * reward_scales.get("swing_foot_clearance", 0.0),
+            "feet_contact_count": feet_contact_count * reward_scales.get("feet_contact_count", 0.0),
+            "diagonal_gait": diagonal_gait * reward_scales.get("diagonal_gait", 0.0),
+            "inactive_axis_vel": inactive_axis_vel * reward_scales.get("inactive_axis_vel", 0.0),
             "stand_still": stand_still * reward_scales.get("stand_still", 0.0),
         }
         custom_rewards = compute_custom_reward_terms(self)
