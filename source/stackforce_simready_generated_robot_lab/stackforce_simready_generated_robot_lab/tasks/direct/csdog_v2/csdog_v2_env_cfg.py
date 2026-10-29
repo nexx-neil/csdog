@@ -260,7 +260,7 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         "collision": -2.0,
         "feet_stumble": 0.0,
         "action_rate": -0.02,
-        "action_magnitude": -0.05,
+        "action_magnitude": -0.08,
         "action_overflow": -0.10,
         "joint_deviation": -0.10,
         "feet_slide": -0.25,
@@ -273,7 +273,7 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         # during its scheduled swing half-cycle.
         "gait_stance_contact": 2.00,
         "gait_swing_release": 0.50,
-        "inactive_axis_vel": -3.0,
-        "stand_still": -0.25,
+        "inactive_axis_vel": -6.0,
+        "stand_still": -1.0,
         "custom_reward": 0.0,
     }
