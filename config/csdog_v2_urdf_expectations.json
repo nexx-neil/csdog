@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "model": "csdog_v2",
+  "coordinate_system": {"x": "forward", "y": "left", "z": "up"},
+  "link_names": [
+    "base",
+    "link_lr_hip_roll", "link_lr_hip_pitch", "link_lr_knee",
+    "link_lf_hip_roll", "link_lf_hip_pitch", "link_lf_knee",
+    "link_rf_hip_roll", "link_rf_hip_pitch", "link_rf_knee",
+    "link_rr_hip_roll", "link_rr_hip_pitch", "link_rr_knee"
+  ],
+  "actuated_joint_names": [
+    "joint_lr_1", "joint_lr_2", "joint_lr_3",
+    "joint_lf_1", "joint_lf_2", "joint_lf_3",
+    "joint_rf_1", "joint_rf_2", "joint_rf_3",
+    "joint_rr_1", "joint_rr_2", "joint_rr_3"
+  ],
+  "foot_link_names": ["link_lr_knee", "link_lf_knee", "link_rf_knee", "link_rr_knee"],
+  "total_mass_kg": 7.60426080,
+  "total_mass_tolerance_kg": 0.000001,
+  "hardware_parameters_verified": false,
+  "checkpoint_compatibility": "incompatible_with_generated_robot_v0"
+}

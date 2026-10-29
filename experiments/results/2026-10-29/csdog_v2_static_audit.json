@@ -1,0 +1,754 @@
+{
+  "schema_version": 1,
+  "git_commit": "00ff66dd1dffe5d7c098475403cec58d389fcc18",
+  "urdf": "/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot.urdf",
+  "expectations": "/home/ni/robot_projects/csdog/config/csdog_v2_urdf_expectations.json",
+  "gate": {
+    "status": "FAIL",
+    "structure_status": "PASS",
+    "physics_readiness_status": "FAIL",
+    "reason": "Static structure is valid, but simulation/training is blocked until every review_required item has verified provenance."
+  },
+  "summary": {
+    "root_links": [
+      "base"
+    ],
+    "link_count": 13,
+    "joint_count": 12,
+    "revolute_joint_count": 12,
+    "total_mass_kg": 7.6042608000000005,
+    "zero_pose_center_of_mass_m": [
+      -0.00199211644471868,
+      -2.194660748605407e-05,
+      -0.07396200884466289
+    ],
+    "mesh_file_count": 13,
+    "collision_triangle_count": 38635
+  },
+  "links": [
+    "base",
+    "link_lr_hip_roll",
+    "link_lr_hip_pitch",
+    "link_lr_knee",
+    "link_lf_hip_roll",
+    "link_lf_hip_pitch",
+    "link_lf_knee",
+    "link_rf_hip_roll",
+    "link_rf_hip_pitch",
+    "link_rf_knee",
+    "link_rr_hip_roll",
+    "link_rr_hip_pitch",
+    "link_rr_knee"
+  ],
+  "joints": [
+    {
+      "name": "joint_lr_1",
+      "type": "revolute",
+      "parent": "base",
+      "child": "link_lr_hip_roll",
+      "origin_xyz": [
+        -0.1195,
+        0.05375,
+        -0.05
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_lr_2",
+      "type": "revolute",
+      "parent": "link_lr_hip_roll",
+      "child": "link_lr_hip_pitch",
+      "origin_xyz": [
+        -0.09525788,
+        -0.00999149,
+        -0.00041242
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.99914919,
+        0.04124191
+      ],
+      "axis_norm": 0.9999999995090522,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_lr_3",
+      "type": "revolute",
+      "parent": "link_lr_hip_pitch",
+      "child": "link_lr_knee",
+      "origin_xyz": [
+        -0.08799551,
+        0.08321066,
+        -0.15372383
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.99914919,
+        0.04124191
+      ],
+      "axis_norm": 0.9999999995090522,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_lf_1",
+      "type": "revolute",
+      "parent": "base",
+      "child": "link_lf_hip_roll",
+      "origin_xyz": [
+        0.1195,
+        0.05375,
+        -0.05
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_lf_2",
+      "type": "revolute",
+      "parent": "link_lf_hip_roll",
+      "child": "link_lf_hip_pitch",
+      "origin_xyz": [
+        0.09525788,
+        -0.00999619,
+        -0.00027615
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.99961862,
+        0.02761531
+      ],
+      "axis_norm": 0.9999999953985502,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_lf_3",
+      "type": "revolute",
+      "parent": "link_lf_hip_pitch",
+      "child": "link_lf_knee",
+      "origin_xyz": [
+        -0.07088094,
+        0.08133985,
+        -0.16327266
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.99961862,
+        0.02761531
+      ],
+      "axis_norm": 0.9999999953985502,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_rf_1",
+      "type": "revolute",
+      "parent": "base",
+      "child": "link_rf_hip_roll",
+      "origin_xyz": [
+        0.1195,
+        -0.05375,
+        -0.05
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_rf_2",
+      "type": "revolute",
+      "parent": "link_rf_hip_roll",
+      "child": "link_rf_hip_pitch",
+      "origin_xyz": [
+        0.09525788,
+        0.00999619,
+        -0.00027615
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        -0.99961862,
+        0.02761531
+      ],
+      "axis_norm": 0.9999999953985502,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_rf_3",
+      "type": "revolute",
+      "parent": "link_rf_hip_pitch",
+      "child": "link_rf_knee",
+      "origin_xyz": [
+        -0.04436432,
+        -0.08158812,
+        -0.17225976
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        -0.99961862,
+        0.02761531
+      ],
+      "axis_norm": 0.9999999953985502,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_rr_1",
+      "type": "revolute",
+      "parent": "base",
+      "child": "link_rr_hip_roll",
+      "origin_xyz": [
+        -0.1195,
+        -0.05375,
+        -0.05
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_rr_2",
+      "type": "revolute",
+      "parent": "link_rr_hip_roll",
+      "child": "link_rr_hip_pitch",
+      "origin_xyz": [
+        -0.09525788,
+        0.00999149,
+        -0.00041242
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        -0.99914919,
+        0.04124191
+      ],
+      "axis_norm": 0.9999999995090522,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    },
+    {
+      "name": "joint_rr_3",
+      "type": "revolute",
+      "parent": "link_rr_hip_pitch",
+      "child": "link_rr_knee",
+      "origin_xyz": [
+        -0.07447201,
+        -0.08349304,
+        -0.16056486
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        -0.99914919,
+        0.04124191
+      ],
+      "axis_norm": 0.9999999995090522,
+      "limit": {
+        "lower": -3.14,
+        "upper": 3.14,
+        "effort": 10.0,
+        "velocity": 3.0
+      }
+    }
+  ],
+  "meshes": {
+    "meshes/base_collision.stl": {
+      "format": "binary",
+      "bytes": 1484,
+      "triangles": 28,
+      "bounds_m": {
+        "min": [
+          -0.10999999940395355,
+          -0.10000000149011612,
+          -0.10000000149011612
+        ],
+        "max": [
+          0.10999999940395355,
+          0.10000000149011612,
+          7.450580707946131e-10
+        ],
+        "extent": [
+          0.2199999988079071,
+          0.20000000298023224,
+          0.10000000223517419
+        ]
+      },
+      "sha256": "9c93aa72fd27c40d50539c5cbf45d5e0418986f6f0a09481c363969ed5eb6079"
+    },
+    "meshes/link_lr_hip_roll_collision.stl": {
+      "format": "binary",
+      "bytes": 236984,
+      "triangles": 4738,
+      "bounds_m": {
+        "min": [
+          -0.10256220400333405,
+          -0.04625283181667328,
+          -0.048248760402202606
+        ],
+        "max": [
+          0.009502548724412918,
+          0.046254806220531464,
+          0.04825759679079056
+        ],
+        "extent": [
+          0.11206475272774696,
+          0.09250763803720474,
+          0.09650635719299316
+        ]
+      },
+      "sha256": "c3a5d8e7282b55c3d114e46ad34c29f34ff6c4927b009de3dd07ac2ebe27b957"
+    },
+    "meshes/link_lr_hip_pitch_collision.stl": {
+      "format": "binary",
+      "bytes": 190634,
+      "triangles": 3811,
+      "bounds_m": {
+        "min": [
+          -0.11299537122249603,
+          -0.010603755712509155,
+          -0.17904239892959595
+        ],
+        "max": [
+          0.04824639856815338,
+          0.10422168672084808,
+          0.05095957964658737
+        ],
+        "extent": [
+          0.16124176979064941,
+          0.11482544243335724,
+          0.23000197857618332
+        ]
+      },
+      "sha256": "cba39b20e1a2e078ea98122d99c3fb5a86dd87ee0b2b8d2cbce268208dfca5d8"
+    },
+    "meshes/link_lr_knee_collision.stl": {
+      "format": "binary",
+      "bytes": 53734,
+      "triangles": 1073,
+      "bounds_m": {
+        "min": [
+          -0.014901994727551937,
+          -0.013055163435637951,
+          -0.189029723405838
+        ],
+        "max": [
+          0.13697129487991333,
+          0.03691549971699715,
+          0.015605545602738857
+        ],
+        "extent": [
+          0.15187328960746527,
+          0.0499706631526351,
+          0.20463526900857687
+        ]
+      },
+      "sha256": "7fa626081e4394d74cc615afe4c0e51323013875c607dc57e2a38c4be6df6c23"
+    },
+    "meshes/link_lf_hip_roll_collision.stl": {
+      "format": "binary",
+      "bytes": 236484,
+      "triangles": 4728,
+      "bounds_m": {
+        "min": [
+          -0.009502548724412918,
+          -0.04625634849071503,
+          -0.048248760402202606
+        ],
+        "max": [
+          0.10256220400333405,
+          0.046261049807071686,
+          0.04825759679079056
+        ],
+        "extent": [
+          0.11206475272774696,
+          0.09251739829778671,
+          0.09650635719299316
+        ]
+      },
+      "sha256": "a942c5e921a3b5bbd17f2f53a5fcf439526b8aec6eaed38cc92575b16b904043"
+    },
+    "meshes/link_lf_hip_pitch_collision.stl": {
+      "format": "binary",
+      "bytes": 190484,
+      "triangles": 3808,
+      "bounds_m": {
+        "min": [
+          -0.09573151171207428,
+          -0.01024070754647255,
+          -0.18850481510162354
+        ],
+        "max": [
+          0.04824541509151459,
+          0.10202165693044662,
+          0.050214365124702454
+        ],
+        "extent": [
+          0.14397692680358887,
+          0.11226236447691917,
+          0.238719180226326
+        ]
+      },
+      "sha256": "04945bf61bf4f2e49ca242de5069a1fab2bda87e2da1b5704bbd2a04ce100b80"
+    },
+    "meshes/link_lf_knee_collision.stl": {
+      "format": "binary",
+      "bytes": 53684,
+      "triangles": 1072,
+      "bounds_m": {
+        "min": [
+          -0.014977133832871914,
+          -0.015537760220468044,
+          -0.18058325350284576
+        ],
+        "max": [
+          0.14858494699001312,
+          0.034450314939022064,
+          0.015376240015029907
+        ],
+        "extent": [
+          0.16356208082288504,
+          0.04998807515949011,
+          0.19595949351787567
+        ]
+      },
+      "sha256": "cb0146a5bc3f73180ed02082054dd9fb8cd634c3abd3f38b75aee8090f1a3beb"
+    },
+    "meshes/link_rf_hip_roll_collision.stl": {
+      "format": "binary",
+      "bytes": 236234,
+      "triangles": 4723,
+      "bounds_m": {
+        "min": [
+          -0.009502548724412918,
+          -0.046253934502601624,
+          -0.048248760402202606
+        ],
+        "max": [
+          0.10256220400333405,
+          0.04625283181667328,
+          0.04825759679079056
+        ],
+        "extent": [
+          0.11206475272774696,
+          0.0925067663192749,
+          0.09650635719299316
+        ]
+      },
+      "sha256": "cdd1f1a41f4160d680d91290f3b219ac997ea544758b08d419601daebfb22fa4"
+    },
+    "meshes/link_rf_hip_pitch_collision.stl": {
+      "format": "binary",
+      "bytes": 197184,
+      "triangles": 3942,
+      "bounds_m": {
+        "min": [
+          -0.06935285031795502,
+          -0.10226721316576004,
+          -0.19739346206188202
+        ],
+        "max": [
+          0.04827253520488739,
+          0.010241683572530746,
+          0.05016270652413368
+        ],
+        "extent": [
+          0.11762538552284241,
+          0.11250889673829079,
+          0.2475561685860157
+        ]
+      },
+      "sha256": "b276f7c04b288794a97f3a78fb1acc404a9e0123cd90002424cdf36bb1710666"
+    },
+    "meshes/link_rf_knee_collision.stl": {
+      "format": "binary",
+      "bytes": 53634,
+      "triangles": 1071,
+      "bounds_m": {
+        "min": [
+          -0.014977381564676762,
+          -0.03443880379199982,
+          -0.1808442324399948
+        ],
+        "max": [
+          0.1483130156993866,
+          0.015515058301389217,
+          0.015375945717096329
+        ],
+        "extent": [
+          0.16329039726406336,
+          0.049953862093389034,
+          0.19622017815709114
+        ]
+      },
+      "sha256": "6418e0c18075866d356c1bdc3dcf4f364fedc16caa219e65345382c1e5bacf31"
+    },
+    "meshes/link_rr_hip_roll_collision.stl": {
+      "format": "binary",
+      "bytes": 237534,
+      "triangles": 4749,
+      "bounds_m": {
+        "min": [
+          -0.10256220400333405,
+          -0.04625283181667328,
+          -0.048248760402202606
+        ],
+        "max": [
+          0.009502548724412918,
+          0.046254806220531464,
+          0.04825759679079056
+        ],
+        "extent": [
+          0.11206475272774696,
+          0.09250763803720474,
+          0.09650635719299316
+        ]
+      },
+      "sha256": "b5ac7b6b6beb836cf1d5d18e3f8ec08ae87133cb0bc0d875757a02a35f53e04f"
+    },
+    "meshes/link_rr_hip_pitch_collision.stl": {
+      "format": "binary",
+      "bytes": 190784,
+      "triangles": 3814,
+      "bounds_m": {
+        "min": [
+          -0.09937618672847748,
+          -0.10450421273708344,
+          -0.18588703870773315
+        ],
+        "max": [
+          0.04832656681537628,
+          0.01061985269188881,
+          0.05115941911935806
+        ],
+        "extent": [
+          0.14770275354385376,
+          0.11512406542897224,
+          0.23704645782709122
+        ]
+      },
+      "sha256": "6f1fc0b7b00902bdd611ec403f03d5eacfbfe165350470699bf2dbfce7c926c7"
+    },
+    "meshes/link_rr_knee_collision.stl": {
+      "format": "binary",
+      "bytes": 53984,
+      "triangles": 1078,
+      "bounds_m": {
+        "min": [
+          -0.014980422332882881,
+          -0.03757155314087868,
+          -0.20539379119873047
+        ],
+        "max": [
+          0.10803952813148499,
+          0.012358727864921093,
+          0.015569434501230717
+        ],
+        "extent": [
+          0.12301995046436787,
+          0.04993028100579977,
+          0.22096322569996119
+        ]
+      },
+      "sha256": "eda21673b014b7b392d1f1ebbc0aa31dabd3d4a351244a92a135f8aeb46c9dd8"
+    }
+  },
+  "issues": [
+    {
+      "code": "UNIFORM_TEMPLATE_LIMITS",
+      "severity": "review_required",
+      "message": "all 12 joints use one identical limit tuple; mechanical/electrical provenance is not recorded",
+      "evidence": [
+        -3.14,
+        3.14,
+        10.0,
+        3.0
+      ]
+    },
+    {
+      "code": "FULL_ROTATION_POSITION_LIMITS",
+      "severity": "review_required",
+      "message": "revolute joints use approximately ±pi; self-collision is disabled and real hard stops are unverified"
+    },
+    {
+      "code": "VISUAL_COLLISION_MESH_REUSE",
+      "severity": "warning",
+      "message": "all 13 collision meshes are also used as visuals; independent low-poly collision provenance is absent",
+      "evidence": [
+        "meshes/base_collision.stl",
+        "meshes/link_lf_hip_pitch_collision.stl",
+        "meshes/link_lf_hip_roll_collision.stl",
+        "meshes/link_lf_knee_collision.stl",
+        "meshes/link_lr_hip_pitch_collision.stl",
+        "meshes/link_lr_hip_roll_collision.stl",
+        "meshes/link_lr_knee_collision.stl",
+        "meshes/link_rf_hip_pitch_collision.stl",
+        "meshes/link_rf_hip_roll_collision.stl",
+        "meshes/link_rf_knee_collision.stl",
+        "meshes/link_rr_hip_pitch_collision.stl",
+        "meshes/link_rr_hip_roll_collision.stl",
+        "meshes/link_rr_knee_collision.stl"
+      ]
+    },
+    {
+      "code": "HIGH_POLY_COLLISION",
+      "severity": "review_required",
+      "message": "12 collision meshes exceed 1000 triangles",
+      "evidence": {
+        "meshes/link_lr_hip_roll_collision.stl": 4738,
+        "meshes/link_lr_hip_pitch_collision.stl": 3811,
+        "meshes/link_lr_knee_collision.stl": 1073,
+        "meshes/link_lf_hip_roll_collision.stl": 4728,
+        "meshes/link_lf_hip_pitch_collision.stl": 3808,
+        "meshes/link_lf_knee_collision.stl": 1072,
+        "meshes/link_rf_hip_roll_collision.stl": 4723,
+        "meshes/link_rf_hip_pitch_collision.stl": 3942,
+        "meshes/link_rf_knee_collision.stl": 1071,
+        "meshes/link_rr_hip_roll_collision.stl": 4749,
+        "meshes/link_rr_hip_pitch_collision.stl": 3814,
+        "meshes/link_rr_knee_collision.stl": 1078
+      }
+    },
+    {
+      "code": "COM_REQUIRES_DYNAMIC_VALIDATION",
+      "severity": "hypothesis",
+      "message": "zero-pose COM is computed from URDF, but support polygon margin and loaded hardware COM still require simulation/CAD validation",
+      "evidence": [
+        -0.00199211644471868,
+        -2.194660748605407e-05,
+        -0.07396200884466289
+      ]
+    },
+    {
+      "code": "CONTACT_PATCH_UNVERIFIED",
+      "severity": "hypothesis",
+      "message": "mesh existence does not prove watertight foot collision, stable contact patches, or correct friction behavior"
+    }
+  ]
+}
