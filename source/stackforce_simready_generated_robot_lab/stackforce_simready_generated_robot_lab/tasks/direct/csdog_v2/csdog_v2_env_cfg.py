@@ -59,6 +59,9 @@ V2_REWARD_KEYS = (
     "gait_swing_release",
     "inactive_axis_vel",
     "stand_still",
+    "turn_hip_roll_excess",
+    "turn_body_tilt",
+    "turn_foot_trajectory",
     "custom_reward",
 )
 
@@ -133,6 +136,15 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
     reward_scales = {key: 0.0 for key in V2_REWARD_KEYS}
     default_joint_angles = DEFAULT_JOINT_ANGLES
     actuated_joint_names = JOINT_NAMES
+    hip_roll_joint_names = ["joint_lr_1", "joint_lf_1", "joint_rf_1", "joint_rr_1"]
+    turn_hip_roll_free_angle_rad = 0.20
+    turn_tangential_step_amplitude_m = 0.040
+    nominal_foot_positions_body_m = (
+        (-0.19823164, 0.14005036, -0.38344956),
+        (0.28090025, 0.13535280, -0.38344956),
+        (0.28090025, -0.13535280, -0.38344956),
+        (-0.19823164, -0.14005036, -0.38344956),
+    )
     foot_link_names = ["link_lr_sole", "link_lf_sole", "link_rf_sole", "link_rr_sole"]
     joint_child_link_names = [
         "link_lr_hip_roll", "link_lr_hip_pitch", "link_lr_knee",
@@ -218,6 +230,9 @@ class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
         # addresses the lateral drift observed after the yaw phase.
         "inactive_axis_vel": -3.0,
         "stand_still": -0.25,
+        "turn_hip_roll_excess": 0.0,
+        "turn_body_tilt": 0.0,
+        "turn_foot_trajectory": 0.0,
         "custom_reward": 0.0,
     }
     swing_foot_height_target = 0.050
@@ -275,5 +290,57 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         "gait_swing_release": 0.50,
         "inactive_axis_vel": -6.0,
         "stand_still": -1.0,
+        "turn_hip_roll_excess": 0.0,
+        "turn_body_tilt": 0.0,
+        "turn_foot_trajectory": 0.0,
+        "custom_reward": 0.0,
+    }
+
+
+@configclass
+class CSDogV2TurnStyleEnvCfg(CSDogV2PhaseGaitEnvCfg):
+    """Phase gait with an explicit compact stepping reference for yaw commands."""
+
+    # Observation, action and joint layouts are unchanged, so the 900-iteration
+    # phase-gait checkpoint is a valid initialization for this refinement task.
+    checkpoint_compatibility_tag = "csdog_v2_phase_gait_obs_v2_symmetric_soles"
+    reward_scales = {
+        "termination": -100.0,
+        "tracking_lin_vel": 0.0,
+        "tracking_lin_vel_x": 4.0,
+        "tracking_lin_vel_y": 4.0,
+        "tracking_ang_vel": 4.0,
+        "tracking_lin_vel_l2": 0.0,
+        "tracking_lin_vel_x_l2": -5.0,
+        "tracking_lin_vel_y_l2": -5.0,
+        "tracking_ang_vel_l2": -2.5,
+        "lin_vel_z": -2.0,
+        "ang_vel_xy": -0.10,
+        "orientation": -2.0,
+        "torques": -0.00002,
+        "dof_vel": 0.0,
+        "dof_acc": -2.5e-7,
+        "base_height": -2.0,
+        "feet_air_time": 0.25,
+        "collision": -2.0,
+        "feet_stumble": 0.0,
+        "action_rate": -0.02,
+        "action_magnitude": -0.08,
+        "action_overflow": -0.10,
+        "joint_deviation": -0.10,
+        "feet_slide": -0.25,
+        "swing_foot_clearance": 1.50,
+        "feet_contact_count": 0.0,
+        "diagonal_gait": 0.0,
+        "gait_contact_schedule": 0.0,
+        "gait_stance_contact": 2.00,
+        "gait_swing_release": 0.50,
+        "inactive_axis_vel": -6.0,
+        "stand_still": -1.0,
+        # These three terms are active only when yaw is commanded.  The free
+        # hip-roll window avoids forcing an unnaturally rigid straight-leg turn.
+        "turn_hip_roll_excess": -3.0,
+        "turn_body_tilt": -3.0,
+        "turn_foot_trajectory": -5.0,
         "custom_reward": 0.0,
     }

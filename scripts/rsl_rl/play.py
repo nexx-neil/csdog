@@ -64,6 +64,7 @@ except ImportError:
     TensorDict = None
 
 from isaaclab.envs import DirectMARLEnv, DirectMARLEnvCfg, DirectRLEnvCfg, ManagerBasedRLEnvCfg, multi_agent_to_single_agent
+from isaaclab.utils import math as math_utils
 from isaaclab_rl.rsl_rl import RslRlBaseRunnerCfg
 
 from isaaclab_tasks.utils import get_checkpoint_path
@@ -447,6 +448,9 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     action_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     clipped_action_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     joint_position_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    joint_abs_deviation_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    joint_deviation_sq_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    joint_abs_deviation_max = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     joint_velocity_sq_sum = 0.0
     joint_target_limit_violations = 0
     joint_position_near_limit_samples = 0
@@ -462,6 +466,15 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     robot_foot_ids, _ = robot.find_bodies(env.unwrapped.cfg.foot_link_names, preserve_order=True)
     contact_foot_ids = env.unwrapped._foot_ids
     num_feet = len(contact_foot_ids)
+    yaw_command_samples = 0
+    yaw_joint_abs_deviation_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    yaw_joint_deviation_sq_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    yaw_joint_abs_deviation_max = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    yaw_foot_position_body_sum = torch.zeros(num_feet, 3, device=env.unwrapped.device)
+    yaw_foot_lateral_sq_sum = torch.zeros(num_feet, device=env.unwrapped.device)
+    yaw_foot_abs_lateral_max = torch.zeros(num_feet, device=env.unwrapped.device)
+    yaw_projected_gravity_abs_sum = torch.zeros(2, device=env.unwrapped.device)
+    yaw_body_tilt_max = torch.tensor(0.0, device=env.unwrapped.device)
     contact_on_force = float(getattr(env.unwrapped.cfg, "foot_contact_on_force_threshold", 5.0))
     contact_off_force = float(getattr(env.unwrapped.cfg, "foot_contact_off_force_threshold", 2.0))
     foot_contact_state = torch.zeros(
@@ -526,9 +539,45 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             action_sum += torch.sum(actions, dim=0)
             clipped_action_sum += torch.sum(clipped_actions, dim=0)
             joint_positions = robot.data.joint_pos[:, env.unwrapped._actuated_joint_ids]
+            default_joint_positions = robot.data.default_joint_pos[:, env.unwrapped._actuated_joint_ids]
+            joint_deviations = joint_positions - default_joint_positions
+            joint_abs_deviations = torch.abs(joint_deviations)
             joint_velocities = robot.data.joint_vel[:, env.unwrapped._actuated_joint_ids]
             joint_position_sum += torch.sum(joint_positions, dim=0)
+            joint_abs_deviation_sum += torch.sum(joint_abs_deviations, dim=0)
+            joint_deviation_sq_sum += torch.sum(torch.square(joint_deviations), dim=0)
+            joint_abs_deviation_max = torch.maximum(
+                joint_abs_deviation_max, torch.amax(joint_abs_deviations, dim=0)
+            )
             joint_velocity_sq_sum += float(torch.sum(torch.square(joint_velocities)).item())
+            yaw_mask = torch.abs(commands[:, 2]) > 1.0e-6
+            if torch.any(yaw_mask):
+                yaw_sample_count = int(torch.count_nonzero(yaw_mask).item())
+                yaw_command_samples += yaw_sample_count
+                yaw_joint_abs_deviation_sum += torch.sum(joint_abs_deviations[yaw_mask], dim=0)
+                yaw_joint_deviation_sq_sum += torch.sum(torch.square(joint_deviations[yaw_mask]), dim=0)
+                yaw_joint_abs_deviation_max = torch.maximum(
+                    yaw_joint_abs_deviation_max,
+                    torch.amax(joint_abs_deviations[yaw_mask], dim=0),
+                )
+                foot_offset_w = (
+                    robot.data.body_pos_w[yaw_mask][:, robot_foot_ids]
+                    - robot.data.root_pos_w[yaw_mask].unsqueeze(1)
+                )
+                root_quat_w = robot.data.root_quat_w[yaw_mask].unsqueeze(1).expand(-1, num_feet, -1)
+                foot_position_b = math_utils.quat_apply_inverse(
+                    root_quat_w.reshape(-1, 4), foot_offset_w.reshape(-1, 3)
+                ).reshape(-1, num_feet, 3)
+                yaw_foot_position_body_sum += torch.sum(foot_position_b, dim=0)
+                yaw_foot_lateral_sq_sum += torch.sum(torch.square(foot_position_b[:, :, 1]), dim=0)
+                yaw_foot_abs_lateral_max = torch.maximum(
+                    yaw_foot_abs_lateral_max,
+                    torch.amax(torch.abs(foot_position_b[:, :, 1]), dim=0),
+                )
+                projected_gravity = robot.data.projected_gravity_b[yaw_mask]
+                yaw_projected_gravity_abs_sum += torch.sum(torch.abs(projected_gravity[:, :2]), dim=0)
+                body_tilt = torch.acos(torch.clamp(-projected_gravity[:, 2], min=-1.0, max=1.0))
+                yaw_body_tilt_max = torch.maximum(yaw_body_tilt_max, torch.amax(body_tilt))
             saturated_action_samples += int(
                 torch.count_nonzero(torch.abs(actions) >= env.unwrapped.cfg.action_clip).item()
             )
@@ -649,6 +698,10 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "mean_action_by_joint": (action_sum / transitions).tolist(),
         "mean_clipped_action_by_joint": (clipped_action_sum / transitions).tolist(),
         "mean_joint_position_rad": (joint_position_sum / transitions).tolist(),
+        "actuated_joint_names": list(env.unwrapped.cfg.actuated_joint_names),
+        "mean_abs_joint_deviation_rad": (joint_abs_deviation_sum / transitions).tolist(),
+        "rms_joint_deviation_rad": torch.sqrt(joint_deviation_sq_sum / transitions).tolist(),
+        "max_abs_joint_deviation_rad": joint_abs_deviation_max.tolist(),
         "joint_velocity_rms_rad_s": (
             joint_velocity_sq_sum / (transitions * wrapped_env.num_actions)
         ) ** 0.5,
@@ -684,6 +737,28 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "diagonal_group_opposite_state_fraction": float(diagonal_cross_opposite_samples / transitions)
         if num_feet == 4 else None,
         "contact_state_rle_env0": contact_sequence_env0,
+        "yaw_command_posture_diagnostics": {
+            "samples": yaw_command_samples,
+            "joint_mean_abs_deviation_rad": (
+                yaw_joint_abs_deviation_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "joint_rms_deviation_rad": torch.sqrt(
+                yaw_joint_deviation_sq_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "joint_max_abs_deviation_rad": yaw_joint_abs_deviation_max.tolist(),
+            "foot_link_names": list(env.unwrapped.cfg.foot_link_names),
+            "mean_foot_position_body_m": (
+                yaw_foot_position_body_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "foot_lateral_rms_m": torch.sqrt(
+                yaw_foot_lateral_sq_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "foot_lateral_abs_max_m": yaw_foot_abs_lateral_max.tolist(),
+            "mean_abs_projected_gravity_xy": (
+                yaw_projected_gravity_abs_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "max_body_tilt_rad": float(yaw_body_tilt_max.item()),
+        } if yaw_command_samples else None,
         "finite": finite,
     }
     rendered_metrics = json.dumps(metrics, indent=2, ensure_ascii=True)

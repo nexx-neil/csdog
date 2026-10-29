@@ -25,6 +25,12 @@ parser.add_argument(
     help="Load compatible policy/value weights without restoring optimizer state.",
 )
 parser.add_argument(
+    "--resume_path",
+    type=str,
+    default=None,
+    help="Load an exact compatible checkpoint path, including from another experiment name.",
+)
+parser.add_argument(
     "--command_axes",
     nargs="+",
     choices=("x", "y", "yaw"),
@@ -406,6 +412,8 @@ def to_compatible_rsl_rl_cfg(agent_cfg):
 @hydra_task_config(args_cli.task, args_cli.agent)
 def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agent_cfg: RslRlBaseRunnerCfg):
     agent_cfg = cli_args.update_rsl_rl_cfg(agent_cfg, args_cli)
+    if args_cli.resume_path is not None:
+        agent_cfg.resume = True
     if getattr(env_cfg, "training_enabled", True) is not True:
         reason = getattr(env_cfg, "training_block_reason", "task configuration has disabled training")
         raise RuntimeError(f"Training gate FAIL for {args_cli.task}: {reason}")
@@ -459,7 +467,12 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         env = multi_agent_to_single_agent(env)
 
     if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
-        resume_path = get_checkpoint_path(log_root_path, agent_cfg.load_run, agent_cfg.load_checkpoint)
+        if args_cli.resume_path is not None:
+            resume_path = os.path.abspath(args_cli.resume_path)
+            if not os.path.isfile(resume_path):
+                raise FileNotFoundError(f"Exact resume checkpoint does not exist: {resume_path}")
+        else:
+            resume_path = get_checkpoint_path(log_root_path, agent_cfg.load_run, agent_cfg.load_checkpoint)
         # An exact checkpoint such as ``model_final.pt`` also prefixes its
         # sidecar ``model_final.pt.metadata.json``.  Older Isaac Lab lookup
         # helpers can return that JSON file last; recover the intended weight

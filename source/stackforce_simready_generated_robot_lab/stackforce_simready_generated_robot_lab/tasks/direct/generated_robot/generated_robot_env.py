@@ -7,6 +7,7 @@ import isaaclab.sim as sim_utils
 from isaaclab.assets import Articulation
 from isaaclab.envs import DirectRLEnv
 from isaaclab.sensors import ContactSensor
+from isaaclab.utils import math as math_utils
 
 from .custom_rewards import compute_custom_reward_terms
 from .generated_robot_env_cfg import GeneratedRobotEnvCfg
@@ -29,6 +30,12 @@ class GeneratedRobotEnv(DirectRLEnv):
         }
 
         self._actuated_joint_ids, _ = self._robot.find_joints(self.cfg.actuated_joint_names, preserve_order=True)
+        hip_roll_joint_names = getattr(self.cfg, "hip_roll_joint_names", [])
+        self._hip_roll_action_indices = [
+            self.cfg.actuated_joint_names.index(name)
+            for name in hip_roll_joint_names
+            if name in self.cfg.actuated_joint_names
+        ]
         self._foot_ids, _ = self._contact_sensor.find_bodies(self.cfg.foot_link_names, preserve_order=True)
         self._robot_foot_ids, _ = self._robot.find_bodies(self.cfg.foot_link_names, preserve_order=True)
         self._termination_body_ids, _ = self._contact_sensor.find_bodies([self.cfg.base_link_name], preserve_order=True)
@@ -227,6 +234,54 @@ class GeneratedRobotEnv(DirectRLEnv):
         )
         inactive_axis_vel = torch.sum(torch.square(base_planar_twist) * (~commanded_axes).float(), dim=1)
 
+        # A yaw-only velocity objective can exploit large hip-abduction angles
+        # and a leaned body to generate torque.  The optional turn-style terms
+        # keep that solution available as a fallback but make a compact,
+        # phase-indexed stepping footprint cheaper.
+        yaw_command = (torch.abs(self._commands[:, 2]) > 1.0e-6).float()
+        if self._hip_roll_action_indices:
+            hip_roll_error = joint_pos_error[:, self._hip_roll_action_indices]
+            hip_roll_excess = torch.relu(
+                torch.abs(hip_roll_error) - self.cfg.turn_hip_roll_free_angle_rad
+            )
+            turn_hip_roll_excess = torch.sum(torch.square(hip_roll_excess), dim=1) * yaw_command
+        else:
+            turn_hip_roll_excess = torch.zeros(self.num_envs, device=self.device)
+        turn_body_tilt = orientation_error * yaw_command
+
+        nominal_foot_positions = getattr(self.cfg, "nominal_foot_positions_body_m", ())
+        if len(nominal_foot_positions) == len(self._robot_foot_ids) == 4:
+            foot_offset_w = (
+                self._robot.data.body_pos_w[:, self._robot_foot_ids]
+                - self._robot.data.root_pos_w.unsqueeze(1)
+            )
+            root_quat_w = self._robot.data.root_quat_w.unsqueeze(1).expand(-1, 4, -1)
+            foot_position_b = math_utils.quat_apply_inverse(
+                root_quat_w.reshape(-1, 4), foot_offset_w.reshape(-1, 3)
+            ).reshape(-1, 4, 3)
+            nominal_xy = torch.tensor(
+                nominal_foot_positions, dtype=foot_position_b.dtype, device=self.device
+            )[:, :2]
+            tangent_xy = torch.stack((-nominal_xy[:, 1], nominal_xy[:, 0]), dim=1)
+            tangent_xy = tangent_xy / torch.clamp(torch.linalg.vector_norm(tangent_xy, dim=1, keepdim=True), min=1.0e-6)
+            diagonal_phase_sign = torch.tensor([-1.0, 1.0, -1.0, 1.0], device=self.device)
+            phase_wave = torch.sin(2.0 * torch.pi * self._get_gait_phase()).unsqueeze(1)
+            yaw_sign = torch.sign(self._commands[:, 2]).unsqueeze(1)
+            step_offset = (
+                self.cfg.turn_tangential_step_amplitude_m
+                * phase_wave.unsqueeze(2)
+                * yaw_sign.unsqueeze(2)
+                * diagonal_phase_sign.view(1, 4, 1)
+                * tangent_xy.unsqueeze(0)
+            )
+            desired_foot_xy = nominal_xy.unsqueeze(0) + step_offset
+            turn_foot_trajectory = (
+                torch.mean(torch.sum(torch.square(foot_position_b[:, :, :2] - desired_foot_xy), dim=2), dim=1)
+                * yaw_command
+            )
+        else:
+            turn_foot_trajectory = torch.zeros(self.num_envs, device=self.device)
+
         stand_still = torch.sum(torch.abs(joint_pos_error), dim=1) * (torch.norm(self._commands, dim=1) < 0.1)
         termination = self.reset_terminated.float()
 
@@ -276,6 +331,16 @@ class GeneratedRobotEnv(DirectRLEnv):
             "inactive_axis_vel": inactive_axis_vel * reward_scales.get("inactive_axis_vel", 0.0),
             "stand_still": stand_still * reward_scales.get("stand_still", 0.0),
         }
+        if "turn_hip_roll_excess" in reward_scales:
+            rewards["turn_hip_roll_excess"] = (
+                turn_hip_roll_excess * reward_scales["turn_hip_roll_excess"]
+            )
+        if "turn_body_tilt" in reward_scales:
+            rewards["turn_body_tilt"] = turn_body_tilt * reward_scales["turn_body_tilt"]
+        if "turn_foot_trajectory" in reward_scales:
+            rewards["turn_foot_trajectory"] = (
+                turn_foot_trajectory * reward_scales["turn_foot_trajectory"]
+            )
         custom_rewards = compute_custom_reward_terms(self)
         for key, value in custom_rewards.items():
             rewards[key] = rewards.get(key, torch.zeros_like(value)) + value * reward_scales.get(key, 0.0)
