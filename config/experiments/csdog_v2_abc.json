@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "PLANNED_BLOCKED_BY_STATIC_PHYSICS_GATE",
+  "model": "csdog_v2",
+  "checkpoint_compatibility_tag": "csdog_v2_joint_order_v1",
+  "common": {
+    "seed": 42,
+    "smoke_num_envs": 64,
+    "smoke_max_iterations": 5,
+    "evaluation_num_envs": 16,
+    "evaluation_steps_per_env": 1000,
+    "evaluation_thresholds": {
+      "total_terminations_max": 0,
+      "action_saturation_fraction_max": 0.20,
+      "joint_target_outside_soft_limit_fraction_max": 0.0,
+      "joint_position_near_soft_limit_fraction_max": 0.02,
+      "torque_saturation_fraction_95pct_max": 0.05,
+      "commanded_axis_rmse_max": 0.10,
+      "non_commanded_axis_mean_abs_max": 0.08
+    },
+    "commands": [
+      {"name": "stand", "vx": 0.0, "vy": 0.0, "yaw_rate": 0.0},
+      {"name": "forward_015", "vx": 0.15, "vy": 0.0, "yaw_rate": 0.0},
+      {"name": "forward_030", "vx": 0.30, "vy": 0.0, "yaw_rate": 0.0},
+      {"name": "lateral_015", "vx": 0.0, "vy": 0.15, "yaw_rate": 0.0},
+      {"name": "lateral_030", "vx": 0.0, "vy": 0.30, "yaw_rate": 0.0},
+      {"name": "yaw_030", "vx": 0.0, "vy": 0.0, "yaw_rate": 0.30}
+    ],
+    "metrics": [
+      "velocity_tracking_rmse_per_axis",
+      "non_commanded_axis_mean_and_rmse",
+      "termination_rate",
+      "base_height_min_mean",
+      "action_saturation_fraction",
+      "joint_position_saturation_fraction",
+      "torque_saturation_fraction",
+      "per_foot_contact_duty_factor",
+      "per_foot_contact_transition_count",
+      "stance_contact_point_planar_speed",
+      "per_foot_swing_clearance",
+      "diagonal_and_left_right_phase_error"
+    ]
+  },
+  "groups": {
+    "A": {
+      "planned_task_id": "CSDog-V2-Flat-A-Direct-v0",
+      "major_factor": "baseline PPO with only approved physical and control corrections",
+      "adds": []
+    },
+    "B": {
+      "planned_task_id": "CSDog-V2-Flat-B-Direct-v0",
+      "major_factor": "contact-aware foot objective",
+      "adds": ["contact-point anti-slip", "swing-foot clearance target"]
+    },
+    "C": {
+      "planned_task_id": "CSDog-V2-Flat-C-Direct-v0",
+      "major_factor": "gait organization guidance",
+      "adds": ["quadruped phase or mirror-symmetry guidance"],
+      "inherits": "B"
+    }
+  }
+}

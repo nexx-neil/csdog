@@ -48,9 +48,11 @@ simulation_app = app_launcher.app
 
 import importlib.metadata as metadata
 import inspect
+import json
 import logging
 import os
 import platform
+import subprocess
 import time
 from datetime import datetime
 
@@ -390,6 +392,9 @@ def to_compatible_rsl_rl_cfg(agent_cfg):
 @hydra_task_config(args_cli.task, args_cli.agent)
 def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agent_cfg: RslRlBaseRunnerCfg):
     agent_cfg = cli_args.update_rsl_rl_cfg(agent_cfg, args_cli)
+    if getattr(env_cfg, "training_enabled", True) is not True:
+        reason = getattr(env_cfg, "training_block_reason", "task configuration has disabled training")
+        raise RuntimeError(f"Training gate FAIL for {args_cli.task}: {reason}")
     env_cfg.scene.num_envs = args_cli.num_envs if args_cli.num_envs is not None else env_cfg.scene.num_envs
     agent_cfg.max_iterations = args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations
 
@@ -477,6 +482,24 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     final_path = os.path.join(log_dir, "model_final.pt")
     runner.save(final_path)
     print(f"Saved final checkpoint to: {final_path}")
+    compatibility_tag = getattr(env.cfg, "checkpoint_compatibility_tag", None)
+    if compatibility_tag is not None:
+        commit_result = subprocess.run(
+            ["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=False
+        )
+        checkpoint_metadata = {
+            "schema_version": 1,
+            "task": args_cli.task,
+            "checkpoint": os.path.basename(final_path),
+            "checkpoint_compatibility_tag": compatibility_tag,
+            "actuated_joint_names": list(env.cfg.actuated_joint_names),
+            "git_commit": commit_result.stdout.strip() if commit_result.returncode == 0 else None,
+            "seed": env.cfg.seed,
+        }
+        with open(final_path + ".metadata.json", "w", encoding="utf-8") as metadata_file:
+            json.dump(checkpoint_metadata, metadata_file, indent=2)
+            metadata_file.write("\n")
+        print(f"Saved checkpoint compatibility metadata to: {final_path}.metadata.json")
     try:
         stackforce_export_policy_as_onnx(
             runner.get_inference_policy(device=env.device),

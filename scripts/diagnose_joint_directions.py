@@ -50,6 +50,12 @@ def main() -> None:
     robot = unwrapped._robot
     joint_ids = [int(index) for index in unwrapped._actuated_joint_ids]
     joint_names = [robot.joint_names[index] for index in joint_ids]
+    configured_child_names = getattr(unwrapped.cfg, "joint_child_link_names", None)
+    configured_foot_names = getattr(unwrapped.cfg, "joint_foot_link_names", None)
+    if configured_child_names is not None and len(configured_child_names) != len(joint_names):
+        raise ValueError("joint_child_link_names must match the actuated joint count")
+    if configured_foot_names is not None and len(configured_foot_names) != len(joint_names):
+        raise ValueError("joint_foot_link_names must match the actuated joint count")
     step_dt = float(unwrapped.step_dt)
     settle_steps = max(1, math.ceil(args_cli.settle_duration / step_dt))
     hold_steps = max(1, math.ceil(args_cli.hold_duration / step_dt))
@@ -58,9 +64,13 @@ def main() -> None:
 
     with torch.inference_mode():
         for action_index, (joint_id, joint_name) in enumerate(zip(joint_ids, joint_names, strict=True)):
-            leg_name = joint_name.removesuffix("_joint")[:2]
-            child_name = joint_name.removesuffix("_joint")
-            foot_name = f"{leg_name}3"
+            if configured_child_names is None:
+                leg_name = joint_name.removesuffix("_joint")[:2]
+                child_name = joint_name.removesuffix("_joint")
+                foot_name = f"{leg_name}3"
+            else:
+                child_name = configured_child_names[action_index]
+                foot_name = configured_foot_names[action_index]
             child_id = robot.body_names.index(child_name)
             foot_id = robot.body_names.index(foot_name)
 
@@ -84,13 +94,16 @@ def main() -> None:
                     peak_torque = torch.maximum(peak_torque, torch.abs(robot.data.applied_torque[0, joint_id]))
 
                 joint_after = robot.data.joint_pos[0, joint_id]
+                measured_delta = float(joint_after - joint_before)
+                direction_pass = measured_delta * direction > 0.0 and abs(measured_delta) >= 0.5 * args_cli.delta
                 results.append(
                     {
                         "action_index": action_index,
                         "robot_joint_index": joint_id,
                         "joint": joint_name,
                         "requested_delta_rad": round(direction * args_cli.delta, 7),
-                        "measured_delta_rad": round(float(joint_after - joint_before), 7),
+                        "measured_delta_rad": round(measured_delta, 7),
+                        "direction_pass": direction_pass,
                         "direct_child": child_name,
                         "direct_child_displacement_xyz_m": vector(
                             robot.data.body_pos_w[0, child_id] - child_before
@@ -108,7 +121,14 @@ def main() -> None:
                     }
                 )
 
+    failed_results = [result for result in results if not result["direction_pass"]]
     report = {
+        "schema_version": 1,
+        "gate": {
+            "status": "PASS" if not failed_results else "FAIL",
+            "failed_motion_count": len(failed_results),
+            "criterion": "measured displacement has requested sign and magnitude >= 50% of request",
+        },
         "task": args_cli.task,
         "coordinate_system": {"x": "forward", "y": "left", "z": "up"},
         "base_fixed": True,

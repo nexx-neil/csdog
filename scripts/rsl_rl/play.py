@@ -381,6 +381,22 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         resume_path = get_checkpoint_path(log_root_path, args_cli.load_run, checkpoint_arg)
     print(f"[INFO]: Loading model checkpoint from: {resume_path}")
 
+    expected_compatibility_tag = getattr(env_cfg, "checkpoint_compatibility_tag", None)
+    if expected_compatibility_tag is not None:
+        metadata_path = Path(resume_path + ".metadata.json")
+        if not metadata_path.is_file():
+            raise RuntimeError(
+                f"Refusing checkpoint without compatibility metadata for {args_cli.task}: {metadata_path}"
+            )
+        checkpoint_metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        actual_tag = checkpoint_metadata.get("checkpoint_compatibility_tag")
+        if actual_tag != expected_compatibility_tag:
+            raise RuntimeError(
+                f"Checkpoint compatibility mismatch: expected {expected_compatibility_tag!r}, got {actual_tag!r}"
+            )
+        if checkpoint_metadata.get("actuated_joint_names") != list(env_cfg.actuated_joint_names):
+            raise RuntimeError("Checkpoint joint names/order do not match the task configuration")
+
     env = gym.make(args_cli.task, cfg=env_cfg)
     if isinstance(env.unwrapped, DirectMARLEnv):
         env = multi_agent_to_single_agent(env)
@@ -404,6 +420,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     total_timeouts = 0
     reward_sum = 0.0
     lin_vel_error_sq_sum = 0.0
+    lin_vel_error_sq_by_axis = torch.zeros(2, device=env.unwrapped.device)
     yaw_rate_error_sq_sum = 0.0
     min_base_height = float("inf")
     max_base_height = float("-inf")
@@ -423,16 +440,41 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     clipped_action_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     joint_position_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     joint_velocity_sq_sum = 0.0
+    joint_target_limit_violations = 0
+    joint_position_near_limit_samples = 0
+    torque_saturation_samples = 0
+    joint_samples = 0
     saturated_action_samples = 0
     action_samples = 0
     foot_contact_samples = 0
     foot_contact_possible = 0
     contacting_foot_planar_speed_sum = 0.0
-    finite = True
     robot = env.unwrapped._robot
     contact_sensor = env.unwrapped._contact_sensor
     robot_foot_ids, _ = robot.find_bodies(env.unwrapped.cfg.foot_link_names, preserve_order=True)
     contact_foot_ids = env.unwrapped._foot_ids
+    num_feet = len(contact_foot_ids)
+    contact_on_force = float(getattr(env.unwrapped.cfg, "foot_contact_on_force_threshold", 5.0))
+    contact_off_force = float(getattr(env.unwrapped.cfg, "foot_contact_off_force_threshold", 2.0))
+    foot_contact_state = torch.zeros(
+        wrapped_env.num_envs, num_feet, dtype=torch.bool, device=env.unwrapped.device
+    )
+    previous_foot_contact_state = foot_contact_state.clone()
+    per_foot_contact_samples = torch.zeros(num_feet, device=env.unwrapped.device)
+    per_foot_touchdowns = torch.zeros(num_feet, device=env.unwrapped.device)
+    per_foot_liftoffs = torch.zeros(num_feet, device=env.unwrapped.device)
+    per_foot_stance_origin_speed_sum = torch.zeros(num_feet, device=env.unwrapped.device)
+    per_foot_stance_samples = torch.zeros(num_feet, device=env.unwrapped.device)
+    swing_origin_height_max = torch.full(
+        (wrapped_env.num_envs, num_feet), float("-inf"), device=env.unwrapped.device
+    )
+    per_foot_completed_swing_height_sum = torch.zeros(num_feet, device=env.unwrapped.device)
+    per_foot_completed_swings = torch.zeros(num_feet, device=env.unwrapped.device)
+    support_count_histogram = torch.zeros(num_feet + 1, device=env.unwrapped.device)
+    diagonal_same_state_samples = torch.zeros(2, device=env.unwrapped.device)
+    diagonal_cross_opposite_samples = torch.tensor(0.0, device=env.unwrapped.device)
+    contact_sequence_env0 = []
+    finite = True
     with torch.inference_mode():
         while simulation_app.is_running():
             actions = policy(obs)
@@ -451,6 +493,9 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             stand_command_samples += int(torch.count_nonzero(active_axis_count == 0).item())
             lin_vel_error_sq_sum += float(
                 torch.sum(torch.square(commands[:, :2] - robot.data.root_lin_vel_b[:, :2])).item()
+            )
+            lin_vel_error_sq_by_axis += torch.sum(
+                torch.square(commands[:, :2] - robot.data.root_lin_vel_b[:, :2]), dim=0
             )
             yaw_rate_error_sq_sum += float(
                 torch.sum(torch.square(commands[:, 2] - robot.data.root_ang_vel_b[:, 2])).item()
@@ -480,16 +525,78 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
                 torch.count_nonzero(torch.abs(actions) >= env.unwrapped.cfg.action_clip).item()
             )
             action_samples += actions.numel()
+            soft_limits = robot.data.soft_joint_pos_limits[:, env.unwrapped._actuated_joint_ids]
+            processed_targets = env.unwrapped._processed_actions
+            joint_target_limit_violations += int(
+                torch.count_nonzero(
+                    (processed_targets < soft_limits[..., 0]) | (processed_targets > soft_limits[..., 1])
+                ).item()
+            )
+            joint_ranges = torch.clamp(soft_limits[..., 1] - soft_limits[..., 0], min=1.0e-9)
+            joint_position_near_limit_samples += int(
+                torch.count_nonzero(
+                    (joint_positions - soft_limits[..., 0] < 0.02 * joint_ranges)
+                    | (soft_limits[..., 1] - joint_positions < 0.02 * joint_ranges)
+                ).item()
+            )
+            effort_limits = robot.data.joint_effort_limits[:, env.unwrapped._actuated_joint_ids]
+            applied_torques = torch.abs(robot.data.applied_torque[:, env.unwrapped._actuated_joint_ids])
+            torque_saturation_samples += int(
+                torch.count_nonzero(applied_torques >= 0.95 * torch.clamp(effort_limits, min=1.0e-9)).item()
+            )
+            joint_samples += joint_positions.numel()
             foot_forces = torch.linalg.vector_norm(
                 contact_sensor.data.net_forces_w[:, contact_foot_ids], dim=-1
             )
-            foot_contacts = foot_forces > 1.0
+            foot_contact_state = torch.where(
+                foot_forces >= contact_on_force,
+                torch.ones_like(foot_contact_state),
+                torch.where(foot_forces <= contact_off_force, torch.zeros_like(foot_contact_state), foot_contact_state),
+            )
+            touchdowns = foot_contact_state & ~previous_foot_contact_state
+            liftoffs = ~foot_contact_state & previous_foot_contact_state
+            foot_contacts = foot_contact_state
             planar_foot_speeds = torch.linalg.vector_norm(
                 robot.data.body_lin_vel_w[:, robot_foot_ids, :2], dim=-1
             )
             foot_contact_samples += int(torch.count_nonzero(foot_contacts).item())
             foot_contact_possible += foot_contacts.numel()
             contacting_foot_planar_speed_sum += float(torch.sum(planar_foot_speeds * foot_contacts).item())
+            per_foot_contact_samples += torch.sum(foot_contacts, dim=0)
+            per_foot_touchdowns += torch.sum(touchdowns, dim=0)
+            per_foot_liftoffs += torch.sum(liftoffs, dim=0)
+            per_foot_stance_origin_speed_sum += torch.sum(planar_foot_speeds * foot_contacts, dim=0)
+            per_foot_stance_samples += torch.sum(foot_contacts, dim=0)
+            foot_origin_height = (
+                robot.data.body_pos_w[:, robot_foot_ids, 2] - env.unwrapped._terrain.env_origins[:, 2:3]
+            )
+            swing_origin_height_max = torch.where(
+                ~foot_contacts,
+                torch.maximum(swing_origin_height_max, foot_origin_height),
+                swing_origin_height_max,
+            )
+            completed_height = torch.where(
+                touchdowns & torch.isfinite(swing_origin_height_max),
+                swing_origin_height_max,
+                torch.zeros_like(swing_origin_height_max),
+            )
+            per_foot_completed_swing_height_sum += torch.sum(completed_height, dim=0)
+            per_foot_completed_swings += torch.sum(
+                touchdowns & torch.isfinite(swing_origin_height_max), dim=0
+            )
+            swing_origin_height_max = torch.where(
+                touchdowns, torch.full_like(swing_origin_height_max, float("-inf")), swing_origin_height_max
+            )
+            support_counts = torch.sum(foot_contacts, dim=1)
+            support_count_histogram += torch.bincount(support_counts, minlength=num_feet + 1)
+            if num_feet == 4:
+                diagonal_same_state_samples[0] += torch.sum(foot_contacts[:, 0] == foot_contacts[:, 2])
+                diagonal_same_state_samples[1] += torch.sum(foot_contacts[:, 1] == foot_contacts[:, 3])
+                diagonal_cross_opposite_samples += torch.sum(foot_contacts[:, 0] != foot_contacts[:, 1])
+                mask_env0 = sum(int(foot_contact_state[0, index].item()) << index for index in range(4))
+                if not contact_sequence_env0 or contact_sequence_env0[-1]["mask"] != mask_env0:
+                    contact_sequence_env0.append({"step": steps, "mask": mask_env0})
+            previous_foot_contact_state = foot_contact_state.clone()
             finite = finite and all(
                 torch.isfinite(value).all().item()
                 for value in (actions, wrapped_env.rew_buf, robot.data.root_pos_w, robot.data.joint_pos)
@@ -509,6 +616,9 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "resets_per_1000_transitions": 1000.0 * total_resets / transitions,
         "mean_reward_per_step": reward_sum / transitions,
         "linear_velocity_tracking_rmse_m_s": (lin_vel_error_sq_sum / transitions) ** 0.5,
+        "linear_velocity_tracking_rmse_by_axis_m_s": (
+            torch.sqrt(lin_vel_error_sq_by_axis / transitions).tolist()
+        ),
         "yaw_rate_tracking_rmse_rad_s": (yaw_rate_error_sq_sum / transitions) ** 0.5,
         "minimum_base_height_m": min_base_height,
         "maximum_base_height_m": max_base_height,
@@ -525,6 +635,9 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "action_rms": (action_sq_sum / (transitions * wrapped_env.num_actions)) ** 0.5,
         "clipped_action_rms": (clipped_action_sq_sum / (transitions * wrapped_env.num_actions)) ** 0.5,
         "action_saturation_fraction": saturated_action_samples / max(1, action_samples),
+        "joint_target_outside_soft_limit_fraction": joint_target_limit_violations / max(1, joint_samples),
+        "joint_position_near_soft_limit_fraction": joint_position_near_limit_samples / max(1, joint_samples),
+        "torque_saturation_fraction_95pct": torque_saturation_samples / max(1, joint_samples),
         "mean_action_by_joint": (action_sum / transitions).tolist(),
         "mean_clipped_action_by_joint": (clipped_action_sum / transitions).tolist(),
         "mean_joint_position_rad": (joint_position_sum / transitions).tolist(),
@@ -535,6 +648,34 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "mean_contacting_foot_planar_speed_m_s": (
             contacting_foot_planar_speed_sum / max(1, foot_contact_samples)
         ),
+        "contact_detection": {
+            "method": "net-force hysteresis",
+            "on_threshold_n": contact_on_force,
+            "off_threshold_n": contact_off_force,
+        },
+        "foot_metric_semantics": {
+            "contact_body_names": list(env.unwrapped.cfg.foot_link_names),
+            "planar_speed": "distal-link rigid-body origin proxy; not a collision contact-point velocity",
+            "swing_height": "distal-link origin height above terrain; not sole clearance",
+            "contact_point_metrics_available": False,
+        },
+        "per_foot_contact_duty_factor": (per_foot_contact_samples / transitions).tolist(),
+        "per_foot_touchdown_count": per_foot_touchdowns.tolist(),
+        "per_foot_liftoff_count": per_foot_liftoffs.tolist(),
+        "per_foot_mean_stance_link_origin_planar_speed_m_s": (
+            per_foot_stance_origin_speed_sum / torch.clamp(per_foot_stance_samples, min=1.0)
+        ).tolist(),
+        "per_foot_mean_completed_swing_link_origin_max_height_m": (
+            per_foot_completed_swing_height_sum / torch.clamp(per_foot_completed_swings, min=1.0)
+        ).tolist(),
+        "per_foot_completed_swing_count": per_foot_completed_swings.tolist(),
+        "support_foot_count_fraction": (support_count_histogram / transitions).tolist(),
+        "diagonal_pair_same_contact_state_fraction": (
+            diagonal_same_state_samples / transitions
+        ).tolist() if num_feet == 4 else None,
+        "diagonal_group_opposite_state_fraction": float(diagonal_cross_opposite_samples / transitions)
+        if num_feet == 4 else None,
+        "contact_state_rle_env0": contact_sequence_env0,
         "finite": finite,
     }
     rendered_metrics = json.dumps(metrics, indent=2, ensure_ascii=True)

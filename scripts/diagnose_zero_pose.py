@@ -30,6 +30,10 @@ parser.add_argument(
 parser.add_argument(
     "--stability-window", type=float, default=5.0, help="Final interval used for steady-state maxima."
 )
+parser.add_argument("--max-steady-linear-speed", type=float, default=0.05)
+parser.add_argument("--max-steady-angular-speed", type=float, default=0.20)
+parser.add_argument("--max-torque-limit-fraction", type=float, default=0.95)
+parser.add_argument("--contact-force-threshold", type=float, default=1.0)
 parser.add_argument("--output", type=Path, default=None, help="Optional JSON report path.")
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
@@ -145,7 +149,32 @@ def main() -> None:
 
     final_height = robot.data.root_pos_w[0, 2] - unwrapped._terrain.env_origins[0, 2]
     final_contact_force = torch.linalg.vector_norm(contact_sensor.data.net_forces_w[0], dim=-1)
+    effort_limits = robot.data.joint_effort_limits[0, joint_ids]
+    stable_torque_fraction = stable_max_abs_torque / torch.clamp(effort_limits, min=1.0e-9)
+    foot_names = set(unwrapped.cfg.foot_link_names)
+    undesired_final_contacts = {
+        name: round(float(force), 7)
+        for name, force in zip(contact_sensor.body_names, final_contact_force, strict=True)
+        if name not in foot_names and float(force) > args_cli.contact_force_threshold
+    }
+    checks = {
+        "duration_at_least_30s": args_cli.duration >= 30.0,
+        "finite": finite,
+        "no_automatic_resets": reset_count == 0,
+        "height_above_termination_threshold": float(min_height) >= float(unwrapped.cfg.min_base_height),
+        "steady_linear_speed": float(stable_max_root_linear_speed) <= args_cli.max_steady_linear_speed,
+        "steady_angular_speed": float(stable_max_root_angular_speed) <= args_cli.max_steady_angular_speed,
+        "no_sustained_torque_saturation": bool(
+            torch.all(stable_torque_fraction <= args_cli.max_torque_limit_fraction).item()
+        ),
+        "no_final_undesired_contact": not undesired_final_contacts,
+    }
     report = {
+        "schema_version": 1,
+        "gate": {
+            "status": "PASS" if all(checks.values()) else "FAIL",
+            "checks": checks,
+        },
         "task": args_cli.task,
         "duration_s": args_cli.duration,
         "step_dt_s": step_dt,
@@ -167,6 +196,7 @@ def main() -> None:
         "joint_velocity_final_rad_s": tensor_list(robot.data.joint_vel[0, joint_ids]),
         "max_abs_joint_velocity_rad_s": tensor_list(max_abs_joint_vel),
         "max_abs_applied_torque_nm": tensor_list(max_abs_torque),
+        "joint_effort_limit_nm": tensor_list(effort_limits),
         "steady_state": {
             "window_s": min(args_cli.duration, args_cli.stability_window),
             "root_height_min_m": round(float(stable_min_height), 7),
@@ -175,7 +205,9 @@ def main() -> None:
             "max_root_angular_speed_rad_s": round(float(stable_max_root_angular_speed), 7),
             "max_abs_joint_velocity_rad_s": tensor_list(stable_max_abs_joint_vel),
             "max_abs_applied_torque_nm": tensor_list(stable_max_abs_torque),
+            "max_torque_limit_fraction": tensor_list(stable_torque_fraction),
         },
+        "undesired_final_contacts_above_threshold_n": undesired_final_contacts,
         "max_contact_force_n": {
             name: value
             for name, value in zip(contact_sensor.body_names, tensor_list(max_contact_force), strict=True)

@@ -19,7 +19,8 @@ def main():
 
     index = 0
     for task_spec in gym.registry.values():
-        if "Template-" in task_spec.id and (args_cli.keyword is None or args_cli.keyword in task_spec.id):
+        is_project_task = "Template-" in task_spec.id or task_spec.id.startswith("CSDog-")
+        if is_project_task and (args_cli.keyword is None or args_cli.keyword in task_spec.id):
             table.add_row([index + 1, task_spec.id, task_spec.entry_point, task_spec.kwargs["env_cfg_entry_point"]])
             index += 1
     print(table)
