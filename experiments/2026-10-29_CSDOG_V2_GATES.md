@@ -1,14 +1,14 @@
 # CSDog v2 分阶段门禁
 
-- 总状态：**FAIL**
-- Git commit：`6ec43f8961dc7191dc73714ebca2b11727151c54`
+- 总状态：**INCOMPLETE**
+- Git commit：`24e953977fa39167fb9996550d21a207823f317d`
 
 | 阶段 | 状态 | 说明 |
 |---|---|---|
-| `static_urdf` | **FAIL** | Static structure is valid, but simulation/training is blocked until every review_required item has verified provenance. |
-| `joint_direction` | **NOT_RUN** | blocked by static_urdf FAIL; planned check: fixed-base joint direction and target tracking |
-| `pd_stand_30s` | **NOT_RUN** | blocked by static_urdf FAIL; planned check: 30-second PD standing gate |
-| `contact_and_gait` | **NOT_RUN** | blocked by static_urdf FAIL; planned check: contact, slip, swing height, saturation, gait timing |
-| `ppo_smoke` | **NOT_RUN** | blocked by static_urdf FAIL; planned check: bounded PPO smoke test only |
+| `static_urdf` | **PASS** | Static simulation gate passed; hardware deployment remains separately gated. |
+| `joint_direction` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: fixed-base joint direction and target tracking |
+| `pd_stand_30s` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: 30-second PD standing gate |
+| `contact_and_gait` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: contact, slip, swing height, saturation, gait timing |
+| `ppo_smoke` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: bounded PPO smoke test only |
 
-失败阶段之后的项目均为 `NOT_RUN`；这不是通过，也不允许启动训练。
+静态仿真门禁已通过；其余阶段仍须按顺序显式执行和记录，不能跳过。

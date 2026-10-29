@@ -1,29 +1,31 @@
 {
   "schema_version": 1,
-  "git_commit": "6ec43f8961dc7191dc73714ebca2b11727151c54",
-  "urdf": "/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot.urdf",
+  "git_commit": "24e953977fa39167fb9996550d21a207823f317d",
+  "urdf": "/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
   "expectations": "/home/ni/robot_projects/csdog/config/csdog_v2_urdf_expectations.json",
   "gate": {
-    "status": "FAIL",
+    "status": "PASS",
     "structure_status": "PASS",
-    "physics_readiness_status": "FAIL",
-    "reason": "Static structure is valid, but simulation/training is blocked until every review_required item has verified provenance."
+    "physics_readiness_status": "PASS",
+    "simulation_readiness_status": "PASS",
+    "hardware_deployment_status": "FAIL",
+    "reason": "Static simulation gate passed; hardware deployment remains separately gated."
   },
   "summary": {
     "root_links": [
       "base"
     ],
-    "link_count": 13,
-    "joint_count": 12,
+    "link_count": 17,
+    "joint_count": 16,
     "revolute_joint_count": 12,
-    "total_mass_kg": 7.6042608000000005,
+    "total_mass_kg": 7.6082608,
     "zero_pose_center_of_mass_m": [
-      -0.00199211644471868,
-      -2.194660748605407e-05,
-      -0.07396200884466289
+      -0.001969337824172592,
+      -2.2316319256457074e-05,
+      -0.07412472017214804
     ],
     "mesh_file_count": 13,
-    "collision_triangle_count": 38635
+    "collision_triangle_count": 0
   },
   "links": [
     "base",
@@ -38,7 +40,11 @@
     "link_rf_knee",
     "link_rr_hip_roll",
     "link_rr_hip_pitch",
-    "link_rr_knee"
+    "link_rr_knee",
+    "link_lr_sole",
+    "link_lf_sole",
+    "link_rf_sole",
+    "link_rr_sole"
   ],
   "joints": [
     {
@@ -63,10 +69,10 @@
       ],
       "axis_norm": 1.0,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -0.65,
+        "upper": 0.65,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -91,10 +97,10 @@
       ],
       "axis_norm": 0.9999999995090522,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.4,
+        "upper": 1.4,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -119,10 +125,10 @@
       ],
       "axis_norm": 0.9999999995090522,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.8,
+        "upper": 1.8,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -147,10 +153,10 @@
       ],
       "axis_norm": 1.0,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -0.65,
+        "upper": 0.65,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -175,10 +181,10 @@
       ],
       "axis_norm": 0.9999999953985502,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.4,
+        "upper": 1.4,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -203,10 +209,10 @@
       ],
       "axis_norm": 0.9999999953985502,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.8,
+        "upper": 1.8,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -231,10 +237,10 @@
       ],
       "axis_norm": 1.0,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -0.65,
+        "upper": 0.65,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -259,10 +265,10 @@
       ],
       "axis_norm": 0.9999999953985502,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.4,
+        "upper": 1.4,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -287,10 +293,10 @@
       ],
       "axis_norm": 0.9999999953985502,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.8,
+        "upper": 1.8,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -315,10 +321,10 @@
       ],
       "axis_norm": 1.0,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -0.65,
+        "upper": 0.65,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -343,10 +349,10 @@
       ],
       "axis_norm": 0.9999999995090522,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.4,
+        "upper": 1.4,
+        "effort": 12.0,
+        "velocity": 10.0
       }
     },
     {
@@ -371,10 +377,122 @@
       ],
       "axis_norm": 0.9999999995090522,
       "limit": {
-        "lower": -3.14,
-        "upper": 3.14,
-        "effort": 10.0,
-        "velocity": 3.0
+        "lower": -1.8,
+        "upper": 1.8,
+        "effort": 12.0,
+        "velocity": 10.0
+      }
+    },
+    {
+      "name": "joint_link_lr_sole_fixed",
+      "type": "fixed",
+      "parent": "link_lr_knee",
+      "child": "link_lr_sole",
+      "origin_xyz": [
+        0.11206,
+        0.01206,
+        -0.1706
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": null,
+        "upper": null,
+        "effort": null,
+        "velocity": null
+      }
+    },
+    {
+      "name": "joint_link_lf_sole_fixed",
+      "type": "fixed",
+      "parent": "link_lf_knee",
+      "child": "link_lf_sole",
+      "origin_xyz": [
+        0.12389,
+        0.00983,
+        -0.16237
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": null,
+        "upper": null,
+        "effort": null,
+        "velocity": null
+      }
+    },
+    {
+      "name": "joint_link_rf_sole_fixed",
+      "type": "fixed",
+      "parent": "link_rf_knee",
+      "child": "link_rf_sole",
+      "origin_xyz": [
+        0.12364,
+        -0.01044,
+        -0.16255
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": null,
+        "upper": null,
+        "effort": null,
+        "velocity": null
+      }
+    },
+    {
+      "name": "joint_link_rr_sole_fixed",
+      "type": "fixed",
+      "parent": "link_rr_knee",
+      "child": "link_rr_sole",
+      "origin_xyz": [
+        0.08346,
+        -0.01382,
+        -0.18708
+      ],
+      "origin_rpy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "axis_norm": 1.0,
+      "limit": {
+        "lower": null,
+        "upper": null,
+        "effort": null,
+        "velocity": null
       }
     }
   ],
@@ -681,68 +799,18 @@
   },
   "issues": [
     {
-      "code": "UNIFORM_TEMPLATE_LIMITS",
-      "severity": "review_required",
-      "message": "all 12 joints use one identical limit tuple; mechanical/electrical provenance is not recorded",
-      "evidence": [
-        -3.14,
-        3.14,
-        10.0,
-        3.0
-      ]
-    },
-    {
-      "code": "FULL_ROTATION_POSITION_LIMITS",
-      "severity": "review_required",
-      "message": "revolute joints use approximately ±pi; self-collision is disabled and real hard stops are unverified"
-    },
-    {
-      "code": "VISUAL_COLLISION_MESH_REUSE",
-      "severity": "warning",
-      "message": "all 13 collision meshes are also used as visuals; independent low-poly collision provenance is absent",
-      "evidence": [
-        "meshes/base_collision.stl",
-        "meshes/link_lf_hip_pitch_collision.stl",
-        "meshes/link_lf_hip_roll_collision.stl",
-        "meshes/link_lf_knee_collision.stl",
-        "meshes/link_lr_hip_pitch_collision.stl",
-        "meshes/link_lr_hip_roll_collision.stl",
-        "meshes/link_lr_knee_collision.stl",
-        "meshes/link_rf_hip_pitch_collision.stl",
-        "meshes/link_rf_hip_roll_collision.stl",
-        "meshes/link_rf_knee_collision.stl",
-        "meshes/link_rr_hip_pitch_collision.stl",
-        "meshes/link_rr_hip_roll_collision.stl",
-        "meshes/link_rr_knee_collision.stl"
-      ]
-    },
-    {
-      "code": "HIGH_POLY_COLLISION",
-      "severity": "review_required",
-      "message": "12 collision meshes exceed 1000 triangles",
-      "evidence": {
-        "meshes/link_lr_hip_roll_collision.stl": 4738,
-        "meshes/link_lr_hip_pitch_collision.stl": 3811,
-        "meshes/link_lr_knee_collision.stl": 1073,
-        "meshes/link_lf_hip_roll_collision.stl": 4728,
-        "meshes/link_lf_hip_pitch_collision.stl": 3808,
-        "meshes/link_lf_knee_collision.stl": 1072,
-        "meshes/link_rf_hip_roll_collision.stl": 4723,
-        "meshes/link_rf_hip_pitch_collision.stl": 3942,
-        "meshes/link_rf_knee_collision.stl": 1071,
-        "meshes/link_rr_hip_roll_collision.stl": 4749,
-        "meshes/link_rr_hip_pitch_collision.stl": 3814,
-        "meshes/link_rr_knee_collision.stl": 1078
-      }
+      "code": "HARDWARE_LIMITS_UNVERIFIED",
+      "severity": "hardware_blocker",
+      "message": "continuous torque and assembled mechanical hard stops are unverified; simulation results must not be deployed to hardware"
     },
     {
       "code": "COM_REQUIRES_DYNAMIC_VALIDATION",
       "severity": "hypothesis",
       "message": "zero-pose COM is computed from URDF, but support polygon margin and loaded hardware COM still require simulation/CAD validation",
       "evidence": [
-        -0.00199211644471868,
-        -2.194660748605407e-05,
-        -0.07396200884466289
+        -0.001969337824172592,
+        -2.2316319256457074e-05,
+        -0.07412472017214804
       ]
     },
     {
