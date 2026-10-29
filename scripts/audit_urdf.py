@@ -106,6 +106,7 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- link / revolute joint：{summary['link_count']} / {summary['revolute_joint_count']}",
         f"- 总质量：{summary['total_mass_kg']:.8f} kg",
         f"- 零位形整机质心：`{summary['zero_pose_center_of_mass_m']}` m",
+        f"- 零位形足底球心高度差：{summary['zero_pose_foot_height_spread_m']:.8f} m",
         f"- mesh：{summary['mesh_file_count']} 个，collision 三角形合计 {summary['collision_triangle_count']}",
         "",
         "## 已证实问题",
@@ -282,6 +283,28 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
             weighted_com = [weighted_com[i] + mass * world_com[i] for i in range(3)]
         weighted_com = [value / total_mass for value in weighted_com]
 
+    zero_pose_foot_positions = {
+        name: apply_tf(link_tf[name], [0.0, 0.0, 0.0])
+        for name in expected_feet
+        if name in link_tf
+    }
+    foot_heights = [position[2] for position in zero_pose_foot_positions.values()]
+    foot_height_spread = max(foot_heights) - min(foot_heights) if foot_heights else 0.0
+    max_foot_height_spread = expected.get("max_zero_pose_foot_height_spread_m")
+    if max_foot_height_spread is not None and foot_height_spread > max_foot_height_spread:
+        issues.append(
+            issue(
+                "ZERO_POSE_FOOT_HEIGHT_MISMATCH",
+                "error",
+                "zero-pose sole centers are not coplanar",
+                {
+                    "maximum_spread_m": max_foot_height_spread,
+                    "actual_spread_m": foot_height_spread,
+                    "positions_m": zero_pose_foot_positions,
+                },
+            )
+        )
+
     if expected.get("total_mass_kg") is not None and abs(total_mass - expected["total_mass_kg"]) > expected.get("total_mass_tolerance_kg", 1.0e-6):
         issues.append(issue("TOTAL_MASS_MISMATCH", "error", "total mass differs from manifest", {"expected": expected["total_mass_kg"], "actual": total_mass}))
     issues.append(issue("COM_REQUIRES_DYNAMIC_VALIDATION", "hypothesis", "zero-pose COM is computed from URDF, but support polygon margin and loaded hardware COM still require simulation/CAD validation", weighted_com))
@@ -314,6 +337,8 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
             "revolute_joint_count": len(revolute),
             "total_mass_kg": total_mass,
             "zero_pose_center_of_mass_m": weighted_com,
+            "zero_pose_foot_positions_m": zero_pose_foot_positions,
+            "zero_pose_foot_height_spread_m": foot_height_spread,
             "mesh_file_count": len(mesh_records),
             "collision_triangle_count": sum(mesh_records[name].get("triangles") or 0 for name in set(collision_meshes) if name in mesh_records),
         },

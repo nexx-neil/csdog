@@ -66,7 +66,7 @@ V2_REWARD_KEYS = (
 @configclass
 class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
     model_id = "csdog_v2"
-    checkpoint_compatibility_tag = "csdog_v2_joint_order_v1"
+    checkpoint_compatibility_tag = "csdog_v2_joint_order_v2_symmetric_soles"
     training_enabled = False
     training_block_reason = (
         "CSDog v2 locomotion training remains blocked until the joint-direction, "
@@ -170,7 +170,7 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
 class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
     """Trainable flat-ground v2 task unlocked by the recorded dynamic gates."""
 
-    checkpoint_compatibility_tag = "csdog_v2_locomotion_joint_order_v1"
+    checkpoint_compatibility_tag = "csdog_v2_locomotion_joint_order_v2_symmetric_soles"
     training_enabled = True
     training_block_reason = ""
     action_scale = 0.35
@@ -230,7 +230,7 @@ class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
 class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
     """Phase-observed task that explicitly alternates diagonal support legs."""
 
-    checkpoint_compatibility_tag = "csdog_v2_phase_gait_obs_v1"
+    checkpoint_compatibility_tag = "csdog_v2_phase_gait_obs_v2_symmetric_soles"
     observation_space = 50
     include_gait_phase_observation = True
     gait_cycle_time_s = 0.50

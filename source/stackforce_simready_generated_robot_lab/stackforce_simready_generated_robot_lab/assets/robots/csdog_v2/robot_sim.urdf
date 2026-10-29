@@ -468,7 +468,7 @@
   <joint name="joint_link_lr_sole_fixed" type="fixed">
     <parent link="link_lr_knee" />
     <child link="link_lr_sole" />
-    <origin xyz="0.11206 0.01206 -0.1706" rpy="0 0 0" />
+    <origin xyz="0.10452175 0.01308119 -0.17931331" rpy="0 0 0" />
   </joint>
   <link name="link_lf_sole">
     <inertial>
@@ -495,7 +495,7 @@
   <joint name="joint_link_lf_sole_fixed" type="fixed">
     <parent link="link_lf_knee" />
     <child link="link_lf_sole" />
-    <origin xyz="0.12389 0.00983 -0.16237" rpy="0 0 0" />
+    <origin xyz="0.13702331 0.01025914 -0.16990075" rpy="0 0 0" />
   </joint>
   <link name="link_rf_sole">
     <inertial>
@@ -522,7 +522,7 @@
   <joint name="joint_link_rf_sole_fixed" type="fixed">
     <parent link="link_rf_knee" />
     <child link="link_rf_sole" />
-    <origin xyz="0.12364 -0.01044 -0.16255" rpy="0 0 0" />
+    <origin xyz="0.11050669 -0.01001087 -0.16091365" rpy="0 0 0" />
   </joint>
   <link name="link_rr_sole">
     <inertial>
@@ -549,6 +549,6 @@
   <joint name="joint_link_rr_sole_fixed" type="fixed">
     <parent link="link_rr_knee" />
     <child link="link_rr_sole" />
-    <origin xyz="0.08346 -0.01382 -0.18708" rpy="0 0 0" />
+    <origin xyz="0.09099825 -0.01279881 -0.17247228" rpy="0 0 0" />
   </joint>
 </robot>

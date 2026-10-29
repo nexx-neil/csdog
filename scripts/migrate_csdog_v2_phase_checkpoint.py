@@ -16,7 +16,7 @@ import torch
 
 
 TARGET_TASK = "CSDog-V2-Phase-Gait-Direct-v0"
-TARGET_COMPATIBILITY_TAG = "csdog_v2_phase_gait_obs_v1"
+TARGET_COMPATIBILITY_TAG = "csdog_v2_phase_gait_obs_v2_symmetric_soles"
 
 
 def pad_input_weight(state: dict, key: str) -> None:
