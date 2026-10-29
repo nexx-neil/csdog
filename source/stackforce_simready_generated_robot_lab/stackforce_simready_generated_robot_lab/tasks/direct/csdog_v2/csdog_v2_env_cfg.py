@@ -219,6 +219,7 @@ class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
         "custom_reward": 0.0,
     }
     swing_foot_height_target = 0.050
+    swing_foot_rest_height = 0.018
     swing_foot_height_std = 0.015
     swing_foot_count_normalizer = 2.0
 
@@ -256,10 +257,10 @@ class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
         "action_overflow": -0.10,
         "joint_deviation": -0.10,
         "feet_slide": -0.25,
-        "swing_foot_clearance": 0.75,
+        "swing_foot_clearance": 1.50,
         "feet_contact_count": 0.0,
         "diagonal_gait": 0.0,
-        "gait_contact_schedule": 0.50,
+        "gait_contact_schedule": 2.00,
         "inactive_axis_vel": -3.0,
         "stand_still": -0.25,
         "custom_reward": 0.0,

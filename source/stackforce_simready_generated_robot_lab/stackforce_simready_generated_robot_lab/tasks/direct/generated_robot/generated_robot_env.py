@@ -168,14 +168,23 @@ class GeneratedRobotEnv(DirectRLEnv):
             swing_feet = ~desired_contacts
             valid_swing_phase = torch.ones(self.num_envs, device=self.device)
             gait_contact_schedule = torch.mean((foot_contacts == desired_contacts).float(), dim=1) * moving
+            # Linear progress keeps a useful learning signal at the resting
+            # sole height.  The previous narrow Gaussian was nearly flat at
+            # 18--22 mm and let the inherited shuffle remain a local optimum.
+            clearance_score = torch.clamp(
+                (foot_height - self.cfg.swing_foot_rest_height)
+                / (self.cfg.swing_foot_height_target - self.cfg.swing_foot_rest_height),
+                min=0.0,
+                max=1.0,
+            )
         else:
             swing_feet = ~foot_contacts
             swing_count = torch.sum(swing_feet, dim=1)
             valid_swing_phase = ((swing_count >= 1) & (swing_count <= 2)).float()
             gait_contact_schedule = torch.zeros(self.num_envs, device=self.device)
-        clearance_score = torch.exp(
-            -torch.square((foot_height - self.cfg.swing_foot_height_target) / self.cfg.swing_foot_height_std)
-        )
+            clearance_score = torch.exp(
+                -torch.square((foot_height - self.cfg.swing_foot_height_target) / self.cfg.swing_foot_height_std)
+            )
         swing_foot_clearance = (
             torch.sum(clearance_score * swing_feet.float(), dim=1)
             / self.cfg.swing_foot_count_normalizer

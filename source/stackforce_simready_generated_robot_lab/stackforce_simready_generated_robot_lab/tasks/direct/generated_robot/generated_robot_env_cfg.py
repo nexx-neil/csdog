@@ -250,6 +250,7 @@ class GeneratedRobotEnvCfg(DirectRLEnvCfg):
     # Body-origin height above a flat terrain plane.  Generic exports keep the
     # corresponding reward disabled; robot-specific tasks must calibrate it.
     swing_foot_height_target = 0.05
+    swing_foot_rest_height = 0.018
     swing_foot_height_std = 0.015
     swing_foot_count_normalizer = 2.0
     include_gait_phase_observation = False
