@@ -93,7 +93,15 @@ class _StackForceOnnxPolicy(torch.nn.Module):
         self.policy = policy
 
     def forward(self, obs):
-        actions = self.policy(obs)
+        # RSL-RL 3's act_inference expects a TensorDict observation group,
+        # which is not a stable ONNX input type.  Export the underlying actor
+        # and its observation normalizer directly from the flat policy tensor.
+        if hasattr(self.policy, "actor") and hasattr(self.policy, "actor_obs_normalizer"):
+            actions = self.policy.actor(self.policy.actor_obs_normalizer(obs))
+            if getattr(self.policy, "state_dependent_std", False):
+                actions = actions[..., 0, :]
+        else:
+            actions = self.policy(obs)
         if isinstance(actions, (tuple, list)):
             return actions[0]
         if isinstance(actions, dict):
@@ -502,7 +510,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         print(f"Saved checkpoint compatibility metadata to: {final_path}.metadata.json")
     try:
         stackforce_export_policy_as_onnx(
-            runner.get_inference_policy(device=env.device),
+            runner.alg.policy,
             env.get_observations(),
             os.path.join(log_dir, "exported", "policies"),
         )

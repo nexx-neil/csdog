@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "git_commit": "24e953977fa39167fb9996550d21a207823f317d",
+  "git_commit": "446e451657f9f78ecdcffe4b76a191b1f28e2522",
   "urdf": "/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
   "expectations": "/home/ni/robot_projects/csdog/config/csdog_v2_urdf_expectations.json",
   "gate": {

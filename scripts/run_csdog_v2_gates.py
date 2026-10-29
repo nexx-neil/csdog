@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Run the ordered CSDog v2 gates and stop at the first failure.
 
-At present the static gate is executable without Isaac Sim.  Later gates are
-listed explicitly and remain NOT_RUN while the physics-readiness gate fails.
-This prevents a structurally loadable model from silently entering PPO.
+Static evidence is regenerated on every run.  Dynamic stages consume the
+machine-readable reports produced by their bounded Isaac Lab diagnostics.
 """
 
 from __future__ import annotations
@@ -39,8 +38,10 @@ def markdown(report: dict) -> str:
         lines.append(f"| `{stage['name']}` | **{stage['status']}** | {stage['detail']} |")
     if report["status"] == "FAIL":
         lines += ["", "失败阶段之后的项目均为 `NOT_RUN`；这不是通过，也不允许启动训练。", ""]
+    elif report["status"] == "INCOMPLETE":
+        lines += ["", "已完成阶段均有机器可读证据；下一阶段仍须显式执行，不能把 smoke 当成行为通过。", ""]
     else:
-        lines += ["", "静态仿真门禁已通过；其余阶段仍须按顺序显式执行和记录，不能跳过。", ""]
+        lines += ["", "全部分阶段门禁均已通过。", ""]
     return "\n".join(lines)
 
 
@@ -64,12 +65,32 @@ def main() -> int:
     static_report = json.loads(audit_json.read_text(encoding="utf-8"))
     static_status = static_report["gate"]["status"]
     stages = [{"name": STAGES[0][0], "status": static_status, "detail": static_report["gate"]["reason"]}]
-    for name, detail in STAGES[1:]:
-        if static_status == "FAIL":
-            stage_detail = f"blocked by {STAGES[0][0]} FAIL; planned check: {detail}"
+    evidence_specs = {
+        "joint_direction": [
+            repo / "experiments/results/2026-10-29/csdog_v2_joint_directions_005.json",
+            repo / "experiments/results/2026-10-29/csdog_v2_joint_directions_010.json",
+        ],
+        "pd_stand_30s": [repo / "experiments/results/2026-10-29/csdog_v2_pd_stand_30s.json"],
+    }
+    blocked = static_status != "PASS"
+    for name, planned_detail in STAGES[1:]:
+        reports = evidence_specs.get(name)
+        if blocked:
+            stage = {"name": name, "status": "NOT_RUN", "detail": f"blocked by an earlier gate; planned check: {planned_detail}"}
+        elif reports is None or not all(path.is_file() for path in reports):
+            stage = {"name": name, "status": "NOT_RUN", "detail": f"awaiting ordered execution; planned check: {planned_detail}"}
+            blocked = True
         else:
-            stage_detail = f"awaiting ordered execution after static gate PASS; planned check: {detail}"
-        stages.append({"name": name, "status": "NOT_RUN", "detail": stage_detail})
+            loaded = [json.loads(path.read_text(encoding="utf-8")) for path in reports]
+            statuses = [item["gate"]["status"] for item in loaded]
+            status = "PASS" if all(value == "PASS" for value in statuses) else "FAIL"
+            stage = {
+                "name": name,
+                "status": status,
+                "detail": f"evidence: {', '.join(str(path.relative_to(repo)) for path in reports)}",
+            }
+            blocked = status != "PASS"
+        stages.append(stage)
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=repo, capture_output=True, text=True, check=True
     ).stdout.strip()
@@ -77,7 +98,7 @@ def main() -> int:
         "schema_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "git_commit": commit,
-        "status": "FAIL" if static_status == "FAIL" else "INCOMPLETE",
+        "status": "FAIL" if any(stage["status"] == "FAIL" for stage in stages) else ("PASS" if all(stage["status"] == "PASS" for stage in stages) else "INCOMPLETE"),
         "stop_on_failure": True,
         "stages": stages,
         "static_audit": str(audit_json),
@@ -87,10 +108,12 @@ def main() -> int:
     args.json_output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     args.markdown_output.write_text(markdown(report), encoding="utf-8")
     summary = {"status": report["status"]}
-    if static_status == "FAIL":
-        summary["failed_stage"] = "static_urdf"
-    else:
-        summary["next_stage"] = "joint_direction"
+    failed = next((stage["name"] for stage in stages if stage["status"] == "FAIL"), None)
+    next_stage = next((stage["name"] for stage in stages if stage["status"] == "NOT_RUN"), None)
+    if failed is not None:
+        summary["failed_stage"] = failed
+    elif next_stage is not None:
+        summary["next_stage"] = next_stage
     print(json.dumps(summary, ensure_ascii=False))
     return completed.returncode if completed.returncode else (2 if static_status == "FAIL" else 0)
 

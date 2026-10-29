@@ -110,7 +110,7 @@ class GeneratedRobotEnv(DirectRLEnv):
         first_contact = self._contact_sensor.compute_first_contact(self.step_dt)[:, self._foot_ids]
         last_air_time = self._contact_sensor.data.last_air_time[:, self._foot_ids]
         feet_air_time = torch.sum((last_air_time - self.cfg.feet_air_time_threshold) * first_contact, dim=1) * (
-            torch.norm(self._commands[:, :2], dim=1) > 0.1
+            torch.norm(self._commands, dim=1) > 0.1
         )
 
         if self._undesired_contact_body_ids:

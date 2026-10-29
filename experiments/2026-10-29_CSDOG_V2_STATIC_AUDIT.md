@@ -4,7 +4,7 @@
 - 结构门禁：**PASS**
 - 仿真就绪门禁：**PASS**
 - 实机部署门禁：**FAIL**
-- Git commit：`24e953977fa39167fb9996550d21a207823f317d`
+- Git commit：`446e451657f9f78ecdcffe4b76a191b1f28e2522`
 - URDF：`/home/ni/robot_projects/csdog/source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf`
 - link / revolute joint：17 / 12
 - 总质量：7.60826080 kg

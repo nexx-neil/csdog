@@ -47,7 +47,7 @@
     <collision>
       <origin xyz="-0.04762894 -0.004995745 -0.00020621" rpy="0 1.5751022 -3.0370859" />
       <geometry>
-        <cylinder radius="0.03" length="0.095781333" />
+        <cylinder radius="0.026" length="0.025781333" />
       </geometry>
     </collision>
   </link>
@@ -75,7 +75,7 @@
     <collision>
       <origin xyz="-0.043997755 0.04160533 -0.076861915" rpy="0 2.4743163 2.3841351" />
       <geometry>
-        <cylinder radius="0.026" length="0.19569936" />
+        <cylinder radius="0.022" length="0.11569936" />
       </geometry>
     </collision>
   </link>
@@ -101,9 +101,9 @@
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.05603 0.00603 -0.0853" rpy="0 2.5577662 0.10720828" />
+      <origin xyz="0.043698743 0.0047028988 -0.06652691" rpy="0 2.5577662 0.10720828" />
       <geometry>
-        <cylinder radius="0.018" length="0.20446821" />
+        <cylinder radius="0.01" length="0.089468206" />
       </geometry>
     </collision>
   </link>
@@ -131,7 +131,7 @@
     <collision>
       <origin xyz="0.04762894 -0.004998095 -0.000138075" rpy="0 1.5736795 -0.10455553" />
       <geometry>
-        <cylinder radius="0.03" length="0.095781333" />
+        <cylinder radius="0.026" length="0.025781333" />
       </geometry>
     </collision>
   </link>
@@ -159,7 +159,7 @@
     <collision>
       <origin xyz="-0.03544047 0.040669925 -0.08163633" rpy="0 2.5576645 2.2875935" />
       <geometry>
-        <cylinder radius="0.026" length="0.19569936" />
+        <cylinder radius="0.022" length="0.11569936" />
       </geometry>
     </collision>
   </link>
@@ -185,9 +185,9 @@
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.061945 0.004915 -0.081185" rpy="0 2.4883029 0.0791787" />
+      <origin xyz="0.048312299 0.003833319 -0.063318007" rpy="0 2.4883029 0.0791787" />
       <geometry>
-        <cylinder radius="0.018" length="0.20447342" />
+        <cylinder radius="0.01" length="0.089473416" />
       </geometry>
     </collision>
   </link>
@@ -215,7 +215,7 @@
     <collision>
       <origin xyz="0.04762894 0.004998095 -0.000138075" rpy="0 1.5736795 0.10455553" />
       <geometry>
-        <cylinder radius="0.03" length="0.095781333" />
+        <cylinder radius="0.026" length="0.025781333" />
       </geometry>
     </collision>
   </link>
@@ -243,7 +243,7 @@
     <collision>
       <origin xyz="-0.02218216 -0.04079406 -0.08612988" rpy="0 2.6471356 -2.0688358" />
       <geometry>
-        <cylinder radius="0.026" length="0.19569936" />
+        <cylinder radius="0.022" length="0.11569936" />
       </geometry>
     </collision>
   </link>
@@ -269,9 +269,9 @@
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.06182 -0.00522 -0.081275" rpy="0 2.4896121 -0.084238868" />
+      <origin xyz="0.048216267 -0.0040713186 -0.063390118" rpy="0 2.4896121 -0.084238868" />
       <geometry>
-        <cylinder radius="0.018" length="0.20449534" />
+        <cylinder radius="0.01" length="0.089495344" />
       </geometry>
     </collision>
   </link>
@@ -299,7 +299,7 @@
     <collision>
       <origin xyz="-0.04762894 0.004995745 -0.00020621" rpy="0 1.5751022 3.0370859" />
       <geometry>
-        <cylinder radius="0.03" length="0.095781333" />
+        <cylinder radius="0.026" length="0.025781333" />
       </geometry>
     </collision>
   </link>
@@ -327,7 +327,7 @@
     <collision>
       <origin xyz="-0.037236005 -0.04174652 -0.08028243" rpy="0 2.5330236 -2.2991487" />
       <geometry>
-        <cylinder radius="0.026" length="0.19569937" />
+        <cylinder radius="0.022" length="0.11569937" />
       </geometry>
     </collision>
   </link>
@@ -353,9 +353,9 @@
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.04173 -0.00691 -0.09354" rpy="0 2.7169156 -0.16409928" />
+      <origin xyz="0.032583945 -0.0053955202 -0.073038634" rpy="0 2.7169156 -0.16409928" />
       <geometry>
-        <cylinder radius="0.018" length="0.20531802" />
+        <cylinder radius="0.01" length="0.090318023" />
       </geometry>
     </collision>
   </link>

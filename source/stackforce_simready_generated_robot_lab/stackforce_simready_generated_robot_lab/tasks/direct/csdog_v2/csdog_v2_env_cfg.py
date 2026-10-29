@@ -26,6 +26,34 @@ JOINT_NAMES = [
     "joint_rr_1", "joint_rr_2", "joint_rr_3",
 ]
 DEFAULT_JOINT_ANGLES = {name: 0.0 for name in JOINT_NAMES}
+V2_REWARD_KEYS = (
+    "termination",
+    "tracking_lin_vel",
+    "tracking_lin_vel_x",
+    "tracking_lin_vel_y",
+    "tracking_ang_vel",
+    "tracking_lin_vel_l2",
+    "tracking_lin_vel_x_l2",
+    "tracking_lin_vel_y_l2",
+    "tracking_ang_vel_l2",
+    "lin_vel_z",
+    "ang_vel_xy",
+    "orientation",
+    "torques",
+    "dof_vel",
+    "dof_acc",
+    "base_height",
+    "feet_air_time",
+    "collision",
+    "feet_stumble",
+    "action_rate",
+    "action_magnitude",
+    "action_overflow",
+    "joint_deviation",
+    "feet_slide",
+    "stand_still",
+    "custom_reward",
+)
 
 
 @configclass
@@ -75,24 +103,27 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
                 gains=sim_utils.UrdfConverterCfg.JointDriveCfg.PDGainsCfg(stiffness=0.0, damping=0.0)
             ),
         ),
-        # Exported zero pose and elevated spawn are used only for fixed-base
-        # direction tests.  A standing pose/height must be measured separately.
-        init_state=ArticulationCfg.InitialStateCfg(pos=(0.0, 0.0, 0.50), joint_pos=DEFAULT_JOINT_ANGLES),
+        # The 0.41 m spawn and zero joint pose are selected by the recorded
+        # standing-pose grid; settled base height is about 0.386 m.
+        init_state=ArticulationCfg.InitialStateCfg(pos=(0.0, 0.0, 0.41), joint_pos=DEFAULT_JOINT_ANGLES),
         actuators={
             "calibration_joints": ImplicitActuatorCfg(
                 joint_names_expr=JOINT_NAMES,
-                # Independently selected low-gain diagnostic values.  Do not
-                # use for standing/training without completing the PD gate.
-                stiffness=8.0,
-                damping=0.8,
-                effort_limit_sim=5.0,
-                velocity_limit_sim=3.0,
+                # Provisional simulation standing profile.  These are not
+                # validated hardware gains or continuous motor limits.
+                stiffness=40.0,
+                damping=1.5,
+                effort_limit_sim=12.0,
+                velocity_limit_sim=10.0,
             )
         },
         soft_joint_pos_limit_factor=0.90,
     )
 
-    reward_scales = {key: 0.0 for key in GeneratedRobotEnvCfg.reward_scales}
+    # Keep calibration reward-free.  Do not access the decorated base class's
+    # instance fields at class-definition time; doing so prevents the task
+    # configuration module from importing under Isaac Lab.
+    reward_scales = {key: 0.0 for key in V2_REWARD_KEYS}
     default_joint_angles = DEFAULT_JOINT_ANGLES
     actuated_joint_names = JOINT_NAMES
     foot_link_names = ["link_lr_sole", "link_lf_sole", "link_rf_sole", "link_rr_sole"]
@@ -121,9 +152,56 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
     ]
     base_link_name = "base"
 
-    # Disabled placeholders: they are explicit v2 values so v1 geometry cannot
-    # leak into calibration.  Standing diagnostics must override them after a
-    # valid pose is established.
-    base_height_target = 0.30
-    min_base_height = 0.12
+    # v2 values measured by the zero-pose standing diagnostic; no v1 geometry
+    # or thresholds are reused.
+    base_height_target = 0.386
+    min_base_height = 0.22
     termination_contact_force_threshold = 80.0
+
+
+@configclass
+class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
+    """Trainable flat-ground v2 task unlocked by the recorded dynamic gates."""
+
+    checkpoint_compatibility_tag = "csdog_v2_locomotion_joint_order_v1"
+    training_enabled = True
+    training_block_reason = ""
+    action_scale = 0.35
+    action_clip = 1.0
+    command_ranges = {
+        "lin_vel_x": (-0.4, 0.4),
+        "lin_vel_y": (-0.4, 0.4),
+        "ang_vel_yaw": (-0.6, 0.6),
+    }
+    command_sampling = "single_axis"
+    command_min_magnitude = 0.20
+    stand_command_probability = 0.10
+    visual_disable_resets = False
+    reward_scales = {
+        "termination": -100.0,
+        "tracking_lin_vel": 0.0,
+        "tracking_lin_vel_x": 4.0,
+        "tracking_lin_vel_y": 4.0,
+        "tracking_ang_vel": 4.0,
+        "tracking_lin_vel_l2": 0.0,
+        "tracking_lin_vel_x_l2": -2.0,
+        "tracking_lin_vel_y_l2": -2.0,
+        "tracking_ang_vel_l2": -1.0,
+        "lin_vel_z": -2.0,
+        "ang_vel_xy": -0.10,
+        "orientation": -2.0,
+        "torques": -0.00002,
+        "dof_vel": 0.0,
+        "dof_acc": -2.5e-7,
+        "base_height": -2.0,
+        "feet_air_time": 0.25,
+        "collision": -2.0,
+        "feet_stumble": 0.0,
+        "action_rate": -0.02,
+        "action_magnitude": -0.05,
+        "action_overflow": -0.10,
+        "joint_deviation": -0.10,
+        "feet_slide": -0.10,
+        "stand_still": -0.25,
+        "custom_reward": 0.0,
+    }

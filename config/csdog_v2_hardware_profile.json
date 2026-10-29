@@ -22,6 +22,14 @@
     },
     "joint_limit_rationale": "Conservative simulation motion envelopes selected to prevent full rotation and self-intersection while the physical hard-stop geometry remains unmeasured. They must not be used as hardware hard limits."
   },
+  "simulation_controller": {
+    "status": "PROVISIONAL_SIMULATION_ONLY",
+    "position_stiffness_nm_per_rad": 40.0,
+    "velocity_damping_nm_s_per_rad": 1.5,
+    "effort_limit_nm": 12.0,
+    "velocity_limit_rad_s": 10.0,
+    "rationale": "Standing-gate PD values selected for the measured 7.608 kg simulation model. They are bounded by the provisional simulation envelope and are not validated hardware gains."
+  },
   "hardware_deployment": {
     "status": "BLOCKED",
     "missing": [
@@ -36,6 +44,12 @@
     "output_urdf": "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
     "sole_radius_m": 0.018,
     "sole_mass_kg": 0.001,
+    "link_segment_primitives": {
+      "hip_roll": {"radius_m": 0.026, "start_trim_m": 0.035, "end_trim_m": 0.035},
+      "hip_pitch": {"radius_m": 0.022, "start_trim_m": 0.040, "end_trim_m": 0.040},
+      "knee": {"radius_m": 0.010, "start_trim_m": 0.035, "end_trim_m": 0.080}
+    },
+    "link_segment_rationale": "Cylinders follow joint-to-joint or knee-to-sole centerlines. Endpoint trims prevent the leg cylinder from overlapping the separate joint/sole contact bodies; values remain simulation approximations pending CAD collision exports.",
     "sole_centers_in_knee_link_m": {
       "link_lr_knee": [0.11206, 0.01206, -0.17060],
       "link_lf_knee": [0.12389, 0.00983, -0.16237],

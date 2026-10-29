@@ -41,9 +41,20 @@ def add_collision(link: ET.Element, geometry_tag: str, geometry_attrs: dict[str,
     ET.SubElement(geometry, geometry_tag, geometry_attrs)
 
 
-def add_segment(link: ET.Element, endpoint: list[float], radius: float) -> None:
-    length = norm(endpoint)
-    center = [value * 0.5 for value in endpoint]
+def add_segment(
+    link: ET.Element,
+    endpoint: list[float],
+    radius: float,
+    start_trim: float,
+    end_trim: float,
+) -> None:
+    full_length = norm(endpoint)
+    length = full_length - start_trim - end_trim
+    if length <= 0.0:
+        raise ValueError(f"segment trims exceed endpoint distance: {endpoint}")
+    unit = [value / full_length for value in endpoint]
+    center_distance = start_trim + 0.5 * length
+    center = [value * center_distance for value in unit]
     add_collision(
         link,
         "cylinder",
@@ -65,6 +76,7 @@ def generate(source: Path, output: Path, profile_path: Path) -> None:
     effort = profile["simulation_envelope"]["effort_limit_nm"]
     velocity = profile["simulation_envelope"]["velocity_limit_rad_s"]
     sole_cfg = profile["derived_collision"]
+    segment_cfg = sole_cfg["link_segment_primitives"]
 
     joints = {node.attrib["name"]: node for node in root.findall("joint")}
     links = {node.attrib["name"]: node for node in root.findall("link")}
@@ -87,14 +99,17 @@ def generate(source: Path, output: Path, profile_path: Path) -> None:
             add_collision(link, "box", {"size": "0.22 0.20 0.10"}, [0.0, 0.0, -0.05])
         elif name.endswith("hip_roll"):
             add_collision(link, "sphere", {"radius": "0.048"}, [0.0, 0.0, 0.0])
-            add_segment(link, child_joint_origins[name], 0.030)
+            spec = segment_cfg["hip_roll"]
+            add_segment(link, child_joint_origins[name], spec["radius_m"], spec["start_trim_m"], spec["end_trim_m"])
         elif name.endswith("hip_pitch"):
             add_collision(link, "sphere", {"radius": "0.048"}, [0.0, 0.0, 0.0])
-            add_segment(link, child_joint_origins[name], 0.026)
+            spec = segment_cfg["hip_pitch"]
+            add_segment(link, child_joint_origins[name], spec["radius_m"], spec["start_trim_m"], spec["end_trim_m"])
         elif name.endswith("knee"):
             add_collision(link, "sphere", {"radius": "0.040"}, [0.0, 0.0, 0.0])
             sole_center = sole_cfg["sole_centers_in_knee_link_m"][name]
-            add_segment(link, sole_center, 0.018)
+            spec = segment_cfg["knee"]
+            add_segment(link, sole_center, spec["radius_m"], spec["start_trim_m"], spec["end_trim_m"])
 
     sole_radius = float(sole_cfg["sole_radius_m"])
     sole_mass = float(sole_cfg["sole_mass_kg"])

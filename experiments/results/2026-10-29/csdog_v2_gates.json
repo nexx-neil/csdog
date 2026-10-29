@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-29T03:14:18.557382+00:00",
+  "git_commit": "446e451657f9f78ecdcffe4b76a191b1f28e2522",
+  "status": "INCOMPLETE",
+  "stop_on_failure": true,
+  "stages": [
+    {
+      "name": "static_urdf",
+      "status": "PASS",
+      "detail": "Static simulation gate passed; hardware deployment remains separately gated."
+    },
+    {
+      "name": "joint_direction",
+      "status": "PASS",
+      "detail": "evidence: experiments/results/2026-10-29/csdog_v2_joint_directions_005.json, experiments/results/2026-10-29/csdog_v2_joint_directions_010.json"
+    },
+    {
+      "name": "pd_stand_30s",
+      "status": "PASS",
+      "detail": "evidence: experiments/results/2026-10-29/csdog_v2_pd_stand_30s.json"
+    },
+    {
+      "name": "contact_and_gait",
+      "status": "NOT_RUN",
+      "detail": "awaiting ordered execution; planned check: contact, slip, swing height, saturation, gait timing"
+    },
+    {
+      "name": "ppo_smoke",
+      "status": "NOT_RUN",
+      "detail": "blocked by an earlier gate; planned check: bounded PPO smoke test only"
+    }
+  ],
+  "static_audit": "/home/ni/robot_projects/csdog/experiments/results/2026-10-29/csdog_v2_static_audit.json"
+}

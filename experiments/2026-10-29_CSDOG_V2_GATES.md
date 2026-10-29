@@ -1,14 +1,14 @@
 # CSDog v2 分阶段门禁
 
 - 总状态：**INCOMPLETE**
-- Git commit：`24e953977fa39167fb9996550d21a207823f317d`
+- Git commit：`446e451657f9f78ecdcffe4b76a191b1f28e2522`
 
 | 阶段 | 状态 | 说明 |
 |---|---|---|
 | `static_urdf` | **PASS** | Static simulation gate passed; hardware deployment remains separately gated. |
-| `joint_direction` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: fixed-base joint direction and target tracking |
-| `pd_stand_30s` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: 30-second PD standing gate |
-| `contact_and_gait` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: contact, slip, swing height, saturation, gait timing |
-| `ppo_smoke` | **NOT_RUN** | awaiting ordered execution after static gate PASS; planned check: bounded PPO smoke test only |
+| `joint_direction` | **PASS** | evidence: experiments/results/2026-10-29/csdog_v2_joint_directions_005.json, experiments/results/2026-10-29/csdog_v2_joint_directions_010.json |
+| `pd_stand_30s` | **PASS** | evidence: experiments/results/2026-10-29/csdog_v2_pd_stand_30s.json |
+| `contact_and_gait` | **NOT_RUN** | awaiting ordered execution; planned check: contact, slip, swing height, saturation, gait timing |
+| `ppo_smoke` | **NOT_RUN** | blocked by an earlier gate; planned check: bounded PPO smoke test only |
 
-静态仿真门禁已通过；其余阶段仍须按顺序显式执行和记录，不能跳过。
+已完成阶段均有机器可读证据；下一阶段仍须显式执行，不能把 smoke 当成行为通过。

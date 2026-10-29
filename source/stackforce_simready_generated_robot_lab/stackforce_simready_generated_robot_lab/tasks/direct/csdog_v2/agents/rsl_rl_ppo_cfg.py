@@ -9,3 +9,12 @@ class CSDogV2CalibrationPPORunnerCfg(GeneratedRobotPPORunnerCfg):
 
     experiment_name = "csdog_v2_calibration_do_not_train"
     max_iterations = 1
+
+
+@configclass
+class CSDogV2LocomotionPPORunnerCfg(GeneratedRobotPPORunnerCfg):
+    """Independent v2 policy; no v1 checkpoint or optimizer state is reused."""
+
+    experiment_name = "csdog_v2_locomotion"
+    max_iterations = 1000
+    save_interval = 50

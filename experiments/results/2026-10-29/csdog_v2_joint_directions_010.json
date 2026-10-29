@@ -1,0 +1,899 @@
+{
+  "schema_version": 1,
+  "gate": {
+    "status": "PASS",
+    "failed_motion_count": 0,
+    "criterion": "measured displacement has requested sign and magnitude >= 50% of request"
+  },
+  "task": "CSDog-V2-Calibration-Direct-v0",
+  "coordinate_system": {
+    "x": "forward",
+    "y": "left",
+    "z": "up"
+  },
+  "base_fixed": true,
+  "seed": 42,
+  "requested_delta_rad": 0.1,
+  "settle_duration_s": 0.5,
+  "hold_duration_s": 1.0,
+  "joint_order": [
+    "joint_lr_1",
+    "joint_lr_2",
+    "joint_lr_3",
+    "joint_lf_1",
+    "joint_lf_2",
+    "joint_lf_3",
+    "joint_rf_1",
+    "joint_rf_2",
+    "joint_rf_3",
+    "joint_rr_1",
+    "joint_rr_2",
+    "joint_rr_3"
+  ],
+  "results": [
+    {
+      "action_index": 0,
+      "robot_joint_index": 1,
+      "joint": "joint_lr_1",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0946129,
+      "direction_pass": true,
+      "direct_child": "link_lr_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0,
+        6.2e-06,
+        2.44e-05
+      ],
+      "foot": "link_lr_sole",
+      "foot_displacement_xyz_m": [
+        -2.7e-06,
+        -0.0314066,
+        -0.0053712
+      ],
+      "foot_com_displacement_xyz_m": [
+        -2.7e-06,
+        -0.0314066,
+        -0.0053712
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3259436
+    },
+    {
+      "action_index": 0,
+      "robot_joint_index": 1,
+      "joint": "joint_lr_1",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0948449,
+      "direction_pass": true,
+      "direct_child": "link_lr_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0,
+        -3.9e-06,
+        -2.49e-05
+      ],
+      "foot": "link_lr_sole",
+      "foot_displacement_xyz_m": [
+        -2.9e-06,
+        0.0308332,
+        0.008335
+      ],
+      "foot_com_displacement_xyz_m": [
+        -2.9e-06,
+        0.0308332,
+        0.008335
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.5937232
+    },
+    {
+      "action_index": 1,
+      "robot_joint_index": 5,
+      "joint": "joint_lr_2",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0945404,
+      "direction_pass": true,
+      "direct_child": "link_lr_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        -0.0,
+        0.0,
+        9e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0019257,
+        -3.9e-06,
+        0.0011873
+      ],
+      "foot": "link_lr_sole",
+      "foot_displacement_xyz_m": [
+        -0.0308792,
+        -2.8e-05,
+        -0.0006739
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0308792,
+        -2.8e-05,
+        -0.0006739
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3114258
+    },
+    {
+      "action_index": 1,
+      "robot_joint_index": 5,
+      "joint": "joint_lr_2",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0945363,
+      "direction_pass": true,
+      "direct_child": "link_lr_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        -0.0,
+        0.0,
+        2e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0020294,
+        1.3e-06,
+        -0.0010047
+      ],
+      "foot": "link_lr_sole",
+      "foot_displacement_xyz_m": [
+        0.0306904,
+        -1.39e-05,
+        0.0035481
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0306904,
+        -1.39e-05,
+        0.0035481
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.2614338
+    },
+    {
+      "action_index": 2,
+      "robot_joint_index": 9,
+      "joint": "joint_lr_3",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0982714,
+      "direction_pass": true,
+      "direct_child": "link_lr_knee",
+      "direct_child_displacement_xyz_m": [
+        0.000291,
+        -4e-06,
+        -0.0001619
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0120108,
+        6.1e-06,
+        -0.0076236
+      ],
+      "foot": "link_lr_sole",
+      "foot_displacement_xyz_m": [
+        -0.016738,
+        9.3e-06,
+        -0.0100714
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.016738,
+        9.3e-06,
+        -0.0100714
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.037567
+    },
+    {
+      "action_index": 2,
+      "robot_joint_index": 9,
+      "joint": "joint_lr_3",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0982444,
+      "direction_pass": true,
+      "direct_child": "link_lr_knee",
+      "direct_child_displacement_xyz_m": [
+        -0.0002582,
+        -1.24e-05,
+        0.0001375
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0112887,
+        -3.71e-05,
+        0.0087654
+      ],
+      "foot": "link_lr_sole",
+      "foot_displacement_xyz_m": [
+        0.0157663,
+        -4.58e-05,
+        0.0116627
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0157663,
+        -4.58e-05,
+        0.0116627
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0762058
+    },
+    {
+      "action_index": 3,
+      "robot_joint_index": 0,
+      "joint": "joint_lf_1",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0947037,
+      "direction_pass": true,
+      "direct_child": "link_lf_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        -1e-07,
+        -0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -1e-07,
+        -4.2e-06,
+        -4.16e-05
+      ],
+      "foot": "link_lf_sole",
+      "foot_displacement_xyz_m": [
+        2.8e-06,
+        0.0309305,
+        0.0079575
+      ],
+      "foot_com_displacement_xyz_m": [
+        2.8e-06,
+        0.0309305,
+        0.0079575
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.5934615
+    },
+    {
+      "action_index": 3,
+      "robot_joint_index": 0,
+      "joint": "joint_lf_1",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.094473,
+      "direction_pass": true,
+      "direct_child": "link_lf_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0,
+        8.1e-06,
+        4.09e-05
+      ],
+      "foot": "link_lf_sole",
+      "foot_displacement_xyz_m": [
+        6.4e-06,
+        -0.0314668,
+        -0.0049882
+      ],
+      "foot_com_displacement_xyz_m": [
+        6.4e-06,
+        -0.0314668,
+        -0.0049882
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3201478
+    },
+    {
+      "action_index": 4,
+      "robot_joint_index": 4,
+      "joint": "joint_lf_2",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0944293,
+      "direction_pass": true,
+      "direct_child": "link_lf_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        1e-07,
+        0.0,
+        8e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0020331,
+        9.1e-06,
+        0.0009861
+      ],
+      "foot": "link_lf_sole",
+      "foot_displacement_xyz_m": [
+        -0.0310255,
+        -6.33e-05,
+        -0.0032171
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0310255,
+        -6.33e-05,
+        -0.0032171
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.2789713
+    },
+    {
+      "action_index": 4,
+      "robot_joint_index": 4,
+      "joint": "joint_lf_2",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0944607,
+      "direction_pass": true,
+      "direct_child": "link_lf_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        0.0,
+        0.0,
+        2e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0021182,
+        -9.3e-06,
+        -0.0007947
+      ],
+      "foot": "link_lf_sole",
+      "foot_displacement_xyz_m": [
+        0.0306115,
+        5.88e-05,
+        0.0060976
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0306115,
+        5.88e-05,
+        0.0060976
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3033136
+    },
+    {
+      "action_index": 5,
+      "robot_joint_index": 8,
+      "joint": "joint_lf_3",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0983409,
+      "direction_pass": true,
+      "direct_child": "link_lf_knee",
+      "direct_child_displacement_xyz_m": [
+        0.0002884,
+        -2.5e-06,
+        -0.0001232
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0115194,
+        -9.43e-05,
+        -0.0083889
+      ],
+      "foot": "link_lf_sole",
+      "foot_displacement_xyz_m": [
+        -0.0160968,
+        -0.0001247,
+        -0.0111268
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0160968,
+        -0.0001247,
+        -0.0111268
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0489049
+    },
+    {
+      "action_index": 5,
+      "robot_joint_index": 8,
+      "joint": "joint_lf_3",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0983306,
+      "direction_pass": true,
+      "direct_child": "link_lf_knee",
+      "direct_child_displacement_xyz_m": [
+        -0.0002538,
+        -1.39e-05,
+        0.0001026
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0107232,
+        7.94e-05,
+        0.0094884
+      ],
+      "foot": "link_lf_sole",
+      "foot_displacement_xyz_m": [
+        0.0150236,
+        0.0001104,
+        0.0126619
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0150236,
+        0.0001104,
+        0.0126619
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0876451
+    },
+    {
+      "action_index": 6,
+      "robot_joint_index": 2,
+      "joint": "joint_rf_1",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0942665,
+      "direction_pass": true,
+      "direct_child": "link_rf_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        -1e-07,
+        0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -1e-07,
+        -6.6e-06,
+        2.43e-05
+      ],
+      "foot": "link_rf_sole",
+      "foot_displacement_xyz_m": [
+        1.73e-05,
+        0.0323043,
+        -0.004983
+      ],
+      "foot_com_displacement_xyz_m": [
+        1.73e-05,
+        0.0323043,
+        -0.004983
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3216029
+    },
+    {
+      "action_index": 6,
+      "robot_joint_index": 2,
+      "joint": "joint_rf_1",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0945104,
+      "direction_pass": true,
+      "direct_child": "link_rf_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        -1e-07,
+        0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -1e-07,
+        4.3e-06,
+        -2.49e-05
+      ],
+      "foot": "link_rf_sole",
+      "foot_displacement_xyz_m": [
+        9.7e-06,
+        -0.0317727,
+        0.0080327
+      ],
+      "foot_com_displacement_xyz_m": [
+        9.7e-06,
+        -0.0317727,
+        0.0080327
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.6102232
+    },
+    {
+      "action_index": 7,
+      "robot_joint_index": 6,
+      "joint": "joint_rf_2",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0942446,
+      "direction_pass": true,
+      "direct_child": "link_rf_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        -1e-07,
+        0.0,
+        3e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0022145,
+        5.9e-06,
+        -0.0004634
+      ],
+      "foot": "link_rf_sole",
+      "foot_displacement_xyz_m": [
+        0.0313374,
+        -8.05e-05,
+        0.0083974
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0313374,
+        -8.05e-05,
+        0.0083974
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3657514
+    },
+    {
+      "action_index": 7,
+      "robot_joint_index": 6,
+      "joint": "joint_rf_2",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0941708,
+      "direction_pass": true,
+      "direct_child": "link_rf_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        -0.0,
+        0.0,
+        6e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0021597,
+        -5.9e-06,
+        0.0006654
+      ],
+      "foot": "link_rf_sole",
+      "foot_displacement_xyz_m": [
+        -0.0319462,
+        8e-05,
+        -0.0054396
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0319462,
+        8e-05,
+        -0.0054396
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.2551852
+    },
+    {
+      "action_index": 8,
+      "robot_joint_index": 10,
+      "joint": "joint_rf_3",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0983333,
+      "direction_pass": true,
+      "direct_child": "link_rf_knee",
+      "direct_child_displacement_xyz_m": [
+        -0.0002695,
+        1.4e-05,
+        6.46e-05
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0107756,
+        -7.86e-05,
+        0.0093679
+      ],
+      "foot": "link_rf_sole",
+      "foot_displacement_xyz_m": [
+        0.0151039,
+        -0.0001093,
+        0.0125039
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0151039,
+        -0.0001093,
+        0.0125039
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0962334
+    },
+    {
+      "action_index": 8,
+      "robot_joint_index": 10,
+      "joint": "joint_rf_3",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0983235,
+      "direction_pass": true,
+      "direct_child": "link_rf_knee",
+      "direct_child_displacement_xyz_m": [
+        0.0003054,
+        6e-07,
+        -7.87e-05
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0115597,
+        8.98e-05,
+        -0.0082546
+      ],
+      "foot": "link_rf_sole",
+      "foot_displacement_xyz_m": [
+        -0.0161603,
+        0.0001192,
+        -0.0109523
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0161603,
+        0.0001192,
+        -0.0109523
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0556593
+    },
+    {
+      "action_index": 9,
+      "robot_joint_index": 3,
+      "joint": "joint_rr_1",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0945502,
+      "direction_pass": true,
+      "direct_child": "link_rr_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0,
+        3.7e-06,
+        -4.15e-05
+      ],
+      "foot": "link_rr_sole",
+      "foot_displacement_xyz_m": [
+        -5e-06,
+        -0.0328938,
+        0.0085169
+      ],
+      "foot_com_displacement_xyz_m": [
+        -5e-06,
+        -0.0328938,
+        0.0085169
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.6250312
+    },
+    {
+      "action_index": 9,
+      "robot_joint_index": 3,
+      "joint": "joint_rr_1",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.094295,
+      "direction_pass": true,
+      "direct_child": "link_rr_hip_roll",
+      "direct_child_displacement_xyz_m": [
+        -1e-07,
+        -0.0,
+        0.0
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -1e-07,
+        -7.7e-06,
+        4.09e-05
+      ],
+      "foot": "link_rr_sole",
+      "foot_displacement_xyz_m": [
+        -4.7e-06,
+        0.0334598,
+        -0.0053655
+      ],
+      "foot_com_displacement_xyz_m": [
+        -4.7e-06,
+        0.0334598,
+        -0.0053655
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3292599
+    },
+    {
+      "action_index": 10,
+      "robot_joint_index": 7,
+      "joint": "joint_rr_2",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.0941394,
+      "direction_pass": true,
+      "direct_child": "link_rr_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        0.0,
+        -0.0,
+        1e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0021057,
+        -1.3e-06,
+        -0.0008209
+      ],
+      "foot": "link_rr_sole",
+      "foot_displacement_xyz_m": [
+        0.0327187,
+        8.9e-06,
+        0.0022883
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0327187,
+        8.9e-06,
+        0.0022883
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.2896075
+    },
+    {
+      "action_index": 10,
+      "robot_joint_index": 7,
+      "joint": "joint_rr_2",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.0941532,
+      "direction_pass": true,
+      "direct_child": "link_rr_hip_pitch",
+      "direct_child_displacement_xyz_m": [
+        0.0,
+        0.0,
+        7e-07
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0020196,
+        3.4e-06,
+        0.0010121
+      ],
+      "foot": "link_rr_sole",
+      "foot_displacement_xyz_m": [
+        -0.0327874,
+        2.62e-05,
+        0.0007571
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0327874,
+        2.62e-05,
+        0.0007571
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.3443243
+    },
+    {
+      "action_index": 11,
+      "robot_joint_index": 11,
+      "joint": "joint_rr_3",
+      "requested_delta_rad": 0.1,
+      "measured_delta_rad": 0.098086,
+      "direction_pass": true,
+      "direct_child": "link_rr_knee",
+      "direct_child_displacement_xyz_m": [
+        -0.0003118,
+        1.06e-05,
+        0.0001353
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        0.0124349,
+        3.16e-05,
+        0.0067312
+      ],
+      "foot": "link_rr_sole",
+      "foot_displacement_xyz_m": [
+        0.0173269,
+        3.91e-05,
+        0.0089812
+      ],
+      "foot_com_displacement_xyz_m": [
+        0.0173269,
+        3.91e-05,
+        0.0089812
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0640449
+    },
+    {
+      "action_index": 11,
+      "robot_joint_index": 11,
+      "joint": "joint_rr_3",
+      "requested_delta_rad": -0.1,
+      "measured_delta_rad": -0.098116,
+      "direction_pass": true,
+      "direct_child": "link_rr_knee",
+      "direct_child_displacement_xyz_m": [
+        0.0003431,
+        1.8e-06,
+        -0.0001534
+      ],
+      "direct_child_com_displacement_xyz_m": [
+        -0.0129559,
+        -6.8e-06,
+        -0.0054872
+      ],
+      "foot": "link_rr_sole",
+      "foot_displacement_xyz_m": [
+        -0.0180329,
+        -9.5e-06,
+        -0.0072545
+      ],
+      "foot_com_displacement_xyz_m": [
+        -0.0180329,
+        -9.5e-06,
+        -0.0072545
+      ],
+      "root_displacement_xyz_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peak_abs_torque_nm": 0.0366837
+    }
+  ]
+}

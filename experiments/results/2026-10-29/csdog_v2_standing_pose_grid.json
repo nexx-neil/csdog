@@ -1,0 +1,3754 @@
+{
+  "schema_version": 1,
+  "task": "CSDog-V2-Calibration-Direct-v0",
+  "seed": 42,
+  "grid_rad": [
+    -0.8,
+    0.0,
+    0.8
+  ],
+  "candidate_count": 81,
+  "duration_s": 4.0,
+  "selection_rule": "lowest explicit score; sole/knee contact penalties dominate posture and motion",
+  "top_candidates": [
+    {
+      "candidate_index": 40,
+      "score": 8.057521,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.386379,
+      "root_speed_m_s": 0.020999,
+      "root_angular_speed_rad_s": 0.003906,
+      "projected_gravity_xy_norm": 0.111969,
+      "sole_contact_force_n": {
+        "link_lr_sole": 32.135384,
+        "link_lf_sole": 15.40797,
+        "link_rf_sole": 10.158723,
+        "link_rr_sole": 16.971445
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 13,
+      "score": 14.685138,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.343708,
+      "root_speed_m_s": 0.021455,
+      "root_angular_speed_rad_s": 0.00909,
+      "projected_gravity_xy_norm": 0.243303,
+      "sole_contact_force_n": {
+        "link_lr_sole": 23.031525,
+        "link_lf_sole": 21.718964,
+        "link_rf_sole": 12.689455,
+        "link_rr_sole": 17.164484
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 67,
+      "score": 17.296568,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.327733,
+      "root_speed_m_s": 0.021432,
+      "root_angular_speed_rad_s": 0.010319,
+      "projected_gravity_xy_norm": 0.295295,
+      "sole_contact_force_n": {
+        "link_lr_sole": 28.637791,
+        "link_lf_sole": 15.360114,
+        "link_rf_sole": 21.659378,
+        "link_rr_sole": 8.962167
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 14,
+      "score": 17.789954,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.289081,
+      "root_speed_m_s": 0.021073,
+      "root_angular_speed_rad_s": 0.018995,
+      "projected_gravity_xy_norm": 0.303571,
+      "sole_contact_force_n": {
+        "link_lr_sole": 6.843582,
+        "link_lf_sole": 17.822222,
+        "link_rf_sole": 40.878971,
+        "link_rr_sole": 9.150403
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 20,
+      "score": 20.37863,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.326988,
+      "root_speed_m_s": 0.020309,
+      "root_angular_speed_rad_s": 0.029002,
+      "projected_gravity_xy_norm": 0.353648,
+      "sole_contact_force_n": {
+        "link_lr_sole": 9.164499,
+        "link_lf_sole": 1.478239,
+        "link_rf_sole": 37.417412,
+        "link_rr_sole": 26.588551
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 22,
+      "score": 105.94501,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.379415,
+      "root_speed_m_s": 0.020826,
+      "root_angular_speed_rad_s": 0.010749,
+      "projected_gravity_xy_norm": 0.06842,
+      "sole_contact_force_n": {
+        "link_lr_sole": 24.016685,
+        "link_lf_sole": 19.965696,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 30.700138
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 24,
+      "score": 111.987947,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.304511,
+      "root_speed_m_s": 0.020362,
+      "root_angular_speed_rad_s": 0.011034,
+      "projected_gravity_xy_norm": 0.189407,
+      "sole_contact_force_n": {
+        "link_lr_sole": 34.804432,
+        "link_lf_sole": 11.34786,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 28.339159
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 42,
+      "score": 114.844585,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.31277,
+      "root_speed_m_s": 0.021061,
+      "root_angular_speed_rad_s": 0.008216,
+      "projected_gravity_xy_norm": 0.246824,
+      "sole_contact_force_n": {
+        "link_lr_sole": 34.720055,
+        "link_lf_sole": 10.957818,
+        "link_rf_sole": 0.385957,
+        "link_rr_sole": 28.919489
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 19,
+      "score": 118.378086,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.332293,
+      "root_speed_m_s": 0.021063,
+      "root_angular_speed_rad_s": 0.007225,
+      "projected_gravity_xy_norm": 0.317691,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 14.250943,
+        "link_rf_sole": 35.706562,
+        "link_rr_sole": 25.545464
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 49,
+      "score": 121.199004,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.360227,
+      "root_speed_m_s": 0.019945,
+      "root_angular_speed_rad_s": 0.020032,
+      "projected_gravity_xy_norm": 0.371996,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 18.958332,
+        "link_rf_sole": 24.366573,
+        "link_rr_sole": 31.845879
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 60,
+      "score": 124.094729,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.299084,
+      "root_speed_m_s": 0.0204,
+      "root_angular_speed_rad_s": 0.025218,
+      "projected_gravity_xy_norm": 0.468691,
+      "sole_contact_force_n": {
+        "link_lr_sole": 28.231325,
+        "link_lf_sole": 41.298241,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 5.093995
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 0.875617
+    },
+    {
+      "candidate_index": 44,
+      "score": 154.822271,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.298777,
+      "root_speed_m_s": 0.018655,
+      "root_angular_speed_rad_s": 0.06736,
+      "projected_gravity_xy_norm": 0.274824,
+      "sole_contact_force_n": {
+        "link_lr_sole": 26.846153,
+        "link_lf_sole": 2.757361,
+        "link_rf_sole": 36.741795,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 8.006878
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 8.006878,
+      "max_peak_torque_limit_fraction": 0.872682
+    },
+    {
+      "candidate_index": 25,
+      "score": 199.960139,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.294581,
+      "root_speed_m_s": 0.015919,
+      "root_angular_speed_rad_s": 0.123924,
+      "projected_gravity_xy_norm": 0.345866,
+      "sole_contact_force_n": {
+        "link_lr_sole": 16.87134,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 32.46595,
+        "link_rr_sole": 9.439102
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 15.82184
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 15.82184,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 64,
+      "score": 211.555191,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.267711,
+      "root_speed_m_s": 0.017109,
+      "root_angular_speed_rad_s": 0.093271,
+      "projected_gravity_xy_norm": 0.132212,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 29.962969,
+        "link_rf_sole": 6.846606,
+        "link_rr_sole": 17.385637
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 20.333946,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 20.333946,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 62,
+      "score": 213.702661,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.251801,
+      "root_speed_m_s": 0.018789,
+      "root_angular_speed_rad_s": 0.066796,
+      "projected_gravity_xy_norm": 0.215283,
+      "sole_contact_force_n": {
+        "link_lr_sole": 16.703276,
+        "link_lf_sole": 26.660786,
+        "link_rf_sole": 11.311254,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 19.978952
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 19.978952,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 7,
+      "score": 217.18408,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.248627,
+      "root_speed_m_s": 0.014169,
+      "root_angular_speed_rad_s": 0.023771,
+      "projected_gravity_xy_norm": 0.166136,
+      "sole_contact_force_n": {
+        "link_lr_sole": 12.983672,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 7.805038,
+        "link_rr_sole": 32.612541
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 17.854439,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 3.416798
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 21.271236,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 48,
+      "score": 224.095729,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.326033,
+      "root_speed_m_s": 0.013072,
+      "root_angular_speed_rad_s": 0.166704,
+      "projected_gravity_xy_norm": 0.462498,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 6.146165,
+        "link_rf_sole": 24.323715,
+        "link_rr_sole": 24.072447
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 19.40847,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 19.40847,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 36,
+      "score": 226.954438,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.288646,
+      "root_speed_m_s": 0.018216,
+      "root_angular_speed_rad_s": 0.076075,
+      "projected_gravity_xy_norm": 0.300373,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 17.787537,
+        "link_rf_sole": 15.836425,
+        "link_rr_sole": 18.778275
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 22.162148,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 22.162148,
+      "max_peak_torque_limit_fraction": 0.833178
+    },
+    {
+      "candidate_index": 16,
+      "score": 232.68253,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.287073,
+      "root_speed_m_s": 0.015735,
+      "root_angular_speed_rad_s": 0.111797,
+      "projected_gravity_xy_norm": 0.224881,
+      "sole_contact_force_n": {
+        "link_lr_sole": 20.746098,
+        "link_lf_sole": 6.84591,
+        "link_rf_sole": 23.351095,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 23.601166,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 23.601166,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 18,
+      "score": 234.210269,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.254633,
+      "root_speed_m_s": 0.018207,
+      "root_angular_speed_rad_s": 0.061138,
+      "projected_gravity_xy_norm": 0.276209,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 5.899614,
+        "link_rf_sole": 30.172249,
+        "link_rr_sole": 14.744656
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 23.884857,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 23.884857,
+      "max_peak_torque_limit_fraction": 0.826878
+    }
+  ],
+  "all_candidates": [
+    {
+      "candidate_index": 40,
+      "score": 8.057521,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.386379,
+      "root_speed_m_s": 0.020999,
+      "root_angular_speed_rad_s": 0.003906,
+      "projected_gravity_xy_norm": 0.111969,
+      "sole_contact_force_n": {
+        "link_lr_sole": 32.135384,
+        "link_lf_sole": 15.40797,
+        "link_rf_sole": 10.158723,
+        "link_rr_sole": 16.971445
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 13,
+      "score": 14.685138,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.343708,
+      "root_speed_m_s": 0.021455,
+      "root_angular_speed_rad_s": 0.00909,
+      "projected_gravity_xy_norm": 0.243303,
+      "sole_contact_force_n": {
+        "link_lr_sole": 23.031525,
+        "link_lf_sole": 21.718964,
+        "link_rf_sole": 12.689455,
+        "link_rr_sole": 17.164484
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 67,
+      "score": 17.296568,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.327733,
+      "root_speed_m_s": 0.021432,
+      "root_angular_speed_rad_s": 0.010319,
+      "projected_gravity_xy_norm": 0.295295,
+      "sole_contact_force_n": {
+        "link_lr_sole": 28.637791,
+        "link_lf_sole": 15.360114,
+        "link_rf_sole": 21.659378,
+        "link_rr_sole": 8.962167
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 14,
+      "score": 17.789954,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.289081,
+      "root_speed_m_s": 0.021073,
+      "root_angular_speed_rad_s": 0.018995,
+      "projected_gravity_xy_norm": 0.303571,
+      "sole_contact_force_n": {
+        "link_lr_sole": 6.843582,
+        "link_lf_sole": 17.822222,
+        "link_rf_sole": 40.878971,
+        "link_rr_sole": 9.150403
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 20,
+      "score": 20.37863,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.326988,
+      "root_speed_m_s": 0.020309,
+      "root_angular_speed_rad_s": 0.029002,
+      "projected_gravity_xy_norm": 0.353648,
+      "sole_contact_force_n": {
+        "link_lr_sole": 9.164499,
+        "link_lf_sole": 1.478239,
+        "link_rf_sole": 37.417412,
+        "link_rr_sole": 26.588551
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 0,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 22,
+      "score": 105.94501,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.379415,
+      "root_speed_m_s": 0.020826,
+      "root_angular_speed_rad_s": 0.010749,
+      "projected_gravity_xy_norm": 0.06842,
+      "sole_contact_force_n": {
+        "link_lr_sole": 24.016685,
+        "link_lf_sole": 19.965696,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 30.700138
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 24,
+      "score": 111.987947,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.304511,
+      "root_speed_m_s": 0.020362,
+      "root_angular_speed_rad_s": 0.011034,
+      "projected_gravity_xy_norm": 0.189407,
+      "sole_contact_force_n": {
+        "link_lr_sole": 34.804432,
+        "link_lf_sole": 11.34786,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 28.339159
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 42,
+      "score": 114.844585,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.31277,
+      "root_speed_m_s": 0.021061,
+      "root_angular_speed_rad_s": 0.008216,
+      "projected_gravity_xy_norm": 0.246824,
+      "sole_contact_force_n": {
+        "link_lr_sole": 34.720055,
+        "link_lf_sole": 10.957818,
+        "link_rf_sole": 0.385957,
+        "link_rr_sole": 28.919489
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 19,
+      "score": 118.378086,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.332293,
+      "root_speed_m_s": 0.021063,
+      "root_angular_speed_rad_s": 0.007225,
+      "projected_gravity_xy_norm": 0.317691,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 14.250943,
+        "link_rf_sole": 35.706562,
+        "link_rr_sole": 25.545464
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 49,
+      "score": 121.199004,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.360227,
+      "root_speed_m_s": 0.019945,
+      "root_angular_speed_rad_s": 0.020032,
+      "projected_gravity_xy_norm": 0.371996,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 18.958332,
+        "link_rf_sole": 24.366573,
+        "link_rr_sole": 31.845879
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 60,
+      "score": 124.094729,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.299084,
+      "root_speed_m_s": 0.0204,
+      "root_angular_speed_rad_s": 0.025218,
+      "projected_gravity_xy_norm": 0.468691,
+      "sole_contact_force_n": {
+        "link_lr_sole": 28.231325,
+        "link_lf_sole": 41.298241,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 5.093995
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 0.875617
+    },
+    {
+      "candidate_index": 44,
+      "score": 154.822271,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.298777,
+      "root_speed_m_s": 0.018655,
+      "root_angular_speed_rad_s": 0.06736,
+      "projected_gravity_xy_norm": 0.274824,
+      "sole_contact_force_n": {
+        "link_lr_sole": 26.846153,
+        "link_lf_sole": 2.757361,
+        "link_rf_sole": 36.741795,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 8.006878
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 8.006878,
+      "max_peak_torque_limit_fraction": 0.872682
+    },
+    {
+      "candidate_index": 25,
+      "score": 199.960139,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.294581,
+      "root_speed_m_s": 0.015919,
+      "root_angular_speed_rad_s": 0.123924,
+      "projected_gravity_xy_norm": 0.345866,
+      "sole_contact_force_n": {
+        "link_lr_sole": 16.87134,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 32.46595,
+        "link_rr_sole": 9.439102
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 15.82184
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 15.82184,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 64,
+      "score": 211.555191,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.267711,
+      "root_speed_m_s": 0.017109,
+      "root_angular_speed_rad_s": 0.093271,
+      "projected_gravity_xy_norm": 0.132212,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 29.962969,
+        "link_rf_sole": 6.846606,
+        "link_rr_sole": 17.385637
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 20.333946,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 20.333946,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 62,
+      "score": 213.702661,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.251801,
+      "root_speed_m_s": 0.018789,
+      "root_angular_speed_rad_s": 0.066796,
+      "projected_gravity_xy_norm": 0.215283,
+      "sole_contact_force_n": {
+        "link_lr_sole": 16.703276,
+        "link_lf_sole": 26.660786,
+        "link_rf_sole": 11.311254,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 19.978952
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 19.978952,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 7,
+      "score": 217.18408,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.248627,
+      "root_speed_m_s": 0.014169,
+      "root_angular_speed_rad_s": 0.023771,
+      "projected_gravity_xy_norm": 0.166136,
+      "sole_contact_force_n": {
+        "link_lr_sole": 12.983672,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 7.805038,
+        "link_rr_sole": 32.612541
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 17.854439,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 3.416798
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 21.271236,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 48,
+      "score": 224.095729,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.326033,
+      "root_speed_m_s": 0.013072,
+      "root_angular_speed_rad_s": 0.166704,
+      "projected_gravity_xy_norm": 0.462498,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 6.146165,
+        "link_rf_sole": 24.323715,
+        "link_rr_sole": 24.072447
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 19.40847,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 19.40847,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 36,
+      "score": 226.954438,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.288646,
+      "root_speed_m_s": 0.018216,
+      "root_angular_speed_rad_s": 0.076075,
+      "projected_gravity_xy_norm": 0.300373,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 17.787537,
+        "link_rf_sole": 15.836425,
+        "link_rr_sole": 18.778275
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 22.162148,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 22.162148,
+      "max_peak_torque_limit_fraction": 0.833178
+    },
+    {
+      "candidate_index": 16,
+      "score": 232.68253,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.287073,
+      "root_speed_m_s": 0.015735,
+      "root_angular_speed_rad_s": 0.111797,
+      "projected_gravity_xy_norm": 0.224881,
+      "sole_contact_force_n": {
+        "link_lr_sole": 20.746098,
+        "link_lf_sole": 6.84591,
+        "link_rf_sole": 23.351095,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 23.601166,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 23.601166,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 18,
+      "score": 234.210269,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.254633,
+      "root_speed_m_s": 0.018207,
+      "root_angular_speed_rad_s": 0.061138,
+      "projected_gravity_xy_norm": 0.276209,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 5.899614,
+        "link_rf_sole": 30.172249,
+        "link_rr_sole": 14.744656
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 23.884857,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 23.884857,
+      "max_peak_torque_limit_fraction": 0.826878
+    },
+    {
+      "candidate_index": 65,
+      "score": 243.359896,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.296541,
+      "root_speed_m_s": 0.013557,
+      "root_angular_speed_rad_s": 0.112219,
+      "projected_gravity_xy_norm": 0.397274,
+      "sole_contact_force_n": {
+        "link_lr_sole": 12.723604,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 6.617227,
+        "link_rr_sole": 31.531296
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 24.02058,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 24.02058,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 70,
+      "score": 270.33427,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.269452,
+      "root_speed_m_s": 0.012074,
+      "root_angular_speed_rad_s": 0.189132,
+      "projected_gravity_xy_norm": 0.288663,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 20.833965,
+        "link_rf_sole": 3.513668,
+        "link_rr_sole": 19.804916
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 30.353668
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 30.353668,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 26,
+      "score": 293.691354,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.277935,
+      "root_speed_m_s": 0.01868,
+      "root_angular_speed_rad_s": 0.061529,
+      "projected_gravity_xy_norm": 0.238679,
+      "sole_contact_force_n": {
+        "link_lr_sole": 12.897555,
+        "link_lf_sole": 17.236866,
+        "link_rf_sole": 8.461435,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 35.7537
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 35.7537,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 61,
+      "score": 305.086055,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.293142,
+      "root_speed_m_s": 0.015999,
+      "root_angular_speed_rad_s": 0.131261,
+      "projected_gravity_xy_norm": 0.368768,
+      "sole_contact_force_n": {
+        "link_lr_sole": 15.185809,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 18.812988,
+        "link_rr_sole": 3.96107
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 36.603016
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 36.603016,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 55,
+      "score": 310.880658,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.294009,
+      "root_speed_m_s": 0.016452,
+      "root_angular_speed_rad_s": 0.080567,
+      "projected_gravity_xy_norm": 0.303682,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 16.815413,
+        "link_rf_sole": 9.232097,
+        "link_rr_sole": 7.079701
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 38.512367,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 38.512367,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 74,
+      "score": 348.803503,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.292805,
+      "root_speed_m_s": 0.01661,
+      "root_angular_speed_rad_s": 0.05757,
+      "projected_gravity_xy_norm": 0.247675,
+      "sole_contact_force_n": {
+        "link_lr_sole": 22.43623,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 25.49535
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 26.702372,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 26.702372,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 53,
+      "score": 349.384971,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.094505,
+      "root_speed_m_s": 0.002608,
+      "root_angular_speed_rad_s": 0.008087,
+      "projected_gravity_xy_norm": 0.945039,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 16.821562
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 27,
+      "score": 349.495667,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.094449,
+      "root_speed_m_s": 0.003278,
+      "root_angular_speed_rad_s": 0.020548,
+      "projected_gravity_xy_norm": 0.944493,
+      "sole_contact_force_n": {
+        "link_lr_sole": 17.534479,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 73,
+      "score": 353.947427,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.248328,
+      "root_speed_m_s": 0.014215,
+      "root_angular_speed_rad_s": 0.065501,
+      "projected_gravity_xy_norm": 0.150609,
+      "sole_contact_force_n": {
+        "link_lr_sole": 15.17411,
+        "link_lf_sole": 2.673359,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 8.228273
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 24.257435,
+        "link_rf_knee": 24.438099,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 1,
+      "knee_contact_force_sum_n": 48.695534,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 68,
+      "score": 359.999235,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.276427,
+      "root_speed_m_s": 0.008176,
+      "root_angular_speed_rad_s": 0.245992,
+      "projected_gravity_xy_norm": 0.529646,
+      "sole_contact_force_n": {
+        "link_lr_sole": 4.777438,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 43.964161
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 20.813377,
+        "link_rr_knee": 4.965318
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 25.778696,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 77,
+      "score": 361.163777,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.278205,
+      "root_speed_m_s": 0.005829,
+      "root_angular_speed_rad_s": 0.294552,
+      "projected_gravity_xy_norm": 0.524347,
+      "sole_contact_force_n": {
+        "link_lr_sole": 4.852009,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 44.427959
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 20.716698,
+        "link_rr_knee": 5.66017
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 26.376868,
+      "max_peak_torque_limit_fraction": 0.814795
+    },
+    {
+      "candidate_index": 6,
+      "score": 367.663187,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.290662,
+      "root_speed_m_s": 0.014501,
+      "root_angular_speed_rad_s": 0.084288,
+      "projected_gravity_xy_norm": 0.350751,
+      "sole_contact_force_n": {
+        "link_lr_sole": 30.286503,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 14.998655
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 29.398552,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 29.398552,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 54,
+      "score": 389.194451,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.260134,
+      "root_speed_m_s": 0.018214,
+      "root_angular_speed_rad_s": 0.055679,
+      "projected_gravity_xy_norm": 0.231344,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 25.318304,
+        "link_rr_sole": 15.983433
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 34.941235,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 34.941235,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 63,
+      "score": 392.691426,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.237573,
+      "root_speed_m_s": 0.019542,
+      "root_angular_speed_rad_s": 0.038585,
+      "projected_gravity_xy_norm": 0.374859,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 19.868467,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 20.493698
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 34.234364,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 34.234364,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 15,
+      "score": 394.561136,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.290842,
+      "root_speed_m_s": 0.013861,
+      "root_angular_speed_rad_s": 0.095588,
+      "projected_gravity_xy_norm": 0.476973,
+      "sole_contact_force_n": {
+        "link_lr_sole": 33.6273,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 6.521629
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 33.639133,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 33.639133,
+      "max_peak_torque_limit_fraction": 0.964186
+    },
+    {
+      "candidate_index": 11,
+      "score": 402.047254,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": -3e-06,
+      "root_speed_m_s": 0.000386,
+      "root_angular_speed_rad_s": 0.003934,
+      "projected_gravity_xy_norm": 4e-06,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 69,
+      "score": 402.060766,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": -1e-06,
+      "root_speed_m_s": 0.000237,
+      "root_angular_speed_rad_s": 0.005569,
+      "projected_gravity_xy_norm": 7e-06,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 0.0,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 17,
+      "score": 402.764202,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.259581,
+      "root_speed_m_s": 0.018239,
+      "root_angular_speed_rad_s": 0.069852,
+      "projected_gravity_xy_norm": 0.351322,
+      "sole_contact_force_n": {
+        "link_lr_sole": 19.635433,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 18.715778,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 36.426964,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 36.426964,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 71,
+      "score": 425.373045,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.262059,
+      "root_speed_m_s": 0.013003,
+      "root_angular_speed_rad_s": 0.165347,
+      "projected_gravity_xy_norm": 0.133553,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 29.47179,
+        "link_rf_sole": 2.245988,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 13.814597,
+        "link_rr_knee": 29.141777
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 42.956374,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 10,
+      "score": 438.65351,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.281656,
+      "root_speed_m_s": 0.009961,
+      "root_angular_speed_rad_s": 0.208796,
+      "projected_gravity_xy_norm": 0.278552,
+      "sole_contact_force_n": {
+        "link_lr_sole": 10.063732,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 20.565897,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 14.417583,
+        "link_lr_knee": 29.670164,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 44.087747,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 80,
+      "score": 442.789691,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.166062,
+      "root_speed_m_s": 0.020277,
+      "root_angular_speed_rad_s": 0.019126,
+      "projected_gravity_xy_norm": 0.605739,
+      "sole_contact_force_n": {
+        "link_lr_sole": 3.183038,
+        "link_lf_sole": 28.970093,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 21.009298,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 21.00293,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 42.012228,
+      "max_peak_torque_limit_fraction": 0.992241
+    },
+    {
+      "candidate_index": 0,
+      "score": 447.670078,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.179938,
+      "root_speed_m_s": 0.021062,
+      "root_angular_speed_rad_s": 0.009085,
+      "projected_gravity_xy_norm": 0.543083,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 28.190899,
+        "link_rr_sole": 2.87928
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 21.368111,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 22.232656,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 43.600767,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 66,
+      "score": 464.748224,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.085202,
+      "root_speed_m_s": 0.001668,
+      "root_angular_speed_rad_s": 0.00414,
+      "projected_gravity_xy_norm": 0.852003,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 4.014661,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 4.014661,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 57,
+      "score": 473.321627,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.086015,
+      "root_speed_m_s": 0.001362,
+      "root_angular_speed_rad_s": 0.008327,
+      "projected_gravity_xy_norm": 0.860143,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 5.981615,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 5.981615,
+      "max_peak_torque_limit_fraction": 0.914795
+    },
+    {
+      "candidate_index": 58,
+      "score": 487.928733,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.087228,
+      "root_speed_m_s": 0.001274,
+      "root_angular_speed_rad_s": 0.021177,
+      "projected_gravity_xy_norm": 0.87227,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 8.415593,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 8.415593,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 8,
+      "score": 489.850577,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.242775,
+      "root_speed_m_s": 0.015986,
+      "root_angular_speed_rad_s": 0.016235,
+      "projected_gravity_xy_norm": 0.125318,
+      "sole_contact_force_n": {
+        "link_lr_sole": 10.176361,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 8.222589,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 31.715342,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 24.505178
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 56.22052,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 45,
+      "score": 494.10094,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.262121,
+      "root_speed_m_s": 0.013108,
+      "root_angular_speed_rad_s": 0.142076,
+      "projected_gravity_xy_norm": 0.587833,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 4.011532,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 18.333466
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 52.205276,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 52.205276,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 72,
+      "score": 509.240743,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.229209,
+      "root_speed_m_s": 0.016822,
+      "root_angular_speed_rad_s": 0.021469,
+      "projected_gravity_xy_norm": 0.223728,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 2.915809,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 12.06843
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 25.940996,
+        "link_rf_knee": 33.559647,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 59.500643,
+      "max_peak_torque_limit_fraction": 0.60915
+    },
+    {
+      "candidate_index": 28,
+      "score": 514.012394,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.095717,
+      "root_speed_m_s": 0.002464,
+      "root_angular_speed_rad_s": 0.025504,
+      "projected_gravity_xy_norm": 0.957179,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 6.39876,
+        "link_lr_knee": 6.771068,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.169828,
+      "max_peak_torque_limit_fraction": 0.854683
+    },
+    {
+      "candidate_index": 23,
+      "score": 515.093317,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.091841,
+      "root_speed_m_s": 0.001149,
+      "root_angular_speed_rad_s": 0.021428,
+      "projected_gravity_xy_norm": 0.918412,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 13.787087,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.787087,
+      "max_peak_torque_limit_fraction": 0.788349
+    },
+    {
+      "candidate_index": 1,
+      "score": 515.688083,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.200195,
+      "root_speed_m_s": 0.020291,
+      "root_angular_speed_rad_s": 0.009843,
+      "projected_gravity_xy_norm": 0.647886,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 14.048515,
+        "link_rr_sole": 4.312951
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 15.157811,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 41.000099,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 56.15791,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 37,
+      "score": 516.299309,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.095831,
+      "root_speed_m_s": 0.003171,
+      "root_angular_speed_rad_s": 0.009361,
+      "projected_gravity_xy_norm": 0.958313,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 6.266809,
+        "link_lr_knee": 6.978512,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.24532,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 21,
+      "score": 516.482757,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.095416,
+      "root_speed_m_s": 0.002697,
+      "root_angular_speed_rad_s": 0.021458,
+      "projected_gravity_xy_norm": 0.95418,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 3.49439,
+        "link_lr_knee": 10.206657,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.701047,
+      "max_peak_torque_limit_fraction": 0.535527
+    },
+    {
+      "candidate_index": 59,
+      "score": 516.81706,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.095269,
+      "root_speed_m_s": 0.002397,
+      "root_angular_speed_rad_s": 0.019036,
+      "projected_gravity_xy_norm": 0.952683,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 6.795137,
+        "link_rr_knee": 6.614911
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.410048,
+      "max_peak_torque_limit_fraction": 0.994719
+    },
+    {
+      "candidate_index": 29,
+      "score": 517.674676,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.095737,
+      "root_speed_m_s": 0.002998,
+      "root_angular_speed_rad_s": 0.01363,
+      "projected_gravity_xy_norm": 0.957376,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 6.053957,
+        "link_lr_knee": 7.467967,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.521924,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 51,
+      "score": 517.878217,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.095866,
+      "root_speed_m_s": 0.00249,
+      "root_angular_speed_rad_s": 0.013517,
+      "projected_gravity_xy_norm": 0.958649,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 3.190033,
+        "link_rr_knee": 10.36213
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.552163,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 52,
+      "score": 518.03508,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.095843,
+      "root_speed_m_s": 0.003114,
+      "root_angular_speed_rad_s": 0.019502,
+      "projected_gravity_xy_norm": 0.958425,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 3.510589,
+        "link_rr_knee": 10.060714
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.571303,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 30,
+      "score": 518.572154,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.095587,
+      "root_speed_m_s": 0.002927,
+      "root_angular_speed_rad_s": 0.014587,
+      "projected_gravity_xy_norm": 0.955879,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 4.414399,
+        "link_lr_knee": 9.70036,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.114759,
+      "max_peak_torque_limit_fraction": 0.592048
+    },
+    {
+      "candidate_index": 12,
+      "score": 518.677654,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.280926,
+      "root_speed_m_s": 0.009765,
+      "root_angular_speed_rad_s": 0.188493,
+      "projected_gravity_xy_norm": 0.546222,
+      "sole_contact_force_n": {
+        "link_lr_sole": 12.568342,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 5.079519
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 33.966793,
+        "link_lr_knee": 23.490475,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 57.457268,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 38,
+      "score": 519.339548,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.095664,
+      "root_speed_m_s": 0.00297,
+      "root_angular_speed_rad_s": 0.015033,
+      "projected_gravity_xy_norm": 0.956634,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 6.865556,
+        "link_lr_knee": 6.994069,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 13.859624,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 43,
+      "score": 520.209888,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.095912,
+      "root_speed_m_s": 0.003254,
+      "root_angular_speed_rad_s": 0.01043,
+      "projected_gravity_xy_norm": 0.959118,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 5.618519,
+        "link_rr_knee": 8.398406
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.016925,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 32,
+      "score": 520.594821,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.095309,
+      "root_speed_m_s": 0.002363,
+      "root_angular_speed_rad_s": 0.02509,
+      "projected_gravity_xy_norm": 0.953093,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 1.500253,
+        "link_lr_knee": 12.628145,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.128398,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 39,
+      "score": 520.838394,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.095438,
+      "root_speed_m_s": 0.002184,
+      "root_angular_speed_rad_s": 0.021449,
+      "projected_gravity_xy_norm": 0.954384,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 3.718787,
+        "link_lr_knee": 10.806603,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.52539,
+      "max_peak_torque_limit_fraction": 0.911703
+    },
+    {
+      "candidate_index": 50,
+      "score": 521.41246,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.095883,
+      "root_speed_m_s": 0.002536,
+      "root_angular_speed_rad_s": 0.015588,
+      "projected_gravity_xy_norm": 0.958817,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 3.833119,
+        "link_rr_knee": 10.419882
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.253001,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 31,
+      "score": 522.929053,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.095561,
+      "root_speed_m_s": 0.002873,
+      "root_angular_speed_rad_s": 0.019717,
+      "projected_gravity_xy_norm": 0.955618,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 4.898304,
+        "link_lr_knee": 9.680405,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.578709,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 41,
+      "score": 523.165748,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.095787,
+      "root_speed_m_s": 0.001955,
+      "root_angular_speed_rad_s": 0.025286,
+      "projected_gravity_xy_norm": 0.957863,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 3.966148,
+        "link_rr_knee": 10.629979
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 14.596127,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 79,
+      "score": 534.416222,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.188057,
+      "root_speed_m_s": 0.020125,
+      "root_angular_speed_rad_s": 0.02268,
+      "projected_gravity_xy_norm": 0.69819,
+      "sole_contact_force_n": {
+        "link_lr_sole": 5.927354,
+        "link_lf_sole": 10.655103,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 43.564217,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 15.811266,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 59.375483,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 56,
+      "score": 540.422361,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.28448,
+      "root_speed_m_s": 0.013019,
+      "root_angular_speed_rad_s": 0.062153,
+      "projected_gravity_xy_norm": 0.677814,
+      "sole_contact_force_n": {
+        "link_lr_sole": 11.530963,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 1.960263
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 60.72995,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 2,
+      "knee_contact_force_sum_n": 60.72995,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 33,
+      "score": 546.540946,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.101581,
+      "root_speed_m_s": 0.002258,
+      "root_angular_speed_rad_s": 0.025582,
+      "projected_gravity_xy_norm": 0.953283,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 4.396393,
+        "link_lr_knee": 14.91877,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 19.315163,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 47,
+      "score": 550.351734,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.100835,
+      "root_speed_m_s": 0.002104,
+      "root_angular_speed_rad_s": 0.057087,
+      "projected_gravity_xy_norm": 0.955434,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 3.322786,
+        "link_rr_knee": 16.670631
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 19.993417,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 34,
+      "score": 559.634876,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.102472,
+      "root_speed_m_s": 0.001601,
+      "root_angular_speed_rad_s": 0.010855,
+      "projected_gravity_xy_norm": 0.954294,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 5.780817,
+        "link_lr_knee": 16.293947,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 22.074764,
+      "max_peak_torque_limit_fraction": 0.970289
+    },
+    {
+      "candidate_index": 46,
+      "score": 560.715299,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.102118,
+      "root_speed_m_s": 0.002877,
+      "root_angular_speed_rad_s": 0.022326,
+      "projected_gravity_xy_norm": 0.955386,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 5.462534,
+        "link_rr_knee": 16.670509
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 22.133043,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 35,
+      "score": 562.238673,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.0,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.0,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.102692,
+      "root_speed_m_s": 0.002276,
+      "root_angular_speed_rad_s": 0.019614,
+      "projected_gravity_xy_norm": 0.953959,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 5.654157,
+        "link_lr_knee": 16.805658,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 4,
+      "knee_contact_force_sum_n": 22.459815,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 9,
+      "score": 564.473754,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": 0.0,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": 0.0,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.276459,
+      "root_speed_m_s": 0.011075,
+      "root_angular_speed_rad_s": 0.193096,
+      "projected_gravity_xy_norm": 0.196346,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 24.910975,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 19.307442,
+        "link_lr_knee": 30.793354,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 50.100796,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 5,
+      "score": 567.057406,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.209244,
+      "root_speed_m_s": 0.014275,
+      "root_angular_speed_rad_s": 0.041355,
+      "projected_gravity_xy_norm": 0.836706,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 16.1453
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 4.06767,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 40.836941,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 44.904611,
+      "max_peak_torque_limit_fraction": 0.856788
+    },
+    {
+      "candidate_index": 75,
+      "score": 581.218948,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.194715,
+      "root_speed_m_s": 0.013512,
+      "root_angular_speed_rad_s": 0.104456,
+      "projected_gravity_xy_norm": 0.801641,
+      "sole_contact_force_n": {
+        "link_lr_sole": 22.861467,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 37.765728,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 10.198687,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 47.964415,
+      "max_peak_torque_limit_fraction": 0.807071
+    },
+    {
+      "candidate_index": 4,
+      "score": 595.817265,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.204321,
+      "root_speed_m_s": 0.013419,
+      "root_angular_speed_rad_s": 0.041588,
+      "projected_gravity_xy_norm": 0.888581,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 7.765614
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 0.0,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 49.740791,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 49.740791,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 76,
+      "score": 603.243268,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": 0.0,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": 0.0
+      },
+      "root_height_m": 0.192254,
+      "root_speed_m_s": 0.014021,
+      "root_angular_speed_rad_s": 0.043468,
+      "projected_gravity_xy_norm": 0.922418,
+      "sole_contact_force_n": {
+        "link_lr_sole": 8.227265,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 50.881451,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 0.0,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 50.881451,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 78,
+      "score": 641.642987,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": 0.8,
+        "joint_lf_3": 0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": 0.8,
+        "joint_rf_3": 0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.8,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.8,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.189745,
+      "root_speed_m_s": 0.01888,
+      "root_angular_speed_rad_s": 0.025202,
+      "projected_gravity_xy_norm": 0.726657,
+      "sole_contact_force_n": {
+        "link_lr_sole": 14.428112,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 0.0
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 44.942616,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 15.593489,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 60.536104,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 2,
+      "score": 657.201629,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": -0.8,
+        "joint_lr_3": 0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": -0.8,
+        "joint_rr_3": 0.8
+      },
+      "root_height_m": 0.206309,
+      "root_speed_m_s": 0.019892,
+      "root_angular_speed_rad_s": 0.022619,
+      "projected_gravity_xy_norm": 0.704779,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 10.784106
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 13.74028,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 50.127453,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 63.867733,
+      "max_peak_torque_limit_fraction": 1.0
+    },
+    {
+      "candidate_index": 3,
+      "score": 689.515138,
+      "pose_rad": {
+        "joint_lf_1": 0.0,
+        "joint_lf_2": -0.8,
+        "joint_lf_3": -0.8,
+        "joint_rf_1": 0.0,
+        "joint_rf_2": -0.8,
+        "joint_rf_3": -0.8,
+        "joint_lr_1": 0.0,
+        "joint_lr_2": 0.0,
+        "joint_lr_3": -0.8,
+        "joint_rr_1": 0.0,
+        "joint_rr_2": 0.0,
+        "joint_rr_3": -0.8
+      },
+      "root_height_m": 0.203884,
+      "root_speed_m_s": 0.020077,
+      "root_angular_speed_rad_s": 0.017577,
+      "projected_gravity_xy_norm": 0.788886,
+      "sole_contact_force_n": {
+        "link_lr_sole": 0.0,
+        "link_lf_sole": 0.0,
+        "link_rf_sole": 0.0,
+        "link_rr_sole": 5.783154
+      },
+      "knee_contact_force_n": {
+        "link_lf_knee": 11.814176,
+        "link_lr_knee": 0.0,
+        "link_rf_knee": 57.959194,
+        "link_rr_knee": 0.0
+      },
+      "missing_sole_contacts": 3,
+      "knee_contact_force_sum_n": 69.77337,
+      "max_peak_torque_limit_fraction": 0.931335
+    }
+  ]
+}
