@@ -41,6 +41,9 @@ python scripts/rsl_rl/train.py \
 
 第二阶段在通过前后评估后加入左右，第三阶段再加入 yaw。不要一次把三个轴全部放开。
 
+续训时可以给出精确 checkpoint 名；训练入口会自动避免把同名的
+`.metadata.json` sidecar 当成 PyTorch 权重。
+
 ## 结果位置
 
 - 训练：`logs/rsl_rl/csdog_v2_locomotion/<时间>/`

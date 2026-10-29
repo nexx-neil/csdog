@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "PLANNED_BLOCKED_BY_STATIC_PHYSICS_GATE",
+  "status": "PHASE_XYZ_TRAINED_FINAL_EVALUATION_PARTIAL_FAIL",
   "model": "csdog_v2",
-  "checkpoint_compatibility_tag": "csdog_v2_joint_order_v1",
+  "checkpoint_compatibility_tag": "csdog_v2_locomotion_joint_order_v1",
   "common": {
     "seed": 42,
     "smoke_num_envs": 64,

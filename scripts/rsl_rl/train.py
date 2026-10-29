@@ -454,6 +454,15 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
 
     if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
         resume_path = get_checkpoint_path(log_root_path, agent_cfg.load_run, agent_cfg.load_checkpoint)
+        # An exact checkpoint such as ``model_final.pt`` also prefixes its
+        # sidecar ``model_final.pt.metadata.json``.  Older Isaac Lab lookup
+        # helpers can return that JSON file last; recover the intended weight
+        # file deterministically instead of passing JSON to torch.load().
+        if resume_path.endswith(".metadata.json"):
+            weight_path = resume_path.removesuffix(".metadata.json")
+            if os.path.isfile(weight_path):
+                print(f"[INFO] Resolved checkpoint sidecar to weight file: {weight_path}")
+                resume_path = weight_path
 
     if args_cli.video:
         video_kwargs = {
