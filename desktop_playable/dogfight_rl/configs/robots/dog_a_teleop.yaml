@@ -1,0 +1,64 @@
+urdf: assets/csdog_12dof/peer_teleop_v1/model/robot_sim.urdf
+checkpoint: assets/csdog_12dof/peer_teleop_v1/policies/v1/model_final.pt
+policy_manifest: assets/csdog_12dof/peer_teleop_v1/policies/v1/identity.json
+asset_manifest: assets/csdog_12dof/peer_teleop_v1/IMPORT_MANIFEST.json
+policy_version: peer_v1_iter1043
+contract:
+  observation_dim: 50
+  observation_order:
+  - root_lin_vel_b:3
+  - root_ang_vel_b:3
+  - projected_gravity_b:3
+  - command_vx_vy_yaw:3
+  - joint_pos_minus_default:12
+  - joint_vel:12
+  - previous_clipped_action:12
+  - phase_sin_cos:2
+  action_dim: 12
+  joint_order:
+  - joint_lr_1
+  - joint_lr_2
+  - joint_lr_3
+  - joint_lf_1
+  - joint_lf_2
+  - joint_lf_3
+  - joint_rf_1
+  - joint_rf_2
+  - joint_rf_3
+  - joint_rr_1
+  - joint_rr_2
+  - joint_rr_3
+  hidden_dims:
+  - 256
+  - 256
+  - 128
+  activation: elu
+  observation_normalization: false
+  action_scale: 0.35
+  action_clip: 1.0
+  physics_dt: 0.005
+  policy_dt: 0.02
+  gait_cycle_time: 0.5
+  stiffness: 40.0
+  damping: 1.5
+  effort_limit: 12.0
+  velocity_limit: 10.0
+  default_joint_angles:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  articulation_yaw_from_agent_yaw: 0.0
+root_height: 0.41
+muzzle_offset:
+- 0.36
+- 0
+- 0.06

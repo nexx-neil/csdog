@@ -1,0 +1,174 @@
+[
+  {
+    "scenario": "two_meters",
+    "target_visible": true,
+    "rendered_length_m": 1.5679620504379272,
+    "poses": {
+      "dog_a": {
+        "x": -4.22929048538208,
+        "y": -2.6965646743774414
+      },
+      "dog_b": {
+        "x": -2.170711040496826,
+        "y": -2.703436851501465
+      },
+      "dog_c": {
+        "x": 0.003411694196984172,
+        "y": 3.7292962074279785
+      }
+    },
+    "health": {
+      "dog_a": 100.0,
+      "dog_b": 80.0,
+      "dog_c": 100.0
+    },
+    "laser_distance": 1.5679620504379272,
+    "laser_path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere",
+    "laser_endpoint": [
+      -2.4213349493912153,
+      -2.6917112525227127,
+      0.3380712985992432
+    ],
+    "weapon": {
+      "timestamp_s": 0.02,
+      "event_type": "SHOT_FIRED",
+      "agent_id": "dog_a",
+      "target_id": null,
+      "data": {
+        "hit_object_path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere",
+        "distance_m": 1.5679620504379272
+      }
+    },
+    "consistent": true,
+    "passed": true
+  },
+  {
+    "scenario": "beyond_three",
+    "target_visible": true,
+    "rendered_length_m": 3.0,
+    "poses": {
+      "dog_a": {
+        "x": -4.22929048538208,
+        "y": -2.6965646743774414
+      },
+      "dog_b": {
+        "x": -0.17070871591567993,
+        "y": -2.70343279838562
+      },
+      "dog_c": {
+        "x": 0.003411694196984172,
+        "y": 3.7292962074279785
+      }
+    },
+    "health": {
+      "dog_a": 100.0,
+      "dog_b": 100.0,
+      "dog_c": 100.0
+    },
+    "laser_distance": 3.0,
+    "laser_path": null,
+    "laser_endpoint": [
+      -0.9893021597468588,
+      -2.6878669880485098,
+      0.3380712985992432
+    ],
+    "weapon": {
+      "timestamp_s": 0.02,
+      "event_type": "SHOT_FIRED",
+      "agent_id": "dog_a",
+      "target_id": null,
+      "data": {
+        "hit_object_path": null,
+        "distance_m": null
+      }
+    },
+    "consistent": true,
+    "passed": true
+  },
+  {
+    "scenario": "wall_occlusion",
+    "target_visible": false,
+    "rendered_length_m": 2.0142993927001953,
+    "poses": {
+      "dog_a": {
+        "x": -2.429291248321533,
+        "y": 0.003433462930843234
+      },
+      "dog_b": {
+        "x": 0.7292914986610413,
+        "y": -0.003433678299188614
+      },
+      "dog_c": {
+        "x": 0.003411694196984172,
+        "y": 3.7292962074279785
+      }
+    },
+    "health": {
+      "dog_a": 100.0,
+      "dog_b": 100.0,
+      "dog_c": 100.0
+    },
+    "laser_distance": 2.0142993927001953,
+    "laser_path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+    "laser_endpoint": [
+      -0.1749999874359105,
+      0.00948846278041353,
+      0.3380707025527954
+    ],
+    "weapon": {
+      "timestamp_s": 0.02,
+      "event_type": "SHOT_FIRED",
+      "agent_id": "dog_a",
+      "target_id": null,
+      "data": {
+        "hit_object_path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+        "distance_m": 2.0142993927001953
+      }
+    },
+    "consistent": true,
+    "passed": true
+  },
+  {
+    "scenario": "nearest_dog",
+    "target_visible": true,
+    "rendered_length_m": 1.5679620504379272,
+    "poses": {
+      "dog_a": {
+        "x": -4.22929048538208,
+        "y": -2.6965646743774414
+      },
+      "dog_b": {
+        "x": -2.170711040496826,
+        "y": -2.703436851501465
+      },
+      "dog_c": {
+        "x": -1.1707067489624023,
+        "y": -2.7034342288970947
+      }
+    },
+    "health": {
+      "dog_a": 100.0,
+      "dog_b": 80.0,
+      "dog_c": 100.0
+    },
+    "laser_distance": 1.5679620504379272,
+    "laser_path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere",
+    "laser_endpoint": [
+      -2.4213349493912153,
+      -2.6917112525227127,
+      0.3380712985992432
+    ],
+    "weapon": {
+      "timestamp_s": 0.02,
+      "event_type": "SHOT_FIRED",
+      "agent_id": "dog_a",
+      "target_id": null,
+      "data": {
+        "hit_object_path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere",
+        "distance_m": 1.5679620504379272
+      }
+    },
+    "consistent": true,
+    "passed": true
+  }
+]

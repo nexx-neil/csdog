@@ -1,0 +1,87 @@
+{"command": ["/home/zxq/miniconda3/envs/dogfight/bin/python", "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider", "/home/zxq/robot_projects/dogfight_rl/tests"], "cwd": "/home/zxq/robot_projects/dogfight_rl", "python": "/home/zxq/miniconda3/envs/dogfight/bin/python"}
+.....FFF.....F..........                                                 [100%]
+=================================== FAILURES ===================================
+_____________ test_nested_resource_config_from_unrelated_directory _____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7c78ccbf2c10>
+tmp_path = PosixPath('/tmp/pytest-of-zxq/pytest-1/test_nested_resource_config_fr0')
+
+    def test_nested_resource_config_from_unrelated_directory(monkeypatch, tmp_path):
+        monkeypatch.chdir(tmp_path)
+>       data = load_project_yaml(StringIO('''asset_usd: 01_robots/assets/dog_a/dog_a.usd
+    nested:
+      - checkpoint: 02_training/logs/example.pt
+      - url: https://example.invalid/asset.usd
+      - system: /usr/lib/example
+      - label: LEFT
+      - count: 12
+    '''))
+
+/home/zxq/robot_projects/dogfight_rl/tests/test_portable_resources.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/zxq/robot_projects/dogfight_rl/src/dogfight/common/paths.py:33: in load_project_yaml
+    return resolve(yaml.safe_load(stream))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/zxq/robot_projects/dogfight_rl/src/dogfight/common/paths.py:22: in resolve
+    return {key: resolve(item) for key, item in value.items()}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/home/zxq/robot_projects/dogfight_rl/src/dogfight/common/paths.py:22: in <dictcomp>
+    return {key: resolve(item) for key, item in value.items()}
+                 ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = '01_robots/assets/dog_a/dog_a.usd'
+
+    def resolve(value):
+        if isinstance(value, dict):
+            return {key: resolve(item) for key, item in value.items()}
+        if isinstance(value, list):
+            return [resolve(item) for item in value]
+        if isinstance(value, str):
+            if value.startswith(("01_robots/", "02_training/", "03_battle/")):
+>               raise ValueError("Archived layout resource is not a current project resource: " + value)
+E               ValueError: Archived layout resource is not a current project resource: 01_robots/assets/dog_a/dog_a.usd
+
+/home/zxq/robot_projects/dogfight_rl/src/dogfight/common/paths.py:27: ValueError
+__________ test_imports_use_maintained_sources_after_materialization ___________
+
+    def test_imports_use_maintained_sources_after_materialization():
+>       import dogfight.geometry.foot_contact_solver as geometry
+E       ModuleNotFoundError: No module named 'dogfight.geometry'
+
+tests/test_portable_resources.py:28: ModuleNotFoundError
+_____________ test_training_paths_from_unrelated_working_directory _____________
+
+    def test_training_paths_from_unrelated_working_directory():
+        result = launch('train-a','--dry-run','--max-iterations','1')
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: usage: launch.py [-h] [--dry-run]
+E                          {train,evaluate,battle,battle-gui,battle-smoke,hud-smoke,test,test-legacy,integrity,check-environment,legacy-info,train-a,validate-a,gui-a,train-b,validate-b,train-c,validate-c}
+E         launch.py: error: 旧模型入口已归档；本机缺少新模型训练环境。请使用 legacy-info 查看历史资料。
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/home/zxq/miniconda3/envs/dogfight/bin/python', '/home/zxq/robot_projects/dogfight_rl/launch.p...date-a,gui-a,train-b,validate-b,train-c,validate-c}\nlaunch.py: error: 旧模型入口已归档；本机缺少新模型训练环境。请使用 legacy-info 查看历史资料。\n').returncode
+
+tests/test_project_paths.py:14: AssertionError
+_____________ test_legacy_names_are_physical_compatibility_copies ______________
+
+    def test_legacy_names_are_physical_compatibility_copies():
+        import hashlib
+        for legacy, canonical, sample in [
+            ('logs', '02_training/logs', 'back_gait_primitive_recovery/model_final.pt'),
+            ('dogfight/tasks', '02_training/python/dogfight/tasks', 'dog_a_locomotion_ppo_smoke_v1/train.py'),
+            ('source', '03_battle/source', 'dogfight_v0/dogfight_v0/config/battle_cfg.py'),
+        ]:
+            compatibility = ROOT/legacy
+>           assert compatibility.is_dir() and not compatibility.is_symlink()
+E           AssertionError: assert (False)
+E            +  where False = is_dir()
+E            +    where is_dir = PosixPath('/home/zxq/robot_projects/dogfight_rl/logs').is_dir
+
+tests/test_project_paths.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_portable_resources.py::test_nested_resource_config_from_unrelated_directory
+FAILED tests/test_portable_resources.py::test_imports_use_maintained_sources_after_materialization
+FAILED tests/test_project_paths.py::test_training_paths_from_unrelated_working_directory
+FAILED tests/test_project_paths.py::test_legacy_names_are_physical_compatibility_copies
+4 failed, 20 passed in 0.17s

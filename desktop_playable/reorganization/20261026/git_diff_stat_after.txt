@@ -1,0 +1,233 @@
+ .gitignore                                         |    6 +
+ AGENTS.md                                          |   19 +
+ assets/dog_a/.asset_hash                           |    1 -
+ assets/dog_a/README.md                             |   15 -
+ assets/dog_a/config.yaml                           |   23 -
+ assets/dog_a/configuration/dog_a_base.usd          |  Bin 10267276 -> 0 bytes
+ assets/dog_a/configuration/dog_a_physics.usd       |  Bin 3629 -> 0 bytes
+ assets/dog_a/configuration/dog_a_robot.usd         |  Bin 1594 -> 0 bytes
+ assets/dog_a/configuration/dog_a_sensor.usd        |  Bin 654 -> 0 bytes
+ assets/dog_a/dog_a.usd                             |  Bin 1465 -> 0 bytes
+ assets/dog_a/urdf/dog_a_import.urdf                |  373 --------
+ .../dog_a/usd_attempt_002_named_joints/.asset_hash |    1 -
+ .../dog_a/usd_attempt_002_named_joints/config.yaml |   23 -
+ .../configuration/dog_a_base.usd                   |  Bin 20682467 -> 0 bytes
+ .../configuration/dog_a_physics.usd                |  Bin 5203 -> 0 bytes
+ .../configuration/dog_a_robot.usd                  |  Bin 1906 -> 0 bytes
+ .../configuration/dog_a_sensor.usd                 |  Bin 645 -> 0 bytes
+ .../dog_a/usd_attempt_002_named_joints/dog_a.usd   |  Bin 1454 -> 0 bytes
+ .../generation/generate_symmetric_model.py         |  878 -----------------
+ .../generation/generation_summary.json             |   55 --
+ .../generation/mesh_generation_manifest.json       |  270 ------
+ .../manifest/original_assets_sha256_after.json     |   24 -
+ .../manifest/original_assets_sha256_before.json    |   23 -
+ assets/dog_a_symmetric_v1/meshes/FL_CALF.STL       |  Bin 190384 -> 0 bytes
+ assets/dog_a_symmetric_v1/meshes/FL_HIP.STL        |  Bin 172284 -> 0 bytes
+ assets/dog_a_symmetric_v1/meshes/FL_THIGH.STL      |  Bin 2168684 -> 0 bytes
+ .../dog_a_symmetric_v1/meshes/FR_CALF_MIRRORED.STL |  Bin 190384 -> 0 bytes
+ .../dog_a_symmetric_v1/meshes/FR_HIP_MIRRORED.STL  |  Bin 172284 -> 0 bytes
+ .../meshes/FR_THIGH_MIRRORED.STL                   |  Bin 2168684 -> 0 bytes
+ assets/dog_a_symmetric_v1/meshes/RL_CALF.STL       |  Bin 190384 -> 0 bytes
+ assets/dog_a_symmetric_v1/meshes/RL_HIP.STL        |  Bin 172284 -> 0 bytes
+ assets/dog_a_symmetric_v1/meshes/RL_THIGH.STL      |  Bin 2168684 -> 0 bytes
+ .../dog_a_symmetric_v1/meshes/RR_CALF_MIRRORED.STL |  Bin 190384 -> 0 bytes
+ .../dog_a_symmetric_v1/meshes/RR_HIP_MIRRORED.STL  |  Bin 172284 -> 0 bytes
+ .../meshes/RR_THIGH_MIRRORED.STL                   |  Bin 2168684 -> 0 bytes
+ .../meshes/base_link_symmetric.STL                 |  Bin 25084 -> 0 bytes
+ .../urdf/dog_a_symmetric_v1.urdf                   |  373 --------
+ assets/dog_a_symmetric_v1/usd/.asset_hash          |    1 -
+ assets/dog_a_symmetric_v1/usd/config.yaml          |   23 -
+ .../usd/configuration/dog_a_symmetric_v1_base.usd  |  Bin 14213685 -> 0 bytes
+ .../configuration/dog_a_symmetric_v1_physics.usd   |  Bin 5385 -> 0 bytes
+ .../usd/configuration/dog_a_symmetric_v1_robot.usd |  Bin 1915 -> 0 bytes
+ .../configuration/dog_a_symmetric_v1_sensor.usd    |  Bin 657 -> 0 bytes
+ .../dog_a_symmetric_v1/usd/dog_a_symmetric_v1.usd  |  Bin 1475 -> 0 bytes
+ configs/back_gait_primitive_recovery.yaml          |  120 ---
+ configs/dog_a_bidirectional_lateral_ppo.yaml       |   59 --
+ configs/dog_a_bidirectional_x_ppo.yaml             |   59 --
+ configs/dog_a_body_xy_transition_ppo.yaml          |  114 ---
+ .../dog_a_dynamic_equilibrium_compensation.yaml    |   59 --
+ configs/dog_a_locomotion_ppo_smoke_v1.yaml         |   51 -
+ configs/dog_a_original_locomotion_ppo_smoke.yaml   |   54 --
+ configs/dog_a_original_straight_ppo.yaml           |   60 --
+ configs/dog_a_standing_pose.yaml                   |   51 -
+ configs/dog_a_standing_pose_v2.yaml                |   67 --
+ configs/dog_a_symmetric_v1_implicit_actuator.yaml  |   38 -
+ configs/dog_a_symmetric_v1_standing_pose.yaml      |   29 -
+ configs/dog_a_x_anti_slip_ppo.yaml                 |   92 --
+ configs/dog_a_x_command_transition_ppo.yaml        |   91 --
+ configs/dog_a_x_left_focus_ppo.yaml                |   59 --
+ configs/dog_a_x_left_reexplore_ppo.yaml            |   59 --
+ configs/dog_a_x_mixed_drift_ppo.yaml               |   59 --
+ configs/dog_a_x_right_recovery_ppo.yaml            |   64 --
+ configs/dog_a_xy_discrete_transition_ppo.yaml      |  119 ---
+ configs/dog_a_yaxis_recovery_400.yaml              |  121 ---
+ configs/pd_alpha_equilibrium.yaml                  |   21 -
+ configs/pd_symmetric_v1_01.yaml                    |   35 -
+ configs/pd_symmetric_v1_02.yaml                    |   35 -
+ configs/pd_v2_01.yaml                              |   37 -
+ configs/pd_v2_02.yaml                              |   36 -
+ configs/yaxis_reward_recovery_A.yaml               |  121 ---
+ configs/yaxis_reward_recovery_B.yaml               |  121 ---
+ docs/BASE_FRAME_ANALYSIS.md                        |   64 --
+ docs/DEV_LOG.md                                    |  287 ------
+ docs/DOGFIGHT_V02A_HUD.md                          |   52 -
+ docs/DOGFIGHT_V0_README.md                         |   69 --
+ docs/DOG_A_LOCOMOTION_PPO_SMOKE_TEST.md            |  167 ----
+ docs/DOG_A_MODEL_FORENSIC_AUDIT.md                 |  432 ---------
+ docs/DOG_A_SYMMETRIC_JOINT_DIRECTION_REPORT.md     |   72 --
+ docs/DOG_A_SYMMETRIC_STATIC_EQUILIBRIUM.md         |  168 ----
+ docs/DOG_A_SYMMETRIC_V1_GENERATION.md              |  301 ------
+ docs/DOG_A_V0_NORMALIZATION.md                     |   68 --
+ docs/DROP_TEST_REPORT.md                           |   53 -
+ docs/DYNAMIC_CONTACT_DIAGNOSIS.md                  |  198 ----
+ docs/JOINT_DIRECTION_REPORT.md                     |   34 -
+ docs/JOINT_MAP.md                                  |   26 -
+ docs/MIRRORED_STANDING_POSE_SEARCH.md              |   49 -
+ docs/ORIGINAL_URDF_LOCOMOTION_PPO_SMOKE_TEST.md    |  202 ----
+ docs/PD_ALPHA_EQUILIBRIUM_DIAGNOSIS.md             |  127 ---
+ docs/PD_DYNAMIC_EQUILIBRIUM_COMPENSATION.md        |  153 ---
+ docs/PD_STANDING_REPORT.md                         |   17 -
+ docs/PD_SYMMETRIC_V1_REPORT.md                     |  205 ----
+ docs/PD_V2_STANDING_REPORT.md                      |  163 ----
+ docs/PROJECT_ISSUES_AND_ATTEMPTS_REPORT.md         |  161 ----
+ docs/STANDING_GEOMETRY_ANALYSIS.md                 |   83 --
+ docs/STANDING_GEOMETRY_V2_FINAL_REPORT.md          |   78 --
+ docs/STANDING_POSE_SEARCH_REPORT.md                |  112 ---
+ docs/STATIC_CONTACT_DIAGNOSIS.md                   |   53 -
+ docs/STRAIGHT_PPO_TRAINING.md                      |   30 -
+ docs/TRUE_FOOT_JACOBIAN.md                         |   74 --
+ docs/URDF_AUDIT_REPORT.md                          |  145 ---
+ docs/URDF_IMPORT_RECORD.md                         |   69 --
+ dogfight/analysis/analyze_implicit_standing.py     |   41 -
+ .../analysis/dog_a_symmetric_static_equilibrium.py |  315 ------
+ dogfight/geometry/foot_contact_solver.py           |  339 -------
+ dogfight/robots/dog_a_cfg.py                       |   53 -
+ dogfight/robots/prepare_dog_a_import_urdf.py       |   67 --
+ dogfight/tasks/__init__.py                         |    2 -
+ .../dog_a_locomotion_ppo_smoke_v1/__init__.py      |    5 -
+ .../action_audit_wrapper.py                        |   26 -
+ .../tasks/dog_a_locomotion_ppo_smoke_v1/env.py     | 1012 --------------------
+ .../dog_a_locomotion_ppo_smoke_v1/evaluate.py      |  727 --------------
+ .../dog_a_locomotion_ppo_smoke_v1/reward_terms.py  |  135 ---
+ .../tasks/dog_a_locomotion_ppo_smoke_v1/train.py   |  360 -------
+ .../dog_a_locomotion_ppo_smoke_v1/validate.py      |   94 --
+ dogfight/tests/analyze_contact_dynamics.py         |  157 ---
+ dogfight/tests/analyze_dynamic_equilibrium.py      |  202 ----
+ dogfight/tests/analyze_pd_alpha_equilibrium.py     |   82 --
+ dogfight/tests/analyze_pd_v2_02.py                 |  111 ---
+ dogfight/tests/back_gait_reward_sanity.py          |   40 -
+ dogfight/tests/base_frame_analysis.py              |  110 ---
+ dogfight/tests/collider_foot_point_micro.py        |   57 --
+ dogfight/tests/contact_dynamics_diagnosis.py       |  320 -------
+ dogfight/tests/contact_force_sanity.py             |  124 ---
+ dogfight/tests/dog_a_symmetric_free_drop.py        |  105 --
+ .../tests/dog_a_symmetric_joint_direction_test.py  |  154 ---
+ dogfight/tests/dog_a_symmetric_runtime_audit.py    |  334 -------
+ dogfight/tests/dog_a_x_reward_sanity.py            |  163 ----
+ dogfight/tests/dog_a_xy_reward_sanity.py           |  113 ---
+ dogfight/tests/drop_test.py                        |  199 ----
+ dogfight/tests/fk_jacobian_micro.py                |   44 -
+ .../identify_dynamic_equilibrium_sensitivity.py    |   88 --
+ dogfight/tests/implicit_actuator_symmetric_v1.py   |  238 -----
+ dogfight/tests/joint_direction_test.py             |  130 ---
+ dogfight/tests/mirrored_standing_pose_search.py    |   52 -
+ dogfight/tests/pd_alpha_equilibrium_trial.py       |  249 -----
+ dogfight/tests/pd_dynamic_equilibrium_trial.py     |  343 -------
+ dogfight/tests/pd_stand_test.py                    |   74 --
+ dogfight/tests/pd_stand_v2.py                      |  388 --------
+ dogfight/tests/pd_stand_v2_02.py                   |  389 --------
+ dogfight/tests/pd_symmetric_v1.py                  |  427 ---------
+ dogfight/tests/prefilter_dynamic_equilibrium.py    |  100 --
+ dogfight/tests/runtime_initial_state_diagnosis.py  |  167 ----
+ dogfight/tests/spawn_robot.py                      |  102 --
+ dogfight/tests/standing_pose_preview.py            |   89 --
+ dogfight/tests/standing_pose_search_v2.py          |  259 -----
+ dogfight/tests/static_contact_diagnosis.py         |  346 -------
+ run_training.sh                                    |   33 -
+ scripts/analyze_dog_a_four_direction.py            |  134 ---
+ scripts/check_environment.py                       |   96 --
+ scripts/check_environment.sh                       |   16 -
+ scripts/compare_dog_a_x_directions.py              |   96 --
+ scripts/evaluate_dog_a_x_directions.sh             |   44 -
+ scripts/manage_nvidia_apt_hold.sh                  |   52 -
+ scripts/resume_dog_a_x_700_from_300.sh             |   40 -
+ scripts/resume_dog_a_x_finetune_300_from_999.sh    |   29 -
+ scripts/resume_dog_a_x_straight_500_from_1599.sh   |   29 -
+ scripts/resume_dog_a_x_transition_300_from_1299.sh |   29 -
+ scripts/resume_dog_a_xy_500_from_2099.sh           |   37 -
+ scripts/resume_dog_a_yaxis_recovery_400.sh         |   47 -
+ scripts/run_yaxis_reward_recovery_smoke.sh         |   50 -
+ scripts/select_best_back_gait_checkpoint.py        |  136 ---
+ scripts/select_best_training_checkpoint.py         |   89 --
+ scripts/train_back_gait_primitive_recovery_400.sh  |   67 --
+ scripts/train_original_dog_a_straight.py           |  131 ---
+ scripts/v0/run_dog_a_battle_integration_test.py    |  101 --
+ scripts/v0/run_dog_a_v0_smoke_test.py              |  147 ---
+ scripts/v0/run_v02_hud_smoke_tests.py              |  112 ---
+ scripts/v0/run_v02b_prebattle_gates.py             |  564 -----------
+ scripts/v0/run_v0_battle_demo.py                   |  224 -----
+ scripts/v0/run_v0_gui.py                           |   58 --
+ scripts/v0/run_v0_headless.py                      |   48 -
+ scripts/v0/run_v0_smoke_tests.py                   |  196 ----
+ ...ate_back_gait_five_direction_fresh_reset_gui.sh |   44 -
+ scripts/validate_back_gait_primitive_config.py     |   66 --
+ ...validate_back_gait_primitive_fresh_reset_gui.sh |   39 -
+ scripts/validate_dog_a_yaxis_recovery_400_gui.sh   |   54 --
+ scripts/validate_yaxis_recovery_configs.py         |   46 -
+ scripts/validate_yaxis_reward_recovery_gui.sh      |   60 --
+ scripts/visualize_dog_a_left_stop_right.sh         |   42 -
+ ...visualize_dog_a_straightness_left_stop_right.sh |   29 -
+ .../visualize_dog_a_transition_left_stop_right.sh  |   30 -
+ scripts/visualize_dog_a_xy_continuous.sh           |   29 -
+ source/dogfight_v0/README.md                       |    5 -
+ source/dogfight_v0/config/extension.toml           |   18 -
+ source/dogfight_v0/dogfight_v0/__init__.py         |    9 -
+ source/dogfight_v0/dogfight_v0/agents/__init__.py  |   16 -
+ .../dogfight_v0/agents/agent_interface.py          |   22 -
+ .../dogfight_v0/agents/dog_a_factory.py            |   57 --
+ .../dogfight_v0/agents/dog_a_locomotion_adapter.py |  197 ----
+ .../dogfight_v0/agents/locomotion_interface.py     |   12 -
+ .../dogfight_v0/dogfight_v0/agents/proxy_agent.py  |   96 --
+ .../dogfight_v0/agents/real_dog_agent.py           |  119 ---
+ .../dogfight_v0/agents/real_locomotion_adapter.py  |   64 --
+ source/dogfight_v0/dogfight_v0/arena/__init__.py   |    6 -
+ .../dogfight_v0/dogfight_v0/arena/map_interface.py |   14 -
+ .../dogfight_v0/dogfight_v0/arena/spawn_manager.py |   38 -
+ source/dogfight_v0/dogfight_v0/arena/test_map.py   |   61 --
+ source/dogfight_v0/dogfight_v0/battle/__init__.py  |    2 -
+ .../dogfight_v0/battle/battle_manager.py           |  253 -----
+ .../dogfight_v0/battle/health_system.py            |   26 -
+ .../dogfight_v0/battle/intel_service.py            |   41 -
+ .../dogfight_v0/dogfight_v0/battle/interfaces.py   |   52 -
+ source/dogfight_v0/dogfight_v0/battle/ray_query.py |   86 --
+ .../dogfight_v0/battle/scripted_policy.py          |   37 -
+ source/dogfight_v0/dogfight_v0/battle/types.py     |  100 --
+ .../dogfight_v0/battle/visibility_service.py       |   39 -
+ .../dogfight_v0/battle/weapon_service.py           |   37 -
+ source/dogfight_v0/dogfight_v0/config/__init__.py  |    4 -
+ .../dogfight_v0/dogfight_v0/config/battle_cfg.py   |   38 -
+ source/dogfight_v0/dogfight_v0/logging/__init__.py |    4 -
+ .../dogfight_v0/logging/battle_logger.py           |   35 -
+ .../dogfight_v0/dogfight_v0/navigation/__init__.py |    5 -
+ .../dogfight_v0/navigation/navigation_interface.py |   14 -
+ .../dogfight_v0/navigation/simple_navigation.py    |   65 --
+ source/dogfight_v0/dogfight_v0/runtime.py          |   66 --
+ source/dogfight_v0/dogfight_v0/sim/__init__.py     |    2 -
+ .../dogfight_v0/dogfight_v0/sim/physx_ray_query.py |   19 -
+ source/dogfight_v0/dogfight_v0/sim/scene.py        |   73 --
+ source/dogfight_v0/dogfight_v0/ui/__init__.py      |   10 -
+ source/dogfight_v0/dogfight_v0/ui/battle_hud.py    |  164 ----
+ source/dogfight_v0/pyproject.toml                  |    7 -
+ source/dogfight_v0/setup.py                        |   11 -
+ tests/conftest.py                                  |   10 +-
+ tests/test_dog_a_interface.py                      |  191 ----
+ tests/test_hud.py                                  |    6 +
+ tests/test_intel_5s.py                             |    6 +
+ tests/test_navigation.py                           |    6 +
+ tests/test_real_adapters.py                        |    6 +
+ tests/test_round.py                                |    6 +
+ tests/test_spawn.py                                |    6 +
+ tests/test_visibility.py                           |    6 +
+ tests/test_weapon.py                               |    6 +
+ 232 files changed, 81 insertions(+), 21719 deletions(-)

@@ -1,0 +1,422 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256": "79e8028bbb1a3b080ac31dd98465ee7a1b2e47a16837dbb35f80204132b83085"
+  },
+  {
+    "path": "DOGFIGHT_ENVIRONMENT.md",
+    "sha256": "85c2478c6ae9d6dde45a41fd7a95c63b27b9a1dee96668a2a5f691da8e14efc8"
+  },
+  {
+    "path": "PROJECT_STRUCTURE.md",
+    "sha256": "4b6efe9b66cf62afdf4b246c0934864a3c3d944bdea8a3f382a75debd89d15a1"
+  },
+  {
+    "path": "REORGANIZATION_MANIFEST.md",
+    "sha256": "efa53d11e9122443ebd1ad9c8260546fd798886dbfccc28168fe3c0c7d61d4df"
+  },
+  {
+    "path": "REORGANIZATION_REPORT.md",
+    "sha256": "1952e8f79d3e2340413f447076866ddd232060057c05a81c9ab9ba8a38417e30"
+  },
+  {
+    "path": "dogfight_rl/.gitignore",
+    "sha256": "fef96815e77d10a39f46310d8ec6862fb6f9489be2d45f93b99a26049bb975cd"
+  },
+  {
+    "path": "dogfight_rl/AGENTS.md",
+    "sha256": "ad24cd0b49bd04493ede61f13d22b544ffe96ba0ac4a4c1e241fc77b0b60184d"
+  },
+  {
+    "path": "dogfight_rl/DOGFIGHT_V0_INTERFACE_SPEC.md",
+    "sha256": "e81243b2df7ee437022cc187a62d028894befcf0ee1df1752f94cb47aa65983e"
+  },
+  {
+    "path": "dogfight_rl/ENVIRONMENT.md",
+    "sha256": "d50d55e7906e448bf2ca966cb821e1222e568f70a0e8d0c66c4813e8c922a529"
+  },
+  {
+    "path": "dogfight_rl/ENV_LOCK.md",
+    "sha256": "931b64baaf997da81ec259baf9226fe75614a61fe0686e33d30341bac625aaeb"
+  },
+  {
+    "path": "dogfight_rl/README.md",
+    "sha256": "d830126953e39fe34060347167d2b29af91575ed4801e74019ae04b7c897278a"
+  },
+  {
+    "path": "dogfight_rl/THIRD_PARTY_NOTICES.md",
+    "sha256": "1337b0b23f03e0b2313c8e8f0cb9561242e19a2f8b2c22369e67b42c1bd7fe11"
+  },
+  {
+    "path": "dogfight_rl/assets/csdog_12dof/README.md",
+    "sha256": "b538b5cb12d97c7795499f2b4e4512b6dde8b1be5f5d3152cce7ddd780d0ca22"
+  },
+  {
+    "path": "dogfight_rl/configs/battle/extension.toml",
+    "sha256": "5bcd0fe0688a01c5e3d9032cc9e3755bf10f7b464e750d87d3032d26dc553021"
+  },
+  {
+    "path": "dogfight_rl/configs/robots/csdog_12dof.yaml",
+    "sha256": "de4724f79f5bbfa2c0469b169b46998d18f1cb8859027b3a0191b5bb3dfe6797"
+  },
+  {
+    "path": "dogfight_rl/docs/BATTLE_GUIDE.md",
+    "sha256": "f65f355d5dbf069bb5532cf4bef694b2822428511f24dfab4fe3967d1a31e62b"
+  },
+  {
+    "path": "dogfight_rl/docs/BATTLE_PACKAGE.md",
+    "sha256": "f6ca5a6b960380ca939916d53c4a26b10eadddfe6e632cd27f9d837b06d5d58c"
+  },
+  {
+    "path": "dogfight_rl/docs/DOGFIGHT_V0_INTERFACE_SPEC.md",
+    "sha256": "17a8a75c930ce1b873694049ddd7a68d827efccfaa0a8e295cca3fba55916a2d"
+  },
+  {
+    "path": "dogfight_rl/docs/TRAINING_GUIDE.md",
+    "sha256": "819ac5ea661726d84bc94ae4e59ad950b5c43b3e0a1741de7b6b27a3268357a7"
+  },
+  {
+    "path": "dogfight_rl/launch.py",
+    "sha256": "b4b7d1f25e811a8bded2f73849e538454959c48a3a47575c4e60b6194a729914"
+  },
+  {
+    "path": "dogfight_rl/pyproject.toml",
+    "sha256": "4685caec7185bd71d81de58cc1d025b346726dc77133cac211a2a977c3e52ed8"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v02_hud_smoke_tests.py",
+    "sha256": "28b459ccaf14a639aa2ad2b6cd57db2887c8a458582d3833a56c71dfa2e56f1b"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_battle_demo.py",
+    "sha256": "0542bd9b4086f35ba5af4e201bbc63e09062a170ba0eb267b5f538fe8cb2a0e9"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_gui.py",
+    "sha256": "baa1c2dbcd9af146a8b795dc0aa5dd75bd650c3b85f4dbc99511ad13e6a35af2"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_headless.py",
+    "sha256": "b7e580322a11f1e0933f9c6a3099f707ff625d803b12309ed620c67fe5b65f0c"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_smoke_tests.py",
+    "sha256": "1385a07879782ad2a5925136539ac2b14771618a49bb2f67fade8d329c1c3e3f"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/check_environment.py",
+    "sha256": "85cd6d73988d4bac7aa03450769582c07388d022343b8565da330af36a805f5e"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/check_environment.sh",
+    "sha256": "2dddcbe9914f2be8b9a3b532c888270cd637af53cb72384d1e3e49f4ba9b581f"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/manage_nvidia_apt_hold.sh",
+    "sha256": "7d3b6656b3d50d6683bb93ad7b695833c2ef7dc4643db3973e25c1b534a481fe"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/verify_integrity.py",
+    "sha256": "30a302882c99d5748efb6d7278b43f54cd30ed47e4d25c53c740333167416675"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/verify_training_runtime.py",
+    "sha256": "494b394d1a15c44334b74ce9ebbc4fd3e045607e317e76c59eae36a083d869d4"
+  },
+  {
+    "path": "dogfight_rl/scripts/evaluate/csdog_12dof.py",
+    "sha256": "bf578236e1fad494a64a81fa0e8bf2a07cbc3e94e2bd3a7342cc2e65d8f216dc"
+  },
+  {
+    "path": "dogfight_rl/scripts/train/csdog_12dof.py",
+    "sha256": "1ab148501c14f4a4283f4e64b98ab242c96a96e5d05f52f35f1d2f344daf8af4"
+  },
+  {
+    "path": "dogfight_rl/setup.py",
+    "sha256": "ec80e0590cee8c87941eee56b5fffabbdfe67f3cf17d00a3c38cc4d78824a597"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/__init__.py",
+    "sha256": "a85fc67ca8469c66cb60b25e55197c2f4e2c0b74c767412e32128c72c0390396"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/common/__init__.py",
+    "sha256": "d4f5f02269030ef60eeb57e0492f0298d75f8fa3e9531cd609c6e79950363eea"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/common/paths.py",
+    "sha256": "d32fd9c0008bb2209b331fc69fddb5ebffe9bda8623f7d8a8a877791d456d005"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/robots/__init__.py",
+    "sha256": "7a7274b4e7909f3e91b622ec71fe714a14e51dce2bc6949e4ebc55837213ee7e"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/robots/csdog_12dof.py",
+    "sha256": "7ce4613668c80534e53318b7f9f1d3c8b6673213e0ade972970b443a898fbc08"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/__init__.py",
+    "sha256": "0a5a67529920c9f8f8d600bb17399eb2eec0a90c115511340ec37293d0ccfb74"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/action_audit_wrapper.py",
+    "sha256": "9df155ff94b5a831d8f917affa99edc2bf637578575fbfc48e6cda70096fe649"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/checkpoints.py",
+    "sha256": "a0a28e51c66d70a2597706ad899febc6f10a673832caca337e11bf3edaaaeafb"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/deployment.py",
+    "sha256": "8fc35c3ed524cc3c939274adfe7dc7c509f5122e5b1392b3c24a602112a29cbb"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/ppo.py",
+    "sha256": "1d93497352c35ef6c5e74262c653ed195651c61e5253e5ecdd18645922195fa8"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/reward_terms.py",
+    "sha256": "62a33e548679874a073e91f28f1a555d5b63496062c10ad0c07a0d8fe9847ca6"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/telemetry.py",
+    "sha256": "15233fa6ec1580c49594f2bc34a4cc1b9f7902ced123f0ea63a6e7feda3aa47b"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/__init__.py",
+    "sha256": "ef11bd353744317ab1af39d00f16420028f874273d6a50fdd9580333ac212f26"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/__init__.py",
+    "sha256": "364e445eb25e8b0160aef6f446a471e6ae896b56bbaf8d0f1ace804e075dc279"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/agent_interface.py",
+    "sha256": "0adf4eb97b8294b785890b89f3e3680cb47e4cfff53d9a752fce03a92fd1614b"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/locomotion_interface.py",
+    "sha256": "eff49ef8f15835369da513983929abb976cf8118bfcb80df966c6a96faca1124"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/proxy_agent.py",
+    "sha256": "57c891c5f7ff52d52a00a6ab277ce40913a830709a0ff32a3445a2d61e0a47ea"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/real_dog_agent.py",
+    "sha256": "35f84370a80a414fb4d9fddd441df738d13b24d73733e38c12673554316cc1b2"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/real_locomotion_adapter.py",
+    "sha256": "f4e077df58a9e452c4ff3911fd07a697cd5b4bd0e385b60028f789db1dbf1d74"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/__init__.py",
+    "sha256": "b03449be669e78fe6ea2d4c26417efd80151bc820f07d7777ee1fe6cff688df9"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/map_interface.py",
+    "sha256": "696708f64a6fa4262d23fbb19694ea843ad96e1bc58b5e86420fd884dada8594"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/spawn_manager.py",
+    "sha256": "64df8268c9d9e738f9935e17b098b332cbec334d53786b3d401ab07a2c73c00f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/test_map.py",
+    "sha256": "ac70191b2e325c0d509abfb236809ba71ba0da0eae9fbbe36e6d64bc0a514018"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/__init__.py",
+    "sha256": "0eae25945be6a9b82927aba6dcf4399ca4922639e62f86176f55b63ca4316bed"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/battle_manager.py",
+    "sha256": "0705e0e9f17e744c65c1f8e231322f3165b14cf99233e813f66649098ad04945"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/health_system.py",
+    "sha256": "c62e4dbdb6348382a9efabc1de2210864e867a9366565e7b8b3b8f9be3401375"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/intel_service.py",
+    "sha256": "63fa3e8f7040a961ae5feac1eb91000ef9759e364c08a0ce56d809f3728131ee"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/interfaces.py",
+    "sha256": "b6dc16971475de96f105824a7c12368afd21ae6bc1f0b9475a46bbea16dad240"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/ray_query.py",
+    "sha256": "4f239104dedf12f58814bdd76a24417d58e920d24eafdb20e7936dd1190286ab"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/scripted_policy.py",
+    "sha256": "b4a45e36de35ce7f9bca83e8a9c261da5ada585956c3b2b7fec1b69bdd0837c4"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/types.py",
+    "sha256": "094b13d34fd79074b75e818c09d6fad87eaf12743d1ba8c49c0161e844efaa13"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/visibility_service.py",
+    "sha256": "4dbec339d9ba3dcbbb375fde49b0f8e9474b603b4a894cdab0ad03c1ad6bd6a6"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/weapon_service.py",
+    "sha256": "f5caa682c155f95f496c9c2dad746f00a8829f4b40d524558a1909065c255332"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/config/__init__.py",
+    "sha256": "200450333eefc25b6a3a77381e262d93e5c442b2ec6401fbaf41b7d17a4dcbc3"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/config/battle_cfg.py",
+    "sha256": "eccbb0dae600382529ab8b88a4892e5225ac0df1db56fa6048ab37549e5ba81f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/logging/__init__.py",
+    "sha256": "56d7747a278a2c2d8b1cae6bef1ab9d0b6f235449d04716e49870893be95eb7f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/logging/battle_logger.py",
+    "sha256": "d55112643b06d7b4cffb55c1cf329b783942b3f824682d75e820b8921c023806"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/navigation/__init__.py",
+    "sha256": "740de5ac85574c4abee802cdd46b072d2735c053de335d60a33e1bb52a2a03ee"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/navigation/navigation_interface.py",
+    "sha256": "d74e7f85e9d12b924dbec76bd9cea258c0321ba5ab2ab0b64bd7731cdc7c1daa"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/navigation/simple_navigation.py",
+    "sha256": "ffe48e7d513f0860f1b7deb1868641765c3c33df90fc35f29c1a9b49a12d2d83"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/runtime.py",
+    "sha256": "07bd131841baeb8039f73e9542df2e3712c2792994d6c1cf9faea0fe35948be8"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/sim/__init__.py",
+    "sha256": "2f723c41b74fa7efedd046301421a28facf50e9e568d56866b1e77563f9c28d9"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/sim/physx_ray_query.py",
+    "sha256": "419f1addebae3861ef4c0cf82d249f804e0fbcfaa5f8047bf89aedc92b7c9857"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/sim/scene.py",
+    "sha256": "b20316a1c3fd4d131e3ac45794cfc242d28e7588a9f8d8bb1b9ff1669f56282f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/ui/__init__.py",
+    "sha256": "ce356e6e5913f224acf5b85ea13875b42810e1db33a1034da59fd709d9149464"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/ui/battle_hud.py",
+    "sha256": "47ea46ff4d58a516afb44ad7af34c0fbea4772eb068399036cd10c7273373c51"
+  },
+  {
+    "path": "dogfight_rl/tests/conftest.py",
+    "sha256": "a61528a2b7b6dcf0ea0b187a5112d3d477ab5f7b94074ff2e172afe971ff9e67"
+  },
+  {
+    "path": "dogfight_rl/tests/test_hud.py",
+    "sha256": "27b5a6c8061a47771da07f6ae66e53f686bf23d61dca8f0a0392df9225fcd8e4"
+  },
+  {
+    "path": "dogfight_rl/tests/test_intel_5s.py",
+    "sha256": "0bb468c6f6ef9828952cc741c23e57d5ccce2a41abacff66ec0dba3138693e5d"
+  },
+  {
+    "path": "dogfight_rl/tests/test_navigation.py",
+    "sha256": "ebc35caa6484f1598847261a79083256ddee293477c9314ea47d27251269b355"
+  },
+  {
+    "path": "dogfight_rl/tests/test_portable_resources.py",
+    "sha256": "862ab2fe64192f847b66d4d6d0b6c4a34b91b10999bb4cec4a00c784597c7496"
+  },
+  {
+    "path": "dogfight_rl/tests/test_project_paths.py",
+    "sha256": "d34475bfeb6b25b64aea660343fed0fbec27e82736472fdbcbf3891f842b3ad0"
+  },
+  {
+    "path": "dogfight_rl/tests/test_real_adapters.py",
+    "sha256": "405ffe5d204e91ffaeeb1534278df9b4ba97fb9b6ec15011afacf91928570b5f"
+  },
+  {
+    "path": "dogfight_rl/tests/test_robot_boundary.py",
+    "sha256": "f4b0a791018d22293bcd3a198c9f5b70bb6b67220a6219789006bb7e5df35a2a"
+  },
+  {
+    "path": "dogfight_rl/tests/test_round.py",
+    "sha256": "469050d4f01b953ca1bc86e156d22c0976aff61d10f4ff7cf4012d9b8eee2184"
+  },
+  {
+    "path": "dogfight_rl/tests/test_spawn.py",
+    "sha256": "0629dd3bfdc032d38664bf20b849eae09ae6f6ad2b7b315dc93cf4c63807a7ef"
+  },
+  {
+    "path": "dogfight_rl/tests/test_training_tools.py",
+    "sha256": "c1463b9f542db36dc1a62e33edf3562fcc6625d7e2e19622e7c8746a40604705"
+  },
+  {
+    "path": "dogfight_rl/tests/test_visibility.py",
+    "sha256": "b6982ae5a489543e9fb5edf656f7308ea2e4ce214d9823d82c5ebf7fd2c530ac"
+  },
+  {
+    "path": "dogfight_rl/tests/test_weapon.py",
+    "sha256": "d52458bbc7251f03e1b4afc56119a3fb1186c3d793d128d30c168a33f449e3c4"
+  },
+  {
+    "path": "reorganization/20261026/build_indexes.py",
+    "sha256": "32532e267567615d76d406cedb349bb507b39329227fc47dca096f21609674c2"
+  },
+  {
+    "path": "reorganization/20261026/changes.json",
+    "sha256": "3d65ef657ddb1ff5b51e5be86e348210f21f71570108150f716aa8a3314f12c2"
+  },
+  {
+    "path": "reorganization/20261026/check_static.py",
+    "sha256": "a6384c800a5280ca5a2f794af7d60fd185a5c71f08007deb4e84d047770aedbf"
+  },
+  {
+    "path": "reorganization/20261026/checkpoint_index.json",
+    "sha256": "c1bfb6dd03a7268f642e524643be3e830707da46974029f07e6e3687bc209926"
+  },
+  {
+    "path": "reorganization/20261026/created.json",
+    "sha256": "4d02f6a0ce1b83c3e18c5a04becd17bd76744050e0dda0fc27c425ef909e4e5a"
+  },
+  {
+    "path": "reorganization/20261026/deduplication_candidates.json",
+    "sha256": "cf25f98c1181a623340ce408c810eaa3fa356d20f7fe92993c26993ebd065225"
+  },
+  {
+    "path": "reorganization/20261026/file_mapping.csv",
+    "sha256": "d1431f4d9cc8b70078b66f81b5bd6188d553114c3448c85c5c30457878f3e7cf"
+  },
+  {
+    "path": "reorganization/20261026/manifest.json",
+    "sha256": "c98316de368f3deb312edd786f7b342a87bc7d9abed6b629393d2feeec0c216a"
+  },
+  {
+    "path": "reorganization/20261026/moves_done.json",
+    "sha256": "ce87165f52987fb63e16f3fa46bc4bab5595b92752965e00aaaee1bac580e0e5"
+  },
+  {
+    "path": "reorganization/20261026/operations.py",
+    "sha256": "5f589b965e4a99f8cc7e75c90e8ca33e9765a67873c3b2b33076e9289a8987d2"
+  },
+  {
+    "path": "reorganization/20261026/rollback.py",
+    "sha256": "5021ad0568299d51a689be494a8163c1ba5bc99a7ed00d6dd00b7cb21e54aeab"
+  },
+  {
+    "path": "reorganization/20261026/seal_current.py",
+    "sha256": "cafdbc35120e7b2c564cad130925b4d546a52997569792705d49fc915b055fb5"
+  }
+]

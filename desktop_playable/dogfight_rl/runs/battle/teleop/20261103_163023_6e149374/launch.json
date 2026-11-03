@@ -1,0 +1,190 @@
+{
+  "argv": [
+    "/home/zxq/robot_projects/dogfight_rl/scripts/teleop/run.py",
+    "--config",
+    "/home/zxq/robot_projects/dogfight_rl/configs/teleop/fsm_battle.yaml",
+    "--scenario",
+    "range-check"
+  ],
+  "python": "/home/zxq/miniconda3/envs/dogfight/bin/python",
+  "started": "2026-11-03T16:30:23.953891",
+  "settings": {
+    "map": {
+      "name": "test_map",
+      "boundary_walls": true,
+      "spawn_index": 0
+    },
+    "robot": "dog_a",
+    "robots": {
+      "dog_a": "/home/zxq/robot_projects/dogfight_rl/configs/robots/dog_a_teleop.yaml",
+      "dog_b": "/home/zxq/robot_projects/dogfight_rl/configs/robots/dog_a_teleop.yaml",
+      "dog_c": "/home/zxq/robot_projects/dogfight_rl/configs/robots/dog_a_teleop.yaml"
+    },
+    "teleop": {
+      "forward_speed": 0.25,
+      "backward_speed": 0.25,
+      "yaw_rate": 0.3,
+      "command_smoothing": true,
+      "smoothing_time": 0.15,
+      "input_timeout": 0.8
+    },
+    "laser": {
+      "enabled": true,
+      "always_visible": true,
+      "raycast_enabled": true,
+      "damage_enabled": false,
+      "max_range": 3.0,
+      "radius": 0.006
+    },
+    "first_person": {
+      "enabled": true,
+      "resolution": [
+        640,
+        360
+      ],
+      "offset": [
+        0.22,
+        0.0,
+        0.16
+      ],
+      "horizontal_fov_deg": 85.0,
+      "pitch_deg": -6.0,
+      "position_smoothing": 0.06,
+      "yaw_smoothing": 0.08,
+      "right_fraction": 0.34,
+      "hide_editors": true
+    },
+    "mode": "fsm_battle",
+    "participants": [
+      "dog_a",
+      "dog_b",
+      "dog_c"
+    ],
+    "battle": {
+      "damage_enabled": true,
+      "max_health": 100.0,
+      "damage": 20.0,
+      "cooldown_s": 1.0,
+      "time_limit_s": 180.0,
+      "muzzle_offset": [
+        0.24,
+        0.0,
+        -0.05
+      ],
+      "weapon_range_m": 3.0
+    },
+    "simulation": {
+      "device": "cpu"
+    },
+    "controllers": {
+      "dog_a": "fsm",
+      "dog_b": "fsm",
+      "dog_c": "fsm"
+    },
+    "autonomy": {
+      "intel_period_s": 5.0,
+      "vision_max_range_m": 6.0,
+      "vision_fov_deg": 140.0,
+      "decision_period_s": 0.1,
+      "visual_period_s": 0.2,
+      "grid_resolution_m": 0.2,
+      "body_radius_m": 0.4,
+      "tracking_margin_m": 0.2,
+      "min_plan_interval_s": 1.0,
+      "replan_target_delta_m": 0.5,
+      "waypoint_tolerance_m": 0.35,
+      "corner_waypoint_tolerance_m": 0.12,
+      "max_speed": 0.25,
+      "max_yaw_rate": 0.3,
+      "search_yaw_rate": 0.25,
+      "yaw_gain": 1.2,
+      "yaw_deadband_rad": 0.025,
+      "drive_yaw_tolerance_rad": 0.45,
+      "fire_yaw_tolerance_rad": 0.08,
+      "attack_enter_m": 2.5,
+      "attack_exit_m": 2.8,
+      "target_hold_margin_m": 0.6,
+      "progress_min_m": 0.12,
+      "stuck_timeout_s": 4.0,
+      "recover_speed": 0.15,
+      "recover_reverse_s": 0.8,
+      "recover_turn_s": 2.0,
+      "recover_max_attempts": 3,
+      "route_height_m": 0.1,
+      "route_line_width_px": 4.0,
+      "weapon_range_m": 3.0
+    }
+  },
+  "robot": {
+    "urdf": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/model/robot_sim.urdf",
+    "checkpoint": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/policies/v1/model_final.pt",
+    "policy_manifest": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/policies/v1/identity.json",
+    "asset_manifest": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/IMPORT_MANIFEST.json",
+    "policy_version": "peer_v1_iter1043",
+    "contract": {
+      "observation_dim": 50,
+      "observation_order": [
+        "root_lin_vel_b:3",
+        "root_ang_vel_b:3",
+        "projected_gravity_b:3",
+        "command_vx_vy_yaw:3",
+        "joint_pos_minus_default:12",
+        "joint_vel:12",
+        "previous_clipped_action:12",
+        "phase_sin_cos:2"
+      ],
+      "action_dim": 12,
+      "joint_order": [
+        "joint_lr_1",
+        "joint_lr_2",
+        "joint_lr_3",
+        "joint_lf_1",
+        "joint_lf_2",
+        "joint_lf_3",
+        "joint_rf_1",
+        "joint_rf_2",
+        "joint_rf_3",
+        "joint_rr_1",
+        "joint_rr_2",
+        "joint_rr_3"
+      ],
+      "hidden_dims": [
+        256,
+        256,
+        128
+      ],
+      "activation": "elu",
+      "observation_normalization": false,
+      "action_scale": 0.35,
+      "action_clip": 1.0,
+      "physics_dt": 0.005,
+      "policy_dt": 0.02,
+      "gait_cycle_time": 0.5,
+      "stiffness": 40.0,
+      "damping": 1.5,
+      "effort_limit": 12.0,
+      "velocity_limit": 10.0,
+      "default_joint_angles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "articulation_yaw_from_agent_yaw": 0.0
+    },
+    "root_height": 0.41,
+    "muzzle_offset": [
+      0.36,
+      0,
+      0.06
+    ]
+  }
+}

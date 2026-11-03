@@ -1,0 +1,33 @@
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": [], "dog_b": [], "dog_c": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": [], "dog_b": [], "dog_c": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": [], "dog_b": [], "dog_c": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"snapshot_time_s": 0}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_b", "timestamp_s": 0}
+{"agent_id": "dog_b", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_a", "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {"distance_m": 1.5679620504379272, "hit_object_path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere"}, "event_type": "SHOT_FIRED", "target_id": null, "timestamp_s": 0.02}
+{"agent_id": "dog_b", "data": {"amount": 20.0, "health": 80.0}, "event_type": "DAMAGE", "target_id": "dog_a", "timestamp_s": 0.02}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": [], "dog_b": [], "dog_c": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"snapshot_time_s": 0}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_b", "timestamp_s": 0}
+{"agent_id": "dog_b", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_a", "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {"distance_m": null, "hit_object_path": null}, "event_type": "SHOT_FIRED", "target_id": null, "timestamp_s": 0.02}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": [], "dog_b": [], "dog_c": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"snapshot_time_s": 0}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_c", "timestamp_s": 0}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_a", "timestamp_s": 0}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_b", "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {"distance_m": 2.0142993927001953, "hit_object_path": "/World/TestMap/Walls/wall_center/geometry/mesh"}, "event_type": "SHOT_FIRED", "target_id": null, "timestamp_s": 0.02}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": [], "dog_b": [], "dog_c": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"snapshot_time_s": 0}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_b", "timestamp_s": 0}
+{"agent_id": "dog_b", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_a", "timestamp_s": 0}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_b", "timestamp_s": 0}
+{"agent_id": "dog_a", "data": {"distance_m": 1.5679620504379272, "hit_object_path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere"}, "event_type": "SHOT_FIRED", "target_id": null, "timestamp_s": 0.02}
+{"agent_id": "dog_b", "data": {"amount": 20.0, "health": 80.0}, "event_type": "DAMAGE", "target_id": "dog_a", "timestamp_s": 0.02}

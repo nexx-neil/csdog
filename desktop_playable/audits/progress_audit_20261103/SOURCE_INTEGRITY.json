@@ -1,0 +1,7 @@
+{
+  "checked_files": 275,
+  "changed": [],
+  "missing": [],
+  "result": "PASS",
+  "scope": "正式src/tests/scripts/configs/model与根入口等小于4MB文件；不是全磁盘完整性证明"
+}

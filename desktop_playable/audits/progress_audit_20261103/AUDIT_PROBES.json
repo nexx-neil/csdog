@@ -1,0 +1,587 @@
+{
+  "invisible_target_information": {
+    "visible": false,
+    "distance_m": 4.0,
+    "yaw_error_rad": 0.0,
+    "reconstructed_xy": [
+      2.0,
+      0.0
+    ]
+  },
+  "blocked_direct_navigation_24s": {
+    "final_xy": [
+      -0.4399999999999986,
+      0.0
+    ],
+    "goal_reached": false
+  },
+  "proxy_interagent_overlap": {
+    "same_xy_allowed": true
+  },
+  "baseline_analytic_round": {
+    "state": {
+      "time_s": 120.01666666666114,
+      "round_over": true,
+      "winner": null,
+      "draw": true,
+      "max_health": 100.0,
+      "agents": {
+        "dog_a": {
+          "pose": {
+            "x": 4.2,
+            "y": -2.7,
+            "yaw": 3.0898424012840913
+          },
+          "health": 100.0,
+          "alive": true,
+          "last_velocity_command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          }
+        },
+        "dog_b": {
+          "pose": {
+            "x": -4.2,
+            "y": -2.7,
+            "yaw": 0.05204945240206582
+          },
+          "health": 100.0,
+          "alive": true,
+          "last_velocity_command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          }
+        },
+        "dog_c": {
+          "pose": {
+            "x": 0.0,
+            "y": 3.7,
+            "yaw": -1.188594785105665
+          },
+          "health": 0.0,
+          "alive": false,
+          "last_velocity_command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          }
+        }
+      }
+    },
+    "event_counts": {
+      "SHOT_FIRED": 236,
+      "SHOT_HIT": 3,
+      "DAMAGE": 3,
+      "DEATH": 1,
+      "ROUND_END": 1
+    },
+    "reset_health": {
+      "dog_a": 100.0,
+      "dog_b": 100.0,
+      "dog_c": 100.0
+    }
+  },
+  "timeout_analytic_round": {
+    "state": {
+      "time_s": 0.05,
+      "round_over": true,
+      "winner": null,
+      "draw": true,
+      "max_health": 100.0,
+      "agents": {
+        "dog_a": {
+          "pose": {
+            "x": 4.2,
+            "y": -2.7,
+            "yaw": 2.713473147523205
+          },
+          "health": 100.0,
+          "alive": true,
+          "last_velocity_command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          }
+        },
+        "dog_b": {
+          "pose": {
+            "x": -4.2,
+            "y": -2.7,
+            "yaw": 0.42671775431405656
+          },
+          "health": 100.0,
+          "alive": true,
+          "last_velocity_command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          }
+        },
+        "dog_c": {
+          "pose": {
+            "x": 0.0,
+            "y": 3.7,
+            "yaw": -1.5004836686659082
+          },
+          "health": 100.0,
+          "alive": true,
+          "last_velocity_command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          }
+        }
+      }
+    },
+    "event_counts": {
+      "SHOT_FIRED": 0,
+      "SHOT_HIT": 0,
+      "DAMAGE": 0,
+      "DEATH": 0,
+      "ROUND_END": 1
+    },
+    "reset_health": {
+      "dog_a": 100.0,
+      "dog_b": 100.0,
+      "dog_c": 100.0
+    }
+  },
+  "model": {
+    "sha256": "20034d94c7c45094480ac8ec56c461b3deeaa7a210d9abd8c789d346ce8e362d",
+    "links": [
+      {
+        "name": "base",
+        "mass": 3.94944,
+        "com": {
+          "xyz": "0 0 -0.05",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.01398933,
+          "ixy": 0.0,
+          "ixz": 0.0,
+          "iyy": 0.01887338,
+          "iyz": 0.0,
+          "izz": 0.02697477
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_lr_hip_roll",
+        "mass": 0.21570103,
+        "com": {
+          "xyz": "-0.01668887 -0.00026267 0.00004309",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.0002249,
+          "ixy": -4.37e-06,
+          "ixz": -3.5e-07,
+          "iyy": 0.00015962,
+          "iyz": 5e-07,
+          "izz": 0.00015144
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_lr_hip_pitch",
+        "mass": 0.580416,
+        "com": {
+          "xyz": "-0.01177076 0.05107505 -0.01877699",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00192719,
+          "ixy": 0.00024225,
+          "ixz": -0.00061999,
+          "iyy": 0.00202271,
+          "iyz": 0.00042404,
+          "izz": 0.00119686
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_lr_knee",
+        "mass": 0.11758817,
+        "com": {
+          "xyz": "0.08409143 0.01016948 -0.12301378",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00039704,
+          "ixy": -1.087e-05,
+          "ixz": 0.0002564,
+          "iyy": 0.00057103,
+          "iyz": 1.589e-05,
+          "izz": 0.00019682
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_lf_hip_roll",
+        "mass": 0.21570103,
+        "com": {
+          "xyz": "0.01668887 -0.00043913 0.00004787",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00022487,
+          "ixy": 3.73e-06,
+          "ixz": 2.9e-07,
+          "iyy": 0.00015962,
+          "iyz": -2.4e-07,
+          "izz": 0.0001514
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_lf_hip_pitch",
+        "mass": 0.580416,
+        "com": {
+          "xyz": "-0.00949258 0.05084539 -0.0205974",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00205107,
+          "ixy": 0.00018892,
+          "ixz": -0.00052955,
+          "iyy": 0.00203298,
+          "iyz": 0.00043681,
+          "izz": 0.0010629
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_lf_knee",
+        "mass": 0.11758817,
+        "com": {
+          "xyz": "0.09275425 0.00831525 -0.11676764",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00035913,
+          "ixy": -7.72e-06,
+          "ixz": 0.00026829,
+          "iyy": 0.00057142,
+          "iyz": 9.71e-06,
+          "izz": 0.00023433
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_rf_hip_roll",
+        "mass": 0.21570103,
+        "com": {
+          "xyz": "0.01668887 0.00026284 0.00004787",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.0002249,
+          "ixy": -4.37e-06,
+          "ixz": 2.9e-07,
+          "iyy": 0.00015962,
+          "iyz": -4.5e-07,
+          "izz": 0.00015143
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_rf_hip_pitch",
+        "mass": 0.580416,
+        "com": {
+          "xyz": "-0.00589948 -0.05088084 -0.02188067",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00218991,
+          "ixy": -0.00011864,
+          "ixz": -0.00034697,
+          "iyy": 0.00203012,
+          "iyz": -0.0004608,
+          "izz": 0.00092365
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_rf_knee",
+        "mass": 0.11758817,
+        "com": {
+          "xyz": "0.09261403 -0.00831832 -0.11687868",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00036022,
+          "ixy": 7.72e-06,
+          "ixz": 0.00026803,
+          "iyy": 0.00057142,
+          "iyz": -9.74e-06,
+          "izz": 0.00023324
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_rr_hip_roll",
+        "mass": 0.21570103,
+        "com": {
+          "xyz": "-0.01668887 0.00043897 0.00004309",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00022487,
+          "ixy": 3.73e-06,
+          "ixz": -3.5e-07,
+          "iyy": 0.00015962,
+          "iyz": 1.8e-07,
+          "izz": 0.00015141
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_rr_hip_pitch",
+        "mass": 0.580416,
+        "com": {
+          "xyz": "-0.00991178 -0.05111657 -0.01978284",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00202759,
+          "ixy": -0.00020599,
+          "ixz": -0.00054538,
+          "iyy": 0.00201974,
+          "iyz": -0.00044299,
+          "izz": 0.00109627
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      },
+      {
+        "name": "link_rr_knee",
+        "mass": 0.11758817,
+        "com": {
+          "xyz": "0.06242619 -0.01067511 -0.13526342",
+          "rpy": "0 0 0"
+        },
+        "inertia": {
+          "ixx": 0.00047595,
+          "ixy": 8.84e-06,
+          "ixz": 0.00020905,
+          "iyy": 0.00057089,
+          "iyz": -1.918e-05,
+          "izz": 0.00011804
+        },
+        "positive_definite": true,
+        "visuals": 1,
+        "collisions": 1
+      }
+    ],
+    "total_mass": 7.604260800000003,
+    "joints": [
+      {
+        "name": "joint_lr_1",
+        "type": "revolute",
+        "parent": "base",
+        "child": "link_lr_hip_roll",
+        "axis": {
+          "xyz": "-1 0 0"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_lr_2",
+        "type": "revolute",
+        "parent": "link_lr_hip_roll",
+        "child": "link_lr_hip_pitch",
+        "axis": {
+          "xyz": "0 0.99914919 0.04124191"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_lr_3",
+        "type": "revolute",
+        "parent": "link_lr_hip_pitch",
+        "child": "link_lr_knee",
+        "axis": {
+          "xyz": "0 0.99914919 0.04124191"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_lf_1",
+        "type": "revolute",
+        "parent": "base",
+        "child": "link_lf_hip_roll",
+        "axis": {
+          "xyz": "1 0 0"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_lf_2",
+        "type": "revolute",
+        "parent": "link_lf_hip_roll",
+        "child": "link_lf_hip_pitch",
+        "axis": {
+          "xyz": "0 0.99961862 0.02761531"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_lf_3",
+        "type": "revolute",
+        "parent": "link_lf_hip_pitch",
+        "child": "link_lf_knee",
+        "axis": {
+          "xyz": "0 0.99961862 0.02761531"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_rf_1",
+        "type": "revolute",
+        "parent": "base",
+        "child": "link_rf_hip_roll",
+        "axis": {
+          "xyz": "1 0 0"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_rf_2",
+        "type": "revolute",
+        "parent": "link_rf_hip_roll",
+        "child": "link_rf_hip_pitch",
+        "axis": {
+          "xyz": "0 -0.99961862 0.02761531"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_rf_3",
+        "type": "revolute",
+        "parent": "link_rf_hip_pitch",
+        "child": "link_rf_knee",
+        "axis": {
+          "xyz": "0 -0.99961862 0.02761531"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_rr_1",
+        "type": "revolute",
+        "parent": "base",
+        "child": "link_rr_hip_roll",
+        "axis": {
+          "xyz": "-1 0 0"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_rr_2",
+        "type": "revolute",
+        "parent": "link_rr_hip_roll",
+        "child": "link_rr_hip_pitch",
+        "axis": {
+          "xyz": "0 -0.99914919 0.04124191"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      },
+      {
+        "name": "joint_rr_3",
+        "type": "revolute",
+        "parent": "link_rr_hip_pitch",
+        "child": "link_rr_knee",
+        "axis": {
+          "xyz": "0 -0.99914919 0.04124191"
+        },
+        "limit": {
+          "lower": "-3.14",
+          "upper": "3.14",
+          "effort": "10",
+          "velocity": "3"
+        }
+      }
+    ],
+    "mesh_files": 13
+  }
+}

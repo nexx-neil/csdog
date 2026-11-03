@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=三狗自主对战
+Name[en]=DOGFIGHT FSM Battle
+Comment=三只真实PPO机器狗自主导航、规划路线与激光对战
+Exec=/home/zxq/robot_projects/dogfight_rl/scripts/launch_dogfight_fsm.sh
+TryExec=/home/zxq/robot_projects/dogfight_rl/scripts/launch_dogfight_fsm.sh
+Path=/home/zxq/robot_projects/dogfight_rl
+Icon=/home/zxq/robot_projects/dogfight_rl/assets/ui/dogfight_teleop.svg
+Terminal=false
+Categories=Education;Science;
+StartupNotify=true

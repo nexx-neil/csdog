@@ -1,0 +1,340 @@
+{"command": ["/home/zxq/miniconda3/envs/dogfight/bin/python", "-B", "/home/zxq/robot_projects/dogfight_rl/scripts/battle/run_v0_headless.py", "--duration", "3"], "cwd": "/home/zxq/robot_projects/dogfight_rl", "python": "/home/zxq/miniconda3/envs/dogfight/bin/python"}
+Loading user config located at: '/home/zxq/miniconda3/envs/dogfight/lib/python3.11/site-packages/isaacsim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /home/zxq/miniconda3/envs/dogfight/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261103_142413.log
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: tests] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/tests' or '/home/zxq/robot_projects/dogfight_rl/tests/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: src] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/src' or '/home/zxq/robot_projects/dogfight_rl/src/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: scripts] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/scripts' or '/home/zxq/robot_projects/dogfight_rl/scripts/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: runs] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/runs' or '/home/zxq/robot_projects/dogfight_rl/runs/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: docs] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/docs' or '/home/zxq/robot_projects/dogfight_rl/docs/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: csdog_ppo_tuning_v5] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/csdog_ppo_tuning_v5' or '/home/zxq/robot_projects/dogfight_rl/csdog_ppo_tuning_v5/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: configs] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/configs' or '/home/zxq/robot_projects/dogfight_rl/configs/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: assets] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/assets' or '/home/zxq/robot_projects/dogfight_rl/assets/config'
+2026-11-03T06:24:13Z [6ms] [Warning] [omni.ext.plugin] [ext: __pycache__] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/__pycache__' or '/home/zxq/robot_projects/dogfight_rl/__pycache__/config'
+2026-11-03T06:24:13Z [7ms] [Warning] [omni.ext.plugin] [ext: .pytest_cache] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/.pytest_cache' or '/home/zxq/robot_projects/dogfight_rl/.pytest_cache/config'
+2026-11-03T06:24:13Z [7ms] [Warning] [omni.ext.plugin] [ext: .git] Extensions config 'extension.toml' doesn't exist '/home/zxq/robot_projects/dogfight_rl/.git' or '/home/zxq/robot_projects/dogfight_rl/.git/config'
+2026-11-03T06:24:13Z [79ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-11-03T06:24:13Z [289ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+2026-11-03T06:24:13Z [411ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+2026-11-03T06:24:13Z [417ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+2026-11-03T06:24:14Z [1,895ms] [Error] [omni.kit.stage_templates.new_stage] Failed to create directory /home/zxq/Documents/Kit/apps/Isaac-Sim/scripts/new_stage
+[INFO][AppLauncher]: Using device: cpu
+[INFO][AppLauncher]: Loading experience file: /home/zxq/robot_projects/IsaacLab/apps/isaaclab.python.headless.kit
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-11-03_14-24-16.log[0m
+[36m======================================================================================[0m
+
+[33m14:24:16 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.178.04    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4070 Laptop.. | Yes: 0 |     | 8188    MB | 10de      | 0          |
+|     |                                  |        |     |            | 2860      | 240e4a57.. |
+|     |                                  |        |     |            | 1         |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-138-generic
+| Processor: Intel(R) Core(TM) i7-14700HX
+| Bare Metal Cores: 20 | Bare Metal Logical Cores: 40
+| Available Cores:  28 
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 15762 | Free Memory: 7345
+| Total Page/Swap (MB): 32767 | Free Page/Swap: 30434
+|---------------------------------------------------------------------------------------------|
+2026-11-03T06:24:16Z [2,974ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-11-03T06:24:16Z [2,983ms] [Warning] [gpu.foundation.plugin] PCIe link generation current (3) and maximum (4) for device 0 don't match.
+2026-11-03T06:24:16Z [2,983ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-11-03T06:24:18Z [5,445ms] [Error] [rtx.neuraylib.plugin] Cannot find `Documents/Kit/shared` directory.
+[V0] SPAWN agent=dog_a x=-4.2 y=-2.7 yaw=0.35
+[V0] SPAWN agent=dog_b x=4.2 y=-2.7 yaw=2.79
+[V0] SPAWN agent=dog_c x=0.0 y=3.7 yaw=-1.57
+[V0] ROUND_START
+[V0] INTEL_UPDATE snapshots={'dog_a': {'dog_b': {'agent_id': 'dog_b', 'x': 4.2, 'y': -2.7, 'timestamp_s': 0.0, 'alive': True}, 'dog_c': {'agent_id': 'dog_c', 'x': 0.0, 'y': 3.7, 'timestamp_s': 0.0, 'alive': True}}, 'dog_b': {'dog_a': {'agent_id': 'dog_a', 'x': -4.2, 'y': -2.7, 'timestamp_s': 0.0, 'alive': True}, 'dog_c': {'agent_id': 'dog_c', 'x': 0.0, 'y': 3.7, 'timestamp_s': 0.0, 'alive': True}}, 'dog_c': {'dog_a': {'agent_id': 'dog_a', 'x': -4.2, 'y': -2.7, 'timestamp_s': 0.0, 'alive': True}, 'dog_b': {'agent_id': 'dog_b', 'x': 4.2, 'y': -2.7, 'timestamp_s': 0.0, 'alive': True}}}
+[V0] TARGET_VISIBLE agent=dog_a target=dog_b distance_m=8.4 yaw_error_rad=-0.3500000000000001
+[V0] TARGET_VISIBLE agent=dog_a target=dog_c distance_m=7.655063683601855 yaw_error_rad=0.6400399732272262
+[V0] TARGET_SELECTED agent=dog_a target=dog_c
+[V0] TARGET_VISIBLE agent=dog_b target=dog_a distance_m=8.4 yaw_error_rad=0.3515926535897931
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.6384473196374332
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_VISIBLE agent=dog_c target=dog_a distance_m=7.655063683601855 yaw_error_rad=-0.5815526803625666
+[V0] TARGET_VISIBLE agent=dog_c target=dog_b distance_m=7.655063683601855 yaw_error_rad=0.579960026772774
+[V0] TARGET_SELECTED agent=dog_c target=dog_a
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4083993504154657
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4006986343376635
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40925440437860594
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40145119810860663
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4099455610362961
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40205950996147966
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41050423633172883
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40255122019871425
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4109558243794673
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4029486790946084
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4113208517335085
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_c target=dog_b
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4032699528081949
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4116159104044943
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4035296445652756
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41185441203556294
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40373955843573306
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41204719751728547
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.403909235877582
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] SHOT_FIRED agent=dog_c hit_object_path=None distance_m=None
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4122030297512058
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] SHOT_FIRED agent=dog_a hit_object_path=None distance_m=None
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4040463894358943
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41232899196014117
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40415725331003394
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4124308096501057
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4042468667239376
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4125131108583613
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40431930297978624
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41257963651694585
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40437785460652353
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4126334104935836
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4044251830189749
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.412676877039047
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40446343949023156
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4127120118885177
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4044943629359423
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4127404120669569
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40451935895526336
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41276336848053496
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40453956372117794
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41278192459367524
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40455589562428607
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41279692385885447
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40456909701747445
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] SHOT_FIRED agent=dog_c hit_object_path=None distance_m=None
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4128090480550304
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] SHOT_FIRED agent=dog_a hit_object_path=None distance_m=None
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40457976795894446
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4128188482773183
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4045883934873409
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4128267699865571
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4045953656687882
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4128331732573649
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4046010014179142
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4128383491450176
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4046055569029452
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41284253291512396
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4046092391896119
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41284591473742704
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40461221565314975
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41284864832980794
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40461462158620165
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.412850857945406
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4046165663484258
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4128526440204352
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4046181383373497
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41285408773942933
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.40461940900640325
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41285525472541806
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.4046204361127783
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] TARGET_LOST agent=dog_b target=dog_c
+[V0] TARGET_SELECTED agent=dog_b target=dog_a
+[V0] SHOT_FIRED agent=dog_c hit_object_path=None distance_m=None
+[V0] TARGET_VISIBLE agent=dog_b target=dog_c distance_m=7.655063683601855 yaw_error_rad=-0.41285619802276585
+[V0] TARGET_SELECTED agent=dog_b target=dog_c
+[V0] SHOT_FIRED agent=dog_a hit_object_path=None distance_m=None

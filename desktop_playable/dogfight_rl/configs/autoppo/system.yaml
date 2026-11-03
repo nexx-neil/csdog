@@ -1,0 +1,16 @@
+num_envs: 256
+minimum_num_envs: 64
+maximum_num_envs: 256
+budgets: [250, 1000, 4000]
+survivors: [4, 2]
+population: 12
+checkpoint_interval: 100
+light_interval: 250
+full_interval: 500
+elite_extension: 500
+max_stagnant_batches: 3
+max_process_retries: 2
+minimum_disk_gib: 8
+stop_grace_seconds: 120
+seed: 42
+# No global PPO-update cap. Candidate budgets and stagnation bounds remain finite.

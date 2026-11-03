@@ -1,0 +1,2 @@
+"""Explicit skill distributions, shared by simulation and the pure supervisor."""
+DISTRIBUTIONS=[{'forward':.85,'stop':.15},{'forward':.45,'backward':.40,'stop':.15},{'forward':.25,'backward':.25,'yaw_positive':.20,'yaw_negative':.20,'stop':.10},{'forward':.12,'backward':.12,'yaw_positive':.10,'yaw_negative':.10,'stop':.12,'forward_left':.11,'forward_right':.11,'backward_left':.11,'backward_right':.11}]

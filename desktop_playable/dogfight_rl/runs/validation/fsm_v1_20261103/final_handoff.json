@@ -1,0 +1,67 @@
+{
+  "run": "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164848_a27927cb",
+  "pid": 48141,
+  "paused": true,
+  "match_time_s": 0.0,
+  "health": {
+    "dog_a": 100.0,
+    "dog_b": 100.0,
+    "dog_c": 100.0
+  },
+  "commands": {
+    "dog_a": {
+      "vx": 0.0,
+      "vy": 0.0,
+      "yaw_rate": 0.0
+    },
+    "dog_b": {
+      "vx": 0.0,
+      "vy": 0.0,
+      "yaw_rate": 0.0
+    },
+    "dog_c": {
+      "vx": 0.0,
+      "vy": 0.0,
+      "yaw_rate": 0.0
+    }
+  },
+  "route_visuals": {
+    "backend": "isaacsim.util.debug_draw",
+    "prim_count": 0,
+    "physics_schemas": 0,
+    "enabled": true,
+    "line_count": 5,
+    "point_count": 9,
+    "visible": {
+      "dog_a": {
+        "route": "visible",
+        "vertices": 2,
+        "markers": {
+          "position": "visible",
+          "goal": "visible",
+          "waypoint": "visible"
+        }
+      },
+      "dog_b": {
+        "route": "visible",
+        "vertices": 4,
+        "markers": {
+          "position": "visible",
+          "goal": "visible",
+          "waypoint": "visible"
+        }
+      },
+      "dog_c": {
+        "route": "visible",
+        "vertices": 2,
+        "markers": {
+          "position": "visible",
+          "goal": "visible",
+          "waypoint": "visible"
+        }
+      }
+    }
+  },
+  "first_person_count": 3,
+  "process_live": true
+}
