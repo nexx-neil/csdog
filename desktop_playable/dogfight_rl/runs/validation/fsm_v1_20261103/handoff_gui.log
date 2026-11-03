@@ -1,0 +1,2 @@
+RUN /home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164848_a27927cb
+REPORT /home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164848_a27927cb/fsm_gui_acceptance.json

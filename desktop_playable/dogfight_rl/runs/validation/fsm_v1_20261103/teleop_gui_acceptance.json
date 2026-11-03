@@ -1,0 +1,2710 @@
+{
+  "run": "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_142456_88e19daf",
+  "desktop": "/home/zxq/\u684c\u9762/\u673a\u5668\u72d7\u5bf9\u6218\u73af\u5883.desktop",
+  "events": [
+    {
+      "wall": 1793687111.5094318,
+      "event": "r",
+      "pressed": true
+    },
+    {
+      "wall": 1793687111.5895817,
+      "event": "r",
+      "pressed": false
+    },
+    {
+      "wall": 1793687112.3897474,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687112.4699068,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687113.2700748,
+      "event": "w",
+      "pressed": true
+    },
+    {
+      "wall": 1793687113.270109,
+      "event": "KP_8",
+      "pressed": true
+    },
+    {
+      "wall": 1793687115.77035,
+      "event": "w",
+      "pressed": false
+    },
+    {
+      "wall": 1793687115.7703772,
+      "event": "KP_8",
+      "pressed": false
+    },
+    {
+      "wall": 1793687116.4204817,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687116.5006452,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687116.500683,
+      "event": "KP_8",
+      "pressed": true
+    },
+    {
+      "wall": 1793687117.9009693,
+      "event": "KP_8",
+      "pressed": false
+    },
+    {
+      "wall": 1793687118.5510883,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687118.6312544,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687118.6312938,
+      "event": "KP_2",
+      "pressed": true
+    },
+    {
+      "wall": 1793687120.0315876,
+      "event": "KP_2",
+      "pressed": false
+    },
+    {
+      "wall": 1793687120.6818945,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687120.7621434,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687120.762182,
+      "event": "KP_4",
+      "pressed": true
+    },
+    {
+      "wall": 1793687122.1624382,
+      "event": "KP_4",
+      "pressed": false
+    },
+    {
+      "wall": 1793687122.8125594,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687122.8928678,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687122.8929665,
+      "event": "KP_6",
+      "pressed": true
+    },
+    {
+      "wall": 1793687124.2931573,
+      "event": "KP_6",
+      "pressed": false
+    },
+    {
+      "wall": 1793687124.9432898,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687125.0234008,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687125.0234356,
+      "event": "KP_7",
+      "pressed": true
+    },
+    {
+      "wall": 1793687126.4236836,
+      "event": "KP_7",
+      "pressed": false
+    },
+    {
+      "wall": 1793687127.0737584,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687127.153958,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687127.1539848,
+      "event": "KP_9",
+      "pressed": true
+    },
+    {
+      "wall": 1793687128.5541878,
+      "event": "KP_9",
+      "pressed": false
+    },
+    {
+      "wall": 1793687129.2042875,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687129.284402,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687129.2844381,
+      "event": "KP_1",
+      "pressed": true
+    },
+    {
+      "wall": 1793687130.6847095,
+      "event": "KP_1",
+      "pressed": false
+    },
+    {
+      "wall": 1793687131.3348587,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687131.414968,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687131.4149988,
+      "event": "KP_3",
+      "pressed": true
+    },
+    {
+      "wall": 1793687132.8152137,
+      "event": "KP_3",
+      "pressed": false
+    },
+    {
+      "wall": 1793687133.4653146,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687133.5454485,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687133.545475,
+      "event": "KP_5",
+      "pressed": true
+    },
+    {
+      "wall": 1793687134.9456906,
+      "event": "KP_5",
+      "pressed": false
+    },
+    {
+      "wall": 1793687135.5958805,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687135.675981,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687135.676006,
+      "event": "w",
+      "pressed": true
+    },
+    {
+      "wall": 1793687135.6760113,
+      "event": "q",
+      "pressed": true
+    },
+    {
+      "wall": 1793687137.0762053,
+      "event": "w",
+      "pressed": false
+    },
+    {
+      "wall": 1793687137.076221,
+      "event": "q",
+      "pressed": false
+    },
+    {
+      "wall": 1793687137.7263148,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687137.8064554,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687137.8064795,
+      "event": "w",
+      "pressed": true
+    },
+    {
+      "wall": 1793687137.8064847,
+      "event": "e",
+      "pressed": true
+    },
+    {
+      "wall": 1793687139.206677,
+      "event": "w",
+      "pressed": false
+    },
+    {
+      "wall": 1793687139.2066994,
+      "event": "e",
+      "pressed": false
+    },
+    {
+      "wall": 1793687139.8567874,
+      "event": "w",
+      "pressed": true
+    },
+    {
+      "wall": 1793687139.856819,
+      "event": "KP_8",
+      "pressed": true
+    },
+    {
+      "wall": 1793687140.6569233,
+      "event": "space",
+      "pressed": true
+    },
+    {
+      "wall": 1793687140.7370493,
+      "event": "space",
+      "pressed": false
+    },
+    {
+      "wall": 1793687141.7373128,
+      "event": "w",
+      "pressed": false
+    },
+    {
+      "wall": 1793687141.7373402,
+      "event": "KP_8",
+      "pressed": false
+    },
+    {
+      "wall": 1793687141.7373562,
+      "event": "c",
+      "pressed": true
+    },
+    {
+      "wall": 1793687141.8175209,
+      "event": "c",
+      "pressed": false
+    },
+    {
+      "wall": 1793687142.5178459,
+      "event": "r",
+      "pressed": true
+    },
+    {
+      "wall": 1793687142.5979586,
+      "event": "r",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7804272,
+      "event": "w",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.78046,
+      "event": "s",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7804725,
+      "event": "a",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7804835,
+      "event": "d",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7804945,
+      "event": "q",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805045,
+      "event": "e",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805164,
+      "event": "KP_1",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805274,
+      "event": "KP_2",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.780538,
+      "event": "KP_3",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805488,
+      "event": "KP_4",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805595,
+      "event": "KP_5",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805717,
+      "event": "KP_6",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805824,
+      "event": "KP_7",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7805932,
+      "event": "KP_8",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7806091,
+      "event": "KP_9",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.7806206,
+      "event": "space",
+      "pressed": true
+    },
+    {
+      "wall": 1793687143.860723,
+      "event": "space",
+      "pressed": false
+    },
+    {
+      "wall": 1793687143.8607607,
+      "event": "Escape",
+      "pressed": true
+    },
+    {
+      "wall": 1793687143.9408479,
+      "event": "Escape",
+      "pressed": false
+    }
+  ],
+  "samples": [
+    {
+      "label": "both_forward",
+      "status": {
+        "t": 8.02,
+        "match": {
+          "time_s": 3.1600000000000024,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.668760299682617,
+              "y": -2.433802604675293,
+              "yaw": 0.4404364812085162
+            },
+            "command": {
+              "vx": 0.24999991825226178,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.24249812960624695,
+              0.020840298384428024,
+              0.05576921999454498
+            ],
+            "root_z": 0.411050945520401,
+            "tilt": 0.06649774312973022,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 3.6221673488616943,
+              "y": -2.561176061630249,
+              "yaw": 2.8803735747664856
+            },
+            "command": {
+              "vx": 0.24999991825226178,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.24469536542892456,
+              0.02447572350502014,
+              0.0467616505920887
+            ],
+            "root_z": 0.4114301800727844,
+            "tilt": 0.06527809053659439,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003649934660643339,
+              "y": 3.7276358604431152,
+              "yaw": -1.5668641598169684
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00022850275854580104,
+              -0.0002801612426992506,
+              -0.0006771320477128029
+            ],
+            "root_z": 0.3885749280452728,
+            "tilt": 0.010438804514706135,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876521587371826
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.4805969921572393,
+              -2.3461891950044222,
+              0.5745627477407742
+            ],
+            "target": [
+              -2.580161159671505,
+              -1.923946241312327,
+              0.47003428447312073
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              3.4219554588059586,
+              -2.506524783827829,
+              0.5749227200008339
+            ],
+            "target": [
+              2.461665505103147,
+              -2.247841569868448,
+              0.4703942567331804
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.00451558428067594,
+              3.5076380501814834,
+              0.5485746247779386
+            ],
+            "target": [
+              0.008426445690804113,
+              2.5131238443855413,
+              0.44404616151028514
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_8",
+      "status": {
+        "t": 10.02,
+        "match": {
+          "time_s": 5.159999999999978,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.5455963611602783,
+              "y": -2.389788866043091,
+              "yaw": 0.5019382431865886
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.024139240384101868,
+              0.00813186727464199,
+              0.00842833798378706
+            ],
+            "root_z": 0.4078141748905182,
+            "tilt": 0.09498348832130432,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 3.305588960647583,
+              "y": -2.4472854137420654,
+              "yaw": 2.9181898039085983
+            },
+            "command": {
+              "vx": 0.24975631342679827,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.24506208300590515,
+              0.01690053939819336,
+              0.027082253247499466
+            ],
+            "root_z": 0.4114474654197693,
+            "tilt": 0.06060967966914177,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036510166246443987,
+              "y": 3.7276370525360107,
+              "yaw": -1.5668638382954523
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.0002276590239489451,
+              -0.0002676256117410958,
+              -0.0006768154562450945
+            ],
+            "root_z": 0.3885740637779236,
+            "tilt": 0.010441065765917301,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876533508300781
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.353552459469325,
+              -2.2858286994563555,
+              0.5703229350026697
+            ],
+            "target": [
+              -2.480663173709531,
+              -1.8092386290891058,
+              0.46579447173501626
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              3.1031235328369906,
+              -2.4011108689569056,
+              0.5746201604331431
+            ],
+            "target": [
+              2.133349418893084,
+              -2.1806296491416717,
+              0.47009169716548965
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004515967947918192,
+              3.507638767191106,
+              0.5485740053056498
+            ],
+            "target": [
+              0.008426934133246208,
+              2.513124561807191,
+              0.44404554203799634
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_2",
+      "status": {
+        "t": 12.02,
+        "match": {
+          "time_s": 7.159999999999935,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.4999568462371826,
+              "y": -2.3392560482025146,
+              "yaw": 0.6136959374863684
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.02505764365196228,
+              0.017637792974710464,
+              0.01678559184074402
+            ],
+            "root_z": 0.4066978991031647,
+            "tilt": 0.1030701994895935,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 3.3196754455566406,
+              "y": -2.486116886138916,
+              "yaw": 2.9857373945908883
+            },
+            "command": {
+              "vx": -0.24929192534703384,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.21971465647220612,
+              0.05222616344690323,
+              0.019099656492471695
+            ],
+            "root_z": 0.39302632212638855,
+            "tilt": 0.135450080037117,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036510603968054056,
+              "y": 3.7276365756988525,
+              "yaw": -1.5668639991719826
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.0002526284952182323,
+              -0.0002741753705777228,
+              -0.0007056333124637604
+            ],
+            "root_z": 0.38857442140579224,
+            "tilt": 0.010440696030855179,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.88765287399292
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.3203600061004703,
+              -2.214874335524644,
+              0.569044569447963
+            ],
+            "target": [
+              -2.505804108261138,
+              -1.6442847372475096,
+              0.46451610618030953
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              3.0925682793883316,
+              -2.446344654060858,
+              0.5550291389132428
+            ],
+            "target": [
+              2.1105605983248807,
+              -2.2890719142128897,
+              0.4505006756455893
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516143281453368,
+              3.507638277126707,
+              0.5485744938073668
+            ],
+            "target": [
+              0.008427315797549143,
+              2.513124072554217,
+              0.4440460305397133
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_4",
+      "status": {
+        "t": 14.52,
+        "match": {
+          "time_s": 9.659999999999883,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.4484164714813232,
+              "y": -2.2700421810150146,
+              "yaw": 0.7553366652753812
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.025766566395759583,
+              0.01341606117784977,
+              0.012300966307520866
+            ],
+            "root_z": 0.4066482186317444,
+            "tilt": 0.10233280062675476,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 3.372114419937134,
+              "y": -2.3738601207733154,
+              "yaw": -2.892434737254712
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.29993253980274637
+            },
+            "actual_velocity": [
+              0.012587778270244598,
+              -0.10320643335580826,
+              0.2429853081703186
+            ],
+            "root_z": 0.4018789827823639,
+            "tilt": 0.10660263895988464,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003650912782177329,
+              "y": 3.72763729095459,
+              "yaw": -1.5668634921767184
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00023735918512102216,
+              -0.00028329563792794943,
+              -0.0006596583989448845
+            ],
+            "root_z": 0.3885738253593445,
+            "tilt": 0.010440102778375149,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876535892486572
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.288408747553287,
+              -2.1214066969757024,
+              0.5689964048200881
+            ],
+            "target": [
+              -2.5627117242308164,
+              -1.4413790279005325,
+              0.4644679415524346
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              3.160558177839561,
+              -2.4303366888520808,
+              0.5631729025496788
+            ],
+            "target": [
+              2.1928997216912647,
+              -2.6599252613281497,
+              0.4586444392820253
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516604254255468,
+              3.5076389695835464,
+              0.5485740424651143
+            ],
+            "target": [
+              0.008428324527547633,
+              2.513124767165398,
+              0.44404557919746085
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_6",
+      "status": {
+        "t": 16.52,
+        "match": {
+          "time_s": 11.65999999999984,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.4142422676086426,
+              "y": -2.210040330886841,
+              "yaw": 0.8698079157502487
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.025743572041392326,
+              0.013914092443883419,
+              0.012880310416221619
+            ],
+            "root_z": 0.40648937225341797,
+            "tilt": 0.10242372006177902,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 3.277456045150757,
+              "y": -2.4050474166870117,
+              "yaw": -3.1029802545724157
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": -0.2998498645699678
+            },
+            "actual_velocity": [
+              0.019617021083831787,
+              0.06796570122241974,
+              -0.37132418155670166
+            ],
+            "root_z": 0.40987712144851685,
+            "tilt": 0.02655690908432007,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003650704398751259,
+              "y": 3.727637529373169,
+              "yaw": -1.5668636614167577
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00024312631285283715,
+              -0.00028041983023285866,
+              -0.0006795447552576661
+            ],
+            "root_z": 0.3885740339756012,
+            "tilt": 0.010440089739859104,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876538276672363
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.272217609439329,
+              -2.0441204442940424,
+              0.5688574105396439
+            ],
+            "target": [
+              -2.628877698248589,
+              -1.285709237206493,
+              0.4643289472719904
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              3.0596653847583855,
+              -2.412822261202421,
+              0.5712062347456162
+            ],
+            "target": [
+              2.06707166969506,
+              -2.4747215114700043,
+              0.4666777714779627
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.0045159495717847446,
+              3.5076392302182007,
+              0.5485740056200766
+            ],
+            "target": [
+              0.008426896112573572,
+              2.513125024757033,
+              0.44404554235242316
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_7",
+      "status": {
+        "t": 18.52,
+        "match": {
+          "time_s": 13.659999999999798,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.3861539363861084,
+              "y": -2.147141218185425,
+              "yaw": 0.9851919099277193
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.026274988427758217,
+              0.013161217793822289,
+              0.014628676697611809
+            ],
+            "root_z": 0.4062723219394684,
+            "tilt": 0.1032949760556221,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 3.0317914485931396,
+              "y": -2.359982967376709,
+              "yaw": -2.9240835711545285
+            },
+            "command": {
+              "vx": 0.2497215562130388,
+              "vy": 0.0,
+              "yaw_rate": 0.29966586745564655
+            },
+            "actual_velocity": [
+              0.22372481226921082,
+              -0.09872163832187653,
+              0.32542115449905396
+            ],
+            "root_z": 0.4081011414527893,
+            "tilt": 0.08308536559343338,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036514969542622566,
+              "y": 3.727637767791748,
+              "yaw": -1.5668621579013802
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00024009068147279322,
+              -0.0002784482785500586,
+              -0.0006502253236249089
+            ],
+            "root_z": 0.3885742723941803,
+            "tilt": 0.01044222991913557,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876543045043945
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.264202142045489,
+              -1.9659745255743366,
+              0.5686329644300365
+            ],
+            "target": [
+              -2.712499571861408,
+              -1.1385096777293167,
+              0.46410450116238305
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.8287106981838908,
+              -2.4076619822956573,
+              0.5703852730329236
+            ],
+            "target": [
+              1.8540372921273574,
+              -2.6053626446442157,
+              0.46585680976527016
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004517062598668306,
+              3.507639452359246,
+              0.5485742627812836
+            ],
+            "target": [
+              0.008429611502303432,
+              2.513125253200692,
+              0.44404579951363016
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_9",
+      "status": {
+        "t": 20.52,
+        "match": {
+          "time_s": 15.659999999999755,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.3631932735443115,
+              "y": -2.0818004608154297,
+              "yaw": 1.1001935856136793
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.026469556614756584,
+              0.011901358142495155,
+              0.015744240954518318
+            ],
+            "root_z": 0.4061664938926697,
+            "tilt": 0.10367365926504135,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.684873342514038,
+              "y": -2.4035353660583496,
+              "yaw": -3.018664346164006
+            },
+            "command": {
+              "vx": 0.2491909320844693,
+              "vy": 0.0,
+              "yaw_rate": -0.2990291185013631
+            },
+            "actual_velocity": [
+              0.2588728666305542,
+              0.07117089629173279,
+              -0.38156217336654663
+            ],
+            "root_z": 0.4117002487182617,
+            "tilt": 0.045793768018484116,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036514275707304478,
+              "y": 3.7276368141174316,
+              "yaw": -1.5668634988242722
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.0002156091359211132,
+              -0.00028269365429878235,
+              -0.0006734634516760707
+            ],
+            "root_z": 0.3885742723941803,
+            "tilt": 0.010440882295370102,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.887653112411499
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.2628971357519285,
+              -1.8878124622547725,
+              0.5684966958851332
+            ],
+            "target": [
+              -2.809879002410039,
+              -1.0024603451678293,
+              0.4639682326174797
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.4796632334017605,
+              -2.4284614861535325,
+              0.571354915564423
+            ],
+            "target": [
+              1.4955523317756452,
+              -2.5719868625423,
+              0.4668264522967695
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516842548755783,
+              3.5076388965330554,
+              0.5485743276472518
+            ],
+            "target": [
+              0.008428416366179692,
+              2.513124693538863,
+              0.4440458643795983
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_1",
+      "status": {
+        "t": 22.52,
+        "match": {
+          "time_s": 17.659999999999712,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.3469796180725098,
+              "y": -2.0142407417297363,
+              "yaw": 1.2151853015992167
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.02653728798031807,
+              0.011593088507652283,
+              0.015718067064881325
+            ],
+            "root_z": 0.40610694885253906,
+            "tilt": 0.1037658080458641,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.619295358657837,
+              "y": -2.4691898822784424,
+              "yaw": -3.0076054035961644
+            },
+            "command": {
+              "vx": -0.24819938624005633,
+              "vy": 0.0,
+              "yaw_rate": 0.29783926348806755
+            },
+            "actual_velocity": [
+              -0.18560238182544708,
+              0.005883276462554932,
+              0.27462172508239746
+            ],
+            "root_z": 0.3907175064086914,
+            "tilt": 0.15863676369190216,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036497788969427347,
+              "y": 3.727637529373169,
+              "yaw": -1.5668643177969324
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00025556201580911875,
+              -0.00027752795722335577,
+              -0.0006654083263128996
+            ],
+            "root_z": 0.3885743319988251,
+            "tilt": 0.01043776422739029,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876538276672363
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.269623316875448,
+              -1.81002181662561,
+              0.5684300987984767
+            ],
+            "target": [
+              -2.921180352103268,
+              -0.8785384294051636,
+              0.46390163553082325
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.39239190004689,
+              -2.4960600384336944,
+              0.5515202697944047
+            ],
+            "target": [
+              1.4048143492458212,
+              -2.613381739412948,
+              0.44699180652675125
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004515203581736044,
+              3.50763922118636,
+              0.5485743559190844
+            ],
+            "target": [
+              0.00842594737183568,
+              2.513125014927892,
+              0.44404589265143096
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_3",
+      "status": {
+        "t": 25.02,
+        "match": {
+          "time_s": 20.15999999999966,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.337644577026367,
+              "y": -1.927716612815857,
+              "yaw": 1.3587576138308348
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.026695266366004944,
+              0.012051884084939957,
+              0.016278782859444618
+            ],
+            "root_z": 0.40609073638916016,
+            "tilt": 0.10405062884092331,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.8932669162750244,
+              "y": -2.487593650817871,
+              "yaw": 3.114169661418618
+            },
+            "command": {
+              "vx": -0.2499508005293885,
+              "vy": 0.0,
+              "yaw_rate": -0.29994096063526626
+            },
+            "actual_velocity": [
+              -0.24907873570919037,
+              0.06496352702379227,
+              -0.40936803817749023
+            ],
+            "root_z": 0.40012961626052856,
+            "tilt": 0.03853923827409744,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003651096485555172,
+              "y": 3.7276365756988525,
+              "yaw": -1.5668643388312515
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00023283256450667977,
+              -0.0002736849128268659,
+              -0.0006453855894505978
+            ],
+            "root_z": 0.3885745406150818,
+            "tilt": 0.010441025719046593,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.88765287399292
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.290275879582272,
+              -1.714538708240549,
+              0.5684305538976476
+            ],
+            "target": [
+              -3.078678136213135,
+              -0.7427876108045895,
+              0.46390209062999416
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.663003325769133,
+              -2.481084942354953,
+              0.5625992399399187
+            ],
+            "target": [
+              1.6684814933664431,
+              -2.481438836829809,
+              0.4580707766722652
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516199277658466,
+              3.5076383192619818,
+              0.5485744703757424
+            ],
+            "target": [
+              0.008427188171119468,
+              2.5131241139673675,
+              0.4440460071080889
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "keypad_5",
+      "status": {
+        "t": 27.02,
+        "match": {
+          "time_s": 22.159999999999616,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.3393173217773438,
+              "y": -1.8581732511520386,
+              "yaw": 1.4736445770596553
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.02674565464258194,
+              0.012180706486105919,
+              0.016111955046653748
+            ],
+            "root_z": 0.4060843884944916,
+            "tilt": 0.10406647622585297,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.898872137069702,
+              "y": -2.530579090118408,
+              "yaw": 3.0966913739785396
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.021875008940696716,
+              0.01678277924656868,
+              0.014906045980751514
+            ],
+            "root_z": 0.40739938616752625,
+            "tilt": 0.09271201491355896,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036516664549708366,
+              "y": 3.7276370525360107,
+              "yaw": -1.566863507780155
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00025312628713436425,
+              -0.0002684977953322232,
+              -0.0006492664688266814
+            ],
+            "root_z": 0.38857436180114746,
+            "tilt": 0.010442640632390976,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876533508300781
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.316691938594385,
+              -1.6409726332173076,
+              0.5684297165950096
+            ],
+            "target": [
+              -3.217878668924726,
+              -0.6513718358731997,
+              0.46390125332735616
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.680598508730578,
+              -2.519035092249685,
+              0.5702117156002484
+            ],
+            "target": [
+              1.6871840736773396,
+              -2.4721143016046163,
+              0.46568325233259494
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516639467455033,
+              3.5076386895091605,
+              0.5485742887225463
+            ],
+            "target": [
+              0.008427794103737885,
+              2.513124484866354,
+              0.44404582545489285
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "A_force_left",
+      "status": {
+        "t": 29.02,
+        "match": {
+          "time_s": 24.159999999999574,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.3129384517669678,
+              "y": -1.7999566793441772,
+              "yaw": 1.7642708352241767
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.29889064088505507
+            },
+            "actual_velocity": [
+              0.010271154344081879,
+              -0.07155120372772217,
+              0.24584746360778809
+            ],
+            "root_z": 0.40142762660980225,
+            "tilt": 0.10970742255449295,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.8338544368743896,
+              "y": -2.5527868270874023,
+              "yaw": -3.0748552271835266
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.02523842826485634,
+              0.017919782549142838,
+              0.016739124432206154
+            ],
+            "root_z": 0.4067153036594391,
+            "tilt": 0.10315756499767303,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036506671458482742,
+              "y": 3.727637767791748,
+              "yaw": -1.5668623150114687
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00023230900114867836,
+              -0.00026102905394509435,
+              -0.0006420767167583108
+            ],
+            "root_z": 0.38857415318489075,
+            "tilt": 0.010441222228109837,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876543045043945
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.355807527213718,
+              -1.5847662439842882,
+              0.5627948229283966
+            ],
+            "target": [
+              -3.5302052013074654,
+              -0.6056547837114581,
+              0.4582663596607431
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.6157758957369763,
+              -2.565595432273133,
+              0.5690639021553988
+            ],
+            "target": [
+              1.6232950085422493,
+              -2.6292781530070206,
+              0.46453543888774534
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004515969474971018,
+              3.5076394659303745,
+              0.5485740466801461
+            ],
+            "target": [
+              0.008427746746492744,
+              2.5131252637364185,
+              0.4440455834124926
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "A_force_right",
+      "status": {
+        "t": 31.52,
+        "match": {
+          "time_s": 26.65999999999952,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.319730520248413,
+              "y": -1.6807504892349243,
+              "yaw": 1.642156164814084
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": -0.2999119236175571
+            },
+            "actual_velocity": [
+              0.018951892852783203,
+              0.06597587466239929,
+              -0.3713029623031616
+            ],
+            "root_z": 0.409999281167984,
+            "tilt": 0.024045268073678017,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.753926992416382,
+              "y": -2.5861756801605225,
+              "yaw": -2.9344286403089788
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.025768479332327843,
+              0.013956297188997269,
+              0.012241052463650703
+            ],
+            "root_z": 0.406708687543869,
+            "tilt": 0.10212916880846024,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003650297410786152,
+              "y": 3.7276363372802734,
+              "yaw": -1.5668631588005886
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.0002390415611444041,
+              -0.0002700129698496312,
+              -0.0006315174978226423
+            ],
+            "root_z": 0.38857460021972656,
+            "tilt": 0.010440465994179249,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.88765287399292
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.334762119125001,
+              -1.4633506401917973,
+              0.5712158655451763
+            ],
+            "target": [
+              -3.4294964667969214,
+              -0.47335104234436465,
+              0.46668740227752287
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.5398974078144794,
+              -2.6296253248649815,
+              0.569046042872345
+            ],
+            "target": [
+              1.5661520885565854,
+              -2.831847612435479,
+              0.4645175796046915
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004515822608874583,
+              3.5076380539284204,
+              0.5485746051903718
+            ],
+            "target": [
+              0.008427087675953387,
+              2.5131238497199146,
+              0.44404614192271835
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "global_stop",
+      "status": {
+        "t": 34.02,
+        "match": {
+          "time_s": 28.279999999999486,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": true,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.4510364532470703,
+              "y": -1.4655693769454956,
+              "yaw": 1.6483694157431446
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.026613526046276093,
+              0.06524336338043213,
+              0.07052545994520187
+            ],
+            "root_z": 0.40746229887008667,
+            "tilt": 0.11572080850601196,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.55541729927063,
+              "y": -2.7274978160858154,
+              "yaw": -2.8164528438190706
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.031320828944444656,
+              0.07219913601875305,
+              0.07335018366575241
+            ],
+            "root_z": 0.4072466492652893,
+            "tilt": 0.12571321427822113,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.0036512468941509724,
+              "y": 3.7276368141174316,
+              "yaw": -1.5668629900773414
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00023405358660966158,
+              -0.00027712149312719703,
+              -0.0006629206473007798
+            ],
+            "root_z": 0.3885742127895355,
+            "tilt": 0.010441122576594353,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876533508300781
+            }
+          }
+        },
+        "estop": true,
+        "stop_reason": "manual",
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.463593377447673,
+              -1.2468703405606503,
+              0.5706570527204158
+            ],
+            "target": [
+              -3.5360485849994685,
+              -0.2549912938692056,
+              0.4661285894527623
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.346494987638347,
+              -2.7928806624235873,
+              0.5702300233128454
+            ],
+            "target": [
+              1.402517100769265,
+              -3.1058975141569807,
+              0.465701560045192
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516739876012437,
+              3.5076385155710397,
+              0.5485742457765423
+            ],
+            "target": [
+              0.00842862143997242,
+              2.5131243137873085,
+              0.4440457825088889
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "unlocked",
+      "status": {
+        "t": 34.52,
+        "match": {
+          "time_s": 28.57999999999948,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": false,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -3.4723846912384033,
+              "y": -1.45260751247406,
+              "yaw": 1.6752897224432735
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.022963954135775566,
+              0.03219173476099968,
+              0.02735888957977295
+            ],
+            "root_z": 0.4066477417945862,
+            "tilt": 0.10755077004432678,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 2.5532519817352295,
+              "y": -2.7620482444763184,
+              "yaw": -2.7841464997234073
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.03160720318555832,
+              0.06866437941789627,
+              0.07737275958061218
+            ],
+            "root_z": 0.4064403772354126,
+            "tilt": 0.12825055420398712,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003650904167443514,
+              "y": 3.72763729095459,
+              "yaw": -1.566863501578308
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              -0.00025756494142115116,
+              -0.000271652708761394,
+              -0.0006577888270840049
+            ],
+            "root_z": 0.3885740637779236,
+            "tilt": 0.010440979152917862,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.8876535892486572
+            }
+          }
+        },
+        "estop": false,
+        "stop_reason": null,
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.492563836383653,
+              -1.2345770897692627,
+              0.5693937479534336
+            ],
+            "target": [
+              -3.592967827456132,
+              -0.24513642002517932,
+              0.4648652846857801
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              2.3466341046549832,
+              -2.834279470580353,
+              0.5693509218127648
+            ],
+            "target": [
+              1.4132924736404127,
+              -3.177713889621258,
+              0.46482245854511134
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004516042470483639,
+              3.507638859426011,
+              0.5485741291531182
+            ],
+            "target": [
+              0.008427201127148131,
+              2.5131246547990154,
+              0.44404566588546474
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    },
+    {
+      "label": "reset",
+      "status": {
+        "t": 35.52,
+        "match": {
+          "time_s": 0.0,
+          "round_over": false,
+          "winner": null,
+          "draw": false,
+          "paused": true,
+          "max_health": 100.0,
+          "agents": {
+            "dog_a": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_b": {
+              "health": 100.0,
+              "alive": true
+            },
+            "dog_c": {
+              "health": 100.0,
+              "alive": true
+            }
+          }
+        },
+        "agents": {
+          "dog_a": {
+            "pose": {
+              "x": -4.197685718536377,
+              "y": -2.7044148445129395,
+              "yaw": 0.3467044174933589
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.057774003595113754,
+              0.024089161306619644,
+              -0.07473568618297577
+            ],
+            "root_z": 0.4098600149154663,
+            "tilt": 0.0908554345369339,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_b": {
+            "pose": {
+              "x": 4.201080799102783,
+              "y": -2.695108413696289,
+              "yaw": 2.786667204812164
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.057664655148983,
+              0.02393455058336258,
+              -0.07500401139259338
+            ],
+            "root_z": 0.4098675549030304,
+            "tilt": 0.09085852652788162,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": null,
+              "distance": 3.0
+            }
+          },
+          "dog_c": {
+            "pose": {
+              "x": 0.003411694196984172,
+              "y": 3.7292962074279785,
+              "yaw": -1.5673119238526783
+            },
+            "command": {
+              "vx": 0.0,
+              "vy": 0.0,
+              "yaw_rate": 0.0
+            },
+            "actual_velocity": [
+              0.09176312386989594,
+              -0.0043757036328315735,
+              0.003785960376262665
+            ],
+            "root_z": 0.38806983828544617,
+            "tilt": 0.010002434253692627,
+            "health": 100.0,
+            "alive": true,
+            "laser": {
+              "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+              "distance": 1.889309048652649
+            }
+          }
+        },
+        "estop": true,
+        "stop_reason": "manual",
+        "first_person": {
+          "dog_a": {
+            "eye": [
+              -3.9915699866412435,
+              -2.6330443093202125,
+              0.5697646673879805
+            ],
+            "target": [
+              -3.0550179628594485,
+              -2.298463815093297,
+              0.465236204120327
+            ],
+            "camera_path": "/World/FirstPerson/dog_a"
+          },
+          "dog_b": {
+            "eye": [
+              3.9975837212735597,
+              -2.616576115389674,
+              0.5697688036374814
+            ],
+            "target": [
+              3.066296652151215,
+              -2.2676087884772302,
+              0.4652403403698279
+            ],
+            "camera_path": "/World/FirstPerson/dog_b"
+          },
+          "dog_c": {
+            "eye": [
+              0.004482456273043547,
+              3.5132127316298556,
+              0.5466876124782928
+            ],
+            "target": [
+              0.007916955861881758,
+              2.5186967666602245,
+              0.4421591492106393
+            ],
+            "camera_path": "/World/FirstPerson/dog_c"
+          }
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "mode": "three_real_dog_battle",
+    "scenario": "interactive",
+    "frames": 1817,
+    "sim_seconds": 36.34,
+    "wall_seconds": 36.356992949000414,
+    "reset_count": 4,
+    "minimum_root_z": {
+      "dog_a": 0.39732807874679565,
+      "dog_b": 0.38294339179992676,
+      "dog_c": 0.38371583819389343
+    },
+    "maximum_tilt": {
+      "dog_a": 0.15924213826656342,
+      "dog_b": 0.22741387784481049,
+      "dog_c": 0.012924831360578537
+    },
+    "match": {
+      "time_s": 0.0,
+      "round_over": false,
+      "winner": null,
+      "draw": false,
+      "paused": true,
+      "max_health": 100.0,
+      "agents": {
+        "dog_a": {
+          "health": 100.0,
+          "alive": true
+        },
+        "dog_b": {
+          "health": 100.0,
+          "alive": true
+        },
+        "dog_c": {
+          "health": 100.0,
+          "alive": true
+        }
+      }
+    },
+    "event_counts": {
+      "SHOT_FIRED": 90,
+      "DAMAGE": 0,
+      "DEATH": 0,
+      "ROUND_END": 0
+    },
+    "first_person_count": 3,
+    "first_person_docked": true,
+    "navigation_visible": true,
+    "policy_steps": {
+      "dog_a": 66,
+      "dog_b": 66,
+      "dog_c": 0
+    },
+    "main_camera_preserved": true
+  },
+  "process_exited": true,
+  "screenshot": "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_142456_88e19daf/three_dog_gui.png"
+}

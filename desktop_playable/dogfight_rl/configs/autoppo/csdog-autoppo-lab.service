@@ -1,0 +1,22 @@
+# Managed by CSDog AutoPPO Lab
+[Unit]
+Description=CSDog AutoPPO Lab serial reinforcement learning experiments
+ConditionPathExists=/home/zxq/robot_projects/dogfight_rl/runs/locomotion/csdog_autoppo_lab/reports/VALIDATION_GATE.json
+ConditionPathExists=!/home/zxq/robot_projects/dogfight_rl/runs/locomotion/csdog_autoppo_lab/STOP
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/zxq/robot_projects/dogfight_rl
+ExecStart=/home/zxq/miniconda3/envs/dogfight/bin/python -u /home/zxq/robot_projects/dogfight_rl/scripts/autoppo/autoppo.py _daemon --base /home/zxq/robot_projects/dogfight_rl/runs/locomotion/csdog_autoppo_lab
+Environment=PYTHONUNBUFFERED=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=4
+Restart=on-failure
+RestartSec=15
+KillMode=mixed
+TimeoutStopSec=180
+StandardOutput=append:/home/zxq/robot_projects/dogfight_rl/runs/locomotion/csdog_autoppo_lab/manager.log
+StandardError=inherit
+
+[Install]
+WantedBy=default.target

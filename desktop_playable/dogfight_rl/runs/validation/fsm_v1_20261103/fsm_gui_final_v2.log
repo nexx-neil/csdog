@@ -1,0 +1,3 @@
+RUN /home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_143940_893a902f
+MATCH 20.34 HP {'dog_a': 20.0, 'dog_b': 100.0, 'dog_c': 0.0} states {'dog_a': 'SEARCH', 'dog_b': 'SEARCH', 'dog_c': 'DEAD'}
+REPORT /home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_143940_893a902f/fsm_gui_acceptance.json

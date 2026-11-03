@@ -1,0 +1,97 @@
+{"command": ["/home/zxq/miniconda3/envs/dogfight/bin/python", "-B", "/home/zxq/robot_projects/dogfight_rl/scripts/diagnostics/verify_training_runtime.py"], "cwd": "/home/zxq/robot_projects/dogfight_rl", "python": "/home/zxq/miniconda3/envs/dogfight/bin/python"}
+Loading user config located at: '/home/zxq/miniconda3/envs/dogfight/lib/python3.11/site-packages/isaacsim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /home/zxq/miniconda3/envs/dogfight/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261026_103110.log
+2026-10-26T02:31:10Z [53ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-10-26T02:31:11Z [378ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+2026-10-26T02:31:11Z [383ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.178.04    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4070 Laptop.. | Yes: 0 |     | 8188    MB | 10de      | 0          |
+|     |                                  |        |     |            | 2860      | 240e4a57.. |
+|     |                                  |        |     |            | 1         |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-138-generic
+| XServer Vendor: The X.Org Foundation, XServer Version: 12101004 (1.21.1.4)
+| Processor: Intel(R) Core(TM) i7-14700HX
+| Cores: 20 | Logical Cores: 28
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 15762 | Free Memory: 10334
+| Total Page/Swap (MB): 32767 | Free Page/Swap: 32767
+|---------------------------------------------------------------------------------------------|
+2026-10-26T02:31:13Z [2,939ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-10-26T02:31:13Z [2,951ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-10-26T02:31:14Z [3,908ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,909ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,909ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,909ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,909ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,910ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,913ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,913ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,914ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,914ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,914ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,914ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,914ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,914ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,915ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,915ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,915ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,915ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,915ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,916ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd@.
+
+2026-10-26T02:31:14Z [3,919ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,919ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,919ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,919ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,919ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,920ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+[INFO][AppLauncher]: Using device: cpu
+[INFO][AppLauncher]: Loading experience file: /home/zxq/robot_projects/IsaacLab/apps/isaaclab.python.headless.kit
+TRAINING_RESOURCE_VALIDATION {"status": "PASS", "wrapper_import": true, "ppo_config": true, "legacy_actor_explicit_load": true, "actor_output_scale": 0.5, "usd_roots": 3, "usd_layers": 15, "unresolved": ["OmniPBR.mdl", "OmniPBR.mdl", "OmniPBR.mdl"], "new_model_environment": "NOT_IMPLEMENTED", "training_updates": 0, "external_mdl": "/home/zxq/miniconda3/envs/dogfight/lib/python3.11/site-packages/isaacsim/kit/mdl/core/Base/OmniPBR.mdl"}
+2026-10-26T02:31:14Z [3,920ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,920ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,920ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,920ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,920ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,921ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+
+2026-10-26T02:31:14Z [3,921ms] [Warning] [omni.usd] Warning: in _EnqueueDependency at line 116 of /builds/omniverse/usd-ci/USD/pxr/usd/usdUtils/assetLocalization.cpp -- Failed to resolve reference @OmniPBR.mdl@ with computed asset path @OmniPBR.mdl@ found in layer @/home/zxq/robot_projects/archive/legacy_dog_a/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd@.
+

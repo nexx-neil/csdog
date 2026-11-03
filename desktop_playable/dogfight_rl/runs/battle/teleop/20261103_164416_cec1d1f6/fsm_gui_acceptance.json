@@ -1,0 +1,802 @@
+{
+  "run": "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6",
+  "screenshots": [
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_routes_on.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_routes_off.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_routes_restored.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_reset.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_match_20.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_result.png"
+  ],
+  "samples": {
+    "running": {
+      "t": 5.02,
+      "match": {
+        "time_s": 1.9600000000000013,
+        "round_over": false,
+        "winner": null,
+        "draw": false,
+        "paused": false,
+        "max_health": 100.0,
+        "agents": {
+          "dog_a": {
+            "health": 100.0,
+            "alive": true
+          },
+          "dog_b": {
+            "health": 100.0,
+            "alive": true
+          },
+          "dog_c": {
+            "health": 100.0,
+            "alive": true
+          }
+        },
+        "navigation": {
+          "dog_a": {
+            "state": "SEARCH",
+            "target_id": "dog_c",
+            "navigation_goal": [
+              0.0,
+              3.700000047683716
+            ],
+            "distance_m": 7.215631898095384,
+            "visible": false,
+            "planning": "ok",
+            "path": [
+              [
+                0.0,
+                3.700000047683716
+              ]
+            ],
+            "waypoint": [
+              0.0,
+              3.700000047683716
+            ],
+            "fire": false
+          },
+          "dog_b": {
+            "state": "SEARCH",
+            "target_id": "dog_c",
+            "navigation_goal": [
+              0.0,
+              3.700000047683716
+            ],
+            "distance_m": 7.580138085620704,
+            "visible": false,
+            "planning": "ok",
+            "path": [
+              [
+                4.600000000000001,
+                2.2
+              ],
+              [
+                4.4,
+                2.4000000000000004
+              ],
+              [
+                0.0,
+                3.700000047683716
+              ]
+            ],
+            "waypoint": [
+              4.600000000000001,
+              2.2
+            ],
+            "fire": false
+          },
+          "dog_c": {
+            "state": "SEARCH",
+            "target_id": "dog_a",
+            "navigation_goal": [
+              -4.199999809265137,
+              -2.700000047683716
+            ],
+            "distance_m": 7.354448180949547,
+            "visible": false,
+            "planning": "ok",
+            "path": [
+              [
+                -4.199999809265137,
+                -2.700000047683716
+              ]
+            ],
+            "waypoint": [
+              -4.199999809265137,
+              -2.700000047683716
+            ],
+            "fire": false
+          }
+        }
+      },
+      "agents": {
+        "dog_a": {
+          "pose": {
+            "x": -3.743664503097534,
+            "y": -2.450840950012207,
+            "yaw": 0.9393734372679541
+          },
+          "command": {
+            "vx": 0.25,
+            "vy": 0.0,
+            "yaw_rate": 0.09775769514087713
+          },
+          "actual_velocity": [
+            0.2292971909046173,
+            -0.04281747341156006,
+            0.04111446812748909
+          ],
+          "root_z": 0.40913957357406616,
+          "tilt": 0.05903160944581032,
+          "health": 100.0,
+          "alive": true,
+          "laser": {
+            "path": null,
+            "distance": 3.0
+          }
+        },
+        "dog_b": {
+          "pose": {
+            "x": 3.9775028228759766,
+            "y": -2.7513067722320557,
+            "yaw": 2.273047673840219
+          },
+          "command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": -0.3
+          },
+          "actual_velocity": [
+            0.0282137393951416,
+            0.05831940472126007,
+            -0.3231844902038574
+          ],
+          "root_z": 0.4094304144382477,
+          "tilt": 0.02543792687356472,
+          "health": 100.0,
+          "alive": true,
+          "laser": {
+            "path": null,
+            "distance": 3.0
+          }
+        },
+        "dog_c": {
+          "pose": {
+            "x": 0.045770395547151566,
+            "y": 3.286586284637451,
+            "yaw": -2.047329105985606
+          },
+          "command": {
+            "vx": 0.25,
+            "vy": 0.0,
+            "yaw_rate": -0.17510533969172054
+          },
+          "actual_velocity": [
+            0.2596370279788971,
+            0.06134200096130371,
+            -0.19379182159900665
+          ],
+          "root_z": 0.41122809052467346,
+          "tilt": 0.027601340785622597,
+          "health": 100.0,
+          "alive": true,
+          "laser": {
+            "path": null,
+            "distance": 3.0
+          }
+        }
+      },
+      "estop": false,
+      "stop_reason": null,
+      "first_person": {
+        "dog_a": {
+          "eye": [
+            -3.6245818457630663,
+            -2.281178652763631,
+            0.5714299167477312
+          ],
+          "target": [
+            -3.0345549381294847,
+            -1.4805900888712555,
+            0.4669014534800778
+          ],
+          "camera_path": "/World/FirstPerson/dog_a"
+        },
+        "dog_b": {
+          "eye": [
+            3.8374985258504215,
+            -2.584767048480428,
+            0.5710793314084929
+          ],
+          "target": [
+            3.1762069723477238,
+            -1.8419566543468433,
+            0.4665508681408394
+          ],
+          "camera_path": "/World/FirstPerson/dog_b"
+        },
+        "dog_c": {
+          "eye": [
+            -0.05043946933656221,
+            3.104672078183267,
+            0.5719924655951405
+          ],
+          "target": [
+            -0.4961354527623373,
+            2.215611399306378,
+            0.467464002327487
+          ],
+          "camera_path": "/World/FirstPerson/dog_c"
+        }
+      },
+      "route_visuals": {
+        "backend": "isaacsim.util.debug_draw",
+        "prim_count": 0,
+        "physics_schemas": 0,
+        "enabled": true,
+        "line_count": 5,
+        "point_count": 9,
+        "visible": {
+          "dog_a": {
+            "route": "visible",
+            "vertices": 2,
+            "markers": {
+              "position": "visible",
+              "goal": "visible",
+              "waypoint": "visible"
+            }
+          },
+          "dog_b": {
+            "route": "visible",
+            "vertices": 4,
+            "markers": {
+              "position": "visible",
+              "goal": "visible",
+              "waypoint": "visible"
+            }
+          },
+          "dog_c": {
+            "route": "visible",
+            "vertices": 2,
+            "markers": {
+              "position": "visible",
+              "goal": "visible",
+              "waypoint": "visible"
+            }
+          }
+        }
+      }
+    },
+    "reset": {
+      "t": 11.02,
+      "match": {
+        "time_s": 0.0,
+        "round_over": false,
+        "winner": null,
+        "draw": false,
+        "paused": true,
+        "max_health": 100.0,
+        "agents": {
+          "dog_a": {
+            "health": 100.0,
+            "alive": true
+          },
+          "dog_b": {
+            "health": 100.0,
+            "alive": true
+          },
+          "dog_c": {
+            "health": 100.0,
+            "alive": true
+          }
+        },
+        "navigation": {
+          "dog_a": {
+            "state": "SEARCH",
+            "target_id": "dog_c",
+            "navigation_goal": [
+              0.0,
+              3.700000047683716
+            ],
+            "distance_m": 7.655063658685688,
+            "visible": false,
+            "planning": "ok",
+            "path": [
+              [
+                0.0,
+                3.700000047683716
+              ]
+            ],
+            "waypoint": [
+              0.0,
+              3.700000047683716
+            ],
+            "fire": false
+          },
+          "dog_b": {
+            "state": "SEARCH",
+            "target_id": "dog_c",
+            "navigation_goal": [
+              0.0,
+              3.700000047683716
+            ],
+            "distance_m": 7.655063658685688,
+            "visible": false,
+            "planning": "ok",
+            "path": [
+              [
+                4.600000000000001,
+                2.2
+              ],
+              [
+                4.4,
+                2.4000000000000004
+              ],
+              [
+                0.0,
+                3.700000047683716
+              ]
+            ],
+            "waypoint": [
+              4.600000000000001,
+              2.2
+            ],
+            "fire": false
+          },
+          "dog_c": {
+            "state": "SEARCH",
+            "target_id": "dog_a",
+            "navigation_goal": [
+              -4.199999809265137,
+              -2.700000047683716
+            ],
+            "distance_m": 7.655063658685688,
+            "visible": false,
+            "planning": "ok",
+            "path": [
+              [
+                -4.199999809265137,
+                -2.700000047683716
+              ]
+            ],
+            "waypoint": [
+              -4.199999809265137,
+              -2.700000047683716
+            ],
+            "fire": false
+          }
+        }
+      },
+      "agents": {
+        "dog_a": {
+          "pose": {
+            "x": -4.1934075355529785,
+            "y": -2.6987621784210205,
+            "yaw": 0.3497258527575915
+          },
+          "command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          },
+          "actual_velocity": [
+            0.053971800953149796,
+            0.008848093450069427,
+            0.03526446223258972
+          ],
+          "root_z": 0.4108489453792572,
+          "tilt": 0.10243337601423264,
+          "health": 100.0,
+          "alive": true,
+          "laser": {
+            "path": null,
+            "distance": 3.0
+          }
+        },
+        "dog_b": {
+          "pose": {
+            "x": 4.194173812866211,
+            "y": -2.6966397762298584,
+            "yaw": 2.789655273705865
+          },
+          "command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          },
+          "actual_velocity": [
+            0.05398495867848396,
+            0.008712474256753922,
+            0.03586035966873169
+          ],
+          "root_z": 0.41085654497146606,
+          "tilt": 0.1023712083697319,
+          "health": 100.0,
+          "alive": true,
+          "laser": {
+            "path": null,
+            "distance": 3.0
+          }
+        },
+        "dog_c": {
+          "pose": {
+            "x": -0.0011495058424770832,
+            "y": 3.693364381790161,
+            "yaw": -1.5703444841488865
+          },
+          "command": {
+            "vx": 0.0,
+            "vy": 0.0,
+            "yaw_rate": 0.0
+          },
+          "actual_velocity": [
+            0.0540136843919754,
+            0.008676864206790924,
+            0.03516880422830582
+          ],
+          "root_z": 0.41085413098335266,
+          "tilt": 0.10244505852460861,
+          "health": 100.0,
+          "alive": true,
+          "laser": {
+            "path": "/World/TestMap/Walls/wall_center/geometry/mesh",
+            "distance": 1.85336434841156
+          }
+        }
+      },
+      "estop": true,
+      "stop_reason": "manual",
+      "first_person": {
+        "dog_a": {
+          "eye": [
+            -3.9884252475174513,
+            -2.6252713054744623,
+            0.5705061299228437
+          ],
+          "target": [
+            -3.0532632267610667,
+            -2.2868251571705733,
+            0.4659776666551902
+          ],
+          "camera_path": "/World/FirstPerson/dog_a"
+        },
+        "dog_b": {
+          "eye": [
+            3.9901725920578195,
+            -2.6204642596324947,
+            0.5705124234456725
+          ],
+          "target": [
+            3.0574582151863785,
+            -2.2753299502046684,
+            0.4659839601780191
+          ],
+          "camera_path": "/World/FirstPerson/dog_b"
+        },
+        "dog_c": {
+          "eye": [
+            -0.0022332492286278914,
+            3.4756100563430454,
+            0.5705113962778566
+          ],
+          "target": [
+            -0.0042348608868901455,
+            2.4810901752357486,
+            0.46598293301020316
+          ],
+          "camera_path": "/World/FirstPerson/dog_c"
+        }
+      },
+      "route_visuals": {
+        "backend": "isaacsim.util.debug_draw",
+        "prim_count": 0,
+        "physics_schemas": 0,
+        "enabled": true,
+        "line_count": 5,
+        "point_count": 9,
+        "visible": {
+          "dog_a": {
+            "route": "visible",
+            "vertices": 2,
+            "markers": {
+              "position": "visible",
+              "goal": "visible",
+              "waypoint": "visible"
+            }
+          },
+          "dog_b": {
+            "route": "visible",
+            "vertices": 4,
+            "markers": {
+              "position": "visible",
+              "goal": "visible",
+              "waypoint": "visible"
+            }
+          },
+          "dog_c": {
+            "route": "visible",
+            "vertices": 2,
+            "markers": {
+              "position": "visible",
+              "goal": "visible",
+              "waypoint": "visible"
+            }
+          }
+        }
+      }
+    }
+  },
+  "pause_frozen": true,
+  "result": {
+    "t": 43.02,
+    "match": {
+      "time_s": 31.519999999999417,
+      "round_over": true,
+      "winner": "dog_b",
+      "draw": false,
+      "paused": false,
+      "max_health": 100.0,
+      "agents": {
+        "dog_a": {
+          "health": 0.0,
+          "alive": false
+        },
+        "dog_b": {
+          "health": 80.0,
+          "alive": true
+        },
+        "dog_c": {
+          "health": 0.0,
+          "alive": false
+        }
+      },
+      "navigation": {
+        "dog_a": {
+          "state": "DEAD",
+          "target_id": null,
+          "navigation_goal": null,
+          "distance_m": null,
+          "visible": false,
+          "planning": "dead",
+          "path": [],
+          "waypoint": null,
+          "fire": true
+        },
+        "dog_b": {
+          "state": "ATTACK",
+          "target_id": null,
+          "navigation_goal": null,
+          "distance_m": null,
+          "visible": false,
+          "planning": "round_over",
+          "path": [],
+          "waypoint": null,
+          "fire": false
+        },
+        "dog_c": {
+          "state": "DEAD",
+          "target_id": null,
+          "navigation_goal": null,
+          "distance_m": null,
+          "visible": false,
+          "planning": "dead",
+          "path": [],
+          "waypoint": null,
+          "fire": false
+        }
+      }
+    },
+    "agents": {
+      "dog_a": {
+        "pose": {
+          "x": -1.7521171569824219,
+          "y": 0.04564131796360016,
+          "yaw": -1.277261413176037
+        },
+        "command": {
+          "vx": 0.0,
+          "vy": 0.0,
+          "yaw_rate": 0.0
+        },
+        "actual_velocity": [
+          0.02796837128698826,
+          0.03364604339003563,
+          -0.040323030203580856
+        ],
+        "root_z": 0.41018152236938477,
+        "tilt": 0.06934972107410431,
+        "health": 0.0,
+        "alive": false,
+        "laser": {
+          "path": "/World/Agents/dog_b/link_rf_hip_pitch/collisions/mesh_0/sphere",
+          "distance": 1.844315528869629
+        }
+      },
+      "dog_b": {
+        "pose": {
+          "x": -1.1587018966674805,
+          "y": -2.2071592807769775,
+          "yaw": 1.8670984350980335
+        },
+        "command": {
+          "vx": 0.0,
+          "vy": 0.0,
+          "yaw_rate": 0.0
+        },
+        "actual_velocity": [
+          0.014687477611005306,
+          0.018393006175756454,
+          -0.05166605859994888
+        ],
+        "root_z": 0.4104909598827362,
+        "tilt": 0.04480649158358574,
+        "health": 80.0,
+        "alive": true,
+        "laser": {
+          "path": "/World/Agents/dog_a/link_rf_hip_pitch/collisions/mesh_0/sphere",
+          "distance": 1.8511474132537842
+        }
+      },
+      "dog_c": {
+        "pose": {
+          "x": -1.346897006034851,
+          "y": 1.9687849283218384,
+          "yaw": -1.9769978178289442
+        },
+        "command": {
+          "vx": 0.0,
+          "vy": 0.0,
+          "yaw_rate": 0.0
+        },
+        "actual_velocity": [
+          -0.000536623178049922,
+          -0.0073064095340669155,
+          -0.00019919429905712605
+        ],
+        "root_z": 0.3745713233947754,
+        "tilt": 0.3429854214191437,
+        "health": 0.0,
+        "alive": false,
+        "laser": {
+          "path": null,
+          "distance": 3.0
+        }
+      }
+    },
+    "estop": false,
+    "stop_reason": null,
+    "first_person": {
+      "dog_a": {
+        "eye": [
+          -1.6899064000870396,
+          -0.16394148925412735,
+          0.5706176091361694
+        ],
+        "target": [
+          -1.399676787063472,
+          -1.1151725716368956,
+          0.46608914586851596
+        ],
+        "camera_path": "/World/FirstPerson/dog_a"
+      },
+      "dog_b": {
+        "eye": [
+          -1.2225206674456248,
+          -1.9974729848264803,
+          0.5707075138499456
+        ],
+        "target": [
+          -1.5164237866310806,
+          -1.0473704867243216,
+          0.4661790505822921
+        ],
+        "camera_path": "/World/FirstPerson/dog_b"
+      },
+      "dog_c": {
+        "eye": [
+          -1.4338240646233125,
+          1.7666864444235941,
+          0.5345711881019506
+        ],
+        "target": [
+          -1.826782736894108,
+          0.8530906463519984,
+          0.4300427248342971
+        ],
+        "camera_path": "/World/FirstPerson/dog_c"
+      }
+    },
+    "route_visuals": {
+      "backend": "isaacsim.util.debug_draw",
+      "prim_count": 0,
+      "physics_schemas": 0,
+      "enabled": true,
+      "line_count": 0,
+      "point_count": 0,
+      "visible": {
+        "dog_a": {
+          "route": "invisible",
+          "vertices": 0,
+          "markers": {
+            "position": "invisible",
+            "goal": "invisible",
+            "waypoint": "invisible"
+          }
+        },
+        "dog_b": {
+          "route": "invisible",
+          "vertices": 0,
+          "markers": {
+            "position": "invisible",
+            "goal": "invisible",
+            "waypoint": "invisible"
+          }
+        },
+        "dog_c": {
+          "route": "invisible",
+          "vertices": 0,
+          "markers": {
+            "position": "invisible",
+            "goal": "invisible",
+            "waypoint": "invisible"
+          }
+        }
+      }
+    }
+  },
+  "metrics": {
+    "mode": "fsm_battle",
+    "scenario": "interactive",
+    "frames": 2205,
+    "sim_seconds": 44.1,
+    "wall_seconds": 46.63749597200058,
+    "reset_count": 3,
+    "minimum_root_z": {
+      "dog_a": 0.37290462851524353,
+      "dog_b": 0.3633764982223511,
+      "dog_c": 0.3671569526195526
+    },
+    "maximum_tilt": {
+      "dog_a": 0.21130552887916565,
+      "dog_b": 0.16999055445194244,
+      "dog_c": 0.3978979289531708
+    },
+    "match": {
+      "time_s": 31.519999999999417,
+      "round_over": true,
+      "winner": "dog_b",
+      "draw": false,
+      "paused": true,
+      "max_health": 100.0,
+      "agents": {
+        "dog_a": {
+          "health": 0.0,
+          "alive": false
+        },
+        "dog_b": {
+          "health": 80.0,
+          "alive": true
+        },
+        "dog_c": {
+          "health": 0.0,
+          "alive": false
+        }
+      }
+    },
+    "event_counts": {
+      "SHOT_FIRED": 15,
+      "DAMAGE": 11,
+      "DEATH": 2,
+      "ROUND_END": 1
+    },
+    "first_person_count": 3,
+    "first_person_docked": true,
+    "navigation_visible": true,
+    "policy_steps": {
+      "dog_a": 1632,
+      "dog_b": 1632,
+      "dog_c": 1142
+    },
+    "main_camera_preserved": true
+  }
+}

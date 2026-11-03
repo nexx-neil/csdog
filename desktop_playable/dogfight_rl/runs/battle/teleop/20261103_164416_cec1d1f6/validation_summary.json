@@ -1,0 +1,114 @@
+{
+  "run": "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6",
+  "metrics": {
+    "mode": "fsm_battle",
+    "scenario": "interactive",
+    "frames": 2205,
+    "sim_seconds": 44.1,
+    "wall_seconds": 46.63749597200058,
+    "reset_count": 3,
+    "minimum_root_z": {
+      "dog_a": 0.37290462851524353,
+      "dog_b": 0.3633764982223511,
+      "dog_c": 0.3671569526195526
+    },
+    "maximum_tilt": {
+      "dog_a": 0.21130552887916565,
+      "dog_b": 0.16999055445194244,
+      "dog_c": 0.3978979289531708
+    },
+    "match": {
+      "time_s": 31.519999999999417,
+      "round_over": true,
+      "winner": "dog_b",
+      "draw": false,
+      "paused": true,
+      "max_health": 100.0,
+      "agents": {
+        "dog_a": {
+          "health": 0.0,
+          "alive": false
+        },
+        "dog_b": {
+          "health": 80.0,
+          "alive": true
+        },
+        "dog_c": {
+          "health": 0.0,
+          "alive": false
+        }
+      }
+    },
+    "event_counts": {
+      "SHOT_FIRED": 15,
+      "DAMAGE": 11,
+      "DEATH": 2,
+      "ROUND_END": 1
+    },
+    "first_person_count": 3,
+    "first_person_docked": true,
+    "navigation_visible": true,
+    "policy_steps": {
+      "dog_a": 1632,
+      "dog_b": 1632,
+      "dog_c": 1142
+    },
+    "main_camera_preserved": true
+  },
+  "pause_frozen": true,
+  "event_counts": {
+    "ROUND_START": 4,
+    "AUTONOMY_RESET": 3,
+    "INTEL_UPDATE": 8,
+    "TARGET_CHANGED": 8,
+    "FSM_STATE": 19,
+    "PATH_PLAN": 31,
+    "TARGET_VISIBLE": 5,
+    "TARGET_LOST": 3,
+    "SHOT_FIRED": 15,
+    "DAMAGE": 11,
+    "DEATH": 2,
+    "ROUND_END": 1
+  },
+  "intel_times": [
+    0.0,
+    0.0,
+    4.999999999999981,
+    9.999999999999876,
+    14.999999999999769,
+    19.999999999999662,
+    24.999999999999556,
+    29.99999999999945
+  ],
+  "successful_plans": 28,
+  "failed_plans": 3,
+  "invalid_body_clearance_paths": [],
+  "out_of_range_shots": [],
+  "all_three_ppo": true,
+  "max_trace_step_displacement_m": {
+    "dog_a": 0.037994457634627124,
+    "dog_b": 0.03657734082018051,
+    "dog_c": 0.03667142062902257
+  },
+  "visual_backend": "isaacsim.util.debug_draw",
+  "maximum_debug_lines": 8,
+  "maximum_debug_points": 9,
+  "route_prim_counts": [
+    0
+  ],
+  "route_physics_schema_counts": [
+    0
+  ],
+  "off_clears_buffers": true,
+  "over_clears_buffers": true,
+  "reset_policy_zero": true,
+  "protected_assets_changed": [],
+  "screenshots": [
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_routes_on.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_routes_off.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_routes_restored.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_reset.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_match_20.png",
+    "/home/zxq/robot_projects/dogfight_rl/runs/battle/teleop/20261103_164416_cec1d1f6/fsm_result.png"
+  ]
+}

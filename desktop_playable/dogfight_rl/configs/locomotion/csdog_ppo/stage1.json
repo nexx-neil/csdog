@@ -1,0 +1,1 @@
+{"action_scale": 0.25, "linear_tracking_weight": 3.0, "angular_tracking_weight": 1.5, "enable_gait_reward": false, "enable_foot_air_time_reward": false, "enable_foot_clearance_reward": false, "enable_foot_slip_penalty": false}

@@ -1,0 +1,5 @@
+{"command": ["/home/zxq/miniconda3/envs/dogfight/bin/python", "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider", "/home/zxq/robot_projects/dogfight_rl/tests"], "cwd": "/home/zxq/robot_projects/dogfight_rl", "python": "/home/zxq/miniconda3/envs/dogfight/bin/python"}
+........................................................................ [ 37%]
+........................................................................ [ 75%]
+................................................                         [100%]
+192 passed in 11.89s

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=机器狗对战环境
+Name[en]=DOGFIGHT Teleop
+Comment=启动DOGFIGHT真实机器狗遥控仿真
+Exec=/home/zxq/robot_projects/dogfight_rl/scripts/launch_dogfight_teleop.sh
+TryExec=/home/zxq/robot_projects/dogfight_rl/scripts/launch_dogfight_teleop.sh
+Path=/home/zxq/robot_projects/dogfight_rl
+Icon=/home/zxq/robot_projects/dogfight_rl/assets/ui/dogfight_teleop.svg
+Terminal=false
+Categories=Education;Science;
+StartupNotify=true

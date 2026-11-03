@@ -1,0 +1,13 @@
+
+from typing import Protocol, runtime_checkable
+
+from dogfight_v0.battle.types import VelocityCommand
+
+
+@runtime_checkable
+class LocomotionInterface(Protocol):
+    def reset(self) -> None: ...
+    def set_command(self, command: VelocityCommand) -> None: ...
+    def compute_action(self, observation: object) -> object: ...
+    def step(self, dt: float) -> None: ...
+

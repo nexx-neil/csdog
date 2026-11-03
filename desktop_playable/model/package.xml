@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>csdog_urdf</name>
+  <version>0.0.0</version>
+  <description>CS dog robot model and meshes for URDF visualization.</description>
+  <maintainer email="zxq@localhost">zxq</maintainer>
+  <license>TODO</license>
+</package>

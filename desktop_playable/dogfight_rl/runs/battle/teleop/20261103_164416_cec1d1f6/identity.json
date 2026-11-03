@@ -1,0 +1,115 @@
+{
+  "pid": 46389,
+  "mode": "fsm_battle",
+  "shared_physics": true,
+  "physics_dt": 0.005,
+  "policy_dt": 0.02,
+  "physics_device": "cpu",
+  "agents": {
+    "dog_a": {
+      "urdf": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/model/robot_sim.urdf",
+      "checkpoint": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/policies/v1/model_final.pt",
+      "prim_path": "/World/Agents/dog_a",
+      "joints": [
+        "joint_lf_1",
+        "joint_lr_1",
+        "joint_rf_1",
+        "joint_rr_1",
+        "joint_lf_2",
+        "joint_lr_2",
+        "joint_rf_2",
+        "joint_rr_2",
+        "joint_lf_3",
+        "joint_lr_3",
+        "joint_rf_3",
+        "joint_rr_3"
+      ],
+      "controlled_order": [
+        "joint_lr_1",
+        "joint_lr_2",
+        "joint_lr_3",
+        "joint_lf_1",
+        "joint_lf_2",
+        "joint_lf_3",
+        "joint_rf_1",
+        "joint_rf_2",
+        "joint_rf_3",
+        "joint_rr_1",
+        "joint_rr_2",
+        "joint_rr_3"
+      ],
+      "mass_kg": 7.6082611083984375,
+      "control": "fsm"
+    },
+    "dog_b": {
+      "urdf": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/model/robot_sim.urdf",
+      "checkpoint": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/policies/v1/model_final.pt",
+      "prim_path": "/World/Agents/dog_b",
+      "joints": [
+        "joint_lf_1",
+        "joint_lr_1",
+        "joint_rf_1",
+        "joint_rr_1",
+        "joint_lf_2",
+        "joint_lr_2",
+        "joint_rf_2",
+        "joint_rr_2",
+        "joint_lf_3",
+        "joint_lr_3",
+        "joint_rf_3",
+        "joint_rr_3"
+      ],
+      "controlled_order": [
+        "joint_lr_1",
+        "joint_lr_2",
+        "joint_lr_3",
+        "joint_lf_1",
+        "joint_lf_2",
+        "joint_lf_3",
+        "joint_rf_1",
+        "joint_rf_2",
+        "joint_rf_3",
+        "joint_rr_1",
+        "joint_rr_2",
+        "joint_rr_3"
+      ],
+      "mass_kg": 7.6082611083984375,
+      "control": "fsm"
+    },
+    "dog_c": {
+      "urdf": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/model/robot_sim.urdf",
+      "checkpoint": "/home/zxq/robot_projects/dogfight_rl/assets/csdog_12dof/peer_teleop_v1/policies/v1/model_final.pt",
+      "prim_path": "/World/Agents/dog_c",
+      "joints": [
+        "joint_lf_1",
+        "joint_lr_1",
+        "joint_rf_1",
+        "joint_rr_1",
+        "joint_lf_2",
+        "joint_lr_2",
+        "joint_rf_2",
+        "joint_rr_2",
+        "joint_lf_3",
+        "joint_lr_3",
+        "joint_rf_3",
+        "joint_rr_3"
+      ],
+      "controlled_order": [
+        "joint_lr_1",
+        "joint_lr_2",
+        "joint_lr_3",
+        "joint_lf_1",
+        "joint_lf_2",
+        "joint_lf_3",
+        "joint_rf_1",
+        "joint_rf_2",
+        "joint_rf_3",
+        "joint_rr_1",
+        "joint_rr_2",
+        "joint_rr_3"
+      ],
+      "mass_kg": 7.6082611083984375,
+      "control": "fsm"
+    }
+  }
+}

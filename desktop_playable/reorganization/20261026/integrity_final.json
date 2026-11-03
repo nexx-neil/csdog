@@ -1,0 +1,11 @@
+{"command": ["/home/zxq/miniconda3/envs/dogfight/bin/python", "-B", "/home/zxq/robot_projects/dogfight_rl/scripts/diagnostics/verify_integrity.py"], "cwd": "/home/zxq/robot_projects/dogfight_rl", "python": "/home/zxq/miniconda3/envs/dogfight/bin/python"}
+{
+  "status": "PASS",
+  "baseline_files": 3783,
+  "documented_edits": 64,
+  "model_mesh_references": 52,
+  "symbolic_links": 0,
+  "hardlinked_current_sources": 0,
+  "historical_migration_validation": "RETIRED: path_migration/20261025 was intentionally removed; not required by current check",
+  "failures": []
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260918_114246/smoke_summary.json",
+    "bytes": 1381,
+    "mtime": "2026-09-18T11:42:46.338565"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260918_114707/smoke_summary.json",
+    "bytes": 1662,
+    "mtime": "2026-09-18T11:47:07.943479"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260918_114820/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-09-18T11:48:20.168948"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260918_115401/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-09-18T11:54:01.992895"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_102519/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-09-20T10:25:19.478764"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_102913/hud_smoke_summary.json",
+    "bytes": 554,
+    "mtime": "2026-09-20T10:29:13.152402"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_102928/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-09-20T10:29:28.675177"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_103304/hud_smoke_summary.json",
+    "bytes": 554,
+    "mtime": "2026-09-20T10:33:04.566439"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_104332/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-09-20T10:43:32.104609"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_104347/hud_smoke_summary.json",
+    "bytes": 554,
+    "mtime": "2026-09-20T10:43:47.644425"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_104403/hud_smoke_summary.json",
+    "bytes": 554,
+    "mtime": "2026-09-20T10:44:03.866228"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_104419/hud_smoke_summary.json",
+    "bytes": 554,
+    "mtime": "2026-09-20T10:44:19.469035"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20260920_105502/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-09-20T10:55:02.285341"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20261023_104613/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-10-23T10:46:14.004905"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/20261023_104627/hud_smoke_summary.json",
+    "bytes": 554,
+    "mtime": "2026-10-23T10:46:27.694094"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/battle_demo/20260920_104104/demo_summary.json",
+    "bytes": 477,
+    "mtime": "2026-09-20T10:41:05.586013"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/battle_demo/20260920_104154/demo_summary.json",
+    "bytes": 477,
+    "mtime": "2026-09-20T10:41:54.993629"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/battle_demo/20260920_104244/demo_summary.json",
+    "bytes": 2026,
+    "mtime": "2026-09-20T10:42:44.995137"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/battle_demo/20260920_104437/demo_summary.json",
+    "bytes": 452,
+    "mtime": "2026-09-20T10:44:42.140749"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/battle_demo/20260920_104814/demo_summary.json",
+    "bytes": 1579,
+    "mtime": "2026-09-20T10:48:44.378046"
+  },
+  {
+    "path": "archive/historical_validation/battle_previous/v0/dog_a_interface_smoke/latest_headless/smoke_summary.json",
+    "bytes": 435,
+    "mtime": "2026-09-20T11:11:03.357078"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/back_gait_primitive_recovery/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-09-17T20:12:30.358702"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/locomotion_smoke_test/headless_256env_10iter/model_final.pt",
+    "bytes": 983255,
+    "mtime": "2026-09-15T11:04:26.733219"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/locomotion_smoke_test/headless_256env_iter10_to_30/model_final.pt",
+    "bytes": 983777,
+    "mtime": "2026-09-15T11:05:40.904274"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/locomotion_smoke_test/headless_256env_iter30_to_60/model_final.pt",
+    "bytes": 983777,
+    "mtime": "2026-09-15T11:15:41.095615"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/migration_smoke/one_update/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-10-23T10:42:07.200375"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/path_migration_20261025_physical_smoke/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-10-25T21:20:02.909306"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/path_migration_20261025_smoke/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-10-25T20:58:11.271973"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/rsl_rl/dog_a_locomotion_ppo_smoke_v1/2026-09-15_ppo_smoke_128env_200iter/model_final.pt",
+    "bytes": 983851,
+    "mtime": "2026-09-15T09:43:15.070966"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/rsl_rl/dog_a_locomotion_ppo_smoke_v1/probe_2iter_ok/model_final.pt",
+    "bytes": 983255,
+    "mtime": "2026-09-15T09:40:55.672099"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/straight_ppo/runs/20260915_143217_straight/model_final.pt",
+    "bytes": 983851,
+    "mtime": "2026-09-15T14:33:49.241937"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/straight_ppo/runs/straight_300_from_scratch/model_final.pt",
+    "bytes": 983851,
+    "mtime": "2026-09-15T14:06:53.120907"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/straight_ppo/runs/straight_300_to_1000/model_final.pt",
+    "bytes": 983851,
+    "mtime": "2026-09-15T14:24:14.733287"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_ppo/finetune_300_from_iter999/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T11:23:03.052579"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_ppo/resume_700_from_300/model_final.pt",
+    "bytes": 983851,
+    "mtime": "2026-09-16T16:09:08.323675"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_ppo/scratch_300/model_final.pt",
+    "bytes": 983851,
+    "mtime": "2026-09-16T14:15:59.816176"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_ppo/straightness_resume_500_from_iter1599/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T13:44:38.086365"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_ppo/transition_resume_300_from_iter1299/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T13:15:44.142763"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_16env_13iter/model_final.pt",
+    "bytes": 983777,
+    "mtime": "2026-09-16T13:41:17.682018"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_16env_13iter_v2/model_final.pt",
+    "bytes": 983777,
+    "mtime": "2026-09-16T13:42:33.580375"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_16env_13iter_v3/model_final.pt",
+    "bytes": 983777,
+    "mtime": "2026-09-16T13:44:26.880422"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_256env_1iter/model_final.pt",
+    "bytes": 983255,
+    "mtime": "2026-09-16T13:47:07.158084"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo/bidirectional_x_1000_from_1300/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-15T18:35:29.350958"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo/bidirectional_x_300_from_1000/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-15T18:21:44.149859"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo/left_focus_500_from_2300/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-16T10:26:25.130481"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo/left_reexplore_200_from_2800/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-16T10:47:05.055662"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo/mixed_drift_500_from_3000/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-16T11:04:22.577585"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo/right_recovery_400_from_3500/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-16T12:39:50.488320"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo/smoke_adapt_50iter/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T14:32:22.483198"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo/smoke_adapt_plus_200iter/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T14:35:37.547683"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo/smoke_reset_ycmd_200iter/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T14:39:34.180783"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/xy_discrete_ppo/resume_500_from_iter2099/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T14:12:31.255557"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/xy_discrete_ppo/smoke_train_16env_1iter/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T14:02:03.533318"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_recovery_400/model_final.pt",
+    "bytes": 983925,
+    "mtime": "2026-09-17T15:21:12.639382"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_400/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-09-17T19:11:38.209112"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_A/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-09-17T18:45:17.912725"
+  },
+  {
+    "path": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_B/model_final.pt",
+    "bytes": 984117,
+    "mtime": "2026-09-17T18:46:37.725925"
+  },
+  {
+    "path": "dogfight_rl/runs/battle/v0/20261026_102513_28328183/smoke_summary.json",
+    "bytes": 1279,
+    "mtime": "2026-10-26T10:25:13.281214"
+  },
+  {
+    "path": "dogfight_rl/runs/locomotion/csdog_phase_guided_ppo_v7/reports/V7_TRAINING_STATUS.md",
+    "bytes": 6642,
+    "mtime": "2026-10-29T21:21:39.505274"
+  },
+  {
+    "path": "dogfight_rl/runs/locomotion/csdog_ppo_20261026/reports/physics_gate.json",
+    "bytes": 95869,
+    "mtime": "2026-10-26T11:01:35.221385"
+  },
+  {
+    "path": "dogfight_rl/runs/locomotion/csdog_ppo_spot_aligned_v3/reports/physics_gate.json",
+    "bytes": 1202,
+    "mtime": "2026-10-26T15:16:28.540149"
+  },
+  {
+    "path": "dogfight_rl/runs/locomotion/csdog_ppo_spot_v2/final_physics_validation/reports/physics_gate.json",
+    "bytes": 1151307,
+    "mtime": "2026-10-26T13:46:05.930342"
+  },
+  {
+    "path": "dogfight_rl/runs/locomotion/csdog_ppo_spot_v2/reports/physics_gate.json",
+    "bytes": 1151307,
+    "mtime": "2026-10-26T13:28:59.319400"
+  },
+  {
+    "path": "dogfight_rl/runs/locomotion/csdog_ppo_v6_2_diagnostics/FINAL_V6_2_DIAGNOSIS.md",
+    "bytes": 9125,
+    "mtime": "2026-10-28T14:32:56.703155"
+  },
+  {
+    "path": "peer_csdog_review/PEER_CSDOG_ARCHIVE_AUDIT.md",
+    "bytes": 2872,
+    "mtime": "2026-10-30T10:50:06.327894"
+  },
+  {
+    "path": "peer_csdog_review/PEER_CSDOG_MODEL_COMPARISON.md",
+    "bytes": 3056,
+    "mtime": "2026-10-30T10:50:06.327894"
+  },
+  {
+    "path": "peer_csdog_review/PEER_CSDOG_PPO_COMPARISON.md",
+    "bytes": 3448,
+    "mtime": "2026-10-30T10:50:06.327894"
+  },
+  {
+    "path": "peer_csdog_review/PEER_CSDOG_RUNTIME_TEST.md",
+    "bytes": 5553,
+    "mtime": "2026-10-30T10:50:06.327894"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_backward_015.json",
+    "bytes": 11291,
+    "mtime": "2026-10-30T10:42:44.588861"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_backward_015.log",
+    "bytes": 23922,
+    "mtime": "2026-10-30T10:42:45.032639"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_backward_025.json",
+    "bytes": 11408,
+    "mtime": "2026-10-30T10:42:59.749277"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_backward_025.log",
+    "bytes": 24039,
+    "mtime": "2026-10-30T10:43:00.157073"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_forward_015.json",
+    "bytes": 10487,
+    "mtime": "2026-10-30T10:42:29.518399"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_forward_015.log",
+    "bytes": 23118,
+    "mtime": "2026-10-30T10:42:29.931193"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_forward_025.json",
+    "bytes": 9849,
+    "mtime": "2026-10-30T10:41:49.855239"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_forward_025.log",
+    "bytes": 22480,
+    "mtime": "2026-10-30T10:41:50.249043"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_stand.json",
+    "bytes": 10379,
+    "mtime": "2026-10-30T10:42:12.747788"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_stand.log",
+    "bytes": 23010,
+    "mtime": "2026-10-30T10:42:13.127598"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_turn_left.json",
+    "bytes": 10890,
+    "mtime": "2026-10-30T10:43:15.185555"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_turn_left.log",
+    "bytes": 23521,
+    "mtime": "2026-10-30T10:43:15.581357"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_turn_right.json",
+    "bytes": 12539,
+    "mtime": "2026-10-30T10:43:30.334977"
+  },
+  {
+    "path": "peer_csdog_review/peer_perturbed_turn_right.log",
+    "bytes": 25170,
+    "mtime": "2026-10-30T10:43:30.776756"
+  },
+  {
+    "path": "peer_csdog_review/extracted/csdog-v2-teleop-v0.1.0/logs/rsl_rl/csdog_v2_teleop/2026-10-29_17-42-40_qweasd_mixed100/model_final.pt",
+    "bytes": 2722815,
+    "mtime": "2026-10-30T10:31:16.695753"
+  },
+  {
+    "path": "peer_csdog_review/extracted/csdog-v2-teleop-v0.1.0/logs/rsl_rl/csdog_v2_teleop/2026-10-29_17-42-40_qweasd_mixed100/model_final.pt.metadata.json",
+    "bytes": 501,
+    "mtime": "2026-10-30T10:31:16.695753"
+  }
+]

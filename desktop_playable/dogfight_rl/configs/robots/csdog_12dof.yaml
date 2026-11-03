@@ -1,0 +1,8 @@
+model_id: csdog_12dof
+original_urdf: model/robot.urdf
+ros_package: model/package.xml
+converted_usd: assets/csdog_12dof/import_v1/csdog.usd
+training_environment: Dogfight-CSDog-Velocity-Flat-v0
+checkpoint: null
+status: short_ppo_validated_partial_locomotion
+# Runtime order is mapped by explicit joint names. Stance/PD passed physics gate; policy remains unsuitable for deployment.

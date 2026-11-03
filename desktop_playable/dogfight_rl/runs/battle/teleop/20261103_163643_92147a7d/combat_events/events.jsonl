@@ -1,0 +1,43 @@
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"mode": "THREE_REAL_DOG_TELEOP"}, "event_type": "ROUND_START", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"intel_next_s": 0.0, "paths": {"dog_a": []}, "policy_steps": {"dog_a": 0, "dog_b": 0, "dog_c": 0}}, "event_type": "AUTONOMY_RESET", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": null, "data": {"fixture": "corpse; no world or root constraints"}, "event_type": "VALIDATION_OBSTRUCTION", "target_id": "dog_b", "timestamp_s": 0.0}
+{"agent_id": null, "data": {"snapshot_time_s": 0.0}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": "dog_a", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_c", "timestamp_s": 0.0}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_a", "timestamp_s": 0.0}
+{"agent_id": "dog_a", "data": {"previous": null}, "event_type": "TARGET_CHANGED", "target_id": "dog_c", "timestamp_s": 0.0}
+{"agent_id": "dog_a", "data": {"previous": "PATROL", "state": "CHASE"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 0.0}
+{"agent_id": "dog_a", "data": {"goal": [-0.20000000298023224, -2.700000047683716], "points": [[-4.199999809265137, -2.700000047683716], [-0.20000000298023224, -2.700000047683716]], "reason": "ok", "replan_reason": "target_changed", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 0.0}
+{"agent_id": "dog_a", "data": {}, "event_type": "TARGET_LOST", "target_id": "dog_c", "timestamp_s": 0.1}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_LOST", "target_id": "dog_a", "timestamp_s": 0.1}
+{"agent_id": "dog_a", "data": {"previous": "CHASE", "state": "SEARCH"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 0.1}
+{"agent_id": null, "data": {"snapshot_time_s": 4.999999999999981}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 4.999999999999981}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236754298210144, -2.7036726474761963], "points": [[-3.503786563873291, -2.667698621749878], [-0.17236754298210144, -2.7036726474761963]], "reason": "ok", "replan_reason": "intel_update", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 4.999999999999981}
+{"agent_id": "dog_a", "data": {"previous": "SEARCH", "state": "RECOVER"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 6.699999999999945}
+{"agent_id": "dog_a", "data": {"attempt": 1}, "event_type": "NAV_STUCK", "target_id": null, "timestamp_s": 6.699999999999945}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_VISIBLE", "target_id": "dog_a", "timestamp_s": 9.099999999999895}
+{"agent_id": "dog_a", "data": {"previous": "RECOVER", "state": "SEARCH"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 9.599999999999884}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236754298210144, -2.7036726474761963], "points": [[-3.5071864128112793, -2.842639446258545], [-0.17236754298210144, -2.7036726474761963]], "reason": "ok", "replan_reason": "no_path", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 9.599999999999884}
+{"agent_id": null, "data": {"snapshot_time_s": 9.999999999999876}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 9.999999999999876}
+{"agent_id": "dog_c", "data": {}, "event_type": "TARGET_LOST", "target_id": "dog_a", "timestamp_s": 10.399999999999867}
+{"agent_id": "dog_a", "data": {"goal": [-0.1723674088716507, -2.7036733627319336], "points": [[-3.5160272121429443, -2.7703518867492676], [-0.1723674088716507, -2.7036733627319336]], "reason": "ok", "replan_reason": "intel_update", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 10.69999999999986}
+{"agent_id": null, "data": {"snapshot_time_s": 14.999999999999769}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 14.999999999999769}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236818373203278, -2.7036736011505127], "points": [[-3.50183367729187, -2.585181713104248], [-0.17236818373203278, -2.7036736011505127]], "reason": "ok", "replan_reason": "intel_update", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 14.999999999999769}
+{"agent_id": "dog_a", "data": {"previous": "SEARCH", "state": "RECOVER"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 18.599999999999692}
+{"agent_id": "dog_a", "data": {"attempt": 1}, "event_type": "NAV_STUCK", "target_id": null, "timestamp_s": 18.599999999999692}
+{"agent_id": null, "data": {"snapshot_time_s": 19.999999999999662}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 19.999999999999662}
+{"agent_id": "dog_a", "data": {"previous": "RECOVER", "state": "SEARCH"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 21.49999999999963}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236779630184174, -2.703672170639038], "points": [[-3.5651111602783203, -2.6408374309539795], [-0.17236779630184174, -2.703672170639038]], "reason": "ok", "replan_reason": "intel_update", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 21.49999999999963}
+{"agent_id": null, "data": {"snapshot_time_s": 24.999999999999556}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 24.999999999999556}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236782610416412, -2.7036726474761963], "points": [[-3.5041143894195557, -2.40948748588562], [-0.17236782610416412, -2.7036726474761963]], "reason": "ok", "replan_reason": "intel_update", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 24.999999999999556}
+{"agent_id": "dog_a", "data": {"previous": "SEARCH", "state": "RECOVER"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 27.999999999999492}
+{"agent_id": "dog_a", "data": {"attempt": 1}, "event_type": "NAV_STUCK", "target_id": null, "timestamp_s": 27.999999999999492}
+{"agent_id": null, "data": {"snapshot_time_s": 29.99999999999945}, "event_type": "INTEL_UPDATE", "target_id": null, "timestamp_s": 29.99999999999945}
+{"agent_id": "dog_a", "data": {"previous": "RECOVER", "state": "SEARCH"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 30.89999999999943}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236770689487457, -2.703671932220459], "points": [[-3.5961992740631104, -2.5173661708831787], [-0.17236770689487457, -2.703671932220459]], "reason": "ok", "replan_reason": "intel_update", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 30.89999999999943}
+{"agent_id": "dog_a", "data": {"previous": "SEARCH", "state": "RECOVER"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 32.09999999999942}
+{"agent_id": "dog_a", "data": {"attempt": 2}, "event_type": "NAV_STUCK", "target_id": null, "timestamp_s": 32.09999999999942}
+{"agent_id": "dog_a", "data": {"previous": "RECOVER", "state": "SEARCH"}, "event_type": "FSM_STATE", "target_id": null, "timestamp_s": 34.89999999999986}
+{"agent_id": "dog_a", "data": {"goal": [-0.17236770689487457, -2.703671932220459], "points": [[-3.565997838973999, -2.568310022354126], [-0.17236770689487457, -2.703671932220459]], "reason": "ok", "replan_reason": "no_path", "valid": true}, "event_type": "PATH_PLAN", "target_id": "dog_c", "timestamp_s": 34.89999999999986}

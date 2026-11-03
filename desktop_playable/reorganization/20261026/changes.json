@@ -1,0 +1,386 @@
+[
+  {
+    "path": "dogfight_rl/src/dogfight_v0/runtime.py",
+    "before": "2f2b90ba10ac2039bfade6ce42d605a4ec2942baa672ceb08365e7fdcc61d326",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/runtime.py",
+    "after": "07bd131841baeb8039f73e9542df2e3712c2792994d6c1cf9faea0fe35948be8"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/config/battle_cfg.py",
+    "before": "7d2e5e27df98caa7bb9409fee7998eb3bfce2a4d1cc27f299dc6a2a855b056f0",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/config/battle_cfg.py",
+    "after": "eccbb0dae600382529ab8b88a4892e5225ac0df1db56fa6048ab37549e5ba81f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/visibility_service.py",
+    "before": "c1070cdd96fea9118764cbcb44fb54addaba84abd1d6e979aedb2ebd2d8a831e",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/visibility_service.py",
+    "after": "4dbec339d9ba3dcbbb375fde49b0f8e9474b603b4a894cdab0ad03c1ad6bd6a6"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/types.py",
+    "before": "3e094903281004ae736e8157722be34e25cf3333ed262d33469c23c33ce6468a",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/types.py",
+    "after": "094b13d34fd79074b75e818c09d6fad87eaf12743d1ba8c49c0161e844efaa13"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/scripted_policy.py",
+    "before": "69dc997926070b895b26c58467f814fa4cf6f204ba504c4f14b6c9b237cf2b7f",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/scripted_policy.py",
+    "after": "b4a45e36de35ce7f9bca83e8a9c261da5ada585956c3b2b7fec1b69bdd0837c4"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/battle_manager.py",
+    "before": "c3dd3785df9b1a6f78b119df5d53d305885272fd82edb9a8517db3d2a35fc8d5",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/battle_manager.py",
+    "after": "0705e0e9f17e744c65c1f8e231322f3165b14cf99233e813f66649098ad04945"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/health_system.py",
+    "before": "d5b969427f967ddbee9207fc7050a2cf1efb1c6c46f5981e4282a5620fc50b98",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/health_system.py",
+    "after": "c62e4dbdb6348382a9efabc1de2210864e867a9366565e7b8b3b8f9be3401375"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/weapon_service.py",
+    "before": "260c2cb61e97a4d3744b2caa79a6707fa1a38039dc5dbf7090a6f33bffd9a075",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/weapon_service.py",
+    "after": "f5caa682c155f95f496c9c2dad746f00a8829f4b40d524558a1909065c255332"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/interfaces.py",
+    "before": "e27eeace9d5bd044f0a2d0eec101fef78ffc082c9e2b0e4640f6af06054e8769",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/interfaces.py",
+    "after": "b6dc16971475de96f105824a7c12368afd21ae6bc1f0b9475a46bbea16dad240"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/intel_service.py",
+    "before": "1d0e3627d0993e264d61cd64b211d4e3d6767b48efdf53b0367f2a414ad8caf5",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/intel_service.py",
+    "after": "63fa3e8f7040a961ae5feac1eb91000ef9759e364c08a0ce56d809f3728131ee"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/battle/ray_query.py",
+    "before": "b2e5414f468294781ab778bdb1325e4027a68d2f6f02c7477d0bf200eab0eb0d",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/battle/ray_query.py",
+    "after": "4f239104dedf12f58814bdd76a24417d58e920d24eafdb20e7936dd1190286ab"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/map_interface.py",
+    "before": "8275a7b954fbbbd4a9025e4a1efb6c831196b937a6d379f2f5ff99c4451282fe",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/arena/map_interface.py",
+    "after": "696708f64a6fa4262d23fbb19694ea843ad96e1bc58b5e86420fd884dada8594"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/test_map.py",
+    "before": "b695d0e41f15efbeb8767fc55f30328d240b2464c034fe6565374f9fb0ea26cc",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/arena/test_map.py",
+    "after": "ac70191b2e325c0d509abfb236809ba71ba0da0eae9fbbe36e6d64bc0a514018"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/arena/spawn_manager.py",
+    "before": "97dd1d47fc8f62c8fc45bf81511727851b6cd2f43618136e54b905dfb4320772",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/arena/spawn_manager.py",
+    "after": "64df8268c9d9e738f9935e17b098b332cbec334d53786b3d401ab07a2c73c00f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/sim/physx_ray_query.py",
+    "before": "a09251e1e26d7b7b14b392561663955e946ccdac8ceba7d0050fcd84c0041450",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/sim/physx_ray_query.py",
+    "after": "419f1addebae3861ef4c0cf82d249f804e0fbcfaa5f8047bf89aedc92b7c9857"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/sim/scene.py",
+    "before": "b3a68f7d9d534d047e1967097a945eab2b2edf5481aa0e856f3b879cb99164e8",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/sim/scene.py",
+    "after": "b20316a1c3fd4d131e3ac45794cfc242d28e7588a9f8d8bb1b9ff1669f56282f"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/ui/battle_hud.py",
+    "before": "fdbc77234d99604afe97946fa3860a25cf7acc0f733e2b284b7fc16dfb33203c",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/ui/battle_hud.py",
+    "after": "47ea46ff4d58a516afb44ad7af34c0fbea4772eb068399036cd10c7273373c51"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/navigation/navigation_interface.py",
+    "before": "d41567d62b545c0c2b678b0107fe5c283eb705afab0172b4d1700815c9e248c0",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/navigation/navigation_interface.py",
+    "after": "d74e7f85e9d12b924dbec76bd9cea258c0321ba5ab2ab0b64bd7731cdc7c1daa"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/navigation/simple_navigation.py",
+    "before": "b846c93e58b159198553b874eae9e602b61ff27b2350c98df811b07eb38ca48c",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/navigation/simple_navigation.py",
+    "after": "ffe48e7d513f0860f1b7deb1868641765c3c33df90fc35f29c1a9b49a12d2d83"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/logging/battle_logger.py",
+    "before": "069d41fc75258aa1478b103a687bb717b1d52e6b67ce323ef33dd2a4a4ce9756",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/logging/battle_logger.py",
+    "after": "d55112643b06d7b4cffb55c1cf329b783942b3f824682d75e820b8921c023806"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/proxy_agent.py",
+    "before": "bf722577d32869c9e884707a85e8f1e5df35116523a129bec1140eaaf186c3be",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/agents/proxy_agent.py",
+    "after": "57c891c5f7ff52d52a00a6ab277ce40913a830709a0ff32a3445a2d61e0a47ea"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/agent_interface.py",
+    "before": "bc3cb31d15737190bee2a491f3bbb98e8d97bcc99951b1ba2fb81cc24579d357",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/agents/agent_interface.py",
+    "after": "0adf4eb97b8294b785890b89f3e3680cb47e4cfff53d9a752fce03a92fd1614b"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/real_locomotion_adapter.py",
+    "before": "c4c5dcc97e61f2c9f0b63e0a7d14366aeabdc5c59218c89ec173b84a169a5cde",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/agents/real_locomotion_adapter.py",
+    "after": "f4e077df58a9e452c4ff3911fd07a697cd5b4bd0e385b60028f789db1dbf1d74"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/locomotion_interface.py",
+    "before": "8964a558bf5f18202626beaa28fa78b1a141236074ac3117f68e4baa3a7f9fc9",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/agents/locomotion_interface.py",
+    "after": "eff49ef8f15835369da513983929abb976cf8118bfcb80df966c6a96faca1124"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/reward_terms.py",
+    "before": "a45a8066f7d171b0c156b2523f2ec4cc4642854e580894cacaf75b874fd39afd",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight/training/reward_terms.py",
+    "after": "62a33e548679874a073e91f28f1a555d5b63496062c10ad0c07a0d8fe9847ca6"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/training/action_audit_wrapper.py",
+    "before": "87559d645d292c29997db7dafeaddf966f33518f40f8e0573637e8fb555b42ef",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight/training/action_audit_wrapper.py",
+    "after": "9df155ff94b5a831d8f917affa99edc2bf637578575fbfc48e6cda70096fe649"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight/common/paths.py",
+    "before": "db48036c219caffc5a29691b1bba10795a566550e62115b926343e385a784bca",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight/common/paths.py",
+    "after": "d32fd9c0008bb2209b331fc69fddb5ebffe9bda8623f7d8a8a877791d456d005"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v02_hud_smoke_tests.py",
+    "before": "4dd45e340512a9851f8eee6871abe33a8916112a40a066e364c49ba49d83943e",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/battle/run_v02_hud_smoke_tests.py",
+    "after": "28b459ccaf14a639aa2ad2b6cd57db2887c8a458582d3833a56c71dfa2e56f1b"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_gui.py",
+    "before": "9d05ec7936e09c91e227f61f2c95f12a1322243c39753cd1f2452fb74857c236",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/battle/run_v0_gui.py",
+    "after": "baa1c2dbcd9af146a8b795dc0aa5dd75bd650c3b85f4dbc99511ad13e6a35af2"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_battle_demo.py",
+    "before": "1105d1fd74663bb5658057e5f0141524a162094dd568df127da5b0564405c25e",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/battle/run_v0_battle_demo.py",
+    "after": "0542bd9b4086f35ba5af4e201bbc63e09062a170ba0eb267b5f538fe8cb2a0e9"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_smoke_tests.py",
+    "before": "53d581b6f837239fe3a2daf860067c0a1d738d6a6b9693ec20678351ba0554a3",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/battle/run_v0_smoke_tests.py",
+    "after": "1385a07879782ad2a5925136539ac2b14771618a49bb2f67fade8d329c1c3e3f"
+  },
+  {
+    "path": "dogfight_rl/scripts/battle/run_v0_headless.py",
+    "before": "f7df364253447ed84509848568ed52c07dd1e32895a2b2bce0a9c62acb626c3e",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/battle/run_v0_headless.py",
+    "after": "b7e580322a11f1e0933f9c6a3099f707ff625d803b12309ed620c67fe5b65f0c"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/check_environment.py",
+    "before": "7027fc0466b7d21398569b66d25b8b6cf19cda385f33e596a64ae4e88d9fbd69",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/diagnostics/check_environment.py",
+    "after": "85cd6d73988d4bac7aa03450769582c07388d022343b8565da330af36a805f5e"
+  },
+  {
+    "path": "dogfight_rl/tests/test_hud.py",
+    "before": "d02cfc79a8bfe342acd370f4e48e285f23edc256b8c175b6ad37cbfe50708555",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_hud.py",
+    "after": "27b5a6c8061a47771da07f6ae66e53f686bf23d61dca8f0a0392df9225fcd8e4"
+  },
+  {
+    "path": "dogfight_rl/tests/test_weapon.py",
+    "before": "00a4670224185ef3c64768b20204d1089c82095fb654fa61c57a8beda58fa6b5",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_weapon.py",
+    "after": "d52458bbc7251f03e1b4afc56119a3fb1186c3d793d128d30c168a33f449e3c4"
+  },
+  {
+    "path": "dogfight_rl/tests/test_intel_5s.py",
+    "before": "3960ddcb92456d6caddc18dc5f7f7a7825bdc66d89aaaf8d0cd8a3fb1c661771",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_intel_5s.py",
+    "after": "0bb468c6f6ef9828952cc741c23e57d5ccce2a41abacff66ec0dba3138693e5d"
+  },
+  {
+    "path": "dogfight_rl/tests/test_round.py",
+    "before": "280e9d67fd2b0db93011b7cb27c2d3d7f3bdbeba0b685805c85193cfccebcd70",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_round.py",
+    "after": "469050d4f01b953ca1bc86e156d22c0976aff61d10f4ff7cf4012d9b8eee2184"
+  },
+  {
+    "path": "dogfight_rl/tests/test_spawn.py",
+    "before": "68a5aed7744aeb60dfc9860997065a44f2e0aa1ea62a971eaede88c4b6e2d213",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_spawn.py",
+    "after": "0629dd3bfdc032d38664bf20b849eae09ae6f6ad2b7b315dc93cf4c63807a7ef"
+  },
+  {
+    "path": "dogfight_rl/tests/test_navigation.py",
+    "before": "0346055f6ab4c9242cdec3152dc6e6ad136678788e59ae48c41a75f9d4f36326",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_navigation.py",
+    "after": "ebc35caa6484f1598847261a79083256ddee293477c9314ea47d27251269b355"
+  },
+  {
+    "path": "dogfight_rl/tests/test_real_adapters.py",
+    "before": "86eecabfe2279264a98a4262f80ed574f5ee56aa9be3d3b2fb80862471e4de9f",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_real_adapters.py",
+    "after": "405ffe5d204e91ffaeeb1534278df9b4ba97fb9b6ec15011afacf91928570b5f"
+  },
+  {
+    "path": "dogfight_rl/tests/test_visibility.py",
+    "before": "9cf16c60cc86994a10e62ef275754d057ca5c2259ac0b2ef5d3e472671ba75e9",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_visibility.py",
+    "after": "b6982ae5a489543e9fb5edf656f7308ea2e4ce214d9823d82c5ebf7fd2c530ac"
+  },
+  {
+    "path": "dogfight_rl/tests/test_portable_resources.py",
+    "before": "128803504f4fa5251f539c073b74f4e3676355ea179d2587bd834bfc84e1ee4a",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_portable_resources.py",
+    "after": "862ab2fe64192f847b66d4d6d0b6c4a34b91b10999bb4cec4a00c784597c7496"
+  },
+  {
+    "path": "dogfight_rl/tests/conftest.py",
+    "before": "e9442dffebf6aa26b216d922a87e9368bb260e10ac55f66d2f3e8b73ce4880a5",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/conftest.py",
+    "after": "a61528a2b7b6dcf0ea0b187a5112d3d477ab5f7b94074ff2e172afe971ff9e67"
+  },
+  {
+    "path": "dogfight_rl/src/dogfight_v0/agents/__init__.py",
+    "before": "bbd062644ddcafcccc7b432adad149bf6c8602a5c0a49a34e3a65c79538620f5",
+    "backup": "reorganization/20261026/originals/dogfight_rl/src/dogfight_v0/agents/__init__.py",
+    "after": "364e445eb25e8b0160aef6f446a471e6ae896b56bbaf8d0f1ace804e075dc279"
+  },
+  {
+    "path": "archive/legacy_dog_a/training_code/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/train.py",
+    "before": "c3195be5facd7ce5c6d429c792d22f32f850925fb50d38abf0ad54a935c82c78",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/training_code/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/train.py",
+    "after": "dc0414f05dcbb0e818ffc0cfba187cfcc392a3e54c6a42cd43ec96483ca68927"
+  },
+  {
+    "path": "archive/legacy_dog_a/training_code/dogfight/tests/dog_a_x_reward_sanity.py",
+    "before": "1a0085c6a5c177736f9d67920197aa0c1b1bd43b56454c2af0288e8454a2ff1f",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/training_code/dogfight/tests/dog_a_x_reward_sanity.py",
+    "after": "8cde861c2be528b4b97cf1f3c36bc202e9dc651537239379892598f4e14cd133"
+  },
+  {
+    "path": "archive/legacy_dog_a/training_code/dogfight/tests/back_gait_reward_sanity.py",
+    "before": "cd6e6f1d482fe711a0dea97786fb1c7952327de4cf0bda6603675bf56e73fe72",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/training_code/dogfight/tests/back_gait_reward_sanity.py",
+    "after": "b5a9bf21a02afd7dd4c1039c75a12f6babf9590d95cc626d776969d7a0d458ff"
+  },
+  {
+    "path": "archive/legacy_dog_a/training_code/battle_adapters/real_dog_agent.py",
+    "before": "10032dc5ed0ddba4b0b8cb4253d6fe2892223b4d5f92643454481544924f570d",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/training_code/battle_adapters/real_dog_agent.py",
+    "after": "894c90c6523bb6c49e70ea228e40d5ce7589df77c24f498ec09f9cdc3a2c466d"
+  },
+  {
+    "path": "archive/legacy_dog_a/training_code/battle_adapters/dog_a_factory.py",
+    "before": "ac0e0c96adea889b36ad9b4bfd4866983d954478fa251d46f10bbb2c5ccf2a05",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/training_code/battle_adapters/dog_a_factory.py",
+    "after": "2fef4a1664c67411e068aad637e971cac3b05444eb1696a6df1a4f55efce2c0f"
+  },
+  {
+    "path": "archive/legacy_dog_a/training_code/battle_adapters/dog_a_locomotion_adapter.py",
+    "before": "effc7d1bfc8433af83d96913510c3f68cf7e831c4d979f52c3ffa3bc9c7e2564",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/training_code/battle_adapters/dog_a_locomotion_adapter.py",
+    "after": "e254afb0b4c58231e314a1e2fedbf62d918d4ca5089b92cb6f1339ea711f6e55"
+  },
+  {
+    "path": "archive/legacy_dog_a/diagnostics/test_dog_a_interface.py",
+    "before": "2e834a971fe882ca16b9f8ef8f28009b25c286d6882e371270e75b5c441fddcd",
+    "backup": "reorganization/20261026/originals/archive/legacy_dog_a/diagnostics/test_dog_a_interface.py",
+    "after": "1d2a8ecb300ea80a0d131aaec5730df9c31afe8cd1f634214b57221f4f2c2724"
+  },
+  {
+    "path": "dogfight_rl/setup.py",
+    "before": "d9dc99709e781698014eca4a651a3af6f429fa470810fba5ac64a9434eaab3ab",
+    "backup": "reorganization/20261026/originals/dogfight_rl/setup.py",
+    "after": "ec80e0590cee8c87941eee56b5fffabbdfe67f3cf17d00a3c38cc4d78824a597"
+  },
+  {
+    "path": "dogfight_rl/pyproject.toml",
+    "before": "78ebd726bea79572541967aecf565a8d696eb06387c7c3436d4e7d2a6536f189",
+    "backup": "reorganization/20261026/originals/dogfight_rl/pyproject.toml",
+    "after": "4685caec7185bd71d81de58cc1d025b346726dc77133cac211a2a977c3e52ed8"
+  },
+  {
+    "path": "dogfight_rl/configs/battle/extension.toml",
+    "before": "6fc926436276ab45d890b60570bc6f25a12e15502ce744c2e4b5ec0c7ea0f2c2",
+    "backup": "reorganization/20261026/originals/dogfight_rl/configs/battle/extension.toml",
+    "after": "5bcd0fe0688a01c5e3d9032cc9e3755bf10f7b464e750d87d3032d26dc553021"
+  },
+  {
+    "path": "dogfight_rl/scripts/diagnostics/check_environment.sh",
+    "before": "5a2fa606ce6899620ae68910aaa943cd04208ca3fc6946111facff6930c54ed4",
+    "backup": "reorganization/20261026/originals/dogfight_rl/scripts/diagnostics/check_environment.sh",
+    "after": "2dddcbe9914f2be8b9a3b532c888270cd637af53cb72384d1e3e49f4ba9b581f"
+  },
+  {
+    "path": "dogfight_rl/launch.py",
+    "before": "d5842d8d207376a5a0e8b76e9b28228a02dc90815883943f7827f45706d514c7",
+    "backup": "reorganization/20261026/originals/dogfight_rl/launch.py",
+    "after": "b4b7d1f25e811a8bded2f73849e538454959c48a3a47575c4e60b6194a729914"
+  },
+  {
+    "path": "dogfight_rl/tests/test_project_paths.py",
+    "before": "ddc5e8478debbdd8cebda0703a4c31ae46ec11e1e6cbb642dfa90c8a7f7b9210",
+    "backup": "reorganization/20261026/originals/dogfight_rl/tests/test_project_paths.py",
+    "after": "d34475bfeb6b25b64aea660343fed0fbec27e82736472fdbcbf3891f842b3ad0"
+  },
+  {
+    "path": "dogfight_rl/README.md",
+    "before": "0b478be0a82e068215d954df760e221bcb290bd0f8976216abb491a2fdd319d1",
+    "backup": "reorganization/20261026/originals/dogfight_rl/README.md",
+    "after": "d830126953e39fe34060347167d2b29af91575ed4801e74019ae04b7c897278a"
+  },
+  {
+    "path": "dogfight_rl/docs/BATTLE_PACKAGE.md",
+    "before": "3c1ad9aac88250e3d2de8bad093ad59a0c18a1ea53c4b16b1c57e434dad66ada",
+    "backup": "reorganization/20261026/originals/dogfight_rl/docs/BATTLE_PACKAGE.md",
+    "after": "f6ca5a6b960380ca939916d53c4a26b10eadddfe6e632cd27f9d837b06d5d58c"
+  },
+  {
+    "path": "DOGFIGHT_ENVIRONMENT.md",
+    "before": "58cd306a2bc5e2d4388fb04fdf517d668fdcd9d4438ca78fdd85483b8957704b",
+    "backup": "reorganization/20261026/originals/DOGFIGHT_ENVIRONMENT.md",
+    "after": "85c2478c6ae9d6dde45a41fd7a95c63b27b9a1dee96668a2a5f691da8e14efc8"
+  },
+  {
+    "path": "dogfight_rl/.gitignore",
+    "before": "9608b281522577cce06df9e5078c6fe0fa48204d5c91649c83f9a3347cf2f763",
+    "backup": "reorganization/20261026/originals/dogfight_rl/.gitignore",
+    "after": "fef96815e77d10a39f46310d8ec6862fb6f9489be2d45f93b99a26049bb975cd"
+  },
+  {
+    "path": "AGENTS.md",
+    "before": "c71bbfd5cb6ff28f01386b69ab6f7109e84ae3e13e1dd32e9489595130f9bbdd",
+    "backup": "reorganization/20261026/originals/AGENTS.md",
+    "after": "79e8028bbb1a3b080ac31dd98465ee7a1b2e47a16837dbb35f80204132b83085"
+  },
+  {
+    "path": "dogfight_rl/AGENTS.md",
+    "before": "21be507f9da08b2d4b2f22328109441b86943ea932e486d61ddd6e918858dec2",
+    "backup": "reorganization/20261026/originals/dogfight_rl/AGENTS.md",
+    "after": "ad24cd0b49bd04493ede61f13d22b544ffe96ba0ac4a4c1e241fc77b0b60184d"
+  },
+  {
+    "path": "REORGANIZATION_MANIFEST.md",
+    "before": "6c47adfba260fd3a76ec2ecbb147016412b090e5bb518f025c9df0783868ce0f",
+    "backup": "reorganization/20261026/originals/REORGANIZATION_MANIFEST.md",
+    "after": "efa53d11e9122443ebd1ad9c8260546fd798886dbfccc28168fe3c0c7d61d4df"
+  }
+]

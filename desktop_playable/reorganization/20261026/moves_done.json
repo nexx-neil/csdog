@@ -1,0 +1,752 @@
+[
+  {
+    "old": "dogfight_rl/assets",
+    "new": "archive/legacy_compatibility/assets",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/configs",
+    "new": "archive/legacy_compatibility/configs",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/scripts",
+    "new": "archive/legacy_compatibility/scripts",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/source",
+    "new": "archive/legacy_compatibility/source",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/dogfight",
+    "new": "archive/legacy_compatibility/dogfight",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/logs",
+    "new": "archive/legacy_compatibility/logs",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/checkpoints",
+    "new": "archive/legacy_compatibility/checkpoints",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/videos",
+    "new": "archive/legacy_compatibility/videos",
+    "category": "compatibility_snapshot"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/dogfight_v0/agents/dog_a_factory.py",
+    "new": "archive/legacy_dog_a/training_code/battle_adapters/dog_a_factory.py",
+    "category": "legacy_model"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/dogfight_v0/agents/dog_a_locomotion_adapter.py",
+    "new": "archive/legacy_dog_a/training_code/battle_adapters/dog_a_locomotion_adapter.py",
+    "category": "legacy_model"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/dogfight_v0/agents/real_dog_agent.py",
+    "new": "archive/legacy_dog_a/training_code/battle_adapters/real_dog_agent.py",
+    "category": "legacy_model"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/dogfight_v0",
+    "new": "dogfight_rl/src/dogfight_v0",
+    "category": "current_battle"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/pyproject.toml",
+    "new": "dogfight_rl/pyproject.toml",
+    "category": "current_packaging"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/setup.py",
+    "new": "dogfight_rl/setup.py",
+    "category": "current_packaging"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/config/extension.toml",
+    "new": "dogfight_rl/configs/battle/extension.toml",
+    "category": "current_extension"
+  },
+  {
+    "old": "dogfight_rl/03_battle/source/dogfight_v0/README.md",
+    "new": "dogfight_rl/docs/BATTLE_PACKAGE.md",
+    "category": "current_docs"
+  },
+  {
+    "old": "dogfight_rl/02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/reward_terms.py",
+    "new": "dogfight_rl/src/dogfight/training/reward_terms.py",
+    "category": "reusable_training"
+  },
+  {
+    "old": "dogfight_rl/02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/action_audit_wrapper.py",
+    "new": "dogfight_rl/src/dogfight/training/action_audit_wrapper.py",
+    "category": "reusable_training"
+  },
+  {
+    "old": "dogfight_rl/01_robots/assets",
+    "new": "archive/legacy_dog_a/assets",
+    "category": "legacy_model"
+  },
+  {
+    "old": "dogfight_rl/01_robots/configs",
+    "new": "archive/legacy_dog_a/configs/robots",
+    "category": "legacy_config"
+  },
+  {
+    "old": "dogfight_rl/01_robots/python/dogfight",
+    "new": "archive/legacy_dog_a/training_code/dogfight",
+    "category": "legacy_model_code"
+  },
+  {
+    "old": "dogfight_rl/02_training/python/dogfight/tasks",
+    "new": "archive/legacy_dog_a/training_code/dogfight/tasks",
+    "category": "legacy_training"
+  },
+  {
+    "old": "dogfight_rl/02_training/configs",
+    "new": "archive/legacy_dog_a/configs/training",
+    "category": "legacy_config"
+  },
+  {
+    "old": "dogfight_rl/02_training/deployment",
+    "new": "archive/legacy_dog_a/training_code/deployment",
+    "category": "legacy_deployment"
+  },
+  {
+    "old": "dogfight_rl/02_training/scripts",
+    "new": "archive/legacy_dog_a/training_code/scripts",
+    "category": "legacy_training"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/back_gait_primitive_recovery",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/back_gait_primitive_recovery",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/back_gait_primitive_recovery_training.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/back_gait_primitive_recovery_training.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/base_frame_analysis",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/base_frame_analysis",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/dog_a_locomotion_ppo_smoke_v1",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/dog_a_locomotion_ppo_smoke_v1",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/dog_a_symmetric_static_equilibrium",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/dog_a_symmetric_static_equilibrium",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/dog_a_symmetric_v1",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/dog_a_symmetric_v1",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/drop_test",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/drop_test",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/dynamic_contact_diagnosis",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/dynamic_contact_diagnosis",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/external_home",
+    "new": "archive/historical_validation/anymal/external_home",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/external_isaaclab",
+    "new": "archive/historical_validation/anymal/external_isaaclab",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/implicit_actuator_symmetric_v1",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/implicit_actuator_symmetric_v1",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/joint_direction_test",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/joint_direction_test",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/lateral_ppo",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/lateral_ppo",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/locomotion_smoke_test",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/locomotion_smoke_test",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/migration_smoke",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/migration_smoke",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/model_forensic_audit",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/model_forensic_audit",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/path_migration_20261025_physical_smoke",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/path_migration_20261025_physical_smoke",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/path_migration_20261025_smoke",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/path_migration_20261025_smoke",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/pd_alpha_equilibrium",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/pd_alpha_equilibrium",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/pd_dynamic_equilibrium",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/pd_dynamic_equilibrium",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/pd_stand",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/pd_stand",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/pd_stand_v2",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/pd_stand_v2",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/pd_symmetric_v1",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/pd_symmetric_v1",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/rsl_rl",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/rsl_rl",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/standing_geometry_v2",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/standing_geometry_v2",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/standing_pose_preview",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/standing_pose_preview",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/static_contact_diagnosis",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/static_contact_diagnosis",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/straight_ppo",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/straight_ppo",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/v0",
+    "new": "archive/legacy_compatibility/training_log_snapshots/v0",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/v0_2b",
+    "new": "archive/legacy_compatibility/training_log_snapshots/v0_2b",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_candidate_2300_neg.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_candidate_2300_neg.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_candidate_2300_pos.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_candidate_2300_pos.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_candidate_3500_neg.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_candidate_3500_neg.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_candidate_3500_pos.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_candidate_3500_pos.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_ppo",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_ppo",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_probe_short.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_probe_short.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_reward_sanity.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_reward_sanity.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_smoke_vx_neg.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_smoke_vx_neg.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_smoke_vx_pos.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_smoke_vx_pos.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_smoke_vx_zero.json",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_smoke_vx_zero.json",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_train_smoke_16env_13iter",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_16env_13iter",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_train_smoke_16env_13iter_v2",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_16env_13iter_v2",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_train_smoke_16env_13iter_v3",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_16env_13iter_v3",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_anti_slip_train_smoke_256env_1iter",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_anti_slip_train_smoke_256env_1iter",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/x_bidirectional_ppo",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/x_bidirectional_ppo",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/xy_body_frame_diagnosis",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_diagnosis",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/xy_body_frame_ppo",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/xy_body_frame_ppo_smoke_adapt_50iter.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo_smoke_adapt_50iter.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/xy_body_frame_ppo_smoke_adapt_plus_200iter.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo_smoke_adapt_plus_200iter.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/xy_body_frame_ppo_smoke_reset_ycmd_200iter.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/xy_body_frame_ppo_smoke_reset_ycmd_200iter.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/xy_discrete_ppo",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/xy_discrete_ppo",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_recovery_400",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_recovery_400",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_recovery_400.zip",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_recovery_400.zip",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_recovery_400_training.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_recovery_400_training.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_400",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_400",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_400.zip",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_400.zip",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_400_training.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_400_training.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_A",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_A",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_A_training.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_A_training.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_B",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_B",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/logs/yaxis_reward_recovery_B_training.log",
+    "new": "archive/legacy_dog_a/checkpoints_and_runs/yaxis_reward_recovery_B_training.log",
+    "category": "historical_run"
+  },
+  {
+    "old": "dogfight_rl/02_training/historical_tests",
+    "new": "archive/historical_validation/training_copies",
+    "category": "historical_validation"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/__pycache__",
+    "new": "archive/legacy_compatibility/battle_script_cache/__pycache__",
+    "category": "legacy_diagnostics"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_dog_a_battle_integration_test.py",
+    "new": "archive/legacy_dog_a/diagnostics/battle/run_dog_a_battle_integration_test.py",
+    "category": "legacy_diagnostics"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_dog_a_v0_smoke_test.py",
+    "new": "archive/legacy_dog_a/diagnostics/battle/run_dog_a_v0_smoke_test.py",
+    "category": "legacy_diagnostics"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_v02_hud_smoke_tests.py",
+    "new": "dogfight_rl/scripts/battle/run_v02_hud_smoke_tests.py",
+    "category": "current_battle_script"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_v02b_prebattle_gates.py",
+    "new": "archive/legacy_dog_a/diagnostics/battle/run_v02b_prebattle_gates.py",
+    "category": "legacy_diagnostics"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_v0_battle_demo.py",
+    "new": "dogfight_rl/scripts/battle/run_v0_battle_demo.py",
+    "category": "current_battle_script"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_v0_gui.py",
+    "new": "dogfight_rl/scripts/battle/run_v0_gui.py",
+    "category": "current_battle_script"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_v0_headless.py",
+    "new": "dogfight_rl/scripts/battle/run_v0_headless.py",
+    "category": "current_battle_script"
+  },
+  {
+    "old": "dogfight_rl/03_battle/scripts/v0/run_v0_smoke_tests.py",
+    "new": "dogfight_rl/scripts/battle/run_v0_smoke_tests.py",
+    "category": "current_battle_script"
+  },
+  {
+    "old": "dogfight_rl/03_battle/logs",
+    "new": "archive/historical_validation/battle_previous",
+    "category": "historical_battle"
+  },
+  {
+    "old": "dogfight_rl/shared/paths.py",
+    "new": "dogfight_rl/src/dogfight/common/paths.py",
+    "category": "current_common"
+  },
+  {
+    "old": "dogfight_rl/shared/policy.py",
+    "new": "archive/legacy_dog_a/training_code/shared/policy.py",
+    "category": "legacy_deployment"
+  },
+  {
+    "old": "dogfight_rl/shared/scripts",
+    "new": "dogfight_rl/scripts/diagnostics",
+    "category": "current_diagnostics"
+  },
+  {
+    "old": "dogfight_rl/migration",
+    "new": "archive/migration_backups/previous_migration",
+    "category": "historical_migration"
+  },
+  {
+    "old": "dogfight_env_freeze",
+    "new": "archive/environment_records/dogfight_env_freeze",
+    "category": "environment_record"
+  },
+  {
+    "old": "dogfight_env_info",
+    "new": "archive/environment_records/dogfight_env_info",
+    "category": "environment_record"
+  },
+  {
+    "old": "dogfight_final_tests",
+    "new": "archive/historical_validation/dogfight_final_tests",
+    "category": "historical_validation"
+  },
+  {
+    "old": "dogfight_rl/docs/environment/freeze_snapshot",
+    "new": "archive/environment_records/docs_freeze_snapshot",
+    "category": "environment_snapshot"
+  },
+  {
+    "old": "dogfight_rl/docs/environment/env_info",
+    "new": "archive/environment_records/docs_env_info",
+    "category": "environment_snapshot"
+  },
+  {
+    "old": "dogfight_rl/run_training.sh",
+    "new": "archive/environment_records/run_training.sh",
+    "category": "historical_environment_entry"
+  },
+  {
+    "old": "dogfight_rl/tests/test_dog_a_interface.py",
+    "new": "archive/legacy_dog_a/diagnostics/test_dog_a_interface.py",
+    "category": "legacy_mock_test"
+  },
+  {
+    "old": "dogfight_rl/reorganization",
+    "new": "reorganization/20261026/initial_command_outputs",
+    "category": "task_evidence"
+  },
+  {
+    "old": "dogfight_rl/01_robots",
+    "new": "archive/legacy_compatibility/layout_remainders/01_robots",
+    "category": "historical_layout_remainder"
+  },
+  {
+    "old": "dogfight_rl/02_training",
+    "new": "archive/legacy_compatibility/layout_remainders/02_training",
+    "category": "historical_layout_remainder"
+  },
+  {
+    "old": "dogfight_rl/03_battle",
+    "new": "archive/legacy_compatibility/layout_remainders/03_battle",
+    "category": "historical_layout_remainder"
+  },
+  {
+    "old": "dogfight_rl/shared",
+    "new": "archive/legacy_compatibility/layout_remainders/shared",
+    "category": "historical_layout_remainder"
+  },
+  {
+    "old": "dogfight_rl/docs/BASE_FRAME_ANALYSIS.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/BASE_FRAME_ANALYSIS.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/BATTLE_GUIDE.md",
+    "new": "archive/historical_validation/project_docs/BATTLE_GUIDE.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/CHECKPOINT_INDEX.md",
+    "new": "archive/historical_validation/project_docs/CHECKPOINT_INDEX.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DEV_LOG.md",
+    "new": "archive/historical_validation/project_docs/DEV_LOG.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOGFIGHT_V02A_HUD.md",
+    "new": "archive/historical_validation/project_docs/DOGFIGHT_V02A_HUD.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOGFIGHT_V0_README.md",
+    "new": "archive/historical_validation/project_docs/DOGFIGHT_V0_README.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOG_A_LOCOMOTION_PPO_SMOKE_TEST.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DOG_A_LOCOMOTION_PPO_SMOKE_TEST.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOG_A_MODEL_FORENSIC_AUDIT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DOG_A_MODEL_FORENSIC_AUDIT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOG_A_SYMMETRIC_JOINT_DIRECTION_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DOG_A_SYMMETRIC_JOINT_DIRECTION_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOG_A_SYMMETRIC_STATIC_EQUILIBRIUM.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DOG_A_SYMMETRIC_STATIC_EQUILIBRIUM.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOG_A_SYMMETRIC_V1_GENERATION.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DOG_A_SYMMETRIC_V1_GENERATION.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DOG_A_V0_NORMALIZATION.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DOG_A_V0_NORMALIZATION.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DROP_TEST_REPORT.md",
+    "new": "archive/historical_validation/project_docs/DROP_TEST_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/DYNAMIC_CONTACT_DIAGNOSIS.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/DYNAMIC_CONTACT_DIAGNOSIS.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/JOINT_DIRECTION_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/JOINT_DIRECTION_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/JOINT_MAP.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/JOINT_MAP.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/MIRRORED_STANDING_POSE_SEARCH.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/MIRRORED_STANDING_POSE_SEARCH.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/MODEL_INDEX.md",
+    "new": "archive/historical_validation/project_docs/MODEL_INDEX.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/ORIGINAL_URDF_LOCOMOTION_PPO_SMOKE_TEST.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/ORIGINAL_URDF_LOCOMOTION_PPO_SMOKE_TEST.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PD_ALPHA_EQUILIBRIUM_DIAGNOSIS.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/PD_ALPHA_EQUILIBRIUM_DIAGNOSIS.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PD_DYNAMIC_EQUILIBRIUM_COMPENSATION.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/PD_DYNAMIC_EQUILIBRIUM_COMPENSATION.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PD_STANDING_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/PD_STANDING_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PD_SYMMETRIC_V1_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/PD_SYMMETRIC_V1_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PD_V2_STANDING_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/PD_V2_STANDING_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PROJECT_ISSUES_AND_ATTEMPTS_REPORT.md",
+    "new": "archive/historical_validation/project_docs/PROJECT_ISSUES_AND_ATTEMPTS_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/PROJECT_STRUCTURE.md",
+    "new": "archive/historical_validation/project_docs/PROJECT_STRUCTURE.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/STANDING_GEOMETRY_ANALYSIS.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/STANDING_GEOMETRY_ANALYSIS.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/STANDING_GEOMETRY_V2_FINAL_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/STANDING_GEOMETRY_V2_FINAL_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/STANDING_POSE_SEARCH_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/STANDING_POSE_SEARCH_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/STATIC_CONTACT_DIAGNOSIS.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/STATIC_CONTACT_DIAGNOSIS.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/STRAIGHT_PPO_TRAINING.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/STRAIGHT_PPO_TRAINING.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/TRAINING_GUIDE.md",
+    "new": "archive/historical_validation/project_docs/TRAINING_GUIDE.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/TRAINING_SCRIPTS.md",
+    "new": "archive/historical_validation/project_docs/TRAINING_SCRIPTS.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/TRUE_FOOT_JACOBIAN.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/TRUE_FOOT_JACOBIAN.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/URDF_AUDIT_REPORT.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/URDF_AUDIT_REPORT.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/URDF_IMPORT_RECORD.md",
+    "new": "archive/legacy_dog_a/diagnostics/docs/URDF_IMPORT_RECORD.md",
+    "category": "historical_document"
+  },
+  {
+    "old": "dogfight_rl/docs/environment",
+    "new": "archive/environment_records/project_environment_docs",
+    "category": "historical_environment_document"
+  }
+]

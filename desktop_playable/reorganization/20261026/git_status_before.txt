@@ -1,0 +1,518 @@
+ M .gitignore
+ M AGENTS.md
+ M assets/dog_a/config.yaml
+ M assets/dog_a/usd_attempt_002_named_joints/config.yaml
+ M assets/dog_a_symmetric_v1/generation/generate_symmetric_model.py
+ M assets/dog_a_symmetric_v1/usd/config.yaml
+ M configs/back_gait_primitive_recovery.yaml
+ M configs/dog_a_bidirectional_lateral_ppo.yaml
+ M configs/dog_a_bidirectional_x_ppo.yaml
+ M configs/dog_a_body_xy_transition_ppo.yaml
+ M configs/dog_a_dynamic_equilibrium_compensation.yaml
+ M configs/dog_a_locomotion_ppo_smoke_v1.yaml
+ M configs/dog_a_original_locomotion_ppo_smoke.yaml
+ M configs/dog_a_original_straight_ppo.yaml
+ M configs/dog_a_standing_pose.yaml
+ M configs/dog_a_standing_pose_v2.yaml
+ M configs/dog_a_symmetric_v1_implicit_actuator.yaml
+ M configs/dog_a_symmetric_v1_standing_pose.yaml
+ M configs/dog_a_x_anti_slip_ppo.yaml
+ M configs/dog_a_x_command_transition_ppo.yaml
+ M configs/dog_a_x_left_focus_ppo.yaml
+ M configs/dog_a_x_left_reexplore_ppo.yaml
+ M configs/dog_a_x_mixed_drift_ppo.yaml
+ M configs/dog_a_x_right_recovery_ppo.yaml
+ M configs/dog_a_xy_discrete_transition_ppo.yaml
+ M configs/dog_a_yaxis_recovery_400.yaml
+ M configs/pd_alpha_equilibrium.yaml
+ M configs/pd_symmetric_v1_01.yaml
+ M configs/pd_symmetric_v1_02.yaml
+ M configs/pd_v2_01.yaml
+ M configs/pd_v2_02.yaml
+ M configs/yaxis_reward_recovery_A.yaml
+ M configs/yaxis_reward_recovery_B.yaml
+ M dogfight/analysis/analyze_implicit_standing.py
+ M dogfight/analysis/dog_a_symmetric_static_equilibrium.py
+ M dogfight/geometry/foot_contact_solver.py
+ M dogfight/robots/dog_a_cfg.py
+ M dogfight/robots/prepare_dog_a_import_urdf.py
+ M dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/action_audit_wrapper.py
+ M dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/env.py
+ M dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/evaluate.py
+ M dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/reward_terms.py
+ M dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/train.py
+ M dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/validate.py
+ M dogfight/tests/analyze_contact_dynamics.py
+ M dogfight/tests/analyze_dynamic_equilibrium.py
+ M dogfight/tests/analyze_pd_alpha_equilibrium.py
+ M dogfight/tests/analyze_pd_v2_02.py
+ M dogfight/tests/back_gait_reward_sanity.py
+ M dogfight/tests/base_frame_analysis.py
+ M dogfight/tests/collider_foot_point_micro.py
+ M dogfight/tests/contact_dynamics_diagnosis.py
+ M dogfight/tests/contact_force_sanity.py
+ M dogfight/tests/dog_a_symmetric_free_drop.py
+ M dogfight/tests/dog_a_symmetric_joint_direction_test.py
+ M dogfight/tests/dog_a_symmetric_runtime_audit.py
+ M dogfight/tests/dog_a_x_reward_sanity.py
+ M dogfight/tests/dog_a_xy_reward_sanity.py
+ M dogfight/tests/drop_test.py
+ M dogfight/tests/fk_jacobian_micro.py
+ M dogfight/tests/identify_dynamic_equilibrium_sensitivity.py
+ M dogfight/tests/implicit_actuator_symmetric_v1.py
+ M dogfight/tests/joint_direction_test.py
+ M dogfight/tests/mirrored_standing_pose_search.py
+ M dogfight/tests/pd_alpha_equilibrium_trial.py
+ M dogfight/tests/pd_dynamic_equilibrium_trial.py
+ M dogfight/tests/pd_stand_test.py
+ M dogfight/tests/pd_stand_v2.py
+ M dogfight/tests/pd_stand_v2_02.py
+ M dogfight/tests/pd_symmetric_v1.py
+ M dogfight/tests/prefilter_dynamic_equilibrium.py
+ M dogfight/tests/runtime_initial_state_diagnosis.py
+ M dogfight/tests/spawn_robot.py
+ M dogfight/tests/standing_pose_preview.py
+ M dogfight/tests/standing_pose_search_v2.py
+ M dogfight/tests/static_contact_diagnosis.py
+ M scripts/analyze_dog_a_four_direction.py
+ M scripts/check_environment.py
+ M scripts/check_environment.sh
+ M scripts/compare_dog_a_x_directions.py
+ M scripts/evaluate_dog_a_x_directions.sh
+ M scripts/resume_dog_a_x_700_from_300.sh
+ M scripts/resume_dog_a_x_finetune_300_from_999.sh
+ M scripts/resume_dog_a_x_straight_500_from_1599.sh
+ M scripts/resume_dog_a_x_transition_300_from_1299.sh
+ M scripts/resume_dog_a_xy_500_from_2099.sh
+ M scripts/resume_dog_a_yaxis_recovery_400.sh
+ M scripts/run_yaxis_reward_recovery_smoke.sh
+ M scripts/select_best_back_gait_checkpoint.py
+ M scripts/select_best_training_checkpoint.py
+ M scripts/train_back_gait_primitive_recovery_400.sh
+ M scripts/train_original_dog_a_straight.py
+ M scripts/v0/run_dog_a_battle_integration_test.py
+ M scripts/v0/run_dog_a_v0_smoke_test.py
+ M scripts/v0/run_v02_hud_smoke_tests.py
+ M scripts/v0/run_v02b_prebattle_gates.py
+ M scripts/v0/run_v0_battle_demo.py
+ M scripts/v0/run_v0_gui.py
+ M scripts/v0/run_v0_headless.py
+ M scripts/v0/run_v0_smoke_tests.py
+ M scripts/validate_back_gait_five_direction_fresh_reset_gui.sh
+ M scripts/validate_back_gait_primitive_config.py
+ M scripts/validate_back_gait_primitive_fresh_reset_gui.sh
+ M scripts/validate_dog_a_yaxis_recovery_400_gui.sh
+ M scripts/validate_yaxis_recovery_configs.py
+ M scripts/validate_yaxis_reward_recovery_gui.sh
+ M scripts/visualize_dog_a_left_stop_right.sh
+ M scripts/visualize_dog_a_straightness_left_stop_right.sh
+ M scripts/visualize_dog_a_transition_left_stop_right.sh
+ M scripts/visualize_dog_a_xy_continuous.sh
+ M source/dogfight_v0/dogfight_v0/agents/agent_interface.py
+ M source/dogfight_v0/dogfight_v0/agents/dog_a_factory.py
+ M source/dogfight_v0/dogfight_v0/agents/dog_a_locomotion_adapter.py
+ M source/dogfight_v0/dogfight_v0/agents/locomotion_interface.py
+ M source/dogfight_v0/dogfight_v0/agents/proxy_agent.py
+ M source/dogfight_v0/dogfight_v0/agents/real_dog_agent.py
+ M source/dogfight_v0/dogfight_v0/agents/real_locomotion_adapter.py
+ M source/dogfight_v0/dogfight_v0/arena/map_interface.py
+ M source/dogfight_v0/dogfight_v0/arena/spawn_manager.py
+ M source/dogfight_v0/dogfight_v0/arena/test_map.py
+ M source/dogfight_v0/dogfight_v0/battle/battle_manager.py
+ M source/dogfight_v0/dogfight_v0/battle/health_system.py
+ M source/dogfight_v0/dogfight_v0/battle/intel_service.py
+ M source/dogfight_v0/dogfight_v0/battle/interfaces.py
+ M source/dogfight_v0/dogfight_v0/battle/ray_query.py
+ M source/dogfight_v0/dogfight_v0/battle/scripted_policy.py
+ M source/dogfight_v0/dogfight_v0/battle/types.py
+ M source/dogfight_v0/dogfight_v0/battle/visibility_service.py
+ M source/dogfight_v0/dogfight_v0/battle/weapon_service.py
+ M source/dogfight_v0/dogfight_v0/config/battle_cfg.py
+ M source/dogfight_v0/dogfight_v0/logging/battle_logger.py
+ M source/dogfight_v0/dogfight_v0/navigation/navigation_interface.py
+ M source/dogfight_v0/dogfight_v0/navigation/simple_navigation.py
+ M source/dogfight_v0/dogfight_v0/runtime.py
+ M source/dogfight_v0/dogfight_v0/sim/physx_ray_query.py
+ M source/dogfight_v0/dogfight_v0/sim/scene.py
+ M source/dogfight_v0/dogfight_v0/ui/battle_hud.py
+ M source/dogfight_v0/setup.py
+ M tests/conftest.py
+ M tests/test_dog_a_interface.py
+ M tests/test_hud.py
+ M tests/test_intel_5s.py
+ M tests/test_navigation.py
+ M tests/test_real_adapters.py
+ M tests/test_round.py
+ M tests/test_spawn.py
+ M tests/test_visibility.py
+ M tests/test_weapon.py
+?? 01_robots/assets/dog_a/.asset_hash
+?? 01_robots/assets/dog_a/README.md
+?? 01_robots/assets/dog_a/config.yaml
+?? 01_robots/assets/dog_a/configuration/dog_a_base.usd
+?? 01_robots/assets/dog_a/configuration/dog_a_physics.usd
+?? 01_robots/assets/dog_a/configuration/dog_a_robot.usd
+?? 01_robots/assets/dog_a/configuration/dog_a_sensor.usd
+?? 01_robots/assets/dog_a/dog_a.usd
+?? 01_robots/assets/dog_a/urdf/dog_a_import.urdf
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/.asset_hash
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/config.yaml
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_base.usd
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_physics.usd
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_robot.usd
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/configuration/dog_a_sensor.usd
+?? 01_robots/assets/dog_a/usd_attempt_002_named_joints/dog_a.usd
+?? 01_robots/assets/dog_a_symmetric_v1/generation/generate_symmetric_model.py
+?? 01_robots/assets/dog_a_symmetric_v1/generation/generation_summary.json
+?? 01_robots/assets/dog_a_symmetric_v1/generation/mesh_generation_manifest.json
+?? 01_robots/assets/dog_a_symmetric_v1/manifest/original_assets_sha256_after.json
+?? 01_robots/assets/dog_a_symmetric_v1/manifest/original_assets_sha256_before.json
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/FL_CALF.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/FL_HIP.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/FL_THIGH.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/FR_CALF_MIRRORED.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/FR_HIP_MIRRORED.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/FR_THIGH_MIRRORED.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/RL_CALF.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/RL_HIP.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/RL_THIGH.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/RR_CALF_MIRRORED.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/RR_HIP_MIRRORED.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/RR_THIGH_MIRRORED.STL
+?? 01_robots/assets/dog_a_symmetric_v1/meshes/base_link_symmetric.STL
+?? 01_robots/assets/dog_a_symmetric_v1/urdf/dog_a_symmetric_v1.urdf
+?? 01_robots/assets/dog_a_symmetric_v1/usd/.asset_hash
+?? 01_robots/assets/dog_a_symmetric_v1/usd/config.yaml
+?? 01_robots/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_base.usd
+?? 01_robots/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_physics.usd
+?? 01_robots/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_robot.usd
+?? 01_robots/assets/dog_a_symmetric_v1/usd/configuration/dog_a_symmetric_v1_sensor.usd
+?? 01_robots/assets/dog_a_symmetric_v1/usd/dog_a_symmetric_v1.usd
+?? 01_robots/assets/original/fix_new.SLDASM.zip
+?? 01_robots/assets/original/fix_new.SLDASM/CMakeLists.txt
+?? 01_robots/assets/original/fix_new.SLDASM/config/joint_names_fix_new.SLDASM.yaml
+?? 01_robots/assets/original/fix_new.SLDASM/export.log
+?? 01_robots/assets/original/fix_new.SLDASM/launch/display.launch
+?? 01_robots/assets/original/fix_new.SLDASM/launch/gazebo.launch
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/base_link.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/lhou.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/lhou1.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/lhou2.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/lqian.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/lqian1.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/lqian2.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/rhou.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/rhou1.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/rhou2.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/rqian.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/rqian1.STL
+?? 01_robots/assets/original/fix_new.SLDASM/meshes/rqian2.STL
+?? 01_robots/assets/original/fix_new.SLDASM/package.xml
+?? 01_robots/assets/original/fix_new.SLDASM/urdf/fix_new.SLDASM.csv
+?? 01_robots/assets/original/fix_new.SLDASM/urdf/fix_new.SLDASM.urdf
+?? "01_robots/assets/original/received/\346\234\272\345\231\250\347\213\227\346\250\241\345\236\213.zip"
+?? 01_robots/configs/dog_a_dynamic_equilibrium_compensation.yaml
+?? 01_robots/configs/dog_a_standing_pose.yaml
+?? 01_robots/configs/dog_a_standing_pose_v2.yaml
+?? 01_robots/configs/dog_a_symmetric_v1_implicit_actuator.yaml
+?? 01_robots/configs/dog_a_symmetric_v1_standing_pose.yaml
+?? 01_robots/configs/pd_alpha_equilibrium.yaml
+?? 01_robots/configs/pd_symmetric_v1_01.yaml
+?? 01_robots/configs/pd_symmetric_v1_02.yaml
+?? 01_robots/configs/pd_v2_01.yaml
+?? 01_robots/configs/pd_v2_02.yaml
+?? 01_robots/python/dogfight/analysis/analyze_implicit_standing.py
+?? 01_robots/python/dogfight/analysis/dog_a_symmetric_static_equilibrium.py
+?? 01_robots/python/dogfight/geometry/foot_contact_solver.py
+?? 01_robots/python/dogfight/robots/dog_a_cfg.py
+?? 01_robots/python/dogfight/robots/prepare_dog_a_import_urdf.py
+?? 01_robots/python/dogfight/tests/analyze_contact_dynamics.py
+?? 01_robots/python/dogfight/tests/analyze_dynamic_equilibrium.py
+?? 01_robots/python/dogfight/tests/analyze_pd_alpha_equilibrium.py
+?? 01_robots/python/dogfight/tests/analyze_pd_v2_02.py
+?? 01_robots/python/dogfight/tests/back_gait_reward_sanity.py
+?? 01_robots/python/dogfight/tests/base_frame_analysis.py
+?? 01_robots/python/dogfight/tests/collider_foot_point_micro.py
+?? 01_robots/python/dogfight/tests/contact_dynamics_diagnosis.py
+?? 01_robots/python/dogfight/tests/contact_force_sanity.py
+?? 01_robots/python/dogfight/tests/dog_a_symmetric_free_drop.py
+?? 01_robots/python/dogfight/tests/dog_a_symmetric_joint_direction_test.py
+?? 01_robots/python/dogfight/tests/dog_a_symmetric_runtime_audit.py
+?? 01_robots/python/dogfight/tests/dog_a_x_reward_sanity.py
+?? 01_robots/python/dogfight/tests/dog_a_xy_reward_sanity.py
+?? 01_robots/python/dogfight/tests/drop_test.py
+?? 01_robots/python/dogfight/tests/fk_jacobian_micro.py
+?? 01_robots/python/dogfight/tests/identify_dynamic_equilibrium_sensitivity.py
+?? 01_robots/python/dogfight/tests/implicit_actuator_symmetric_v1.py
+?? 01_robots/python/dogfight/tests/joint_direction_test.py
+?? 01_robots/python/dogfight/tests/mirrored_standing_pose_search.py
+?? 01_robots/python/dogfight/tests/pd_alpha_equilibrium_trial.py
+?? 01_robots/python/dogfight/tests/pd_dynamic_equilibrium_trial.py
+?? 01_robots/python/dogfight/tests/pd_stand_test.py
+?? 01_robots/python/dogfight/tests/pd_stand_v2.py
+?? 01_robots/python/dogfight/tests/pd_stand_v2_02.py
+?? 01_robots/python/dogfight/tests/pd_symmetric_v1.py
+?? 01_robots/python/dogfight/tests/prefilter_dynamic_equilibrium.py
+?? 01_robots/python/dogfight/tests/runtime_initial_state_diagnosis.py
+?? 01_robots/python/dogfight/tests/spawn_robot.py
+?? 01_robots/python/dogfight/tests/standing_pose_preview.py
+?? 01_robots/python/dogfight/tests/standing_pose_search_v2.py
+?? 01_robots/python/dogfight/tests/static_contact_diagnosis.py
+?? 02_training/configs/back_gait_primitive_recovery.yaml
+?? 02_training/configs/dog_a_bidirectional_lateral_ppo.yaml
+?? 02_training/configs/dog_a_bidirectional_x_ppo.yaml
+?? 02_training/configs/dog_a_body_xy_transition_ppo.yaml
+?? 02_training/configs/dog_a_locomotion_ppo_smoke_v1.yaml
+?? 02_training/configs/dog_a_original_locomotion_ppo_smoke.yaml
+?? 02_training/configs/dog_a_original_straight_ppo.yaml
+?? 02_training/configs/dog_a_x_anti_slip_ppo.yaml
+?? 02_training/configs/dog_a_x_command_transition_ppo.yaml
+?? 02_training/configs/dog_a_x_left_focus_ppo.yaml
+?? 02_training/configs/dog_a_x_left_reexplore_ppo.yaml
+?? 02_training/configs/dog_a_x_mixed_drift_ppo.yaml
+?? 02_training/configs/dog_a_x_right_recovery_ppo.yaml
+?? 02_training/configs/dog_a_xy_discrete_transition_ppo.yaml
+?? 02_training/configs/dog_a_yaxis_recovery_400.yaml
+?? 02_training/configs/yaxis_reward_recovery_A.yaml
+?? 02_training/configs/yaxis_reward_recovery_B.yaml
+?? 02_training/deployment/__init__.py
+?? 02_training/deployment/policy_runtime.py
+?? 02_training/historical_tests/final_validation/COMMANDS_USED.txt
+?? 02_training/historical_tests/final_validation/FINAL_VALIDATION_REPORT.md
+?? 02_training/historical_tests/final_validation/test1_long_ppo/resource_monitor_50.log
+?? 02_training/historical_tests/final_validation/test1_long_ppo/resource_monitor_50_retry.log
+?? 02_training/historical_tests/final_validation/test1_long_ppo/resource_monitor_resume_to_100.log
+?? 02_training/historical_tests/final_validation/test1_long_ppo/train_50_result.txt
+?? 02_training/historical_tests/final_validation/test1_long_ppo/train_50_retry_result.txt
+?? 02_training/historical_tests/final_validation/test1_long_ppo/train_50_retry_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test1_long_ppo/train_50_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test1_long_ppo/train_resume_to_100_result.txt
+?? 02_training/historical_tests/final_validation/test1_long_ppo/train_resume_to_100_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test2_checkpoint/checkpoint_metadata.txt
+?? 02_training/historical_tests/final_validation/test2_checkpoint/play_headless_result.txt
+?? 02_training/historical_tests/final_validation/test2_checkpoint/play_headless_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test2_checkpoint/resource_monitor_play_headless.log
+?? 02_training/historical_tests/final_validation/test2_checkpoint/resource_monitor_resume_5.log
+?? 02_training/historical_tests/final_validation/test2_checkpoint/resume_5_result.txt
+?? 02_training/historical_tests/final_validation/test2_checkpoint/resume_5_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test3_gui/gui_play_600_result.txt
+?? 02_training/historical_tests/final_validation/test3_gui/gui_play_600_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test3_gui/gui_play_result.txt
+?? 02_training/historical_tests/final_validation/test3_gui/gui_play_stdout_stderr.log
+?? 02_training/historical_tests/final_validation/test3_gui/gui_policy_demo.mp4
+?? 02_training/historical_tests/final_validation/test3_gui/gui_policy_demo_600.mp4
+?? 02_training/historical_tests/final_validation/test3_gui/gui_screenshot.log
+?? 02_training/historical_tests/final_validation/test3_gui/resource_monitor_gui.log
+?? 02_training/historical_tests/final_validation/test3_gui/screenshots/policy_demo_frame.png
+?? 02_training/historical_tests/final_validation/test3_gui/screenshots/policy_demo_frame_later.png
+?? 02_training/python/dogfight/tasks/__init__.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/__init__.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/action_audit_wrapper.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/env.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/evaluate.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/reward_terms.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/train.py
+?? 02_training/python/dogfight/tasks/dog_a_locomotion_ppo_smoke_v1/validate.py
+?? 02_training/scripts/analyze_dog_a_four_direction.py
+?? 02_training/scripts/compare_dog_a_x_directions.py
+?? 02_training/scripts/evaluate_dog_a_x_directions.sh
+?? 02_training/scripts/resume_dog_a_x_700_from_300.sh
+?? 02_training/scripts/resume_dog_a_x_finetune_300_from_999.sh
+?? 02_training/scripts/resume_dog_a_x_straight_500_from_1599.sh
+?? 02_training/scripts/resume_dog_a_x_transition_300_from_1299.sh
+?? 02_training/scripts/resume_dog_a_xy_500_from_2099.sh
+?? 02_training/scripts/resume_dog_a_yaxis_recovery_400.sh
+?? 02_training/scripts/run_yaxis_reward_recovery_smoke.sh
+?? 02_training/scripts/select_best_back_gait_checkpoint.py
+?? 02_training/scripts/select_best_training_checkpoint.py
+?? 02_training/scripts/train_back_gait_primitive_recovery_400.sh
+?? 02_training/scripts/train_original_dog_a_straight.py
+?? 02_training/scripts/validate_back_gait_five_direction_fresh_reset_gui.sh
+?? 02_training/scripts/validate_back_gait_primitive_config.py
+?? 02_training/scripts/validate_back_gait_primitive_fresh_reset_gui.sh
+?? 02_training/scripts/validate_dog_a_yaxis_recovery_400_gui.sh
+?? 02_training/scripts/validate_yaxis_recovery_configs.py
+?? 02_training/scripts/validate_yaxis_reward_recovery_gui.sh
+?? 02_training/scripts/visualize_dog_a_left_stop_right.sh
+?? 02_training/scripts/visualize_dog_a_straightness_left_stop_right.sh
+?? 02_training/scripts/visualize_dog_a_transition_left_stop_right.sh
+?? 02_training/scripts/visualize_dog_a_xy_continuous.sh
+?? 03_battle/scripts/v0/run_dog_a_battle_integration_test.py
+?? 03_battle/scripts/v0/run_dog_a_v0_smoke_test.py
+?? 03_battle/scripts/v0/run_v02_hud_smoke_tests.py
+?? 03_battle/scripts/v0/run_v02b_prebattle_gates.py
+?? 03_battle/scripts/v0/run_v0_battle_demo.py
+?? 03_battle/scripts/v0/run_v0_gui.py
+?? 03_battle/scripts/v0/run_v0_headless.py
+?? 03_battle/scripts/v0/run_v0_smoke_tests.py
+?? 03_battle/source/dogfight_v0/README.md
+?? 03_battle/source/dogfight_v0/config/extension.toml
+?? 03_battle/source/dogfight_v0/dogfight_v0/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/agent_interface.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/dog_a_factory.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/dog_a_locomotion_adapter.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/locomotion_interface.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/proxy_agent.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/real_dog_agent.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/agents/real_locomotion_adapter.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/arena/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/arena/map_interface.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/arena/spawn_manager.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/arena/test_map.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/battle_manager.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/health_system.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/intel_service.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/interfaces.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/ray_query.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/scripted_policy.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/types.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/visibility_service.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/battle/weapon_service.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/config/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/config/battle_cfg.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/logging/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/logging/battle_logger.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/navigation/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/navigation/navigation_interface.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/navigation/simple_navigation.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/runtime.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/sim/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/sim/physx_ray_query.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/sim/scene.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/ui/__init__.py
+?? 03_battle/source/dogfight_v0/dogfight_v0/ui/battle_hud.py
+?? 03_battle/source/dogfight_v0/pyproject.toml
+?? 03_battle/source/dogfight_v0/setup.py
+?? README.md
+?? docs/BATTLE_GUIDE.md
+?? docs/CHECKPOINT_INDEX.md
+?? docs/MODEL_INDEX.md
+?? docs/PROJECT_STRUCTURE.md
+?? docs/TRAINING_GUIDE.md
+?? docs/TRAINING_SCRIPTS.md
+?? docs/environment/DOGFIGHT_ENVIRONMENT.md
+?? docs/environment/ENVIRONMENT.md
+?? docs/environment/ENV_LOCK.md
+?? docs/environment/env_info/conda.txt
+?? docs/environment/env_info/isaaclab_commit.txt
+?? docs/environment/env_info/nvidia.txt
+?? docs/environment/env_info/pip_freeze.txt
+?? docs/environment/env_info/pytorch.txt
+?? docs/environment/env_info/system.txt
+?? docs/environment/freeze_snapshot/FREEZE_REPORT.md
+?? docs/environment/freeze_snapshot/backup/bashrc.before_dogfight_auto_activate.bak
+?? docs/environment/freeze_snapshot/backup/bashrc.with_dogfight_auto_activate.bashrc
+?? docs/environment/freeze_snapshot/backup/dogfight_rl_lock_files/AGENTS.md
+?? docs/environment/freeze_snapshot/backup/dogfight_rl_lock_files/ENVIRONMENT.md
+?? docs/environment/freeze_snapshot/backup/dogfight_rl_lock_files/ENV_LOCK.md
+?? docs/environment/freeze_snapshot/backup/dogfight_rl_lock_files/check_environment.py
+?? docs/environment/freeze_snapshot/backup/dogfight_rl_lock_files/check_environment.sh
+?? docs/environment/freeze_snapshot/backup/dogfight_rl_lock_files/run_training.sh
+?? docs/environment/freeze_snapshot/conda-explicit.txt
+?? docs/environment/freeze_snapshot/git/IsaacLab-v2.3.2.bundle
+?? docs/environment/freeze_snapshot/hashes/SHA256SUMS
+?? docs/environment/freeze_snapshot/manifests/01_system.txt
+?? docs/environment/freeze_snapshot/manifests/02_nvidia.txt
+?? docs/environment/freeze_snapshot/manifests/03_conda.txt
+?? docs/environment/freeze_snapshot/manifests/04_conda_explicit.txt
+?? docs/environment/freeze_snapshot/manifests/05_pip_freeze.txt
+?? docs/environment/freeze_snapshot/manifests/06_pip_list.txt
+?? docs/environment/freeze_snapshot/manifests/07_pip_check.txt
+?? docs/environment/freeze_snapshot/manifests/08_pytorch.txt
+?? docs/environment/freeze_snapshot/manifests/09_isaaclab_git.txt
+?? docs/environment/freeze_snapshot/manifests/10_disk.txt
+?? docs/environment/freeze_snapshot/manifests/11_ros_environment.txt
+?? docs/environment/freeze_snapshot/reports/01_pytorch_cuda_smoke.txt
+?? docs/environment/freeze_snapshot/reports/02_isaaclab_physx_smoke.txt
+?? docs/environment/freeze_snapshot/reports/03_anymal_c_ppo_256_smoke.txt
+?? docs/environment/freeze_snapshot/reports/04_safe_launcher_help.txt
+?? docs/environment/freeze_snapshot/reports/05_sha256_verification.txt
+?? docs/environment/freeze_snapshot/reports/06_safe_launcher_after_workdir_fix.txt
+?? docs/environment/freeze_snapshot/reports/07_sha256_verification_after_launcher_fix.txt
+?? docs/environment/freeze_snapshot/reports/08_sha256_verification_after_terminal_auto_activate.txt
+?? docs/environment/freeze_snapshot/requirements-frozen.txt
+?? docs/environment/freeze_snapshot/scripts/check_environment.py
+?? docs/environment/freeze_snapshot/scripts/check_environment.sh
+?? docs/environment/freeze_snapshot/scripts/run_training.sh
+?? docs/environment/remote_dog_c/ENVIRONMENT_DOG_C.md
+?? docs/environment/remote_dog_c/FINAL_VALIDATION_REPORT_DOG_C.md
+?? dogfight/__init__.py
+?? launch.py
+?? migration/check_paths.py
+?? migration/manifests/CHECKPOINTS.json
+?? migration/manifests/EDITED_FILES.json
+?? migration/manifests/FILE_MIGRATION_MAP.csv
+?? migration/manifests/FINAL_SOURCE_SHA256.csv
+?? migration/manifests/OPERATIONS.json
+?? migration/manifests/PATH_EDITS.json
+?? migration/manifests/TRAINING_LOGS.json
+?? migration/migrate_phase1.py
+?? migration/refactor_paths.py
+?? migration/reports/AUDIT.md
+?? migration/reports/C_original_physics.log
+?? migration/reports/C_symmetric_physics.log
+?? migration/reports/D_train_one_update.log
+?? migration/reports/E_gui_inference.log
+?? migration/reports/E_headless_evaluate.log
+?? migration/reports/F_battle_smoke.log
+?? migration/reports/F_hud_smoke.log
+?? migration/reports/F_real_a_integration.log
+?? migration/reports/GATES.json
+?? migration/reports/MIGRATION_REPORT.md
+?? migration/reports/PROJECT_TREE.txt
+?? migration/reports/SUMMARY.json
+?? migration/reports/backup_checksums.log
+?? migration/reports/backup_original_sha_verification.json
+?? migration/reports/config_semantics.json
+?? migration/reports/direct_entrypoints.json
+?? migration/reports/disk_after.txt
+?? migration/reports/disk_before.txt
+?? migration/reports/environment_check_current.log
+?? migration/reports/environment_shell_entry.log
+?? migration/reports/gate_a_final.json
+?? migration/reports/gate_a_final.log
+?? migration/reports/gate_a_initial.json
+?? migration/reports/gate_b_static.json
+?? migration/reports/gate_c_assets.json
+?? migration/reports/gate_c_usd_runtime.log
+?? migration/reports/gate_d_checkpoints.json
+?? migration/reports/gate_g_paths.json
+?? migration/reports/git_diff_after.txt
+?? migration/reports/git_history_before.txt
+?? migration/reports/git_status_after.txt
+?? migration/reports/git_status_before.txt
+?? migration/reports/gpu_before.txt
+?? migration/reports/isaaclab_status_after.txt
+?? migration/reports/isaaclab_status_before.txt
+?? migration/reports/original_archive_provenance.json
+?? migration/reports/pytest_final.log
+?? migration/reports/rollback_check.json
+?? migration/reports/rollback_dry_run.txt
+?? migration/reports/runtime_c_original.json
+?? migration/reports/runtime_e_headless.csv
+?? migration/reports/runtime_e_headless.json
+?? migration/reports/runtime_results.json
+?? migration/reports/tensorboard_smoke.json
+?? migration/reports/tensorboard_smoke.log
+?? migration/reports/uncommitted_before.patch
+?? migration/rollback.py
+?? migration/tools/dogfight_docs.py
+?? migration/tools/dogfight_finalize.py
+?? migration/tools/dogfight_index.py
+?? migration/tools/dogfight_report.py
+?? migration/tools/dogfight_runtime_gates.py
+?? migration/tools/dogfight_static.py
+?? migration/verify_integrity.py
+?? reorganization/20261026/git_diff_before.patch
+?? reorganization/20261026/git_status_before.txt
+?? reorganization/20261026/isaaclab_status_before.txt
+?? shared/__init__.py
+?? shared/paths.py
+?? shared/policy.py
+?? shared/scripts/check_environment.py
+?? shared/scripts/check_environment.sh
+?? shared/scripts/manage_nvidia_apt_hold.sh
+?? tests/test_portable_resources.py
+?? tests/test_project_paths.py

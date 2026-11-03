@@ -1,0 +1,19 @@
+[package]
+version = "0.2.0"
+category = "isaaclab"
+readme = "../../README.md"
+title = "Dogfight V0"
+author = "Dogfight RL contributors"
+maintainer = "Dogfight RL contributors"
+description = "Replaceable three-agent dogfight battle framework"
+repository = "local"
+keywords = ["isaaclab", "multi-agent", "dogfight"]
+
+[dependencies]
+"isaaclab" = {}
+
+[[python.module]]
+name = "dogfight_v0"
+path = "../../src"
+
+[isaac_lab_settings]

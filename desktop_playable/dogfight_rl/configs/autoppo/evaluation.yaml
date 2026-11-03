@@ -1,0 +1,22 @@
+protocol: autoppo-500hz-fixed-landing-v2
+physics_hz: 500
+seconds_full: 12
+seconds_light: 6
+full_seeds: [103, 307, 911, 1301]
+confirmation_seeds: [2027, 4099]
+light_seeds: [103]
+# Fixed thresholds inherited from curriculum_v6_1/default.json, never searched.
+thresholds:
+  tracking_min: 0.7
+  tracking_max: 1.35
+  fall_rate: 0.05
+  lateral_speed: 0.05
+  turn_translation: 0.06
+  stop_speed: 0.03
+  stop_yaw: 0.08
+  support_slip: 0.08
+  swing_ratio: 0.01
+  swing_height: 0.015
+  swing_duration: 0.06
+  periodic_legs: 4
+  trial_pass_fraction: 0.8

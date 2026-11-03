@@ -1,0 +1,30 @@
+# Python/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime output and learned artifacts
+logs/
+videos/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+events.out.tfevents.*
+
+# Isaac/Omniverse local state
+.vscode/settings.json
+_build/
+build/
+dist/
+*.egg-info/
+
+# Editors and OS
+*~
+*.swp
+.DS_Store
+
+# Full migration/rollback backups stay on disk, outside Git objects
+migration/backups/

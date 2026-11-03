@@ -1,0 +1,55 @@
+{
+  "mode": "fsm_battle",
+  "scenario": "fsm-recovery",
+  "frames": 1750,
+  "sim_seconds": 35.0,
+  "wall_seconds": 10.019305877999614,
+  "reset_count": 2,
+  "minimum_root_z": {
+    "dog_a": 0.3896697759628296,
+    "dog_b": 0.36499929428100586,
+    "dog_c": 0.383715957403183
+  },
+  "maximum_tilt": {
+    "dog_a": 0.30896493792533875,
+    "dog_b": 0.11411493271589279,
+    "dog_c": 0.012926171533763409
+  },
+  "match": {
+    "time_s": 34.99999999999987,
+    "round_over": false,
+    "winner": null,
+    "draw": false,
+    "paused": false,
+    "max_health": 100.0,
+    "agents": {
+      "dog_a": {
+        "health": 100.0,
+        "alive": true
+      },
+      "dog_b": {
+        "health": 0.0,
+        "alive": false
+      },
+      "dog_c": {
+        "health": 100.0,
+        "alive": true
+      }
+    }
+  },
+  "event_counts": {
+    "SHOT_FIRED": 0,
+    "DAMAGE": 0,
+    "DEATH": 0,
+    "ROUND_END": 0
+  },
+  "first_person_count": 0,
+  "first_person_docked": false,
+  "navigation_visible": true,
+  "policy_steps": {
+    "dog_a": 1750,
+    "dog_b": 0,
+    "dog_c": 0
+  },
+  "main_camera_preserved": null
+}

@@ -1,0 +1,6 @@
+{
+  "local_time": "2026-11-03T10:30:26.653333",
+  "frozen_python_exists": true,
+  "relevant_runtime_processes": [],
+  "note": "仅进程名称筛查，不把未匹配等同于系统没有任何任务；没有kill/stop/service操作。"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "READY",
+  "moves": 150,
+  "restore_originals": 64,
+  "preserve_generated_files": 30,
+  "failures": []
+}

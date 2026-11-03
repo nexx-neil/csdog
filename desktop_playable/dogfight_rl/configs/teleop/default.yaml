@@ -1,0 +1,56 @@
+map:
+  name: test_map
+  boundary_walls: true
+  spawn_index: 0
+robot: dog_a
+robots:
+  dog_a: configs/robots/dog_a_teleop.yaml
+  dog_b: configs/robots/dog_a_teleop.yaml
+  dog_c: configs/robots/dog_a_teleop.yaml
+teleop:
+  forward_speed: 0.25
+  backward_speed: 0.25
+  yaw_rate: 0.3
+  command_smoothing: true
+  smoothing_time: 0.15
+  input_timeout: 0.8
+laser:
+  enabled: true
+  always_visible: true
+  raycast_enabled: true
+  damage_enabled: false
+  max_range: 3.0
+  radius: 0.006
+first_person:
+  enabled: true
+  resolution:
+  - 640
+  - 360
+  offset:
+  - 0.22
+  - 0.0
+  - 0.16
+  horizontal_fov_deg: 85.0
+  pitch_deg: -6.0
+  position_smoothing: 0.06
+  yaw_smoothing: 0.08
+  right_fraction: 0.34
+  hide_editors: true
+mode: three_dog_battle
+participants:
+- dog_a
+- dog_b
+- dog_c
+battle:
+  damage_enabled: true
+  max_health: 100.0
+  damage: 20.0
+  cooldown_s: 1.0
+  time_limit_s: 180.0
+  muzzle_offset:
+  - 0.24
+  - 0.0
+  - -0.05
+  weapon_range_m: 3.0
+simulation:
+  device: cpu
