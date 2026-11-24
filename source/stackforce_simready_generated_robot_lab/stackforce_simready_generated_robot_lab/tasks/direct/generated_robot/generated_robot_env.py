@@ -74,6 +74,7 @@ class GeneratedRobotEnv(DirectRLEnv):
         self._robot.set_joint_position_target(self._processed_actions, joint_ids=self._actuated_joint_ids)
 
     def _get_observations(self) -> dict:
+        self._before_observations()
         observation_parts = [
                 self._robot.data.root_lin_vel_b,
                 self._robot.data.root_ang_vel_b,
@@ -98,6 +99,10 @@ class GeneratedRobotEnv(DirectRLEnv):
         obs = torch.cat(observation_parts, dim=-1)
         self._previous_actions = self._actions.clone()
         return {"policy": obs}
+
+    def _before_observations(self):
+        """Optional task hook; legacy tasks keep their original observation behavior."""
+        pass
 
     def _get_gait_phase(self) -> torch.Tensor:
         """Return a normalized episode clock for phase-guided locomotion."""
@@ -372,6 +377,12 @@ class GeneratedRobotEnv(DirectRLEnv):
         self._fallen_fail_buf += fallen.float()
         fallen_died = self._fallen_fail_buf > self._fallen_termination_steps
         died = ((contact_died | height_died) & after_grace) | fallen_died
+        self.last_termination_causes = {
+            "base_contact": contact_died & after_grace,
+            "low_height": height_died & after_grace,
+            "tilt": fallen_died,
+            "timeout": time_out,
+        }
         return died, time_out
 
     def _sample_commands(self, env_ids: torch.Tensor) -> None:

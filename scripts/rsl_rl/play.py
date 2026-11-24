@@ -89,6 +89,8 @@ from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
 import stackforce_simready_generated_robot_lab.tasks  # noqa: F401
+from csdog_motion.training import EpisodeCounterProxy, validate_checkpoint
+from csdog_motion.action_bounds import action_bounds, executed_actions
 
 import os
 import torch
@@ -243,7 +245,7 @@ def _format_rsl_rl_obs(obs_dict, use_obs_groups):
     return obs_dict
 
 
-class LegacyRslRlVecEnvWrapper:
+class LegacyRslRlVecEnvWrapper(EpisodeCounterProxy):
     def __init__(self, env, clip_actions=None):
         self.env = env
         self.clip_actions = clip_actions
@@ -484,6 +486,8 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             )
         if checkpoint_metadata.get("actuated_joint_names") != list(env_cfg.actuated_joint_names):
             raise RuntimeError("Checkpoint joint names/order do not match the task configuration")
+        if hasattr(env_cfg, "motion_contract"):
+            validate_checkpoint(resume_path, env_cfg, policy_only=True)
 
     env = gym.make(args_cli.task, cfg=env_cfg)
     if isinstance(env.unwrapped, DirectMARLEnv):
@@ -491,6 +495,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
 
     legacy_agent_cfg = to_compatible_rsl_rl_cfg(agent_cfg)
     wrapped_env = LegacyRslRlVecEnvWrapper(env, clip_actions=getattr(agent_cfg, "clip_actions", None))
+    policy_action_bounds = action_bounds(env.unwrapped.cfg, env.unwrapped.device)
     runner = OnPolicyRunner(wrapped_env, legacy_agent_cfg, log_dir=None, device=env.unwrapped.device)
     runner.load(resume_path, load_optimizer=False)
     policy = runner.get_inference_policy(device=env.unwrapped.device)
@@ -506,7 +511,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             args_cli.keyboard_yaw_rate,
             env.unwrapped.device,
         )
-        if args_cli.keyboard_smoothing_time > 0.0:
+        if args_cli.keyboard_smoothing_time > 0.0 and not hasattr(env.unwrapped, "set_motion_request"):
             keyboard_alpha = 1.0 - math.exp(-env.unwrapped.step_dt / args_cli.keyboard_smoothing_time)
         print("[QWEASD] Hold W/S: forward/back, A/D: left/right, Q/E: turn left/right")
         print("[QWEASD] Release keys to ramp to stop; SPACE clears all held commands")
@@ -597,13 +602,20 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     finite = True
     with torch.inference_mode():
         while simulation_app.is_running():
+            if args_cli.command is not None and hasattr(env.unwrapped, "set_motion_request"):
+                env.unwrapped.set_motion_request(args_cli.command)
             if keyboard_controller is not None:
                 keyboard_target = keyboard_controller.target()
                 keyboard_command += keyboard_alpha * (keyboard_target - keyboard_command)
                 command_batch = keyboard_command.unsqueeze(0).expand(wrapped_env.num_envs, -1)
-                env.unwrapped._commands[:] = command_batch
-                _write_command_to_policy_observation(obs, command_batch)
+                if hasattr(env.unwrapped, "set_motion_request"):
+                    env.unwrapped.set_motion_request(command_batch)
+                else:
+                    env.unwrapped._commands[:] = command_batch
+                    _write_command_to_policy_observation(obs, command_batch)
             actions = policy(obs)
+            applied_policy_actions = executed_actions(actions, policy_action_bounds,
+                env.unwrapped.motion.blend[:, None] if getattr(env.unwrapped.cfg, "posture_blend_actions", False) else None)
             step_result = wrapped_env.step(actions)
             obs = step_result[0]
             steps += 1
@@ -639,7 +651,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             actual_yaw_rate_sq_sum += float(torch.sum(torch.square(robot.data.root_ang_vel_b[:, 2])).item())
             actual_yaw_rate_sum += float(torch.sum(robot.data.root_ang_vel_b[:, 2]).item())
             action_sq_sum += float(torch.sum(torch.square(actions)).item())
-            clipped_actions = torch.clamp(actions, -env.unwrapped.cfg.action_clip, env.unwrapped.cfg.action_clip)
+            clipped_actions = applied_policy_actions
             clipped_action_sq_sum += float(torch.sum(torch.square(clipped_actions)).item())
             action_sum += torch.sum(actions, dim=0)
             clipped_action_sum += torch.sum(clipped_actions, dim=0)
@@ -684,7 +696,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
                 body_tilt = torch.acos(torch.clamp(-projected_gravity[:, 2], min=-1.0, max=1.0))
                 yaw_body_tilt_max = torch.maximum(yaw_body_tilt_max, torch.amax(body_tilt))
             saturated_action_samples += int(
-                torch.count_nonzero(torch.abs(actions) >= env.unwrapped.cfg.action_clip).item()
+                torch.count_nonzero(torch.abs(actions) >= policy_action_bounds).item()
             )
             action_samples += actions.numel()
             soft_limits = robot.data.soft_joint_pos_limits[:, env.unwrapped._actuated_joint_ids]

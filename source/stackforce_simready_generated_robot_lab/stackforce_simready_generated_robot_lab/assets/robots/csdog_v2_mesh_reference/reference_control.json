@@ -1,0 +1,52 @@
+{
+  "scope": "isolated reference-controller diagnostic; not a trained policy or deployment asset",
+  "geometry_sha256": "7d2a9fdc8617a43ceef5e9d248f319bc35c8c8a56858b9763429aafb851a38b7",
+  "trajectory": {
+    "period_s": 0.5,
+    "stance_fraction": 0.55,
+    "clearance_m": 0.015
+  },
+  "nominal_height_m": 0.356,
+  "nominal_joint_positions_rad": [
+    -0.006183615943485552,
+    0.1276494280714811,
+    -0.19797580091467162,
+    0.0034328729381440104,
+    0.04889943297097148,
+    -0.18654580702432458,
+    -0.0014549162896122486,
+    -0.20523137976069597,
+    0.34510814884356433,
+    0.0026703277787346325,
+    -0.2177951466918727,
+    0.4517270927776088
+  ],
+  "joint_target_offset_limit_rad": 0.5,
+  "joint_residual_limit_rad": 0.08,
+  "joint_target_speed_limit_rad_s": 8.0,
+  "screened_ik_max_error_m": 1.3877787807814457e-16,
+  "screened_peak_target_speed_rad_s": 7.981966620975949,
+  "screened_residual_reserve_rad": 0.11759918713139317,
+  "nominal_sole_positions_body_m": {
+    "lr": [
+      -0.19823164000000001,
+      0.14005036,
+      -0.35344956000000005
+    ],
+    "lf": [
+      0.28090025,
+      0.1353528,
+      -0.35344955999999994
+    ],
+    "rf": [
+      0.28090025,
+      -0.1353528,
+      -0.35344955999999994
+    ],
+    "rr": [
+      -0.19823164,
+      -0.14005035999999998,
+      -0.35344955999999994
+    ]
+  }
+}

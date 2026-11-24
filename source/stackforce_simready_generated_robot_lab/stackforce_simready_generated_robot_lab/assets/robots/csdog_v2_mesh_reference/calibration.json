@@ -1,0 +1,52 @@
+{
+  "scope": "calibration candidate; standing and locomotion must be independently validated",
+  "urdf": "robot_sim.urdf",
+  "standing_joint_angles": {
+    "joint_lr_1": -0.0019625165121550225,
+    "joint_lr_2": -0.023486167116760576,
+    "joint_lr_3": 0.08797658955294538,
+    "joint_lf_1": 0.0006585593264150509,
+    "joint_lf_2": -0.0919912457856521,
+    "joint_lf_3": 0.10646172263189722,
+    "joint_rf_1": 0.001143781396583981,
+    "joint_rf_2": -0.0644701647997027,
+    "joint_rf_3": 0.0523212624479361,
+    "joint_rr_1": -0.0012411508042077237,
+    "joint_rr_2": -0.06746393010154697,
+    "joint_rr_3": 0.16810923837838493
+  },
+  "nominal_sole_positions_body_m": {
+    "lr": [
+      -0.19823164000000001,
+      0.14005036,
+      -0.38344956
+    ],
+    "lf": [
+      0.28090025,
+      0.1353528,
+      -0.38344955999999997
+    ],
+    "rf": [
+      0.28090025,
+      -0.1353528,
+      -0.38344955999999997
+    ],
+    "rr": [
+      -0.19823164,
+      -0.14005035999999998,
+      -0.38344955999999997
+    ]
+  },
+  "ik_residual_m": {
+    "lr": 1.132930687839784e-11,
+    "lf": 2.6317096774000377e-10,
+    "rf": 1.9393232026474752e-13,
+    "rr": 7.764874340231226e-10
+  },
+  "nominal_pose_rationale": "same foot placement as released zero pose; joints calibrated on original mesh-derived contacts; settled height measured under unchanged PD",
+  "parent_current_urdf_sha256": "4806d4e0c2db659a37e9f595d739df60121d2640895f505a0aec4277779566d1",
+  "source_mesh_urdf_sha256": "20034d94c7c45094480ac8ec56c461b3deeaa7a210d9abd8c789d346ce8e362d",
+  "hardware_profile_sha256": "29a1e265ba8f81eb5a8f7bf738703e54b0d08c4e09da85bb40a098d02b505cba",
+  "diagnostic_urdf_sha256": "7d2a9fdc8617a43ceef5e9d248f319bc35c8c8a56858b9763429aafb851a38b7",
+  "geometry_basis": "mesh-derived foot centers from versioned profile, not hardware certification"
+}
