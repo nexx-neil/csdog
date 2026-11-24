@@ -1,0 +1,68 @@
+{
+  "scope": "Fresh residual learning development profile; initialized at zero mean learned correction",
+  "geometry_sha256": "7d2a9fdc8617a43ceef5e9d248f319bc35c8c8a56858b9763429aafb851a38b7",
+  "trajectory": {
+    "period_s": 0.5,
+    "stance_fraction": 0.55,
+    "clearance_m": 0.025
+  },
+  "nominal_height_m": 0.37144955999999996,
+  "nominal_joint_positions_rad": [
+    -0.006283568440818204,
+    0.2786415239729938,
+    -0.18747845868665436,
+    0.0035333358896726696,
+    0.23519887232868855,
+    -0.24417017399242996,
+    -0.0013543972671202836,
+    -0.3916649569513954,
+    0.40284968002894445,
+    0.002570273166168652,
+    -0.36902186224769,
+    0.44144602451286574
+  ],
+  "joint_target_offset_limit_rad": 0.5,
+  "joint_residual_limit_rad": 0.12,
+  "joint_target_speed_limit_rad_s": 8.0,
+  "screened_ik_max_error_m": 1.8824747269678055e-16,
+  "screened_peak_target_speed_rad_s": 7.816102089925733,
+  "screened_residual_reserve_rad": 0.15942689238206637,
+  "nominal_sole_positions_body_m": {
+    "lr": [
+      -0.2465173244278248,
+      0.14008110054414674,
+      -0.35344956000000005
+    ],
+    "lf": [
+      0.23261456557217522,
+      0.13538354054414672,
+      -0.35344955999999994
+    ],
+    "rf": [
+      0.23261456557217522,
+      -0.13532205945585327,
+      -0.35344955999999994
+    ],
+    "rr": [
+      -0.24651732442782479,
+      -0.14001961945585326,
+      -0.35344955999999994
+    ]
+  },
+  "support_feedback": {
+    "mass_kg": 7.6082608000000045,
+    "com_body_m": [
+      -0.006951459490851828,
+      3.0740449445120397e-05,
+      -0.07099721809359963
+    ],
+    "velocity_gain_s_inv": 2.0,
+    "height_gain_s_inv2": 80.0,
+    "height_damping_s_inv": 15.0,
+    "attitude_gain_nm_rad": 8.0,
+    "attitude_damping_nm_s_rad": 0.8,
+    "max_position_bias_rad": 0.12,
+    "yaw_gain_nm_s_rad": 2.0
+  },
+  "velocity_feedforward": true
+}

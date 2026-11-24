@@ -17,7 +17,7 @@ from ..generated_robot.generated_robot_env_cfg import GeneratedRobotEnvCfg
 
 
 ASSET_DIR = Path(__file__).resolve().parents[3] / "assets" / "robots" / "csdog_v2"
-URDF_PATH = ASSET_DIR / "robot.urdf"
+URDF_PATH = ASSET_DIR / "robot_sim.urdf"
 
 JOINT_NAMES = [
     "joint_lr_1", "joint_lr_2", "joint_lr_3",
@@ -26,16 +26,54 @@ JOINT_NAMES = [
     "joint_rr_1", "joint_rr_2", "joint_rr_3",
 ]
 DEFAULT_JOINT_ANGLES = {name: 0.0 for name in JOINT_NAMES}
+V2_REWARD_KEYS = (
+    "termination",
+    "tracking_lin_vel",
+    "tracking_lin_vel_x",
+    "tracking_lin_vel_y",
+    "tracking_ang_vel",
+    "tracking_lin_vel_l2",
+    "tracking_lin_vel_x_l2",
+    "tracking_lin_vel_y_l2",
+    "tracking_ang_vel_l2",
+    "lin_vel_z",
+    "ang_vel_xy",
+    "orientation",
+    "torques",
+    "dof_vel",
+    "dof_acc",
+    "base_height",
+    "feet_air_time",
+    "collision",
+    "feet_stumble",
+    "action_rate",
+    "action_magnitude",
+    "action_overflow",
+    "joint_deviation",
+    "feet_slide",
+    "swing_foot_clearance",
+    "feet_contact_count",
+    "diagonal_gait",
+    "gait_contact_schedule",
+    "gait_stance_contact",
+    "gait_swing_release",
+    "inactive_axis_vel",
+    "stand_still",
+    "turn_hip_roll_excess",
+    "turn_body_tilt",
+    "turn_foot_trajectory",
+    "custom_reward",
+)
 
 
 @configclass
 class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
     model_id = "csdog_v2"
-    checkpoint_compatibility_tag = "csdog_v2_joint_order_v1"
+    checkpoint_compatibility_tag = "csdog_v2_joint_order_v2_symmetric_soles"
     training_enabled = False
     training_block_reason = (
-        "CSDog v2 static physics-readiness gate is FAIL: hardware joint limits "
-        "and collision geometry provenance are not yet approved."
+        "CSDog v2 locomotion training remains blocked until the joint-direction, "
+        "30-second PD standing, and contact gates pass."
     )
 
     # Independent, calibration-only command range and action bound.  These are
@@ -53,7 +91,7 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
         spawn=sim_utils.UrdfFileCfg(
             asset_path=str(URDF_PATH),
             fix_base=False,
-            merge_fixed_joints=True,
+            merge_fixed_joints=False,
             self_collision=False,
             replace_cylinders_with_capsules=True,
             activate_contact_sensors=True,
@@ -75,27 +113,39 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
                 gains=sim_utils.UrdfConverterCfg.JointDriveCfg.PDGainsCfg(stiffness=0.0, damping=0.0)
             ),
         ),
-        # Exported zero pose and elevated spawn are used only for fixed-base
-        # direction tests.  A standing pose/height must be measured separately.
-        init_state=ArticulationCfg.InitialStateCfg(pos=(0.0, 0.0, 0.50), joint_pos=DEFAULT_JOINT_ANGLES),
+        # The 0.41 m spawn and zero joint pose are selected by the recorded
+        # standing-pose grid; settled base height is about 0.386 m.
+        init_state=ArticulationCfg.InitialStateCfg(pos=(0.0, 0.0, 0.41), joint_pos=DEFAULT_JOINT_ANGLES),
         actuators={
             "calibration_joints": ImplicitActuatorCfg(
                 joint_names_expr=JOINT_NAMES,
-                # Independently selected low-gain diagnostic values.  Do not
-                # use for standing/training without completing the PD gate.
-                stiffness=8.0,
-                damping=0.8,
-                effort_limit_sim=5.0,
-                velocity_limit_sim=3.0,
+                # Provisional simulation standing profile.  These are not
+                # validated hardware gains or continuous motor limits.
+                stiffness=40.0,
+                damping=1.5,
+                effort_limit_sim=12.0,
+                velocity_limit_sim=10.0,
             )
         },
         soft_joint_pos_limit_factor=0.90,
     )
 
-    reward_scales = {key: 0.0 for key in GeneratedRobotEnvCfg.reward_scales}
+    # Keep calibration reward-free.  Do not access the decorated base class's
+    # instance fields at class-definition time; doing so prevents the task
+    # configuration module from importing under Isaac Lab.
+    reward_scales = {key: 0.0 for key in V2_REWARD_KEYS}
     default_joint_angles = DEFAULT_JOINT_ANGLES
     actuated_joint_names = JOINT_NAMES
-    foot_link_names = ["link_lr_knee", "link_lf_knee", "link_rf_knee", "link_rr_knee"]
+    hip_roll_joint_names = ["joint_lr_1", "joint_lf_1", "joint_rf_1", "joint_rr_1"]
+    turn_hip_roll_free_angle_rad = 0.20
+    turn_tangential_step_amplitude_m = 0.040
+    nominal_foot_positions_body_m = (
+        (-0.19823164, 0.14005036, -0.38344956),
+        (0.28090025, 0.13535280, -0.38344956),
+        (0.28090025, -0.13535280, -0.38344956),
+        (-0.19823164, -0.14005036, -0.38344956),
+    )
+    foot_link_names = ["link_lr_sole", "link_lf_sole", "link_rf_sole", "link_rr_sole"]
     joint_child_link_names = [
         "link_lr_hip_roll", "link_lr_hip_pitch", "link_lr_knee",
         "link_lf_hip_roll", "link_lf_hip_pitch", "link_lf_knee",
@@ -103,23 +153,207 @@ class CSDogV2CalibrationEnvCfg(GeneratedRobotEnvCfg):
         "link_rr_hip_roll", "link_rr_hip_pitch", "link_rr_knee",
     ]
     joint_foot_link_names = [
-        "link_lr_knee", "link_lr_knee", "link_lr_knee",
-        "link_lf_knee", "link_lf_knee", "link_lf_knee",
-        "link_rf_knee", "link_rf_knee", "link_rf_knee",
-        "link_rr_knee", "link_rr_knee", "link_rr_knee",
+        "link_lr_sole", "link_lr_sole", "link_lr_sole",
+        "link_lf_sole", "link_lf_sole", "link_lf_sole",
+        "link_rf_sole", "link_rf_sole", "link_rf_sole",
+        "link_rr_sole", "link_rr_sole", "link_rr_sole",
     ]
     undesired_contact_body_names = [
         "base",
         "link_lr_hip_roll", "link_lr_hip_pitch",
+        "link_lr_knee",
         "link_lf_hip_roll", "link_lf_hip_pitch",
+        "link_lf_knee",
         "link_rf_hip_roll", "link_rf_hip_pitch",
+        "link_rf_knee",
         "link_rr_hip_roll", "link_rr_hip_pitch",
+        "link_rr_knee",
     ]
     base_link_name = "base"
 
-    # Disabled placeholders: they are explicit v2 values so v1 geometry cannot
-    # leak into calibration.  Standing diagnostics must override them after a
-    # valid pose is established.
-    base_height_target = 0.30
-    min_base_height = 0.12
+    # v2 values measured by the zero-pose standing diagnostic; no v1 geometry
+    # or thresholds are reused.
+    base_height_target = 0.386
+    min_base_height = 0.22
     termination_contact_force_threshold = 80.0
+
+
+@configclass
+class CSDogV2LocomotionEnvCfg(CSDogV2CalibrationEnvCfg):
+    """Trainable flat-ground v2 task unlocked by the recorded dynamic gates."""
+
+    checkpoint_compatibility_tag = "csdog_v2_locomotion_joint_order_v2_symmetric_soles"
+    training_enabled = True
+    training_block_reason = ""
+    action_scale = 0.35
+    action_clip = 1.0
+    command_ranges = {
+        "lin_vel_x": (-0.4, 0.4),
+        "lin_vel_y": (-0.4, 0.4),
+        "ang_vel_yaw": (-0.6, 0.6),
+    }
+    command_sampling = "single_axis"
+    command_min_magnitude = 0.20
+    stand_command_probability = 0.10
+    visual_disable_resets = False
+    reward_scales = {
+        "termination": -100.0,
+        "tracking_lin_vel": 0.0,
+        "tracking_lin_vel_x": 4.0,
+        "tracking_lin_vel_y": 4.0,
+        "tracking_ang_vel": 4.0,
+        "tracking_lin_vel_l2": 0.0,
+        "tracking_lin_vel_x_l2": -2.0,
+        "tracking_lin_vel_y_l2": -2.0,
+        "tracking_ang_vel_l2": -1.0,
+        "lin_vel_z": -2.0,
+        "ang_vel_xy": -0.10,
+        "orientation": -2.0,
+        "torques": -0.00002,
+        "dof_vel": 0.0,
+        "dof_acc": -2.5e-7,
+        "base_height": -2.0,
+        "feet_air_time": 0.25,
+        "collision": -2.0,
+        "feet_stumble": 0.0,
+        "action_rate": -0.02,
+        "action_magnitude": -0.05,
+        "action_overflow": -0.10,
+        "joint_deviation": -0.10,
+        "feet_slide": -0.25,
+        # Sole origin rests near 0.018 m.  A 0.050 m target therefore asks for
+        # roughly 3.2 cm of visible sole clearance during a valid swing phase.
+        "swing_foot_clearance": 0.50,
+        "feet_contact_count": -0.15,
+        "diagonal_gait": 0.25,
+        # Penalize velocity on axes whose command is zero.  This directly
+        # addresses the lateral drift observed after the yaw phase.
+        "inactive_axis_vel": -3.0,
+        "stand_still": -0.25,
+        "turn_hip_roll_excess": 0.0,
+        "turn_body_tilt": 0.0,
+        "turn_foot_trajectory": 0.0,
+        "custom_reward": 0.0,
+    }
+    swing_foot_height_target = 0.050
+    swing_foot_rest_height = 0.018
+    swing_foot_height_std = 0.015
+    swing_foot_count_normalizer = 2.0
+
+
+@configclass
+class CSDogV2PhaseGaitEnvCfg(CSDogV2LocomotionEnvCfg):
+    """Phase-observed task that explicitly alternates diagonal support legs."""
+
+    checkpoint_compatibility_tag = "csdog_v2_phase_gait_obs_v2_symmetric_soles"
+    observation_space = 50
+    include_gait_phase_observation = True
+    gait_cycle_time_s = 0.50
+    # At a 0.3 m/s command, the inherited 0.5 standard deviation paid about
+    # 70% of the positive tracking reward for standing still.  A narrower
+    # phase-task target prevents stance rewards from making immobility optimal.
+    tracking_lin_vel_std = 0.25
+    tracking_ang_vel_std = 0.25
+    reward_scales = {
+        "termination": -100.0,
+        "tracking_lin_vel": 0.0,
+        "tracking_lin_vel_x": 4.0,
+        "tracking_lin_vel_y": 4.0,
+        "tracking_ang_vel": 4.0,
+        "tracking_lin_vel_l2": 0.0,
+        "tracking_lin_vel_x_l2": -5.0,
+        "tracking_lin_vel_y_l2": -5.0,
+        "tracking_ang_vel_l2": -2.5,
+        "lin_vel_z": -2.0,
+        "ang_vel_xy": -0.10,
+        "orientation": -2.0,
+        "torques": -0.00002,
+        "dof_vel": 0.0,
+        "dof_acc": -2.5e-7,
+        "base_height": -2.0,
+        "feet_air_time": 0.25,
+        "collision": -2.0,
+        "feet_stumble": 0.0,
+        "action_rate": -0.02,
+        "action_magnitude": -0.08,
+        "action_overflow": -0.10,
+        "joint_deviation": -0.10,
+        "feet_slide": -0.25,
+        "swing_foot_clearance": 1.50,
+        "feet_contact_count": 0.0,
+        "diagonal_gait": 0.0,
+        "gait_contact_schedule": 0.0,
+        # Stance and swing are intentionally asymmetric: a foot that never
+        # lands must not receive half credit merely because it is airborne
+        # during its scheduled swing half-cycle.
+        "gait_stance_contact": 2.00,
+        "gait_swing_release": 0.50,
+        "inactive_axis_vel": -6.0,
+        "stand_still": -1.0,
+        "turn_hip_roll_excess": 0.0,
+        "turn_body_tilt": 0.0,
+        "turn_foot_trajectory": 0.0,
+        "custom_reward": 0.0,
+    }
+
+
+@configclass
+class CSDogV2TurnStyleEnvCfg(CSDogV2PhaseGaitEnvCfg):
+    """Phase gait with an explicit compact stepping reference for yaw commands."""
+
+    # Observation, action and joint layouts are unchanged, so the 900-iteration
+    # phase-gait checkpoint is a valid initialization for this refinement task.
+    checkpoint_compatibility_tag = "csdog_v2_phase_gait_obs_v2_symmetric_soles"
+    reward_scales = {
+        "termination": -100.0,
+        "tracking_lin_vel": 0.0,
+        "tracking_lin_vel_x": 4.0,
+        "tracking_lin_vel_y": 4.0,
+        "tracking_ang_vel": 4.0,
+        "tracking_lin_vel_l2": 0.0,
+        "tracking_lin_vel_x_l2": -5.0,
+        "tracking_lin_vel_y_l2": -5.0,
+        "tracking_ang_vel_l2": -2.5,
+        "lin_vel_z": -2.0,
+        "ang_vel_xy": -0.10,
+        "orientation": -2.0,
+        "torques": -0.00002,
+        "dof_vel": 0.0,
+        "dof_acc": -2.5e-7,
+        "base_height": -2.0,
+        "feet_air_time": 0.25,
+        "collision": -2.0,
+        "feet_stumble": 0.0,
+        "action_rate": -0.02,
+        "action_magnitude": -0.08,
+        "action_overflow": -0.10,
+        "joint_deviation": -0.10,
+        "feet_slide": -0.25,
+        "swing_foot_clearance": 1.50,
+        "feet_contact_count": 0.0,
+        "diagonal_gait": 0.0,
+        "gait_contact_schedule": 0.0,
+        "gait_stance_contact": 2.00,
+        "gait_swing_release": 0.50,
+        "inactive_axis_vel": -6.0,
+        "stand_still": -1.0,
+        # These three terms are active only when yaw is commanded.  The free
+        # hip-roll window avoids forcing an unnaturally rigid straight-leg turn.
+        "turn_hip_roll_excess": -3.0,
+        "turn_body_tilt": -3.0,
+        "turn_foot_trajectory": -5.0,
+        "custom_reward": 0.0,
+    }
+
+
+@configclass
+class CSDogV2TeleopEnvCfg(CSDogV2TurnStyleEnvCfg):
+    """Turn-styled policy trained on single- and dual-axis teleoperation commands."""
+
+    command_ranges = {
+        "lin_vel_x": (-0.40, 0.40),
+        "lin_vel_y": (-0.30, 0.30),
+        "ang_vel_yaw": (-0.40, 0.40),
+    }
+    command_sampling = "mixed_axes"
+    multi_axis_command_probability = 0.45

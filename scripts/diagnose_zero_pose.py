@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import traceback
 from pathlib import Path
 
 from isaaclab.app import AppLauncher
@@ -34,6 +35,7 @@ parser.add_argument("--max-steady-linear-speed", type=float, default=0.05)
 parser.add_argument("--max-steady-angular-speed", type=float, default=0.20)
 parser.add_argument("--max-torque-limit-fraction", type=float, default=0.95)
 parser.add_argument("--contact-force-threshold", type=float, default=1.0)
+parser.add_argument("--seed", type=int, default=42)
 parser.add_argument("--output", type=Path, default=None, help="Optional JSON report path.")
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
@@ -55,6 +57,7 @@ def tensor_list(value: torch.Tensor) -> list[float]:
 
 def main() -> None:
     env_cfg = parse_env_cfg(args_cli.task, device=args_cli.device, num_envs=1, use_fabric=True)
+    env_cfg.seed = args_cli.seed
     env_cfg.visual_disable_resets = True
     env_cfg.command_ranges = {
         "lin_vel_x": (0.0, 0.0),
@@ -176,6 +179,7 @@ def main() -> None:
             "checks": checks,
         },
         "task": args_cli.task,
+        "seed": args_cli.seed,
         "duration_s": args_cli.duration,
         "step_dt_s": step_dt,
         "steps": num_steps,
@@ -232,5 +236,8 @@ def main() -> None:
 if __name__ == "__main__":
     try:
         main()
+    except BaseException:
+        traceback.print_exc()
+        raise
     finally:
         simulation_app.close()

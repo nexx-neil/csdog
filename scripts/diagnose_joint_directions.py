@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import traceback
 from pathlib import Path
 
 from isaaclab.app import AppLauncher
@@ -15,6 +16,7 @@ parser.add_argument("--task", default="Template-GeneratedRobot-Direct-v0")
 parser.add_argument("--delta", type=float, default=0.1, help="Requested joint displacement in radians.")
 parser.add_argument("--settle-duration", type=float, default=0.5)
 parser.add_argument("--hold-duration", type=float, default=1.0)
+parser.add_argument("--seed", type=int, default=42)
 parser.add_argument("--output", type=Path, default=None)
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
@@ -36,6 +38,7 @@ def vector(value: torch.Tensor) -> list[float]:
 
 def main() -> None:
     env_cfg = parse_env_cfg(args_cli.task, device=args_cli.device, num_envs=1, use_fabric=True)
+    env_cfg.seed = args_cli.seed
     env_cfg.visual_disable_resets = True
     env_cfg.robot.spawn.fix_base = True
     env_cfg.robot.init_state.pos = (0.0, 0.0, 0.5)
@@ -132,6 +135,7 @@ def main() -> None:
         "task": args_cli.task,
         "coordinate_system": {"x": "forward", "y": "left", "z": "up"},
         "base_fixed": True,
+        "seed": args_cli.seed,
         "requested_delta_rad": args_cli.delta,
         "settle_duration_s": args_cli.settle_duration,
         "hold_duration_s": args_cli.hold_duration,
@@ -152,5 +156,11 @@ def main() -> None:
 if __name__ == "__main__":
     try:
         main()
+    except BaseException:
+        # Isaac Sim shutdown can occasionally block inside native code.  Emit
+        # the actionable Python failure before shutdown so the gate never
+        # turns an environment-creation error into a silent hang.
+        traceback.print_exc()
+        raise
     finally:
         simulation_app.close()

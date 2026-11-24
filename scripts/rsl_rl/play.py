@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import math
 import os
 import sys
 from pathlib import Path
@@ -40,9 +41,24 @@ parser.add_argument(
     default=None,
     help="Use one fixed velocity command for all environments.",
 )
+parser.add_argument("--keyboard", action="store_true", default=False, help="Drive interactively with Q/W/E/A/S/D.")
+parser.add_argument("--keyboard-forward-speed", type=float, default=0.35, help="W/S speed in m/s.")
+parser.add_argument("--keyboard-lateral-speed", type=float, default=0.22, help="A/D speed in m/s.")
+parser.add_argument("--keyboard-yaw-rate", type=float, default=0.35, help="Q/E yaw rate in rad/s.")
+parser.add_argument(
+    "--keyboard-smoothing-time",
+    type=float,
+    default=0.20,
+    help="First-order command ramp time in seconds; zero disables smoothing.",
+)
 parser.add_argument("--metrics-output", type=Path, default=None, help="Write bounded inference metrics to JSON.")
 AppLauncher.add_app_launcher_args(parser)
 args_cli, hydra_args = parser.parse_known_args()
+
+if args_cli.keyboard and args_cli.command is not None:
+    parser.error("--keyboard and --command are mutually exclusive")
+if args_cli.keyboard and args_cli.headless:
+    parser.error("--keyboard requires a visible Isaac Sim window; remove --headless")
 
 sys.argv = [sys.argv[0]] + hydra_args
 
@@ -53,6 +69,8 @@ import gymnasium as gym
 import inspect
 import os
 import torch
+import carb
+import omni
 from rsl_rl.runners import OnPolicyRunner
 try:
     from rsl_rl.algorithms import PPO
@@ -64,15 +82,71 @@ except ImportError:
     TensorDict = None
 
 from isaaclab.envs import DirectMARLEnv, DirectMARLEnvCfg, DirectRLEnvCfg, ManagerBasedRLEnvCfg, multi_agent_to_single_agent
+from isaaclab.utils import math as math_utils
 from isaaclab_rl.rsl_rl import RslRlBaseRunnerCfg
 
 from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
 import stackforce_simready_generated_robot_lab.tasks  # noqa: F401
+from csdog_motion.training import EpisodeCounterProxy, validate_checkpoint
+from csdog_motion.action_bounds import action_bounds, executed_actions
 
 import os
 import torch
+
+
+class QweasdKeyboard:
+    """Hold-to-drive SE(2) command source for the visible Isaac Sim window."""
+
+    def __init__(self, forward_speed: float, lateral_speed: float, yaw_rate: float, device: str):
+        self._device = device
+        self._pressed = set()
+        self._forward_speed = float(forward_speed)
+        self._lateral_speed = float(lateral_speed)
+        self._yaw_rate = float(yaw_rate)
+        self._app_window = omni.appwindow.get_default_app_window()
+        if self._app_window is None:
+            raise RuntimeError("QWEASD keyboard control requires an Isaac Sim app window")
+        self._input = carb.input.acquire_input_interface()
+        self._keyboard = self._app_window.get_keyboard()
+        self._subscription = self._input.subscribe_to_keyboard_events(self._keyboard, self._on_event)
+
+    def _on_event(self, event, *args):
+        key = event.input.name
+        if event.type in (carb.input.KeyboardEventType.KEY_PRESS, carb.input.KeyboardEventType.KEY_REPEAT):
+            if key == "SPACE":
+                self._pressed.clear()
+            elif key in {"Q", "W", "E", "A", "S", "D"}:
+                self._pressed.add(key)
+        elif event.type == carb.input.KeyboardEventType.KEY_RELEASE:
+            self._pressed.discard(key)
+        return True
+
+    def target(self) -> torch.Tensor:
+        command = torch.zeros(3, dtype=torch.float32, device=self._device)
+        command[0] = self._forward_speed * (float("W" in self._pressed) - float("S" in self._pressed))
+        command[1] = self._lateral_speed * (float("A" in self._pressed) - float("D" in self._pressed))
+        command[2] = self._yaw_rate * (float("Q" in self._pressed) - float("E" in self._pressed))
+        return command
+
+    def close(self):
+        if self._subscription is not None:
+            self._input.unsubscribe_to_keyboard_events(self._keyboard, self._subscription)
+            self._subscription = None
+
+
+def _write_command_to_policy_observation(obs, commands: torch.Tensor) -> None:
+    """Keep the command slice in an already-built observation synchronized."""
+    policy_obs = obs
+    if isinstance(obs, dict):
+        policy_obs = obs.get("policy", next(iter(obs.values())))
+    elif not isinstance(obs, torch.Tensor) and hasattr(obs, "get"):
+        candidate = obs.get("policy")
+        if candidate is not None:
+            policy_obs = candidate
+    if isinstance(policy_obs, torch.Tensor):
+        policy_obs[..., 9:12] = commands
 
 
 class _StackForceOnnxPolicy(torch.nn.Module):
@@ -171,7 +245,7 @@ def _format_rsl_rl_obs(obs_dict, use_obs_groups):
     return obs_dict
 
 
-class LegacyRslRlVecEnvWrapper:
+class LegacyRslRlVecEnvWrapper(EpisodeCounterProxy):
     def __init__(self, env, clip_actions=None):
         self.env = env
         self.clip_actions = clip_actions
@@ -368,6 +442,14 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             "lin_vel_y": (args_cli.command[1], args_cli.command[1]),
             "ang_vel_yaw": (args_cli.command[2], args_cli.command[2]),
         }
+    elif args_cli.keyboard:
+        # Resets must not inject random training commands while the operator is
+        # holding or releasing keys.  The live loop overwrites this zero command.
+        env_cfg.command_ranges = {
+            "lin_vel_x": (0.0, 0.0),
+            "lin_vel_y": (0.0, 0.0),
+            "ang_vel_yaw": (0.0, 0.0),
+        }
     if isinstance(env_cfg, ManagerBasedRLEnvCfg):
         env_cfg.export_io_descriptors = args_cli.export_io_descriptors
     elif args_cli.disable_resets and hasattr(env_cfg, "visual_disable_resets"):
@@ -385,9 +467,17 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     if expected_compatibility_tag is not None:
         metadata_path = Path(resume_path + ".metadata.json")
         if not metadata_path.is_file():
-            raise RuntimeError(
-                f"Refusing checkpoint without compatibility metadata for {args_cli.task}: {metadata_path}"
-            )
+            # Periodic checkpoints are written by RSL-RL before our final
+            # sidecar hook runs.  They share the same task, joints and code as
+            # model_final.pt in that run, so use that run-level metadata when
+            # it exists instead of making intermediate model selection opaque.
+            run_metadata_path = Path(resume_path).parent / "model_final.pt.metadata.json"
+            if run_metadata_path.is_file():
+                metadata_path = run_metadata_path
+            else:
+                raise RuntimeError(
+                    f"Refusing checkpoint without compatibility metadata for {args_cli.task}: {metadata_path}"
+                )
         checkpoint_metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
         actual_tag = checkpoint_metadata.get("checkpoint_compatibility_tag")
         if actual_tag != expected_compatibility_tag:
@@ -396,6 +486,8 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             )
         if checkpoint_metadata.get("actuated_joint_names") != list(env_cfg.actuated_joint_names):
             raise RuntimeError("Checkpoint joint names/order do not match the task configuration")
+        if hasattr(env_cfg, "motion_contract"):
+            validate_checkpoint(resume_path, env_cfg, policy_only=True)
 
     env = gym.make(args_cli.task, cfg=env_cfg)
     if isinstance(env.unwrapped, DirectMARLEnv):
@@ -403,11 +495,32 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
 
     legacy_agent_cfg = to_compatible_rsl_rl_cfg(agent_cfg)
     wrapped_env = LegacyRslRlVecEnvWrapper(env, clip_actions=getattr(agent_cfg, "clip_actions", None))
+    policy_action_bounds = action_bounds(env.unwrapped.cfg, env.unwrapped.device)
     runner = OnPolicyRunner(wrapped_env, legacy_agent_cfg, log_dir=None, device=env.unwrapped.device)
     runner.load(resume_path, load_optimizer=False)
     policy = runner.get_inference_policy(device=env.unwrapped.device)
 
     obs = wrapped_env.get_observations()
+    keyboard_controller = None
+    keyboard_command = torch.zeros(3, dtype=torch.float32, device=env.unwrapped.device)
+    keyboard_alpha = 1.0
+    if args_cli.keyboard:
+        keyboard_controller = QweasdKeyboard(
+            args_cli.keyboard_forward_speed,
+            args_cli.keyboard_lateral_speed,
+            args_cli.keyboard_yaw_rate,
+            env.unwrapped.device,
+        )
+        if args_cli.keyboard_smoothing_time > 0.0 and not hasattr(env.unwrapped, "set_motion_request"):
+            keyboard_alpha = 1.0 - math.exp(-env.unwrapped.step_dt / args_cli.keyboard_smoothing_time)
+        print("[QWEASD] Hold W/S: forward/back, A/D: left/right, Q/E: turn left/right")
+        print("[QWEASD] Release keys to ramp to stop; SPACE clears all held commands")
+        print(
+            "[QWEASD] Limits: "
+            f"x={args_cli.keyboard_forward_speed:.2f} m/s, "
+            f"y={args_cli.keyboard_lateral_speed:.2f} m/s, "
+            f"yaw={args_cli.keyboard_yaw_rate:.2f} rad/s"
+        )
     if args_cli.export_onnx:
         stackforce_export_policy_as_onnx(
             policy,
@@ -439,6 +552,9 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     action_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     clipped_action_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     joint_position_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    joint_abs_deviation_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    joint_deviation_sq_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    joint_abs_deviation_max = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
     joint_velocity_sq_sum = 0.0
     joint_target_limit_violations = 0
     joint_position_near_limit_samples = 0
@@ -454,6 +570,15 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     robot_foot_ids, _ = robot.find_bodies(env.unwrapped.cfg.foot_link_names, preserve_order=True)
     contact_foot_ids = env.unwrapped._foot_ids
     num_feet = len(contact_foot_ids)
+    yaw_command_samples = 0
+    yaw_joint_abs_deviation_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    yaw_joint_deviation_sq_sum = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    yaw_joint_abs_deviation_max = torch.zeros(wrapped_env.num_actions, device=env.unwrapped.device)
+    yaw_foot_position_body_sum = torch.zeros(num_feet, 3, device=env.unwrapped.device)
+    yaw_foot_lateral_sq_sum = torch.zeros(num_feet, device=env.unwrapped.device)
+    yaw_foot_abs_lateral_max = torch.zeros(num_feet, device=env.unwrapped.device)
+    yaw_projected_gravity_abs_sum = torch.zeros(2, device=env.unwrapped.device)
+    yaw_body_tilt_max = torch.tensor(0.0, device=env.unwrapped.device)
     contact_on_force = float(getattr(env.unwrapped.cfg, "foot_contact_on_force_threshold", 5.0))
     contact_off_force = float(getattr(env.unwrapped.cfg, "foot_contact_off_force_threshold", 2.0))
     foot_contact_state = torch.zeros(
@@ -477,7 +602,20 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     finite = True
     with torch.inference_mode():
         while simulation_app.is_running():
+            if args_cli.command is not None and hasattr(env.unwrapped, "set_motion_request"):
+                env.unwrapped.set_motion_request(args_cli.command)
+            if keyboard_controller is not None:
+                keyboard_target = keyboard_controller.target()
+                keyboard_command += keyboard_alpha * (keyboard_target - keyboard_command)
+                command_batch = keyboard_command.unsqueeze(0).expand(wrapped_env.num_envs, -1)
+                if hasattr(env.unwrapped, "set_motion_request"):
+                    env.unwrapped.set_motion_request(command_batch)
+                else:
+                    env.unwrapped._commands[:] = command_batch
+                    _write_command_to_policy_observation(obs, command_batch)
             actions = policy(obs)
+            applied_policy_actions = executed_actions(actions, policy_action_bounds,
+                env.unwrapped.motion.blend[:, None] if getattr(env.unwrapped.cfg, "posture_blend_actions", False) else None)
             step_result = wrapped_env.step(actions)
             obs = step_result[0]
             steps += 1
@@ -513,16 +651,52 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
             actual_yaw_rate_sq_sum += float(torch.sum(torch.square(robot.data.root_ang_vel_b[:, 2])).item())
             actual_yaw_rate_sum += float(torch.sum(robot.data.root_ang_vel_b[:, 2]).item())
             action_sq_sum += float(torch.sum(torch.square(actions)).item())
-            clipped_actions = torch.clamp(actions, -env.unwrapped.cfg.action_clip, env.unwrapped.cfg.action_clip)
+            clipped_actions = applied_policy_actions
             clipped_action_sq_sum += float(torch.sum(torch.square(clipped_actions)).item())
             action_sum += torch.sum(actions, dim=0)
             clipped_action_sum += torch.sum(clipped_actions, dim=0)
             joint_positions = robot.data.joint_pos[:, env.unwrapped._actuated_joint_ids]
+            default_joint_positions = robot.data.default_joint_pos[:, env.unwrapped._actuated_joint_ids]
+            joint_deviations = joint_positions - default_joint_positions
+            joint_abs_deviations = torch.abs(joint_deviations)
             joint_velocities = robot.data.joint_vel[:, env.unwrapped._actuated_joint_ids]
             joint_position_sum += torch.sum(joint_positions, dim=0)
+            joint_abs_deviation_sum += torch.sum(joint_abs_deviations, dim=0)
+            joint_deviation_sq_sum += torch.sum(torch.square(joint_deviations), dim=0)
+            joint_abs_deviation_max = torch.maximum(
+                joint_abs_deviation_max, torch.amax(joint_abs_deviations, dim=0)
+            )
             joint_velocity_sq_sum += float(torch.sum(torch.square(joint_velocities)).item())
+            yaw_mask = torch.abs(commands[:, 2]) > 1.0e-6
+            if torch.any(yaw_mask):
+                yaw_sample_count = int(torch.count_nonzero(yaw_mask).item())
+                yaw_command_samples += yaw_sample_count
+                yaw_joint_abs_deviation_sum += torch.sum(joint_abs_deviations[yaw_mask], dim=0)
+                yaw_joint_deviation_sq_sum += torch.sum(torch.square(joint_deviations[yaw_mask]), dim=0)
+                yaw_joint_abs_deviation_max = torch.maximum(
+                    yaw_joint_abs_deviation_max,
+                    torch.amax(joint_abs_deviations[yaw_mask], dim=0),
+                )
+                foot_offset_w = (
+                    robot.data.body_pos_w[yaw_mask][:, robot_foot_ids]
+                    - robot.data.root_pos_w[yaw_mask].unsqueeze(1)
+                )
+                root_quat_w = robot.data.root_quat_w[yaw_mask].unsqueeze(1).expand(-1, num_feet, -1)
+                foot_position_b = math_utils.quat_apply_inverse(
+                    root_quat_w.reshape(-1, 4), foot_offset_w.reshape(-1, 3)
+                ).reshape(-1, num_feet, 3)
+                yaw_foot_position_body_sum += torch.sum(foot_position_b, dim=0)
+                yaw_foot_lateral_sq_sum += torch.sum(torch.square(foot_position_b[:, :, 1]), dim=0)
+                yaw_foot_abs_lateral_max = torch.maximum(
+                    yaw_foot_abs_lateral_max,
+                    torch.amax(torch.abs(foot_position_b[:, :, 1]), dim=0),
+                )
+                projected_gravity = robot.data.projected_gravity_b[yaw_mask]
+                yaw_projected_gravity_abs_sum += torch.sum(torch.abs(projected_gravity[:, :2]), dim=0)
+                body_tilt = torch.acos(torch.clamp(-projected_gravity[:, 2], min=-1.0, max=1.0))
+                yaw_body_tilt_max = torch.maximum(yaw_body_tilt_max, torch.amax(body_tilt))
             saturated_action_samples += int(
-                torch.count_nonzero(torch.abs(actions) >= env.unwrapped.cfg.action_clip).item()
+                torch.count_nonzero(torch.abs(actions) >= policy_action_bounds).item()
             )
             action_samples += actions.numel()
             soft_limits = robot.data.soft_joint_pos_limits[:, env.unwrapped._actuated_joint_ids]
@@ -641,6 +815,10 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "mean_action_by_joint": (action_sum / transitions).tolist(),
         "mean_clipped_action_by_joint": (clipped_action_sum / transitions).tolist(),
         "mean_joint_position_rad": (joint_position_sum / transitions).tolist(),
+        "actuated_joint_names": list(env.unwrapped.cfg.actuated_joint_names),
+        "mean_abs_joint_deviation_rad": (joint_abs_deviation_sum / transitions).tolist(),
+        "rms_joint_deviation_rad": torch.sqrt(joint_deviation_sq_sum / transitions).tolist(),
+        "max_abs_joint_deviation_rad": joint_abs_deviation_max.tolist(),
         "joint_velocity_rms_rad_s": (
             joint_velocity_sq_sum / (transitions * wrapped_env.num_actions)
         ) ** 0.5,
@@ -676,6 +854,28 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         "diagonal_group_opposite_state_fraction": float(diagonal_cross_opposite_samples / transitions)
         if num_feet == 4 else None,
         "contact_state_rle_env0": contact_sequence_env0,
+        "yaw_command_posture_diagnostics": {
+            "samples": yaw_command_samples,
+            "joint_mean_abs_deviation_rad": (
+                yaw_joint_abs_deviation_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "joint_rms_deviation_rad": torch.sqrt(
+                yaw_joint_deviation_sq_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "joint_max_abs_deviation_rad": yaw_joint_abs_deviation_max.tolist(),
+            "foot_link_names": list(env.unwrapped.cfg.foot_link_names),
+            "mean_foot_position_body_m": (
+                yaw_foot_position_body_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "foot_lateral_rms_m": torch.sqrt(
+                yaw_foot_lateral_sq_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "foot_lateral_abs_max_m": yaw_foot_abs_lateral_max.tolist(),
+            "mean_abs_projected_gravity_xy": (
+                yaw_projected_gravity_abs_sum / max(1, yaw_command_samples)
+            ).tolist(),
+            "max_body_tilt_rad": float(yaw_body_tilt_max.item()),
+        } if yaw_command_samples else None,
         "finite": finite,
     }
     rendered_metrics = json.dumps(metrics, indent=2, ensure_ascii=True)
@@ -686,6 +886,8 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         args_cli.metrics_output.parent.mkdir(parents=True, exist_ok=True)
         args_cli.metrics_output.write_text(rendered_metrics + "\n", encoding="utf-8")
 
+    if keyboard_controller is not None:
+        keyboard_controller.close()
     wrapped_env.close()
 
 

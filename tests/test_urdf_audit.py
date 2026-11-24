@@ -18,19 +18,21 @@ SPEC.loader.exec_module(AUDIT_URDF)
 class UrdfAuditTests(unittest.TestCase):
     def arguments(self, expectations: Path) -> argparse.Namespace:
         return argparse.Namespace(
-            urdf=REPO / "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot.urdf",
+            urdf=REPO / "source/stackforce_simready_generated_robot_lab/stackforce_simready_generated_robot_lab/assets/robots/csdog_v2/robot_sim.urdf",
             expectations=expectations,
             repo=REPO,
             max_collision_triangles=1000,
         )
 
-    def test_v2_structure_passes_but_physics_readiness_fails(self) -> None:
+    def test_v2_simulation_gate_passes_but_hardware_deployment_stays_blocked(self) -> None:
         expectations = REPO / "config/csdog_v2_urdf_expectations.json"
         report = AUDIT_URDF.audit(self.arguments(expectations))
         self.assertEqual(report["gate"]["structure_status"], "PASS")
-        self.assertEqual(report["gate"]["physics_readiness_status"], "FAIL")
+        self.assertEqual(report["gate"]["simulation_readiness_status"], "PASS")
+        self.assertEqual(report["gate"]["hardware_deployment_status"], "FAIL")
         self.assertEqual(report["summary"]["revolute_joint_count"], 12)
-        self.assertAlmostEqual(report["summary"]["total_mass_kg"], 7.60426080, places=7)
+        self.assertAlmostEqual(report["summary"]["total_mass_kg"], 7.60826080, places=7)
+        self.assertEqual(report["summary"]["collision_triangle_count"], 0)
 
     def test_joint_order_mismatch_is_a_structural_failure(self) -> None:
         manifest = json.loads(

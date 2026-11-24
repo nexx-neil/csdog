@@ -99,12 +99,14 @@ def render_markdown(report: dict[str, Any]) -> str:
         "",
         f"- 总门禁：**{report['gate']['status']}**",
         f"- 结构门禁：**{report['gate']['structure_status']}**",
-        f"- 物理就绪门禁：**{report['gate']['physics_readiness_status']}**",
+        f"- 仿真就绪门禁：**{report['gate']['simulation_readiness_status']}**",
+        f"- 实机部署门禁：**{report['gate']['hardware_deployment_status']}**",
         f"- Git commit：`{report['git_commit']}`",
         f"- URDF：`{report['urdf']}`",
         f"- link / revolute joint：{summary['link_count']} / {summary['revolute_joint_count']}",
         f"- 总质量：{summary['total_mass_kg']:.8f} kg",
         f"- 零位形整机质心：`{summary['zero_pose_center_of_mass_m']}` m",
+        f"- 零位形足底球心高度差：{summary['zero_pose_foot_height_spread_m']:.8f} m",
         f"- mesh：{summary['mesh_file_count']} 个，collision 三角形合计 {summary['collision_triangle_count']}",
         "",
         "## 已证实问题",
@@ -114,6 +116,12 @@ def render_markdown(report: dict[str, Any]) -> str:
     if not confirmed:
         lines.append("- 无。")
     for item in confirmed:
+        lines.append(f"- `{item['code']}` [{item['severity']}] {item['message']}")
+    hardware_blocks = [item for item in report["issues"] if item["severity"] == "hardware_blocker"]
+    lines += ["", "## 实机部署阻断项", ""]
+    if not hardware_blocks:
+        lines.append("- 无。")
+    for item in hardware_blocks:
         lines.append(f"- `{item['code']}` [{item['severity']}] {item['message']}")
     lines += ["", "## 警告与待测试假设", ""]
     warnings = [item for item in report["issues"] if item["severity"] in {"warning", "hypothesis"}]
@@ -181,6 +189,13 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
         issues.append(issue("JOINT_ORDER_MISMATCH", "error", "revolute joint names/order differ from manifest", {"expected": expected_joints, "actual": [joint["name"] for joint in revolute]}))
     if expected.get("link_names") and link_names != expected["link_names"]:
         issues.append(issue("LINK_ORDER_MISMATCH", "error", "link names/order differ from manifest", {"expected": expected["link_names"], "actual": link_names}))
+    expected_feet = expected.get("foot_link_names", [])
+    for foot_name in expected_feet:
+        foot = next((node for node in links if node.attrib["name"] == foot_name), None)
+        if foot is None:
+            issues.append(issue("MISSING_FOOT_LINK", "error", f"expected foot link does not exist: {foot_name}"))
+        elif not foot.findall("collision"):
+            issues.append(issue("FOOT_WITHOUT_COLLISION", "error", f"expected foot link has no collision geometry: {foot_name}"))
     for joint in revolute:
         if abs(joint["axis_norm"] - 1.0) > 1.0e-4:
             issues.append(issue("JOINT_AXIS_NOT_UNIT", "error", f"{joint['name']} axis norm is {joint['axis_norm']}"))
@@ -195,6 +210,13 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
         issues.append(issue("UNIFORM_TEMPLATE_LIMITS", "review_required", "all 12 joints use one identical limit tuple; mechanical/electrical provenance is not recorded", next(iter(limit_tuples))))
     if any(abs(joint["limit"]["lower"] + math.pi) < 0.01 and abs(joint["limit"]["upper"] - math.pi) < 0.01 for joint in revolute):
         issues.append(issue("FULL_ROTATION_POSITION_LIMITS", "review_required", "revolute joints use approximately ±pi; self-collision is disabled and real hard stops are unverified"))
+    if not expected.get("simulation_parameters_verified", False):
+        issues.append(issue("SIMULATION_PARAMETERS_UNVERIFIED", "review_required", "simulation joint limits and actuator bounds lack an approved, traceable profile"))
+    simulation_profile = expected.get("simulation_profile")
+    if simulation_profile and not (args.repo.resolve() / simulation_profile).is_file():
+        issues.append(issue("SIMULATION_PROFILE_MISSING", "error", f"simulation profile does not exist: {simulation_profile}"))
+    if not expected.get("hardware_parameters_verified", False):
+        issues.append(issue("HARDWARE_LIMITS_UNVERIFIED", "hardware_blocker", "continuous torque and assembled mechanical hard stops are unverified; simulation results must not be deployed to hardware"))
 
     mesh_records: dict[str, dict[str, Any]] = {}
     visual_meshes: list[str] = []
@@ -261,6 +283,28 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
             weighted_com = [weighted_com[i] + mass * world_com[i] for i in range(3)]
         weighted_com = [value / total_mass for value in weighted_com]
 
+    zero_pose_foot_positions = {
+        name: apply_tf(link_tf[name], [0.0, 0.0, 0.0])
+        for name in expected_feet
+        if name in link_tf
+    }
+    foot_heights = [position[2] for position in zero_pose_foot_positions.values()]
+    foot_height_spread = max(foot_heights) - min(foot_heights) if foot_heights else 0.0
+    max_foot_height_spread = expected.get("max_zero_pose_foot_height_spread_m")
+    if max_foot_height_spread is not None and foot_height_spread > max_foot_height_spread:
+        issues.append(
+            issue(
+                "ZERO_POSE_FOOT_HEIGHT_MISMATCH",
+                "error",
+                "zero-pose sole centers are not coplanar",
+                {
+                    "maximum_spread_m": max_foot_height_spread,
+                    "actual_spread_m": foot_height_spread,
+                    "positions_m": zero_pose_foot_positions,
+                },
+            )
+        )
+
     if expected.get("total_mass_kg") is not None and abs(total_mass - expected["total_mass_kg"]) > expected.get("total_mass_tolerance_kg", 1.0e-6):
         issues.append(issue("TOTAL_MASS_MISMATCH", "error", "total mass differs from manifest", {"expected": expected["total_mass_kg"], "actual": total_mass}))
     issues.append(issue("COM_REQUIRES_DYNAMIC_VALIDATION", "hypothesis", "zero-pose COM is computed from URDF, but support polygon margin and loaded hardware COM still require simulation/CAD validation", weighted_com))
@@ -270,14 +314,22 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
     readiness_blocks = [item for item in issues if item["severity"] in {"error", "review_required"}]
     structure_status = "PASS" if not structural_errors else "FAIL"
     readiness_status = "PASS" if not readiness_blocks else "FAIL"
+    hardware_status = "PASS" if expected.get("hardware_parameters_verified", False) and not structural_errors else "FAIL"
     status = "PASS" if structure_status == readiness_status == "PASS" else "FAIL"
-    reason = "Static structure is valid, but simulation/training is blocked until every review_required item has verified provenance." if structure_status == "PASS" and readiness_status == "FAIL" else ("Static gate passed." if status == "PASS" else "Static structure is invalid; do not start simulation.")
+    reason = "Static simulation gate passed; hardware deployment remains separately gated." if status == "PASS" else ("Static structure is valid, but simulation is blocked until every review_required item has traceable provenance." if structure_status == "PASS" else "Static structure is invalid; do not start simulation.")
     return {
         "schema_version": 1,
         "git_commit": git_commit(args.repo.resolve()),
         "urdf": str(urdf),
         "expectations": str(args.expectations.resolve()) if args.expectations else None,
-        "gate": {"status": status, "structure_status": structure_status, "physics_readiness_status": readiness_status, "reason": reason},
+        "gate": {
+            "status": status,
+            "structure_status": structure_status,
+            "physics_readiness_status": readiness_status,
+            "simulation_readiness_status": readiness_status,
+            "hardware_deployment_status": hardware_status,
+            "reason": reason,
+        },
         "summary": {
             "root_links": roots,
             "link_count": len(links),
@@ -285,6 +337,8 @@ def audit(args: argparse.Namespace) -> dict[str, Any]:
             "revolute_joint_count": len(revolute),
             "total_mass_kg": total_mass,
             "zero_pose_center_of_mass_m": weighted_com,
+            "zero_pose_foot_positions_m": zero_pose_foot_positions,
+            "zero_pose_foot_height_spread_m": foot_height_spread,
             "mesh_file_count": len(mesh_records),
             "collision_triangle_count": sum(mesh_records[name].get("triangles") or 0 for name in set(collision_meshes) if name in mesh_records),
         },

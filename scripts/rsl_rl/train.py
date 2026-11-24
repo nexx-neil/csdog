@@ -19,6 +19,18 @@ parser.add_argument("--agent", type=str, default="rsl_rl_cfg_entry_point", help=
 parser.add_argument("--seed", type=int, default=None, help="Seed used for the environment.")
 parser.add_argument("--max_iterations", type=int, default=None, help="RL policy training iterations.")
 parser.add_argument(
+    "--policy_only_resume",
+    action="store_true",
+    default=False,
+    help="Load compatible policy/value weights without restoring optimizer state.",
+)
+parser.add_argument(
+    "--resume_path",
+    type=str,
+    default=None,
+    help="Load an exact compatible checkpoint path, including from another experiment name.",
+)
+parser.add_argument(
     "--command_axes",
     nargs="+",
     choices=("x", "y", "yaw"),
@@ -34,6 +46,10 @@ parser.add_argument(
 parser.add_argument("--distributed", action="store_true", default=False, help="Run distributed training.")
 parser.add_argument("--export_io_descriptors", action="store_true", default=False, help="Export IO descriptors.")
 parser.add_argument("--ray-proc-id", "-rid", type=int, default=None)
+parser.add_argument("--resume_learning_rate", type=float, default=None)
+parser.add_argument("--lr_bounds", type=float, nargs=2, default=None, metavar=("MIN", "MAX"))
+parser.add_argument("--segment_iterations", type=int, default=None)
+parser.add_argument("--validation_reference", type=str, default=None)
 cli_args.add_rsl_rl_args(parser)
 AppLauncher.add_app_launcher_args(parser)
 args_cli, hydra_args = parser.parse_known_args()
@@ -80,6 +96,9 @@ from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
 import stackforce_simready_generated_robot_lab.tasks  # noqa: F401
+from csdog_motion.training import (EpisodeCounterProxy, sync_learning_rate, bound_learning_rate,
+                                  validate_checkpoint, install_checkpoint_records)
+from csdog_motion.staging import run_segments, require_validation_report
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +112,15 @@ class _StackForceOnnxPolicy(torch.nn.Module):
         self.policy = policy
 
     def forward(self, obs):
-        actions = self.policy(obs)
+        # RSL-RL 3's act_inference expects a TensorDict observation group,
+        # which is not a stable ONNX input type.  Export the underlying actor
+        # and its observation normalizer directly from the flat policy tensor.
+        if hasattr(self.policy, "actor") and hasattr(self.policy, "actor_obs_normalizer"):
+            actions = self.policy.actor(self.policy.actor_obs_normalizer(obs))
+            if getattr(self.policy, "state_dependent_std", False):
+                actions = actions[..., 0, :]
+        else:
+            actions = self.policy(obs)
         if isinstance(actions, (tuple, list)):
             return actions[0]
         if isinstance(actions, dict):
@@ -211,7 +238,7 @@ def _format_rsl_rl_obs(obs_dict, use_obs_groups):
     return obs_dict
 
 
-class LegacyRslRlVecEnvWrapper(VecEnv):
+class LegacyRslRlVecEnvWrapper(EpisodeCounterProxy, VecEnv):
     def __init__(self, env, clip_actions=None):
         self.env = env
         self.clip_actions = clip_actions
@@ -392,6 +419,8 @@ def to_compatible_rsl_rl_cfg(agent_cfg):
 @hydra_task_config(args_cli.task, args_cli.agent)
 def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agent_cfg: RslRlBaseRunnerCfg):
     agent_cfg = cli_args.update_rsl_rl_cfg(agent_cfg, args_cli)
+    if args_cli.resume_path is not None:
+        agent_cfg.resume = True
     if getattr(env_cfg, "training_enabled", True) is not True:
         reason = getattr(env_cfg, "training_block_reason", "task configuration has disabled training")
         raise RuntimeError(f"Training gate FAIL for {args_cli.task}: {reason}")
@@ -445,7 +474,21 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         env = multi_agent_to_single_agent(env)
 
     if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
-        resume_path = get_checkpoint_path(log_root_path, agent_cfg.load_run, agent_cfg.load_checkpoint)
+        if args_cli.resume_path is not None:
+            resume_path = os.path.abspath(args_cli.resume_path)
+            if not os.path.isfile(resume_path):
+                raise FileNotFoundError(f"Exact resume checkpoint does not exist: {resume_path}")
+        else:
+            resume_path = get_checkpoint_path(log_root_path, agent_cfg.load_run, agent_cfg.load_checkpoint)
+        # An exact checkpoint such as ``model_final.pt`` also prefixes its
+        # sidecar ``model_final.pt.metadata.json``.  Older Isaac Lab lookup
+        # helpers can return that JSON file last; recover the intended weight
+        # file deterministically instead of passing JSON to torch.load().
+        if resume_path.endswith(".metadata.json"):
+            weight_path = resume_path.removesuffix(".metadata.json")
+            if os.path.isfile(weight_path):
+                print(f"[INFO] Resolved checkpoint sidecar to weight file: {weight_path}")
+                resume_path = weight_path
 
     if args_cli.video:
         video_kwargs = {
@@ -472,18 +515,74 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
 
     if hasattr(runner, "add_git_repo_to_log"):
         runner.add_git_repo_to_log(__file__)
+    # RSL-RL creates this field inside learn(); zero-update setup still needs save/export.
+    if not hasattr(runner, "logger_type"):
+        runner.logger_type = legacy_agent_cfg.get("logger", "tensorboard")
     if agent_cfg.resume or agent_cfg.algorithm.class_name == "Distillation":
         print(f"[INFO]: Loading model checkpoint from: {resume_path}")
-        runner.load(resume_path)
+        validate_checkpoint(resume_path, env_cfg, policy_only=args_cli.policy_only_resume)
+        runner.load(resume_path, load_optimizer=not args_cli.policy_only_resume)
+
+    is_foundation = getattr(env_cfg, "motion_contract", None) is not None
+    desired_lr = args_cli.resume_learning_rate
+    if desired_lr is None and is_foundation:
+        desired_lr = agent_cfg.algorithm.learning_rate
+    rate = sync_learning_rate(runner.alg, desired_lr)
+    print(f"[FOUNDATION] Actual optimizer and algorithm learning rate: {rate:.12g}")
+    bounds = args_cli.lr_bounds or ([1e-6, 1e-5] if is_foundation else None)
+    lr_audit = None
+    if bounds:
+        lr_audit, _lr_handle = bound_learning_rate(runner.alg, *bounds)
+    update_count = install_checkpoint_records(
+        runner, env_cfg, args_cli.task,
+        parent=resume_path if agent_cfg.resume else None, lr_audit=lr_audit,
+    )
 
     dump_yaml(os.path.join(log_dir, "params", "env.yaml"), env_cfg)
     dump_yaml(os.path.join(log_dir, "params", "agent.yaml"), agent_cfg)
-    runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+    segment = args_cli.segment_iterations if args_cli.segment_iterations is not None else (5 if is_foundation else agent_cfg.max_iterations)
+    if agent_cfg.max_iterations > 0 and segment <= 0:
+        raise ValueError("segment_iterations must be positive")
+    if is_foundation and agent_cfg.max_iterations > 0 and not args_cli.validation_reference:
+        raise ValueError("Foundation optimization requires --validation_reference for old-skill regression gates")
+    def learn_segment(amount, first):
+        randomize = first and getattr(env_cfg, "randomize_initial_episode_length", True)
+        runner.learn(num_learning_iterations=amount, init_at_random_ep_len=randomize)
+
+    def save_segment(done):
+        if update_count["updates_in_this_run"] != done:
+            raise RuntimeError("Actual PPO update count differs from requested segment length")
+        segment_path = os.path.join(log_dir, f"segment_{update_count['updates_in_this_run']:04d}.pt")
+        runner.save(segment_path)
+        return segment_path
+
+    def validate_segment(segment_path, done):
+        if args_cli.validation_reference:
+            with open(args_cli.validation_reference, encoding="utf-8") as reference_file:
+                protocol_name = json.load(reference_file).get("protocol_name", "standard")
+            validation_path = os.path.join(log_dir, f"validation_{done:04d}.json")
+            invocation = [
+                sys.executable, os.path.join(os.path.dirname(__file__), "..", "evaluate_motion.py"),
+                "--task", args_cli.task, "--checkpoint", segment_path,
+                "--output", validation_path, "--reference", args_cli.validation_reference,
+                "--protocol", protocol_name,
+                "--headless",
+            ]
+            completed = subprocess.run(invocation, check=False)
+            if completed.returncode != 0:
+                raise RuntimeError(f"Segment rejected or validation could not finish: {validation_path}. "
+                                   "The rejected branch stops; deployment remains unchanged.")
+            require_validation_report(validation_path, segment_path)
+            print(f"[FOUNDATION] Regression gate PASS: {validation_path}", flush=True)
+
+    run_segments(agent_cfg.max_iterations, segment, learn_segment, save_segment, validate_segment)
     final_path = os.path.join(log_dir, "model_final.pt")
     runner.save(final_path)
     print(f"Saved final checkpoint to: {final_path}")
+    if agent_cfg.max_iterations == 0 and args_cli.validation_reference:
+        validate_segment(final_path, 0)
     compatibility_tag = getattr(env.cfg, "checkpoint_compatibility_tag", None)
-    if compatibility_tag is not None:
+    if compatibility_tag is not None and not os.path.isfile(final_path + ".metadata.json"):
         commit_result = subprocess.run(
             ["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=False
         )
@@ -502,7 +601,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         print(f"Saved checkpoint compatibility metadata to: {final_path}.metadata.json")
     try:
         stackforce_export_policy_as_onnx(
-            runner.get_inference_policy(device=env.device),
+            runner.alg.policy,
             env.get_observations(),
             os.path.join(log_dir, "exported", "policies"),
         )

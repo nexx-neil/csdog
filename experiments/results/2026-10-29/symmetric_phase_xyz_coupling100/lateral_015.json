@@ -1,0 +1,779 @@
+{
+  "checkpoint": "/home/ni/robot_projects/archive/csdog-runtime-2026-09-17/logs/rsl_rl/csdog_v2_phase_gait/2026-10-29_14-08-04_symmetric_phase_xyz_coupling100/model_final.pt",
+  "num_envs": 16,
+  "steps_per_env": 1000,
+  "total_transitions": 16000,
+  "total_resets": 16,
+  "total_terminations": 0,
+  "total_timeouts": 16,
+  "resets_per_1000_transitions": 1.0,
+  "mean_reward_per_step": 0.13296300377324224,
+  "linear_velocity_tracking_rmse_m_s": 0.07189547680662037,
+  "linear_velocity_tracking_rmse_by_axis_m_s": [
+    0.037879109382629395,
+    0.061107564717531204
+  ],
+  "yaw_rate_tracking_rmse_rad_s": 0.05337216254575008,
+  "minimum_base_height_m": 0.39661210775375366,
+  "maximum_base_height_m": 0.411224901676178,
+  "mean_base_height_m": 0.3991613697111607,
+  "command_linear_speed_rms_m_s": 0.15000000298023222,
+  "command_nonzero_axis_fraction": [
+    0.0,
+    1.0,
+    0.0
+  ],
+  "multi_axis_command_fraction": 0.0,
+  "stand_command_fraction": 0.0,
+  "actual_linear_speed_rms_m_s": 0.20580449224567796,
+  "mean_actual_linear_velocity_body_m_s": [
+    0.01414844673126936,
+    0.19895510375499725,
+    0.0017401135992258787
+  ],
+  "command_yaw_rate_rms_rad_s": 0.0,
+  "actual_yaw_rate_rms_rad_s": 0.05337216254575008,
+  "mean_actual_yaw_rate_rad_s": -0.026519260912551544,
+  "action_rms": 0.7989809778868077,
+  "clipped_action_rms": 0.6837555242959787,
+  "action_saturation_fraction": 0.2535833333333333,
+  "joint_target_outside_soft_limit_fraction": 0.0,
+  "joint_position_near_soft_limit_fraction": 0.0,
+  "torque_saturation_fraction_95pct": 0.02225,
+  "mean_action_by_joint": [
+    0.9691873788833618,
+    -0.1830861121416092,
+    -0.4615442454814911,
+    -0.10464775562286377,
+    0.9974105358123779,
+    -0.1301620900630951,
+    0.22943025827407837,
+    0.7209652066230774,
+    -0.5333308577537537,
+    0.20144526660442352,
+    0.6877933740615845,
+    -0.43825364112854004
+  ],
+  "mean_clipped_action_by_joint": [
+    0.812526524066925,
+    -0.1830861121416092,
+    -0.29502615332603455,
+    -0.10464775562286377,
+    0.9228899478912354,
+    -0.08251237869262695,
+    0.22943025827407837,
+    0.6702486276626587,
+    -0.3427874445915222,
+    0.20144526660442352,
+    0.6877174377441406,
+    -0.2740910053253174
+  ],
+  "mean_joint_position_rad": [
+    0.28107893466949463,
+    -0.003841324243694544,
+    -0.16104209423065186,
+    0.025919845327734947,
+    0.3212983310222626,
+    -0.09322085231542587,
+    0.05779723450541496,
+    0.35140421986579895,
+    -0.021279342472553253,
+    0.1314128190279007,
+    0.2665393054485321,
+    -0.020844167098402977
+  ],
+  "joint_velocity_rms_rad_s": 1.4981043353609707,
+  "foot_contact_fraction": 0.49225,
+  "mean_contacting_foot_planar_speed_m_s": 0.03220431435590259,
+  "contact_detection": {
+    "method": "net-force hysteresis",
+    "on_threshold_n": 5.0,
+    "off_threshold_n": 2.0
+  },
+  "foot_metric_semantics": {
+    "contact_body_names": [
+      "link_lr_sole",
+      "link_lf_sole",
+      "link_rf_sole",
+      "link_rr_sole"
+    ],
+    "planar_speed": "distal-link rigid-body origin proxy; not a collision contact-point velocity",
+    "swing_height": "distal-link origin height above terrain; not sole clearance",
+    "contact_point_metrics_available": false
+  },
+  "per_foot_contact_duty_factor": [
+    0.4790000319480896,
+    0.48600003123283386,
+    0.47700002789497375,
+    0.5270000100135803
+  ],
+  "per_foot_touchdown_count": [
+    656.0,
+    640.0,
+    656.0,
+    640.0
+  ],
+  "per_foot_liftoff_count": [
+    640.0,
+    640.0,
+    640.0,
+    640.0
+  ],
+  "per_foot_mean_stance_link_origin_planar_speed_m_s": [
+    0.02455621398985386,
+    0.04841203615069389,
+    0.030147084966301918,
+    0.026071086525917053
+  ],
+  "per_foot_mean_completed_swing_link_origin_max_height_m": [
+    0.07348845899105072,
+    0.07730019837617874,
+    0.05031973123550415,
+    0.07644964754581451
+  ],
+  "per_foot_completed_swing_count": [
+    656.0,
+    640.0,
+    656.0,
+    640.0
+  ],
+  "support_foot_count_fraction": [
+    0.03200000151991844,
+    0.005000000353902578,
+    0.9250000715255737,
+    0.03800000250339508,
+    0.0
+  ],
+  "diagonal_pair_same_contact_state_fraction": [
+    0.9960000514984131,
+    0.9570000171661377
+  ],
+  "diagonal_group_opposite_state_fraction": 0.9630000591278076,
+  "contact_state_rle_env0": [
+    {
+      "step": 1,
+      "mask": 0
+    },
+    {
+      "step": 2,
+      "mask": 5
+    },
+    {
+      "step": 11,
+      "mask": 13
+    },
+    {
+      "step": 12,
+      "mask": 8
+    },
+    {
+      "step": 14,
+      "mask": 10
+    },
+    {
+      "step": 24,
+      "mask": 3
+    },
+    {
+      "step": 25,
+      "mask": 1
+    },
+    {
+      "step": 27,
+      "mask": 5
+    },
+    {
+      "step": 37,
+      "mask": 8
+    },
+    {
+      "step": 38,
+      "mask": 10
+    },
+    {
+      "step": 50,
+      "mask": 0
+    },
+    {
+      "step": 51,
+      "mask": 5
+    },
+    {
+      "step": 62,
+      "mask": 12
+    },
+    {
+      "step": 63,
+      "mask": 10
+    },
+    {
+      "step": 75,
+      "mask": 0
+    },
+    {
+      "step": 76,
+      "mask": 5
+    },
+    {
+      "step": 87,
+      "mask": 13
+    },
+    {
+      "step": 88,
+      "mask": 10
+    },
+    {
+      "step": 100,
+      "mask": 0
+    },
+    {
+      "step": 101,
+      "mask": 5
+    },
+    {
+      "step": 112,
+      "mask": 13
+    },
+    {
+      "step": 113,
+      "mask": 10
+    },
+    {
+      "step": 125,
+      "mask": 0
+    },
+    {
+      "step": 126,
+      "mask": 5
+    },
+    {
+      "step": 137,
+      "mask": 13
+    },
+    {
+      "step": 138,
+      "mask": 10
+    },
+    {
+      "step": 150,
+      "mask": 0
+    },
+    {
+      "step": 151,
+      "mask": 5
+    },
+    {
+      "step": 162,
+      "mask": 13
+    },
+    {
+      "step": 163,
+      "mask": 10
+    },
+    {
+      "step": 175,
+      "mask": 0
+    },
+    {
+      "step": 176,
+      "mask": 5
+    },
+    {
+      "step": 187,
+      "mask": 13
+    },
+    {
+      "step": 188,
+      "mask": 10
+    },
+    {
+      "step": 200,
+      "mask": 0
+    },
+    {
+      "step": 201,
+      "mask": 5
+    },
+    {
+      "step": 212,
+      "mask": 13
+    },
+    {
+      "step": 213,
+      "mask": 10
+    },
+    {
+      "step": 225,
+      "mask": 0
+    },
+    {
+      "step": 226,
+      "mask": 5
+    },
+    {
+      "step": 237,
+      "mask": 13
+    },
+    {
+      "step": 238,
+      "mask": 10
+    },
+    {
+      "step": 250,
+      "mask": 0
+    },
+    {
+      "step": 251,
+      "mask": 5
+    },
+    {
+      "step": 262,
+      "mask": 13
+    },
+    {
+      "step": 263,
+      "mask": 10
+    },
+    {
+      "step": 275,
+      "mask": 0
+    },
+    {
+      "step": 276,
+      "mask": 5
+    },
+    {
+      "step": 287,
+      "mask": 13
+    },
+    {
+      "step": 288,
+      "mask": 10
+    },
+    {
+      "step": 300,
+      "mask": 0
+    },
+    {
+      "step": 301,
+      "mask": 5
+    },
+    {
+      "step": 312,
+      "mask": 13
+    },
+    {
+      "step": 313,
+      "mask": 10
+    },
+    {
+      "step": 325,
+      "mask": 0
+    },
+    {
+      "step": 326,
+      "mask": 5
+    },
+    {
+      "step": 337,
+      "mask": 13
+    },
+    {
+      "step": 338,
+      "mask": 10
+    },
+    {
+      "step": 350,
+      "mask": 0
+    },
+    {
+      "step": 351,
+      "mask": 5
+    },
+    {
+      "step": 362,
+      "mask": 13
+    },
+    {
+      "step": 363,
+      "mask": 10
+    },
+    {
+      "step": 375,
+      "mask": 0
+    },
+    {
+      "step": 376,
+      "mask": 5
+    },
+    {
+      "step": 387,
+      "mask": 13
+    },
+    {
+      "step": 388,
+      "mask": 10
+    },
+    {
+      "step": 400,
+      "mask": 0
+    },
+    {
+      "step": 401,
+      "mask": 5
+    },
+    {
+      "step": 412,
+      "mask": 13
+    },
+    {
+      "step": 413,
+      "mask": 10
+    },
+    {
+      "step": 425,
+      "mask": 0
+    },
+    {
+      "step": 426,
+      "mask": 5
+    },
+    {
+      "step": 437,
+      "mask": 13
+    },
+    {
+      "step": 438,
+      "mask": 10
+    },
+    {
+      "step": 450,
+      "mask": 0
+    },
+    {
+      "step": 451,
+      "mask": 5
+    },
+    {
+      "step": 462,
+      "mask": 13
+    },
+    {
+      "step": 463,
+      "mask": 10
+    },
+    {
+      "step": 475,
+      "mask": 0
+    },
+    {
+      "step": 476,
+      "mask": 5
+    },
+    {
+      "step": 487,
+      "mask": 13
+    },
+    {
+      "step": 488,
+      "mask": 10
+    },
+    {
+      "step": 500,
+      "mask": 0
+    },
+    {
+      "step": 501,
+      "mask": 5
+    },
+    {
+      "step": 512,
+      "mask": 13
+    },
+    {
+      "step": 513,
+      "mask": 10
+    },
+    {
+      "step": 525,
+      "mask": 0
+    },
+    {
+      "step": 526,
+      "mask": 5
+    },
+    {
+      "step": 537,
+      "mask": 13
+    },
+    {
+      "step": 538,
+      "mask": 10
+    },
+    {
+      "step": 550,
+      "mask": 0
+    },
+    {
+      "step": 551,
+      "mask": 5
+    },
+    {
+      "step": 562,
+      "mask": 13
+    },
+    {
+      "step": 563,
+      "mask": 10
+    },
+    {
+      "step": 575,
+      "mask": 0
+    },
+    {
+      "step": 576,
+      "mask": 5
+    },
+    {
+      "step": 587,
+      "mask": 13
+    },
+    {
+      "step": 588,
+      "mask": 10
+    },
+    {
+      "step": 600,
+      "mask": 0
+    },
+    {
+      "step": 601,
+      "mask": 5
+    },
+    {
+      "step": 612,
+      "mask": 13
+    },
+    {
+      "step": 613,
+      "mask": 10
+    },
+    {
+      "step": 625,
+      "mask": 0
+    },
+    {
+      "step": 626,
+      "mask": 5
+    },
+    {
+      "step": 637,
+      "mask": 13
+    },
+    {
+      "step": 638,
+      "mask": 10
+    },
+    {
+      "step": 650,
+      "mask": 0
+    },
+    {
+      "step": 651,
+      "mask": 5
+    },
+    {
+      "step": 662,
+      "mask": 13
+    },
+    {
+      "step": 663,
+      "mask": 10
+    },
+    {
+      "step": 675,
+      "mask": 0
+    },
+    {
+      "step": 676,
+      "mask": 5
+    },
+    {
+      "step": 687,
+      "mask": 13
+    },
+    {
+      "step": 688,
+      "mask": 10
+    },
+    {
+      "step": 700,
+      "mask": 0
+    },
+    {
+      "step": 701,
+      "mask": 5
+    },
+    {
+      "step": 712,
+      "mask": 13
+    },
+    {
+      "step": 713,
+      "mask": 10
+    },
+    {
+      "step": 725,
+      "mask": 0
+    },
+    {
+      "step": 726,
+      "mask": 5
+    },
+    {
+      "step": 737,
+      "mask": 13
+    },
+    {
+      "step": 738,
+      "mask": 10
+    },
+    {
+      "step": 750,
+      "mask": 0
+    },
+    {
+      "step": 751,
+      "mask": 5
+    },
+    {
+      "step": 762,
+      "mask": 13
+    },
+    {
+      "step": 763,
+      "mask": 10
+    },
+    {
+      "step": 775,
+      "mask": 0
+    },
+    {
+      "step": 776,
+      "mask": 5
+    },
+    {
+      "step": 787,
+      "mask": 13
+    },
+    {
+      "step": 788,
+      "mask": 10
+    },
+    {
+      "step": 800,
+      "mask": 0
+    },
+    {
+      "step": 801,
+      "mask": 5
+    },
+    {
+      "step": 812,
+      "mask": 13
+    },
+    {
+      "step": 813,
+      "mask": 10
+    },
+    {
+      "step": 826,
+      "mask": 5
+    },
+    {
+      "step": 837,
+      "mask": 13
+    },
+    {
+      "step": 838,
+      "mask": 10
+    },
+    {
+      "step": 851,
+      "mask": 5
+    },
+    {
+      "step": 862,
+      "mask": 13
+    },
+    {
+      "step": 863,
+      "mask": 10
+    },
+    {
+      "step": 876,
+      "mask": 5
+    },
+    {
+      "step": 887,
+      "mask": 13
+    },
+    {
+      "step": 888,
+      "mask": 10
+    },
+    {
+      "step": 901,
+      "mask": 5
+    },
+    {
+      "step": 912,
+      "mask": 13
+    },
+    {
+      "step": 913,
+      "mask": 10
+    },
+    {
+      "step": 926,
+      "mask": 5
+    },
+    {
+      "step": 937,
+      "mask": 13
+    },
+    {
+      "step": 938,
+      "mask": 10
+    },
+    {
+      "step": 951,
+      "mask": 5
+    },
+    {
+      "step": 962,
+      "mask": 13
+    },
+    {
+      "step": 963,
+      "mask": 10
+    },
+    {
+      "step": 976,
+      "mask": 5
+    },
+    {
+      "step": 987,
+      "mask": 13
+    },
+    {
+      "step": 988,
+      "mask": 10
+    },
+    {
+      "step": 1000,
+      "mask": 5
+    }
+  ],
+  "finite": true
+}

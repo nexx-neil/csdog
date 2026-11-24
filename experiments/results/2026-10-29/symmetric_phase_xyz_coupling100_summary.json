@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "task": "CSDog-V2-Phase-Gait-Direct-v0",
+  "checkpoint": "/home/ni/robot_projects/archive/csdog-runtime-2026-09-17/logs/rsl_rl/csdog_v2_phase_gait/2026-10-29_14-08-04_symmetric_phase_xyz_coupling100/model_final.pt",
+  "seed": 42,
+  "num_envs": 16,
+  "steps_per_env": 1000,
+  "thresholds": {
+    "total_terminations_max": 0,
+    "action_saturation_fraction_max": 0.2,
+    "joint_target_outside_soft_limit_fraction_max": 0.0,
+    "joint_position_near_soft_limit_fraction_max": 0.02,
+    "torque_saturation_fraction_95pct_max": 0.05,
+    "commanded_axis_rmse_max": 0.1,
+    "non_commanded_axis_mean_abs_max": 0.08
+  },
+  "results": [
+    {
+      "name": "stand",
+      "status": "PASS",
+      "checks": {
+        "finite": true,
+        "terminations": true,
+        "action_saturation": true,
+        "joint_target_limits": true,
+        "joint_position_limits": true,
+        "torque_saturation": true,
+        "commanded_axis_tracking": true,
+        "non_commanded_axis_coupling": true
+      },
+      "metrics": "experiments/results/2026-10-29/symmetric_phase_xyz_coupling100/stand.json"
+    },
+    {
+      "name": "forward_015",
+      "status": "PASS",
+      "checks": {
+        "finite": true,
+        "terminations": true,
+        "action_saturation": true,
+        "joint_target_limits": true,
+        "joint_position_limits": true,
+        "torque_saturation": true,
+        "commanded_axis_tracking": true,
+        "non_commanded_axis_coupling": true
+      },
+      "metrics": "experiments/results/2026-10-29/symmetric_phase_xyz_coupling100/forward_015.json"
+    },
+    {
+      "name": "forward_030",
+      "status": "PASS",
+      "checks": {
+        "finite": true,
+        "terminations": true,
+        "action_saturation": true,
+        "joint_target_limits": true,
+        "joint_position_limits": true,
+        "torque_saturation": true,
+        "commanded_axis_tracking": true,
+        "non_commanded_axis_coupling": true
+      },
+      "metrics": "experiments/results/2026-10-29/symmetric_phase_xyz_coupling100/forward_030.json"
+    },
+    {
+      "name": "lateral_015",
+      "status": "FAIL",
+      "checks": {
+        "finite": true,
+        "terminations": true,
+        "action_saturation": false,
+        "joint_target_limits": true,
+        "joint_position_limits": true,
+        "torque_saturation": true,
+        "commanded_axis_tracking": true,
+        "non_commanded_axis_coupling": true
+      },
+      "metrics": "experiments/results/2026-10-29/symmetric_phase_xyz_coupling100/lateral_015.json"
+    },
+    {
+      "name": "lateral_030",
+      "status": "FAIL",
+      "checks": {
+        "finite": true,
+        "terminations": true,
+        "action_saturation": false,
+        "joint_target_limits": true,
+        "joint_position_limits": true,
+        "torque_saturation": true,
+        "commanded_axis_tracking": true,
+        "non_commanded_axis_coupling": true
+      },
+      "metrics": "experiments/results/2026-10-29/symmetric_phase_xyz_coupling100/lateral_030.json"
+    },
+    {
+      "name": "yaw_030",
+      "status": "FAIL",
+      "checks": {
+        "finite": true,
+        "terminations": true,
+        "action_saturation": false,
+        "joint_target_limits": true,
+        "joint_position_limits": true,
+        "torque_saturation": true,
+        "commanded_axis_tracking": true,
+        "non_commanded_axis_coupling": false
+      },
+      "metrics": "experiments/results/2026-10-29/symmetric_phase_xyz_coupling100/yaw_030.json"
+    }
+  ]
+}

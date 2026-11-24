@@ -7,6 +7,7 @@ import isaaclab.sim as sim_utils
 from isaaclab.assets import Articulation
 from isaaclab.envs import DirectRLEnv
 from isaaclab.sensors import ContactSensor
+from isaaclab.utils import math as math_utils
 
 from .custom_rewards import compute_custom_reward_terms
 from .generated_robot_env_cfg import GeneratedRobotEnvCfg
@@ -29,6 +30,12 @@ class GeneratedRobotEnv(DirectRLEnv):
         }
 
         self._actuated_joint_ids, _ = self._robot.find_joints(self.cfg.actuated_joint_names, preserve_order=True)
+        hip_roll_joint_names = getattr(self.cfg, "hip_roll_joint_names", [])
+        self._hip_roll_action_indices = [
+            self.cfg.actuated_joint_names.index(name)
+            for name in hip_roll_joint_names
+            if name in self.cfg.actuated_joint_names
+        ]
         self._foot_ids, _ = self._contact_sensor.find_bodies(self.cfg.foot_link_names, preserve_order=True)
         self._robot_foot_ids, _ = self._robot.find_bodies(self.cfg.foot_link_names, preserve_order=True)
         self._termination_body_ids, _ = self._contact_sensor.find_bodies([self.cfg.base_link_name], preserve_order=True)
@@ -67,8 +74,8 @@ class GeneratedRobotEnv(DirectRLEnv):
         self._robot.set_joint_position_target(self._processed_actions, joint_ids=self._actuated_joint_ids)
 
     def _get_observations(self) -> dict:
-        obs = torch.cat(
-            [
+        self._before_observations()
+        observation_parts = [
                 self._robot.data.root_lin_vel_b,
                 self._robot.data.root_ang_vel_b,
                 self._robot.data.projected_gravity_b,
@@ -77,11 +84,32 @@ class GeneratedRobotEnv(DirectRLEnv):
                 - self._robot.data.default_joint_pos[:, self._actuated_joint_ids],
                 self._robot.data.joint_vel[:, self._actuated_joint_ids],
                 self._actions,
-            ],
-            dim=-1,
-        )
+        ]
+        if self.cfg.include_gait_phase_observation:
+            gait_phase = self._get_gait_phase()
+            observation_parts.append(
+                torch.stack(
+                    (
+                        torch.sin(2.0 * torch.pi * gait_phase),
+                        torch.cos(2.0 * torch.pi * gait_phase),
+                    ),
+                    dim=1,
+                )
+            )
+        obs = torch.cat(observation_parts, dim=-1)
         self._previous_actions = self._actions.clone()
         return {"policy": obs}
+
+    def _before_observations(self):
+        """Optional task hook; legacy tasks keep their original observation behavior."""
+        pass
+
+    def _get_gait_phase(self) -> torch.Tensor:
+        """Return a normalized episode clock for phase-guided locomotion."""
+        return torch.remainder(
+            self.episode_length_buf.float() * self.step_dt / self.cfg.gait_cycle_time_s,
+            1.0,
+        )
 
     def _get_rewards(self) -> torch.Tensor:
         reward_scales = self.cfg.reward_scales
@@ -110,7 +138,7 @@ class GeneratedRobotEnv(DirectRLEnv):
         first_contact = self._contact_sensor.compute_first_contact(self.step_dt)[:, self._foot_ids]
         last_air_time = self._contact_sensor.data.last_air_time[:, self._foot_ids]
         feet_air_time = torch.sum((last_air_time - self.cfg.feet_air_time_threshold) * first_contact, dim=1) * (
-            torch.norm(self._commands[:, :2], dim=1) > 0.1
+            torch.norm(self._commands, dim=1) > 0.1
         )
 
         if self._undesired_contact_body_ids:
@@ -130,6 +158,134 @@ class GeneratedRobotEnv(DirectRLEnv):
             self._robot.data.body_lin_vel_w[:, self._robot_foot_ids, :2], dim=-1
         )
         feet_slide = torch.sum(foot_planar_speed * foot_contacts, dim=1)
+
+        # A velocity-only objective admits a low-clearance shuffling solution:
+        # the policy can track the command while barely unloading a foot.  Keep
+        # these gait terms separate so their effect remains visible in the
+        # episode logs and can be disabled by setting their scales to zero.
+        moving = (torch.linalg.vector_norm(self._commands, dim=1) > 0.1).float()
+        foot_height = (
+            self._robot.data.body_pos_w[:, self._robot_foot_ids, 2]
+            - self._terrain.env_origins[:, 2].unsqueeze(1)
+        )
+        if self.cfg.include_gait_phase_observation and len(self._foot_ids) == 4:
+            first_half_cycle = self._get_gait_phase() < 0.5
+            diagonal_a = torch.tensor([1, 0, 1, 0], dtype=torch.bool, device=self.device)
+            diagonal_b = ~diagonal_a
+            desired_contacts = torch.where(
+                first_half_cycle.unsqueeze(1),
+                diagonal_a.unsqueeze(0),
+                diagonal_b.unsqueeze(0),
+            )
+            swing_feet = ~desired_contacts
+            valid_swing_phase = torch.ones(self.num_envs, device=self.device)
+            gait_contact_schedule = torch.mean((foot_contacts == desired_contacts).float(), dim=1) * moving
+            gait_stance_contact = (
+                torch.sum((foot_contacts & desired_contacts).float(), dim=1)
+                / self.cfg.swing_foot_count_normalizer
+                * moving
+            )
+            gait_swing_release = (
+                torch.sum(((~foot_contacts) & (~desired_contacts)).float(), dim=1)
+                / self.cfg.swing_foot_count_normalizer
+                * moving
+            )
+            # Linear progress keeps a useful learning signal at the resting
+            # sole height.  The previous narrow Gaussian was nearly flat at
+            # 18--22 mm and let the inherited shuffle remain a local optimum.
+            clearance_score = torch.clamp(
+                (foot_height - self.cfg.swing_foot_rest_height)
+                / (self.cfg.swing_foot_height_target - self.cfg.swing_foot_rest_height),
+                min=0.0,
+                max=1.0,
+            )
+        else:
+            swing_feet = ~foot_contacts
+            swing_count = torch.sum(swing_feet, dim=1)
+            valid_swing_phase = ((swing_count >= 1) & (swing_count <= 2)).float()
+            gait_contact_schedule = torch.zeros(self.num_envs, device=self.device)
+            gait_stance_contact = torch.zeros(self.num_envs, device=self.device)
+            gait_swing_release = torch.zeros(self.num_envs, device=self.device)
+            clearance_score = torch.exp(
+                -torch.square((foot_height - self.cfg.swing_foot_height_target) / self.cfg.swing_foot_height_std)
+            )
+        swing_foot_clearance = (
+            torch.sum(clearance_score * swing_feet.float(), dim=1)
+            / self.cfg.swing_foot_count_normalizer
+            * valid_swing_phase
+            * moving
+        )
+        feet_contact_count = torch.square(torch.sum(foot_contacts, dim=1).float() - 2.0) * moving
+
+        # Foot order is rear-left, front-left, front-right, rear-right for v2.
+        # Reward either diagonal support pair, without prescribing which pair
+        # must lead the cycle.
+        if len(self._foot_ids) == 4:
+            contacts = foot_contacts.float()
+            diagonal_a = contacts[:, 0] * contacts[:, 2] * (1.0 - contacts[:, 1]) * (1.0 - contacts[:, 3])
+            diagonal_b = contacts[:, 1] * contacts[:, 3] * (1.0 - contacts[:, 0]) * (1.0 - contacts[:, 2])
+            diagonal_gait = (diagonal_a + diagonal_b) * moving
+        else:
+            diagonal_gait = torch.zeros(self.num_envs, device=self.device)
+
+        commanded_axes = torch.abs(self._commands) > 1.0e-6
+        base_planar_twist = torch.stack(
+            (
+                self._robot.data.root_lin_vel_b[:, 0],
+                self._robot.data.root_lin_vel_b[:, 1],
+                self._robot.data.root_ang_vel_b[:, 2],
+            ),
+            dim=1,
+        )
+        inactive_axis_vel = torch.sum(torch.square(base_planar_twist) * (~commanded_axes).float(), dim=1)
+
+        # A yaw-only velocity objective can exploit large hip-abduction angles
+        # and a leaned body to generate torque.  The optional turn-style terms
+        # keep that solution available as a fallback but make a compact,
+        # phase-indexed stepping footprint cheaper.
+        yaw_command = (torch.abs(self._commands[:, 2]) > 1.0e-6).float()
+        if self._hip_roll_action_indices:
+            hip_roll_error = joint_pos_error[:, self._hip_roll_action_indices]
+            hip_roll_excess = torch.relu(
+                torch.abs(hip_roll_error) - self.cfg.turn_hip_roll_free_angle_rad
+            )
+            turn_hip_roll_excess = torch.sum(torch.square(hip_roll_excess), dim=1) * yaw_command
+        else:
+            turn_hip_roll_excess = torch.zeros(self.num_envs, device=self.device)
+        turn_body_tilt = orientation_error * yaw_command
+
+        nominal_foot_positions = getattr(self.cfg, "nominal_foot_positions_body_m", ())
+        if len(nominal_foot_positions) == len(self._robot_foot_ids) == 4:
+            foot_offset_w = (
+                self._robot.data.body_pos_w[:, self._robot_foot_ids]
+                - self._robot.data.root_pos_w.unsqueeze(1)
+            )
+            root_quat_w = self._robot.data.root_quat_w.unsqueeze(1).expand(-1, 4, -1)
+            foot_position_b = math_utils.quat_apply_inverse(
+                root_quat_w.reshape(-1, 4), foot_offset_w.reshape(-1, 3)
+            ).reshape(-1, 4, 3)
+            nominal_xy = torch.tensor(
+                nominal_foot_positions, dtype=foot_position_b.dtype, device=self.device
+            )[:, :2]
+            tangent_xy = torch.stack((-nominal_xy[:, 1], nominal_xy[:, 0]), dim=1)
+            tangent_xy = tangent_xy / torch.clamp(torch.linalg.vector_norm(tangent_xy, dim=1, keepdim=True), min=1.0e-6)
+            diagonal_phase_sign = torch.tensor([-1.0, 1.0, -1.0, 1.0], device=self.device)
+            phase_wave = torch.sin(2.0 * torch.pi * self._get_gait_phase()).unsqueeze(1)
+            yaw_sign = torch.sign(self._commands[:, 2]).unsqueeze(1)
+            step_offset = (
+                self.cfg.turn_tangential_step_amplitude_m
+                * phase_wave.unsqueeze(2)
+                * yaw_sign.unsqueeze(2)
+                * diagonal_phase_sign.view(1, 4, 1)
+                * tangent_xy.unsqueeze(0)
+            )
+            desired_foot_xy = nominal_xy.unsqueeze(0) + step_offset
+            turn_foot_trajectory = (
+                torch.mean(torch.sum(torch.square(foot_position_b[:, :, :2] - desired_foot_xy), dim=2), dim=1)
+                * yaw_command
+            )
+        else:
+            turn_foot_trajectory = torch.zeros(self.num_envs, device=self.device)
 
         stand_still = torch.sum(torch.abs(joint_pos_error), dim=1) * (torch.norm(self._commands, dim=1) < 0.1)
         termination = self.reset_terminated.float()
@@ -171,8 +327,25 @@ class GeneratedRobotEnv(DirectRLEnv):
             "joint_deviation": torch.sum(torch.square(joint_pos_error), dim=1)
             * reward_scales.get("joint_deviation", 0.0),
             "feet_slide": feet_slide * reward_scales.get("feet_slide", 0.0),
+            "swing_foot_clearance": swing_foot_clearance * reward_scales.get("swing_foot_clearance", 0.0),
+            "feet_contact_count": feet_contact_count * reward_scales.get("feet_contact_count", 0.0),
+            "diagonal_gait": diagonal_gait * reward_scales.get("diagonal_gait", 0.0),
+            "gait_contact_schedule": gait_contact_schedule * reward_scales.get("gait_contact_schedule", 0.0),
+            "gait_stance_contact": gait_stance_contact * reward_scales.get("gait_stance_contact", 0.0),
+            "gait_swing_release": gait_swing_release * reward_scales.get("gait_swing_release", 0.0),
+            "inactive_axis_vel": inactive_axis_vel * reward_scales.get("inactive_axis_vel", 0.0),
             "stand_still": stand_still * reward_scales.get("stand_still", 0.0),
         }
+        if "turn_hip_roll_excess" in reward_scales:
+            rewards["turn_hip_roll_excess"] = (
+                turn_hip_roll_excess * reward_scales["turn_hip_roll_excess"]
+            )
+        if "turn_body_tilt" in reward_scales:
+            rewards["turn_body_tilt"] = turn_body_tilt * reward_scales["turn_body_tilt"]
+        if "turn_foot_trajectory" in reward_scales:
+            rewards["turn_foot_trajectory"] = (
+                turn_foot_trajectory * reward_scales["turn_foot_trajectory"]
+            )
         custom_rewards = compute_custom_reward_terms(self)
         for key, value in custom_rewards.items():
             rewards[key] = rewards.get(key, torch.zeros_like(value)) + value * reward_scales.get(key, 0.0)
@@ -204,6 +377,12 @@ class GeneratedRobotEnv(DirectRLEnv):
         self._fallen_fail_buf += fallen.float()
         fallen_died = self._fallen_fail_buf > self._fallen_termination_steps
         died = ((contact_died | height_died) & after_grace) | fallen_died
+        self.last_termination_causes = {
+            "base_contact": contact_died & after_grace,
+            "low_height": height_died & after_grace,
+            "tilt": fallen_died,
+            "timeout": time_out,
+        }
         return died, time_out
 
     def _sample_commands(self, env_ids: torch.Tensor) -> None:
@@ -220,6 +399,41 @@ class GeneratedRobotEnv(DirectRLEnv):
             return
 
         if self.cfg.command_sampling != "single_axis":
+            if self.cfg.command_sampling == "mixed_axes":
+                self._commands[env_ids] = 0.0
+                active = torch.rand(num_resets, device=self.device) >= self.cfg.stand_command_probability
+                enabled_axes = torch.tensor(
+                    [axis for axis, (lower, upper) in enumerate(ranges) if lower != 0.0 or upper != 0.0],
+                    dtype=torch.long,
+                    device=self.device,
+                )
+                if len(enabled_axes) == 0:
+                    return
+                primary_slot = torch.randint(0, len(enabled_axes), (num_resets,), device=self.device)
+                axis_active = torch.zeros(num_resets, 3, dtype=torch.bool, device=self.device)
+                axis_active.scatter_(1, enabled_axes[primary_slot].unsqueeze(1), True)
+                if len(enabled_axes) > 1:
+                    secondary_offset = torch.randint(1, len(enabled_axes), (num_resets,), device=self.device)
+                    secondary_slot = torch.remainder(primary_slot + secondary_offset, len(enabled_axes))
+                    use_secondary = (
+                        torch.rand(num_resets, device=self.device) < self.cfg.multi_axis_command_probability
+                    )
+                    axis_active[torch.arange(num_resets, device=self.device), enabled_axes[secondary_slot]] |= use_secondary
+                axis_active &= active.unsqueeze(1)
+                for axis, (lower, upper) in enumerate(ranges):
+                    magnitudes = torch.empty(num_resets, device=self.device).uniform_(
+                        self.cfg.command_min_magnitude, 1.0
+                    )
+                    signs = torch.where(
+                        torch.rand(num_resets, device=self.device) < 0.5,
+                        -torch.ones(num_resets, device=self.device),
+                        torch.ones(num_resets, device=self.device),
+                    )
+                    limits = torch.where(signs < 0.0, abs(lower), abs(upper))
+                    self._commands[env_ids[axis_active[:, axis]], axis] = (
+                        signs * magnitudes * limits
+                    )[axis_active[:, axis]]
+                return
             for axis, axis_range in enumerate(ranges):
                 self._commands[env_ids, axis] = torch.empty(num_resets, device=self.device).uniform_(*axis_range)
             return
